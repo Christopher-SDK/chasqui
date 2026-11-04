@@ -60,17 +60,18 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: '3.13' }
       - run: pnpm install --frozen-lockfile
-      - name: Cachés (oráculo y Stryker incremental)
+      - name: Caché de reglas oficiales y veredictos del oráculo
         uses: actions/cache@v4
         with:
           path: |
             .cache/sunat-oficial
             .cache/oraculo
-            .cache/stryker
-          key: mutation-${{ hashFiles('tools/sunat-oficial/**', 'packages/ubl-core/**') }}
-          restore-keys: mutation-
+          key: oraculo-${{ hashFiles('tools/sunat-oficial/**') }}-${{ github.sha }}
+          restore-keys: oraculo-${{ hashFiles('tools/sunat-oficial/**') }}-
       - run: pnpm sunat:preparar
-      - name: Stryker (falla por debajo de 80 %)
+      - name: Stryker incremental (falla por debajo de 80 %)
+        # Parte de packages/ubl-core/stryker-incremental.json (versionado): solo se prueban los
+        # mutantes del código que cambió. Para regenerarlo: `pnpm mutation` en local y commit.
         run: pnpm mutation
       - name: Resumen de mutation score
         if: always() && hashFiles('reports/mutation/ubl-core/mutation.json') != ''

@@ -5,3 +5,4 @@ dist/
 packages/catalogos/src/generado.ts
 .cache/
 **/__snapshots__/
+packages/ubl-core/stryker-incremental.json

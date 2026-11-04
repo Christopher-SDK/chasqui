@@ -7,7 +7,7 @@
   "mutate": ["src/validador/**/*.ts", "src/calculos.ts", "src/decimal.ts"],
   "coverageAnalysis": "perTest",
   "incremental": true,
-  "incrementalFile": "../../.cache/stryker/ubl-core-incremental.json",
+  "incrementalFile": "stryker-incremental.json",
   "reporters": ["clear-text", "html", "json", "progress"],
   "htmlReporter": {
     "fileName": "../../reports/mutation/ubl-core/index.html"
@@ -20,7 +20,6 @@
     "low": 80,
     "break": 80
   },
-  "concurrency": 6,
   "inPlace": true,
   "plugins": ["./node_modules/@stryker-mutator/vitest-runner/dist/src/index.js"]
 }
