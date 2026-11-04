@@ -17,7 +17,8 @@
     "format:check": "prettier --check .",
     "test": "vitest run",
     "test:cov": "vitest run --coverage",
-    "prepare": "husky"
+    "prepare": "husky",
+    "sunat:preparar": "node tools/sunat-oficial/descargar.mjs && python3 -m venv tools/sunat-oficial/.venv && tools/sunat-oficial/.venv/bin/pip install -q -r tools/sunat-oficial/requirements.txt"
   },
   "lint-staged": {
     "*.{ts,tsx,js,mjs}": [
@@ -36,6 +37,8 @@
     "@vitest/coverage-v8": "^5.1.0",
     "eslint": "^10.14.0",
     "eslint-config-prettier": "^10.1.8",
+    "fast-check": "^4.10.2",
+    "globals": "^17.14.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
     "prettier": "^3.9.10",

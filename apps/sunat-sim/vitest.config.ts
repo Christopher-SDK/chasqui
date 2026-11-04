@@ -1,3 +1,4 @@
-import { defineProject } from 'vitest/config';
+import { defineProject, mergeConfig } from 'vitest/config';
+import base from '../../vitest.shared.js';
 
-export default defineProject({ test: { name: 'sunat-sim' } });
+export default mergeConfig(base, defineProject({ test: { name: 'sunat-sim' } }));

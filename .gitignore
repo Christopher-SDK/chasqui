@@ -9,3 +9,5 @@ bitacora.log
 .stryker-tmp/
 test-results/
 playwright-report/
+.cache/
+.venv/

@@ -2,3 +2,5 @@ pnpm-lock.yaml
 reports/
 coverage/
 dist/
+packages/catalogos/src/generado.ts
+.cache/
