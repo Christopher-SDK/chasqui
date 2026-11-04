@@ -17,7 +17,7 @@ export function parsear(xml: string): Document {
       onError: (nivel, msg) => {
         if (nivel !== 'warning') errores.push(msg);
       },
-    }).parseFromString(xml, 'text/xml') as unknown as Document;
+    }).parseFromString(xml.replace(/^\uFEFF/, ''), 'text/xml') as unknown as Document;
   } catch (e) {
     // xmldom 0.9 lanza ParseError ante errores fatales en lugar de notificarlos por onError.
     throw new XmlIlegible(e instanceof Error ? e.message : String(e));

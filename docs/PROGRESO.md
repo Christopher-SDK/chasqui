@@ -107,7 +107,16 @@ Reanudada el 2026-11-04 (tarde):
 
 - [x] k6 local: umbrales aprobados, 0 % de errores; p95 sunat 19.8 ms, pagos 2.3 ms, identidad 7.6 ms
 
+Auditoría «probador minucioso» (clon limpio de GitHub, Node 22, siguiendo el README):
+
+- [x] `pnpm install`, `pnpm sunat:preparar` y `pnpm test` en limpio: 245/245
+- [x] Demo de 5 minutos de punta a punta por HTTP (todo en uno + tienda): escenarios, compra, caos, reintento sin doble cobro
+- [x] Hallazgo: con Node 22.12 o 23 el install fallaba con un error de `@eslint/js`; `engines` pasa a `^22.13.0 || >=24`
+- [x] Hallazgo: la falla 5xx inyectada daba `503 Falla inyectada por Chasqui: ` (sin código ni mensaje); ahora `{ codigo, mensaje }`
+- [x] Hallazgo: un BOM UTF-8 (XML de .NET) daba 0306; se quita al desempaquetar y al parsear (regresión validada contra la versión rota)
+- [x] XML reales de terceros (no versionados): 15 UBL 2.0 de Greenter (14/14 iguales al oráculo; el otro, lxml no lo lee) y 41 UBL 2.1 de proyectos públicos con nombre válido: 41/41 iguales
+
 Pendiente, en orden:
 
 1. Fusionar a `main`, CI en verde y nocturno
-2. Auditoría «probador minucioso» antes de publicar en LinkedIn (clonar limpio, seguir el README, probar XML reales); preguntar al usuario antes de hacer público el repo
+2. Preguntar al usuario antes de hacer público el repo

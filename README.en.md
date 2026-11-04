@@ -47,7 +47,8 @@ Without Docker: `pnpm install && pnpm todo-en-uno` (all four services in one pro
 - **Official rules as the oracle.** Validation rules are not interpreted from documentation: they
   a TypeScript XSLT interpreter runs the official sheets SUNAT publishes, and a differential test
   checks that Chasqui returns the same verdict (code, observations and order) as those sheets run
-  by libxslt, across about 2,180 cases including 18 special operations.
+  by libxslt, across about 2,180 cases including 18 special operations, plus 41 real-world UBL 2.1
+  invoices from public third-party projects (same verdict on all 41).
 - **Deterministic chaos.** Every fault decision is `sha256(seed, rule, key#attempt)`: the same
   seed replays the same sequence locally and in CI, and a retry with the same Idempotency-Key can
   recover, just like a real transient failure.

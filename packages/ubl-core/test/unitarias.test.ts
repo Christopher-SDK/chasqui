@@ -194,6 +194,13 @@ describe('validador: bordes', () => {
     expect(validarXml(xml, 'factura.xml').error?.codigo).toBe('0159');
   });
 
+  test('un BOM UTF-8 al inicio (XML de .NET) no lo vuelve ilegible', () => {
+    expect(validarXml(`\uFEFF${xml}`, nombre)).toEqual(validarXml(xml, nombre));
+    const zip = empaquetar(nombre.replace('.xml', ''), `\uFEFF${firmar(xml)}`);
+    const r = desempaquetar(`${nombre.replace('.xml', '')}.zip`, zip);
+    expect(r.ok && r.xml.startsWith('<?xml') && verificarFirma(r.xml).valida).toBe(true);
+  });
+
   test('XML ilegible → 0306', () => {
     expect(validarXml('<Invoice><sin cerrar>', nombre).error?.codigo).toBe('0306');
     expect(validarXml('', nombre).error?.codigo).toBe('0306');

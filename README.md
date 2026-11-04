@@ -69,7 +69,9 @@ flowchart LR
   ([ADR 0011](docs/adr/0011-interprete-xslt-de-las-hojas-oficiales.md)). Una prueba diferencial
   compara cada veredicto con el del XSL oficial ejecutado por libxslt: código, observaciones y
   orden coinciden en unos 2 180 casos, incluidas 18 operaciones especiales
-  ([ADR 0003](docs/adr/0003-oraculo-reglas-oficiales.md), [fuentes](docs/fuentes.md)).
+  ([ADR 0003](docs/adr/0003-oraculo-reglas-oficiales.md), [fuentes](docs/fuentes.md)). También
+  con XML reales de terceros: 41 comprobantes UBL 2.1 de proyectos públicos, mismo veredicto en
+  los 41 (22 aceptados y 19 rechazos con 8 códigos distintos).
 - **Operaciones especiales.** Gratuitas y retiros, ISC (sistemas 01, 02 y 03), ICBPER, IVAP,
   exportación, descuentos por ítem y globales, cargos, detracción, percepción, anticipos, crédito
   con cuotas e IGV del 10 % (Ley 31556), desde el SDK, el MCP y el panel.

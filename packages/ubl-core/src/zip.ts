@@ -39,5 +39,6 @@ export function desempaquetar(nombreZip: string, datos: Uint8Array): ResultadoZi
     return { ok: false, codigo: '0161', detalle: `${nombreXml} no coincide con ${nombreZip}` };
   }
   if (contenido.length === 0) return { ok: false, codigo: '0160', detalle: 'El XML está vacío' };
-  return { ok: true, nombreXml, xml: strFromU8(contenido) };
+  // Sin el BOM UTF-8 que agregan muchos generadores (.NET, Excel): el parser lo rechazaría.
+  return { ok: true, nombreXml, xml: strFromU8(contenido).replace(/^\uFEFF/, '') };
 }
