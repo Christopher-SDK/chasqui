@@ -169,6 +169,33 @@ export async function construirServidor(o: OpcionesPagos = {}) {
   const r = app.withTypeProvider<ZodTypeProvider>();
 
   r.get(
+    '/api/v1/cuentas',
+    {
+      schema: {
+        summary: 'Cuentas de prueba con su saldo (para paneles y pruebas)',
+        tags: ['cuentas'],
+        response: {
+          200: z.array(
+            z.object({
+              celular: z.string(),
+              titular: z.string(),
+              billetera: z.string(),
+              saldo: z.string(),
+            }),
+          ),
+        },
+      },
+    },
+    async () =>
+      (await db.selectFrom('cuentas').selectAll().orderBy('celular').execute()).map((c) => ({
+        celular: c.celular,
+        titular: c.titular,
+        billetera: c.billetera,
+        saldo: (c.saldo / 100).toFixed(2),
+      })),
+  );
+
+  r.get(
     '/api/v1/cuentas/:celular',
     {
       schema: {

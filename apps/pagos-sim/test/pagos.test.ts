@@ -252,6 +252,11 @@ describe('cuentas', () => {
       ).status,
     ).toBe(409);
     expect(enmascarar('ANA QUISPE FLORES')).toBe('Ana Q. F.');
+    const todas = (await fetch(`${s.base}/api/v1/cuentas`).then((x) => x.json())) as {
+      saldo: string;
+    }[];
+    expect(todas).toHaveLength(10);
+    expect(todas[0]).toMatchObject({ celular: A1, saldo: '1000.00' });
   });
 });
 
