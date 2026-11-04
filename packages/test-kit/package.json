@@ -1,0 +1,28 @@
+{
+  "name": "@chasqui/test-kit",
+  "version": "0.1.0",
+  "description": "Fixtures, builders y generadores de datos ficticios (RUC, DNI, personas) para probar integraciones con Chasqui",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "fastify": "^5.12.8",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "fast-check": "^4.10.2"
+  }
+}

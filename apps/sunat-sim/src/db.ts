@@ -1,6 +1,5 @@
-import { DatabaseSync } from 'node:sqlite';
-import { Kysely, PostgresDialect, SqliteDialect, type Generated } from 'kysely';
-import pg from 'pg';
+import { abrirKysely } from '@chasqui/db';
+import type { Generated, Kysely } from 'kysely';
 
 /**
  * Persistencia con Kysely: SQLite por defecto (node:sqlite, sin módulos nativos) y Postgres si
@@ -53,37 +52,8 @@ export interface Esquema {
 
 export type Db = Kysely<Esquema>;
 
-/**
- * Adaptador de node:sqlite a la interfaz que espera SqliteDialect (la de better-sqlite3).
- * `reader` le dice a Kysely si la sentencia devuelve filas.
- */
-function sqliteNativo(ruta: string) {
-  const db = new DatabaseSync(ruta);
-  db.exec('PRAGMA journal_mode = WAL');
-  return {
-    close: () => {
-      db.close();
-    },
-    prepare: (sql: string) => {
-      const st = db.prepare(sql);
-      return {
-        reader: /^\s*(select|with|pragma)\b/i.test(sql) || /\breturning\b/i.test(sql),
-        all: (p: readonly unknown[]) => st.all(...(p as never[])),
-        run: (p: readonly unknown[]) => {
-          const r = st.run(...(p as never[]));
-          return { changes: r.changes, lastInsertRowid: r.lastInsertRowid };
-        },
-        iterate: (p: readonly unknown[]) => st.iterate(...(p as never[])),
-      };
-    },
-  };
-}
-
 export function abrirDb(url = process.env.DB_URL ?? ':memory:'): Db {
-  const dialect = /^postgres(ql)?:\/\//.test(url)
-    ? new PostgresDialect({ pool: new pg.Pool({ connectionString: url, max: 10 }) })
-    : new SqliteDialect({ database: sqliteNativo(url.replace(/^sqlite:\/\//, '')) });
-  return new Kysely<Esquema>({ dialect });
+  return abrirKysely<Esquema>(url);
 }
 
 export async function migrar(db: Db): Promise<void> {
