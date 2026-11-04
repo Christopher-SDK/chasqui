@@ -12,6 +12,14 @@ export {
   type Hallazgo,
 } from './validador/index.js';
 export { CERTIFICADO_PRUEBA, CLAVE_PRUEBA } from './certificado-prueba.js';
+export {
+  generarCdr,
+  empaquetarCdr,
+  leerCdr,
+  RUC_SIMULADOR,
+  type DatosCdr,
+  type CdrLeido,
+} from './cdr.js';
 
 import { calcular } from './calculos.js';
 import { firmar, type OpcionesFirma } from './firma.js';

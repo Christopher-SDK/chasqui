@@ -16,7 +16,8 @@ export type ResultadoZip =
   | { ok: true; nombreXml: string; xml: string }
   | { ok: false; codigo: '0151' | '0155' | '0156' | '0159' | '0160' | '0161'; detalle: string };
 
-const NOMBRE_ZIP = /^\d{11}-(01|03|07|08|09|RC|RA)-[A-Z0-9]{3,4}-\d{1,8}\.zip$/i;
+// Comprobantes (RUC-TIPO-SERIE-NUMERO) y resúmenes o bajas (RUC-RC|RA-AAAAMMDD-CORRELATIVO).
+const NOMBRE_ZIP = /^\d{11}-((01|03|07|08|09)-[A-Z0-9]{3,4}-\d{1,8}|(RC|RA)-\d{8}-\d{1,5})\.zip$/i;
 
 /** Abre el ZIP de sendBill y valida nombres y contenido. */
 export function desempaquetar(nombreZip: string, datos: Uint8Array): ResultadoZip {
