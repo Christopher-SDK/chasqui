@@ -7,6 +7,7 @@ WORKDIR /repo
 
 FROM base AS build
 COPY pnpm-lock.yaml pnpm-workspace.yaml package.json .npmrc ./
+COPY patches ./patches
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm fetch
 COPY . .
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --offline --frozen-lockfile --ignore-scripts

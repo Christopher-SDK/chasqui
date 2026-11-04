@@ -1,6 +1,6 @@
 import { catalogo05 } from '@chasqui/catalogos';
-import { PORCENTAJE_IGV, type ComprobanteCalculado, type LineaCalculada } from './calculos.js';
-import type { Decimal } from './decimal.js';
+import type { ComprobanteCalculado, LineaCalculada } from './calculos.js';
+import { Decimal } from './decimal.js';
 import type { Comprobante } from './modelo.js';
 
 /**
@@ -45,7 +45,7 @@ const RAIZ = {
 
 export const ID_FIRMA = 'SignatureSP';
 
-type Hijo = string | false | undefined;
+type Hijo = string | false | null | undefined;
 
 function escapar(s: string): string {
   return s
@@ -79,11 +79,116 @@ export function serieNumero(c: Comprobante): string {
   return `${c.serie}-${String(c.correlativo)}`;
 }
 
+/** Tipo de operación (catálogo 51) que corresponde al comprobante si no se indica uno. */
+export function tipoOperacion(c: Comprobante): string {
+  if (c.tipo !== '01' && c.tipo !== '03') return '0101';
+  if (c.tipoOperacion) return c.tipoOperacion;
+  if (c.tipo === '01' && c.detraccion) return '1001';
+  if (c.tipo === '01' && c.percepcion) return '2001';
+  if (c.items.every((i) => i.afectacion === '40')) return '0200';
+  return '0101';
+}
+
 export function generarXml(calculado: ComprobanteCalculado): string {
   const { comprobante: c, lineas, totales } = calculado;
   const r = RAIZ[c.tipo];
-  const monto = (nombre: string, d: Decimal) => t(nombre, d.aTexto(2), { currencyID: c.moneda });
+  const monto = (nombre: string, d: Decimal, moneda: string = c.moneda) =>
+    t(nombre, d.aTexto(2), { currencyID: moneda });
+  const factura = c.tipo === '01' ? c : null;
+  const operacion = tipoOperacion(c);
 
+  // Leyendas (catálogo 52, textos oficiales) que piden las reglas para operaciones especiales.
+  const leyendas: [string, string][] = [];
+  if (lineas.some((l) => l.gratuita))
+    leyendas.push([
+      '1002',
+      'TRANSFERENCIA GRATUITA DE UN BIEN Y/O SERVICIO PRESTADO GRATUITAMENTE',
+    ]);
+  if (factura?.detraccion) leyendas.push(['2006', 'Operación sujeta a detracción']);
+  if (factura?.percepcion) leyendas.push(['2000', 'COMPROBANTE DE PERCEPCIÓN']);
+  if (lineas.some((l) => l.item.afectacion === '17'))
+    leyendas.push(['2007', 'Operación sujeta al IVAP']);
+
+  const ajusteGlobal = (
+    indicador: boolean,
+    codigo: string,
+    m: Decimal,
+    base?: Decimal,
+    factor?: Decimal,
+    moneda?: string,
+  ) =>
+    el(
+      'cac:AllowanceCharge',
+      null,
+      t('cbc:ChargeIndicator', String(indicador)),
+      t('cbc:AllowanceChargeReasonCode', codigo),
+      factor !== undefined && t('cbc:MultiplierFactorNumeric', factor.aTextoCompacto()),
+      monto('cbc:Amount', m, moneda),
+      base !== undefined && monto('cbc:BaseAmount', base, moneda),
+    );
+
+  const pago: string[] = [];
+  if (factura?.detraccion && totales.detraccion) {
+    const d = factura.detraccion;
+    pago.push(
+      el(
+        'cac:PaymentMeans',
+        null,
+        t('cbc:ID', 'Detraccion'),
+        t('cbc:PaymentMeansCode', d.medioPago ?? '001'),
+        el('cac:PayeeFinancialAccount', null, t('cbc:ID', d.cuentaBancoNacion)),
+      ),
+      el(
+        'cac:PaymentTerms',
+        null,
+        t('cbc:ID', 'Detraccion'),
+        t('cbc:PaymentMeansID', d.codigoBien),
+        t('cbc:PaymentPercent', totales.detraccion.porcentaje.aTextoCompacto()),
+        monto('cbc:Amount', totales.detraccion.monto, 'PEN'),
+      ),
+    );
+  }
+  if (totales.percepcion)
+    pago.push(
+      el(
+        'cac:PaymentTerms',
+        null,
+        t('cbc:ID', 'Percepcion'),
+        monto('cbc:Amount', totales.percepcion.total, 'PEN'),
+      ),
+    );
+  if (factura) {
+    const fp = factura.formaPago ?? { tipo: 'Contado' as const };
+    if (fp.tipo === 'Contado')
+      pago.push(
+        el('cac:PaymentTerms', null, t('cbc:ID', 'FormaPago'), t('cbc:PaymentMeansID', 'Contado')),
+      );
+    else {
+      // Monto neto pendiente de pago: el importe total menos la detracción.
+      const pendiente = totales.importeTotal.restar(totales.detraccion?.monto ?? 0);
+      pago.push(
+        el(
+          'cac:PaymentTerms',
+          null,
+          t('cbc:ID', 'FormaPago'),
+          t('cbc:PaymentMeansID', 'Credito'),
+          monto('cbc:Amount', pendiente),
+        ),
+        ...fp.cuotas.map((q, i) =>
+          el(
+            'cac:PaymentTerms',
+            null,
+            t('cbc:ID', 'FormaPago'),
+            t('cbc:PaymentMeansID', `Cuota${String(i + 1).padStart(3, '0')}`),
+            monto('cbc:Amount', Decimal.de(q.monto)),
+            t('cbc:PaymentDueDate', q.fechaPago),
+          ),
+        ),
+      );
+    }
+  }
+
+  const anticipos = factura?.anticipos ?? [];
   const cabecera = [
     el('ext:UBLExtensions', null, el('ext:UBLExtension', null, el('ext:ExtensionContent', null))),
     t('cbc:UBLVersionID', '2.1'),
@@ -91,8 +196,8 @@ export function generarXml(calculado: ComprobanteCalculado): string {
     t('cbc:ID', serieNumero(c)),
     t('cbc:IssueDate', c.fechaEmision),
     t('cbc:IssueTime', c.horaEmision ?? '00:00:00'),
-    (c.tipo === '01' || c.tipo === '03') &&
-      t('cbc:InvoiceTypeCode', c.tipo, { listID: c.tipoOperacion ?? '0101' }),
+    (c.tipo === '01' || c.tipo === '03') && t('cbc:InvoiceTypeCode', c.tipo, { listID: operacion }),
+    ...leyendas.map(([codigo, texto]) => t('cbc:Note', texto, { languageLocaleID: codigo })),
     t('cbc:DocumentCurrencyCode', c.moneda),
     (c.tipo === '07' || c.tipo === '08') &&
       el(
@@ -112,6 +217,20 @@ export function generarXml(calculado: ComprobanteCalculado): string {
             t('cbc:DocumentTypeCode', c.referencia.tipo),
           ),
         ),
+    ...anticipos.map((a, i) =>
+      el(
+        'cac:AdditionalDocumentReference',
+        null,
+        t('cbc:ID', a.serieNumero),
+        t('cbc:DocumentTypeCode', a.tipoDocumento),
+        t('cbc:DocumentStatusCode', String(i + 1)),
+        el(
+          'cac:IssuerParty',
+          null,
+          el('cac:PartyIdentification', null, t('cbc:ID', c.emisor.ruc, { schemeID: '6' })),
+        ),
+      ),
+    ),
     el(
       'cac:Signature',
       null,
@@ -143,17 +262,66 @@ export function generarXml(calculado: ComprobanteCalculado): string {
         el('cac:PartyLegalEntity', null, t('cbc:RegistrationName', c.cliente.nombre)),
       ),
     ),
-    c.tipo === '01' &&
-      el('cac:PaymentTerms', null, t('cbc:ID', 'FormaPago'), t('cbc:PaymentMeansID', 'Contado')),
+    ...pago,
+    ...anticipos.map((a, i) =>
+      el(
+        'cac:PrepaidPayment',
+        null,
+        t('cbc:ID', String(i + 1)),
+        monto('cbc:PaidAmount', Decimal.de(a.monto)),
+      ),
+    ),
+    totales.descuentoGlobal &&
+      ajusteGlobal(
+        false,
+        '02',
+        totales.descuentoGlobal.monto,
+        totales.descuentoGlobal.base,
+        totales.descuentoGlobal.factor,
+      ),
+    totales.anticipo &&
+      ajusteGlobal(
+        false,
+        '04',
+        totales.anticipo.base,
+        totales.valorVenta,
+        totales.anticipo.base.dividir(totales.valorVenta).redondear(5),
+      ),
+    !totales.descuentos.esCero() &&
+      ajusteGlobal(
+        false,
+        '03',
+        totales.descuentos,
+        totales.precioVenta,
+        totales.descuentos.dividir(totales.precioVenta).redondear(5),
+      ),
+    !totales.cargos.esCero() &&
+      ajusteGlobal(
+        true,
+        '50',
+        totales.cargos,
+        totales.precioVenta,
+        totales.cargos.dividir(totales.precioVenta).redondear(5),
+      ),
+    totales.percepcion &&
+      factura?.percepcion &&
+      ajusteGlobal(
+        true,
+        factura.percepcion.regimen,
+        totales.percepcion.monto,
+        totales.percepcion.base,
+        totales.percepcion.tasa,
+        'PEN',
+      ),
     el(
       'cac:TaxTotal',
       null,
-      monto('cbc:TaxAmount', totales.igv),
+      monto('cbc:TaxAmount', totales.impuestos),
       ...totales.porTributo.map((s) =>
         el(
           'cac:TaxSubtotal',
           null,
-          monto('cbc:TaxableAmount', s.base),
+          s.tributo !== '7152' && monto('cbc:TaxableAmount', s.base),
           monto('cbc:TaxAmount', s.monto),
           el('cac:TaxCategory', null, esquemaTributo(s.tributo)),
         ),
@@ -164,6 +332,9 @@ export function generarXml(calculado: ComprobanteCalculado): string {
       null,
       monto('cbc:LineExtensionAmount', totales.valorVenta),
       monto('cbc:TaxInclusiveAmount', totales.precioVenta),
+      !totales.descuentos.esCero() && monto('cbc:AllowanceTotalAmount', totales.descuentos),
+      !totales.cargos.esCero() && monto('cbc:ChargeTotalAmount', totales.cargos),
+      !totales.anticipos.esCero() && monto('cbc:PrepaidAmount', totales.anticipos),
       monto('cbc:PayableAmount', totales.importeTotal),
     ),
   ];
@@ -240,6 +411,7 @@ function linea(
   // Precios unitarios: hasta 10 decimales (reglas 2369 y 2367 del XSL oficial).
   const precio = (nombre: string, d: Decimal) =>
     t(nombre, d.aTextoCompacto(), { currencyID: moneda });
+  const categoria = (...hijos: (string | false)[]) => el('cac:TaxCategory', null, ...hijos);
   return el(
     `cac:${etiqueta}`,
     null,
@@ -253,26 +425,54 @@ function linea(
         'cac:AlternativeConditionPrice',
         null,
         precio('cbc:PriceAmount', l.precioUnitario),
-        t('cbc:PriceTypeCode', '01'),
+        t('cbc:PriceTypeCode', l.tipoPrecio),
       ),
     ),
+    l.descuento &&
+      el(
+        'cac:AllowanceCharge',
+        null,
+        t('cbc:ChargeIndicator', 'false'),
+        t('cbc:AllowanceChargeReasonCode', '00'),
+        t('cbc:MultiplierFactorNumeric', l.descuento.factor.aTextoCompacto()),
+        monto('cbc:Amount', l.descuento.monto),
+        monto('cbc:BaseAmount', l.descuento.base),
+      ),
     el(
       'cac:TaxTotal',
       null,
-      monto('cbc:TaxAmount', l.igv),
+      monto('cbc:TaxAmount', l.impuestos),
+      l.isc &&
+        el(
+          'cac:TaxSubtotal',
+          null,
+          monto('cbc:TaxableAmount', l.isc.base),
+          monto('cbc:TaxAmount', l.isc.monto),
+          categoria(
+            t('cbc:Percent', l.isc.porcentaje.aTextoCompacto()),
+            t('cbc:TierRange', l.isc.sistema),
+            esquemaTributo('2000'),
+          ),
+        ),
       el(
         'cac:TaxSubtotal',
         null,
-        monto('cbc:TaxableAmount', l.valorVenta),
+        monto('cbc:TaxableAmount', l.baseIgv),
         monto('cbc:TaxAmount', l.igv),
-        el(
-          'cac:TaxCategory',
-          null,
-          t('cbc:Percent', l.tributo === '1000' ? PORCENTAJE_IGV : '0'),
+        categoria(
+          t('cbc:Percent', l.porcentajeIgv),
           t('cbc:TaxExemptionReasonCode', l.item.afectacion),
           esquemaTributo(l.tributo),
         ),
       ),
+      l.icbper &&
+        el(
+          'cac:TaxSubtotal',
+          null,
+          monto('cbc:TaxAmount', l.icbper.monto),
+          t('cbc:BaseUnitMeasure', l.icbper.bolsas.aTextoCompacto(), { unitCode: 'NIU' }),
+          categoria(precio('cbc:PerUnitAmount', l.icbper.tarifa), esquemaTributo('7152')),
+        ),
     ),
     el(
       'cac:Item',

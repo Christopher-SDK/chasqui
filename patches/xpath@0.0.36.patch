@@ -1,0 +1,22 @@
+diff --git a/xpath.js b/xpath.js
+index dc7713ff001e1192711a5f43a12624c8cb140866..457547e59fd5e5557cb0363e2f65585b62f92258 100644
+--- a/xpath.js
++++ b/xpath.js
+@@ -3314,12 +3314,15 @@ var xpath = (typeof exports === 'undefined') ? {} : exports;
+         return this.toString();
+     };
+ 
++    // Chasqui: number() de un conjunto de nodos es number(string()) (XPath 1.0, §4.4): un conjunto
++    // vacío o un texto no numérico da NaN. El original pasaba un XString a XNumber (que lo
++    // convertía con Number(): '' -> 0) y numberValue usaba Number() ('' -> 0, '1e3' -> 1000).
+     XNodeSet.prototype.number = function () {
+-        return new XNumber(this.string());
++        return new XNumber(this.toString());
+     };
+ 
+     XNodeSet.prototype.numberValue = function () {
+-        return Number(this.string());
++        return this.number().numberValue();
+     };
+ 
+     XNodeSet.prototype.bool = function () {

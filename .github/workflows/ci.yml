@@ -31,6 +31,8 @@ jobs:
           restore-keys: oraculo-${{ hashFiles('tools/sunat-oficial/**') }}-
       - name: Reglas oficiales de SUNAT + oráculo (Python/lxml)
         run: pnpm sunat:preparar
+      - name: Las reglas compiladas son las del XSL oficial descargado (sin ediciones a mano)
+        run: pnpm --filter @chasqui/ubl-core reglas && git diff --exit-code packages/ubl-core/src/validador/oficial
       - run: pnpm format:check
       - run: pnpm lint
       - run: pnpm typecheck

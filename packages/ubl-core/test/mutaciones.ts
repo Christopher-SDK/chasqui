@@ -779,3 +779,228 @@ export const MUTACIONES_BORDE: Mutacion[] = [
     aplicar: cada(`${igvLineas}/cac:TaxCategory/cbc:Percent`, texto('0')),
   },
 ];
+
+const subtotalDe = (base: string, tributo: string) =>
+  `${base}/cac:TaxTotal/cac:TaxSubtotal[cac:TaxCategory/cac:TaxScheme/cbc:ID = '${tributo}']`;
+const lineas = `${raiz}/*[local-name()='InvoiceLine' or local-name()='CreditNoteLine' or local-name()='DebitNoteLine']`;
+const terminos = (id: string) => `${raiz}/cac:PaymentTerms[cbc:ID = '${id}']`;
+const ajusteGlobal = (codigo: string) =>
+  `${raiz}/cac:AllowanceCharge[cbc:AllowanceChargeReasonCode = '${codigo}']`;
+
+/**
+ * Mutaciones de las operaciones especiales (Fase 10): gratuitas, ISC, ICBPER, IVAP, exportación,
+ * descuentos y cargos, detracción, percepción, anticipos y crédito. Se aplican a cada comprobante
+ * de test/operaciones.ts; si el selector no encuentra nada, el caso queda como control válido.
+ */
+export const MUTACIONES_ESPECIALES: Mutacion[] = [
+  {
+    nombre: 'sin leyenda 1002 de gratuitas',
+    aplicar: cada(`${raiz}/cbc:Note[@languageLocaleID = '1002']`, quitar),
+  },
+  {
+    nombre: 'sin leyenda 2007 de IVAP',
+    aplicar: cada(`${raiz}/cbc:Note[@languageLocaleID = '2007']`, quitar),
+  },
+  {
+    nombre: 'sin leyenda 2006 de detracción',
+    aplicar: cada(`${raiz}/cbc:Note[@languageLocaleID = '2006']`, quitar),
+  },
+  {
+    nombre: 'gratuita con tipo de precio 01',
+    aplicar: cada(
+      `${lineas}/cac:PricingReference/cac:AlternativeConditionPrice/cbc:PriceTypeCode[. = '02']`,
+      texto('01'),
+    ),
+  },
+  {
+    nombre: 'gratuita con precio unitario > 0 en cac:Price',
+    aplicar: cada(
+      `${lineas}[cac:PricingReference/cac:AlternativeConditionPrice/cbc:PriceTypeCode = '02']/cac:Price/cbc:PriceAmount`,
+      texto('10'),
+    ),
+  },
+  {
+    nombre: 'IGV gratuito de cabecera alterado',
+    aplicar: cada(`${subtotalDe(raiz, '9996')}/cbc:TaxAmount`, texto('999.99')),
+  },
+  {
+    nombre: 'base gratuita de cabecera alterada',
+    aplicar: cada(`${subtotalDe(raiz, '9996')}/cbc:TaxableAmount`, texto('1.00')),
+  },
+  {
+    nombre: 'retiro gravado con tasa 0',
+    aplicar: cada(`${subtotalDe(lineas, '9996')}/cac:TaxCategory/cbc:Percent`, texto('0')),
+  },
+  {
+    nombre: 'ISC de línea alterado',
+    aplicar: cada(`${subtotalDe(lineas, '2000')}/cbc:TaxAmount`, texto('1.00')),
+  },
+  {
+    nombre: 'ISC con sistema fuera del catálogo 08',
+    aplicar: cada(`${subtotalDe(lineas, '2000')}/cac:TaxCategory/cbc:TierRange`, texto('09')),
+  },
+  {
+    nombre: 'ISC sin sistema de cálculo',
+    aplicar: cada(`${subtotalDe(lineas, '2000')}/cac:TaxCategory/cbc:TierRange`, quitar),
+  },
+  {
+    nombre: 'ISC con tasa 0',
+    aplicar: cada(`${subtotalDe(lineas, '2000')}/cac:TaxCategory/cbc:Percent`, texto('0')),
+  },
+  {
+    nombre: 'ISC de cabecera alterado',
+    aplicar: cada(`${subtotalDe(raiz, '2000')}/cbc:TaxAmount`, texto('0.01')),
+  },
+  {
+    nombre: 'ICBPER con tarifa 0',
+    aplicar: cada(`${subtotalDe(lineas, '7152')}/cac:TaxCategory/cbc:PerUnitAmount`, texto('0')),
+  },
+  {
+    nombre: 'ICBPER sin cantidad de bolsas',
+    aplicar: cada(`${subtotalDe(lineas, '7152')}/cbc:BaseUnitMeasure`, quitar),
+  },
+  {
+    nombre: 'ICBPER con unidad distinta de NIU',
+    aplicar: cada(`${subtotalDe(lineas, '7152')}/cbc:BaseUnitMeasure`, attr('unitCode', 'KGM')),
+  },
+  {
+    nombre: 'ICBPER de línea ≠ bolsas × tarifa',
+    aplicar: cada(`${subtotalDe(lineas, '7152')}/cbc:TaxAmount`, texto('9.99')),
+  },
+  {
+    nombre: 'ICBPER de cabecera ≠ suma de líneas',
+    aplicar: cada(`${subtotalDe(raiz, '7152')}/cbc:TaxAmount`, texto('9.99')),
+  },
+  {
+    nombre: 'IVAP con tasa del 18 %',
+    aplicar: cada(`${subtotalDe(lineas, '1016')}/cac:TaxCategory/cbc:Percent`, texto('18')),
+  },
+  {
+    nombre: 'IVAP de cabecera alterado',
+    aplicar: cada(`${subtotalDe(raiz, '1016')}/cbc:TaxAmount`, texto('1.00')),
+  },
+  {
+    nombre: 'exportación con IGV',
+    aplicar: cada(
+      `${lineas}/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:TaxExemptionReasonCode[. = '40']`,
+      texto('10'),
+    ),
+  },
+  {
+    nombre: 'exportación a cliente con RUC',
+    aplicar: cada(
+      `${raiz}/cbc:InvoiceTypeCode[@listID = '0200']/../cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID`,
+      attr('schemeID', '6'),
+    ),
+  },
+  {
+    nombre: 'tipo de operación 0101 en una exportación',
+    aplicar: cada(`${raiz}/cbc:InvoiceTypeCode[@listID = '0200']`, attr('listID', '0101')),
+  },
+  {
+    nombre: 'descuento de ítem con código fuera de catálogo',
+    aplicar: cada(`${lineas}/cac:AllowanceCharge/cbc:AllowanceChargeReasonCode`, texto('99')),
+  },
+  {
+    nombre: 'descuento de ítem ≠ factor × base',
+    aplicar: cada(`${lineas}/cac:AllowanceCharge/cbc:Amount`, texto('0.01')),
+  },
+  {
+    nombre: 'descuento de ítem sin base',
+    aplicar: cada(`${lineas}/cac:AllowanceCharge/cbc:BaseAmount`, quitar),
+  },
+  {
+    nombre: 'descuento de ítem marcado como cargo',
+    aplicar: cada(`${lineas}/cac:AllowanceCharge/cbc:ChargeIndicator`, texto('true')),
+  },
+  {
+    nombre: 'descuento global 02 alterado',
+    aplicar: cada(`${ajusteGlobal('02')}/cbc:Amount`, texto('1.00')),
+  },
+  {
+    nombre: 'AllowanceTotalAmount ≠ descuentos 03',
+    aplicar: cada(`${total}/cbc:AllowanceTotalAmount`, texto('99.00')),
+  },
+  {
+    nombre: 'ChargeTotalAmount ≠ cargos 50',
+    aplicar: cada(`${total}/cbc:ChargeTotalAmount`, texto('99.00')),
+  },
+  {
+    nombre: 'detracción sin cuenta del Banco de la Nación',
+    aplicar: cada(
+      `${raiz}/cac:PaymentMeans[cbc:ID = 'Detraccion']/cac:PayeeFinancialAccount`,
+      quitar,
+    ),
+  },
+  {
+    nombre: 'detracción con bien fuera del catálogo 54',
+    aplicar: cada(`${terminos('Detraccion')}/cbc:PaymentMeansID`, texto('999')),
+  },
+  { nombre: 'detracción sin monto', aplicar: cada(`${terminos('Detraccion')}/cbc:Amount`, quitar) },
+  {
+    nombre: 'detracción con monto en dólares',
+    aplicar: cada(`${terminos('Detraccion')}/cbc:Amount`, attr('currencyID', 'USD')),
+  },
+  {
+    nombre: 'detracción con medio de pago fuera del catálogo 59',
+    aplicar: cada(
+      `${raiz}/cac:PaymentMeans[cbc:ID = 'Detraccion']/cbc:PaymentMeansCode`,
+      texto('999'),
+    ),
+  },
+  { nombre: 'percepción sin cargo 51', aplicar: cada(ajusteGlobal('51'), quitar) },
+  {
+    nombre: 'percepción con tasa alterada',
+    aplicar: cada(`${ajusteGlobal('51')}/cbc:MultiplierFactorNumeric`, texto('0.05')),
+  },
+  {
+    nombre: 'percepción con monto total alterado',
+    aplicar: cada(`${terminos('Percepcion')}/cbc:Amount`, texto('1.00')),
+  },
+  {
+    nombre: 'anticipo con PrepaidAmount ≠ pagos',
+    aplicar: cada(`${total}/cbc:PrepaidAmount`, texto('1.00')),
+  },
+  {
+    nombre: 'anticipo sin documento relacionado',
+    aplicar: cada(`${raiz}/cac:AdditionalDocumentReference[cbc:DocumentTypeCode = '02']`, quitar),
+  },
+  {
+    nombre: 'anticipo con identificador de pago duplicado',
+    aplicar: cada(`${raiz}/cac:AdditionalDocumentReference/cbc:DocumentStatusCode`, texto('9')),
+  },
+  {
+    nombre: 'descuento por anticipo 04 alterado',
+    aplicar: cada(`${ajusteGlobal('04')}/cbc:Amount`, texto('1.00')),
+  },
+  {
+    nombre: 'forma de pago fuera de formato',
+    aplicar: cada(
+      `${terminos('FormaPago')}/cbc:PaymentMeansID[. = 'Contado' or . = 'Credito']`,
+      texto('Efectivo'),
+    ),
+  },
+  {
+    nombre: 'crédito sin monto pendiente',
+    aplicar: cada(`${terminos('FormaPago')}[cbc:PaymentMeansID = 'Credito']/cbc:Amount`, quitar),
+  },
+  {
+    nombre: 'cuota sin fecha de pago',
+    aplicar: cada(`${terminos('FormaPago')}/cbc:PaymentDueDate`, quitar),
+  },
+  {
+    nombre: 'cuota con monto 0',
+    aplicar: cada(
+      `${terminos('FormaPago')}[starts-with(cbc:PaymentMeansID, 'Cuota')]/cbc:Amount`,
+      texto('0.00'),
+    ),
+  },
+  {
+    nombre: 'cuota duplicada',
+    aplicar: cada(`${terminos('FormaPago')}/cbc:PaymentMeansID[. = 'Cuota002']`, texto('Cuota001')),
+  },
+  {
+    nombre: 'tasa del 10 % mezclada con 18 %',
+    aplicar: cada(`(${subtotalDe(lineas, '1000')}/cac:TaxCategory/cbc:Percent)[1]`, texto('18')),
+  },
+];

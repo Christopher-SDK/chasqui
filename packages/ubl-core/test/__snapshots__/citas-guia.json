@@ -246,7 +246,7 @@
     "2773 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1159"
   ],
   "modalidad «01»": [
-    "3617 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1225"
+    "3617 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1226"
   ],
   "fecha de traslado «x2026-11-03»": [
     "3407 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1201"
@@ -305,19 +305,19 @@
   ],
   "conductor secundario además del principal": [],
   "motivo 18": [
-    "2554 @ ValidaExprRegGreRemitente-2.0.1.xsl:L359"
+    "2554 @ ValidaExprRegGreRemitente-2.0.1.xsl:L361"
   ],
   "motivo 02 con destinatario = remitente": [
-    "4375 @ ValidaExprRegGreRemitente-2.0.1.xsl:L415"
+    "4375 @ ValidaExprRegGreRemitente-2.0.1.xsl:L414"
   ],
   "motivo 01 con destinatario = remitente": [
-    "2555 @ ValidaExprRegGreRemitente-2.0.1.xsl:L368"
+    "2555 @ ValidaExprRegGreRemitente-2.0.1.xsl:L371"
   ],
   "motivo 04 con destinatario distinto": [
-    "2554 @ ValidaExprRegGreRemitente-2.0.1.xsl:L359"
+    "2554 @ ValidaExprRegGreRemitente-2.0.1.xsl:L361"
   ],
   "modalidad 01 con entrega al transportista": [
-    "2558 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1423"
+    "2558 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1422"
   ],
   "modalidad 01 con entrega antes de la emisión": [
     "3618 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1250"

@@ -11,7 +11,7 @@ import {
   type ComunicacionBaja,
   type ResumenDiario,
 } from '../src/resumenes.js';
-import { validarXml } from '../src/validador/index.js';
+import { validarComoOraculo as validarXml } from './oraculo.js';
 import { SEMILLA, arbComprobante } from './arbitrarios.js';
 import { boleta, emisor } from './fixtures.js';
 import { mutar } from './mutaciones.js';

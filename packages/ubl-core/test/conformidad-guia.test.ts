@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest';
 import { firmar } from '../src/firma.js';
 import { generarGuia, nombreGuia, type GuiaRemision } from '../src/guia.js';
-import { validarXml } from '../src/validador/index.js';
+import { validarComoOraculo as validarXml } from './oraculo.js';
 import { emisor } from './fixtures.js';
 import { mutar } from './mutaciones.js';
 import { comoOficial, consultarOraculo, oraculoDisponible } from './oraculo.js';

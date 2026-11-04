@@ -32,6 +32,9 @@ const CATALOGOS = {
   19: 'Código de estado del ítem (resumen diario)',
   20: 'Motivo de traslado',
   51: 'Tipo de operación',
+  53: 'Códigos de cargos o descuentos',
+  54: 'Bienes y servicios sujetos a detracción',
+  59: 'Medios de pago',
 };
 
 const desescapar = (s) =>
