@@ -18,6 +18,9 @@ docker compose up
 | Panel en vivo              | http://localhost:7500                     |
 | sunat-sim · SOAP (WSDL)    | http://localhost:7100/billService?wsdl    |
 | sunat-sim · REST + OpenAPI | http://localhost:7100/docs                |
+| pagos-sim · billetera      | http://localhost:7200/docs                |
+| identidad-sim · DNI y RUC  | http://localhost:7300/docs                |
+| chaos-control              | http://localhost:7400/docs                |
 | sunat-sim · GRE (OAuth)    | `POST /v1/clientessol/{id}/oauth2/token/` |
 
 Credenciales de prueba (como en el ambiente beta): usuario `<RUC>MODDATOS`, clave `moddatos`.

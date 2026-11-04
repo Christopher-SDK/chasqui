@@ -33,4 +33,12 @@
 - [x] chaos-control (:7400) con REST + SSE; sunat-sim suscrito; interruptores en el panel
 - [x] Prueba de punta a punta: activar sunat-caida → 503/fault 0100; misma semilla, misma secuencia
 
-## Siguiente: Fase 4 — pagos-sim + identidad-sim
+## Fase 4 — pagos-sim + identidad-sim ✅
+
+- [x] pagos-sim (:7200): transferencias P2P por celular, límites, idempotencia garantizada por la base (también con 10 peticiones concurrentes), estados y reversión
+- [x] Webhooks firmados (HMAC-SHA256 con marca de tiempo) con reintentos y backoff exponencial
+- [x] Cobros QR con estructura EMVCo y CRC16; imagen PNG
+- [x] identidad-sim (:7300): DNI y RUC ficticios deterministas, dígito verificador módulo 11, estados de contribuyente
+- [x] test-kit (generadores) y @chasqui/db (persistencia compartida)
+
+## Siguiente: Fase 5 — sdk + test-kit + tienda-demo + Pact

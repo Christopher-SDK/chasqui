@@ -224,3 +224,29 @@ El parser devuelve 0306 cuando el XML no se puede leer.
 - **CDR**: estructura de CDR reales incluidos en Greenter (`packages/ws/tests/Resources/R-*.xml`).
   El emisor del CDR es un RUC ficticio del simulador (20000000000), nunca el de SUNAT.
 - **Reglas de servidor** (duplicados, firma, plazos y bajas) y su orden: ADR [0006](adr/0006-reglas-de-servidor-en-sunat-sim.md).
+
+## 11. Identidades ficticias (identidad-sim, test-kit)
+
+- **Dígito verificador del RUC**: módulo 11 con pesos 5, 4, 3, 2, 7, 6, 5, 4, 3, 2 sobre los diez
+  primeros dígitos; el resultado `11 − (suma mod 11)` se ajusta 10 → 0 y 11 → 1. Es el algoritmo
+  de amplio uso público para validar RUC; la prueba usa como vector el RUC público de la propia
+  SUNAT (20131312955) y una prueba de propiedades que invalida cualquier dígito alterado.
+- Prefijos: 10 persona natural (10 + DNI + verificador), 20 persona jurídica; 15 y 17 se aceptan
+  como válidos sin generarse.
+- Personas y empresas se derivan de un hash del número: no hay datos reales ni almacenados. Los
+  nombres combinan listas genéricas. Distribución de estados documentada en `test-kit`.
+- `TODO verificar`: la distribución de estados (80 % activo y habido) es una decisión de Chasqui,
+  no una estadística oficial.
+
+## 12. Billetera interoperable (pagos-sim)
+
+- **Sin marcas**: las billeteras se llaman «Billetera A», «Billetera B» y «Billetera C». Ningún
+  nombre, color ni flujo propietario de una billetera real.
+- **QR**: estructura TLV del estándar público EMVCo Merchant-Presented Mode (ID de 2 dígitos,
+  largo de 2 dígitos, valor) con CRC16-CCITT (0x1021, inicio 0xFFFF) en el campo 63; código de
+  moneda ISO 4217 604 (PEN) y país PE. El identificador de cuenta es ficticio (`PE.CHASQUI.SIM`).
+  Vector de prueba del CRC: `"123456789"` → `29B1`.
+- **Límites** por operación (S/ 500) y diarios (S/ 2,000), demora interbilletera (1,5 s) y
+  backoff de webhooks (1, 2, 4, 8 y 16 s; 6 intentos): valores de Chasqui, configurables.
+- **Webhooks**: `X-Chasqui-Firma: t=<unix>,v1=<HMAC-SHA256(secreto, "t.cuerpo")>`, el mismo
+  esquema de firma con marca de tiempo que usan pasarelas de pago para evitar replay.

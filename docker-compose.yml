@@ -25,6 +25,22 @@ services:
     volumes: ['datos-sunat:/data']
     ports: ['7100:7100']
 
+  pagos-sim:
+    <<: *servicio
+    build: { <<: *build, args: { APP: pagos-sim } }
+    image: chasqui/pagos-sim:dev
+    environment:
+      { PORT: 7200, DB_URL: /data/pagos.sqlite, CHAOS_CONTROL_URL: 'http://chaos-control:7400' }
+    volumes: ['datos-pagos:/data']
+    ports: ['7200:7200']
+
+  identidad-sim:
+    <<: *servicio
+    build: { <<: *build, args: { APP: identidad-sim } }
+    image: chasqui/identidad-sim:dev
+    environment: { PORT: 7300, CHAOS_CONTROL_URL: 'http://chaos-control:7400' }
+    ports: ['7300:7300']
+
   chaos-control:
     <<: *servicio
     build: { <<: *build, args: { APP: chaos-control } }
@@ -48,3 +64,4 @@ services:
 
 volumes:
   datos-sunat:
+  datos-pagos:
