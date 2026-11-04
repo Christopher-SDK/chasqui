@@ -21,5 +21,12 @@
   "devDependencies": {
     "@chasqui/sunat-sim": "workspace:*",
     "@chasqui/ubl-core": "workspace:*"
+  },
+  "exports": {
+    ".": {
+      "source": "./src/servidor.ts",
+      "types": "./dist/servidor.d.ts",
+      "default": "./dist/servidor.js"
+    }
   }
 }

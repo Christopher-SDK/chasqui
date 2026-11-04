@@ -1,0 +1,29 @@
+{
+  "name": "@chasqui/sdk",
+  "version": "0.1.0",
+  "description": "SDK de Chasqui: builders de comprobantes y clientes de sunat-sim, pagos-sim, identidad-sim y chaos-control",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@chasqui/ubl-core": "workspace:*",
+    "@chasqui/chaos-engine": "workspace:*"
+  },
+  "devDependencies": {
+    "@chasqui/ecosistema": "workspace:*",
+    "@chasqui/test-kit": "workspace:*"
+  }
+}

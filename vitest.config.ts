@@ -12,6 +12,7 @@ export default defineConfig({
         'packages/ubl-core/src/**': { statements: 90, branches: 90, functions: 90, lines: 90 },
         'packages/chaos-engine/src/**': { statements: 90, branches: 90, functions: 90, lines: 90 },
         'packages/catalogos/src/**': { statements: 90, branches: 90, functions: 90, lines: 90 },
+        'packages/sdk/src/**': { statements: 90, branches: 80, functions: 90, lines: 90 },
         'packages/test-kit/src/**': { statements: 90, branches: 90, functions: 90, lines: 90 },
       },
       reporter: ['text', 'json-summary', 'html'],

@@ -4,4 +4,6 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   resolve: { conditions: ['source'] },
   ssr: { resolve: { conditions: ['source'] } },
+  // Pact no envía telemetría.
+  test: { env: { PACT_DO_NOT_TRACK: 'true' } },
 });

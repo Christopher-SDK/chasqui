@@ -1,0 +1,25 @@
+{
+  "name": "@chasqui/ecosistema",
+  "version": "0.1.0",
+  "description": "Levanta sunat-sim, pagos-sim, identidad-sim y chaos-control en un solo proceso (pruebas y modo todo en uno)",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@chasqui/chaos-control": "workspace:*",
+    "@chasqui/chaos-engine": "workspace:*",
+    "@chasqui/identidad-sim": "workspace:*",
+    "@chasqui/pagos-sim": "workspace:*",
+    "@chasqui/sunat-sim": "workspace:*"
+  }
+}
