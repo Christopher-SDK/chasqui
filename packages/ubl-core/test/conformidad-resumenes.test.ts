@@ -263,6 +263,165 @@ const MUTACIONES: MutacionResumen[] = [
       sel(`${linea}/cac:AccountingCustomerParty/cbc:CustomerAssignedAccountID`).forEach(texto(num));
     },
   })),
+  ...(
+    [
+      ['RA', 'serie numérica de contingencia', 'DocumentSerialID', '0001'],
+      ['RA', 'serie de 3 caracteres', 'DocumentSerialID', 'F01'],
+      ['RA', 'serie numérica de 5 dígitos', 'DocumentSerialID', '12345'],
+      ['RA', 'serie con sufijo', 'DocumentSerialID', 'F0011'],
+      ['RA', 'número de 8 dígitos', 'DocumentNumberID', '99999999'],
+      ['RA', 'número no numérico', 'DocumentNumberID', 'A1'],
+      ['RA', 'motivo de 3 caracteres', 'VoidReasonDescription', 'ABC'],
+      ['RA', 'motivo con espacio inicial', 'VoidReasonDescription', ' ABC'],
+      ['RA', 'tipo 070', 'DocumentTypeCode', '070'],
+      ['RA', 'tipo 99', 'DocumentTypeCode', '99'],
+      ['RC', 'serie-número de contingencia', 'ID', '0001-1'],
+      ['RC', 'correlativo 0', 'ID', 'B001-0'],
+      ['RC', 'correlativo de 9 dígitos', 'ID', 'B001-123456789'],
+      ['RC', 'serie de 3 caracteres', 'ID', 'B01-1'],
+      ['RC', 'tipo 030', 'DocumentTypeCode', '030'],
+      ['RC', 'total negativo', 'TotalAmount', '-1.00'],
+    ] as const
+  ).flatMap(([tipo, n, campo, valor]) =>
+    ['', '-x'].map((sufijo) => ({
+      nombre: `${n}${sufijo ? ' (segunda línea)' : ''}`,
+      tipos: [tipo],
+      aplicar: (sel: (x: string) => Element[]) => {
+        const lineas = sel(
+          `${raiz}/*[local-name()='VoidedDocumentsLine' or local-name()='SummaryDocumentsLine']`,
+        );
+        const l = lineas[sufijo ? 1 : 0];
+        const e = l && Array.from(l.childNodes).find((c) => (c as Element).localName === campo);
+        if (e) e.textContent = valor;
+      },
+    })),
+  ),
+  ...(
+    [
+      ['LineID 001', 'LineID', '001'],
+      ['LineID de 6 dígitos', 'LineID', '100000'],
+      ['LineID de 5 dígitos', 'LineID', '99999'],
+    ] as const
+  ).map(([n, campo, valor]) => ({
+    nombre: n,
+    aplicar: cada(`${linea}/cbc:${campo}`, texto(valor)),
+  })),
+  {
+    nombre: 'CustomizationID con sufijo',
+    aplicar: cada(`${raiz}/cbc:CustomizationID`, (e) => (e.textContent = `${e.textContent}x`)),
+  },
+  {
+    nombre: 'CustomizationID con prefijo',
+    aplicar: cada(`${raiz}/cbc:CustomizationID`, (e) => (e.textContent = `x${e.textContent}`)),
+  },
+  { nombre: 'UBLVersionID 2.00', aplicar: cada(`${raiz}/cbc:UBLVersionID`, texto('2.00')) },
+  { nombre: 'UBLVersionID x2.0', aplicar: cada(`${raiz}/cbc:UBLVersionID`, texto('x2.0')) },
+  {
+    nombre: 'tipo de documento del emisor 66',
+    aplicar: cada(`${raiz}/cac:AccountingSupplierParty/cbc:AdditionalAccountID`, texto('66')),
+  },
+  {
+    nombre: 'razón social de 101 caracteres',
+    aplicar: cada(
+      `${raiz}/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName`,
+      texto('R'.repeat(101)),
+    ),
+  },
+  {
+    nombre: 'razón social de 100 caracteres',
+    aplicar: cada(
+      `${raiz}/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName`,
+      texto('R'.repeat(100)),
+    ),
+  },
+  {
+    nombre: 'razón social con espacio inicial',
+    aplicar: cada(
+      `${raiz}/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName`,
+      texto(' RAZON'),
+    ),
+  },
+  {
+    nombre: 'baja de un documento tipo 14 con serie S',
+    tipos: ['RA'],
+    aplicar: (sel) => {
+      sel(`${linea}/cbc:DocumentTypeCode`).forEach(texto('14'));
+      sel(`${linea}/*[local-name()='DocumentSerialID']`).forEach(texto('S001'));
+    },
+  },
+  {
+    nombre: 'baja de un documento tipo 14 con serie F',
+    tipos: ['RA'],
+    aplicar: cada(`${linea}/cbc:DocumentTypeCode`, texto('14')),
+  },
+  {
+    nombre: 'mismo documento en dos líneas con igual LineID',
+    tipos: ['RA'],
+    aplicar: (sel) => {
+      const [a, b] = sel(`${raiz}/*[local-name()='VoidedDocumentsLine']`);
+      if (a && b) {
+        const c = a.cloneNode(true);
+        b.parentNode?.replaceChild(c, b);
+      }
+    },
+  },
+  {
+    nombre: 'total +4 (dentro de la tolerancia de 5)',
+    tipos: ['RC'],
+    aplicar: cada(
+      `${linea}/*[local-name()='TotalAmount']`,
+      (e) => (e.textContent = (Number(e.textContent) + 4).toFixed(2)),
+    ),
+  },
+  {
+    nombre: 'total -6',
+    tipos: ['RC'],
+    aplicar: cada(
+      `${linea}/*[local-name()='TotalAmount']`,
+      (e) => (e.textContent = (Number(e.textContent) - 6).toFixed(2)),
+    ),
+  },
+  {
+    nombre: 'tributo IGV repetido en la línea',
+    tipos: ['RC'],
+    aplicar: (sel) => {
+      sel(`${linea}/cac:TaxTotal/cac:TaxSubtotal`).forEach((st) =>
+        st.parentNode?.appendChild(st.cloneNode(true)),
+      );
+    },
+  },
+  {
+    nombre: 'tributo de la línea fuera del catálogo',
+    tipos: ['RC'],
+    aplicar: cada(
+      `${linea}/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID`,
+      texto('1234'),
+    ),
+  },
+  {
+    nombre: 'sin nombre del tributo',
+    tipos: ['RC'],
+    aplicar: cada(
+      `${linea}/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:Name`,
+      quitar,
+    ),
+  },
+  {
+    nombre: 'IGV con 3 decimales',
+    tipos: ['RC'],
+    aplicar: cada(
+      `${linea}/cac:TaxTotal/cbc:TaxAmount`,
+      (e) => (e.textContent = `${e.textContent}1`),
+    ),
+  },
+  {
+    nombre: 'pago con 3 decimales',
+    tipos: ['RC'],
+    aplicar: cada(
+      `${linea}/*[local-name()='BillingPayment']/cbc:PaidAmount`,
+      (e) => (e.textContent = `${e.textContent}1`),
+    ),
+  },
 ];
 
 const BASES = {
@@ -305,6 +464,28 @@ describe.runIf(oraculoDisponible)('baja y resumen: conformidad con el XSL oficia
     expect(diferencias).toEqual([]);
     expect(oficiales.filter((o) => o.estado === 'rechazo').length).toBeGreaterThan(
       casos.length * 0.7,
+    );
+  });
+
+  test('cada hallazgo cita su regla de origen en el XSL oficial', async () => {
+    const citas = Object.fromEntries(
+      (['RA', 'RC'] as const).flatMap((tipo) =>
+        MUTACIONES.filter((m) => !m.tipos || m.tipos.includes(tipo)).map((m) => {
+          const { nombre, xml } = BASES[tipo]();
+          const v = validarXml(
+            m.aplicar ? mutar(xml, m.aplicar) : xml,
+            `${m.nombreArchivo ? m.nombreArchivo(nombre) : nombre}.xml`,
+          );
+          const fmt = (h: { codigo: string; fuente: string }) => `${h.codigo} @ ${h.fuente}`;
+          return [
+            `${tipo}: ${m.nombre}`,
+            [...v.observaciones.map(fmt), ...(v.error ? [fmt(v.error)] : [])],
+          ];
+        }),
+      ),
+    );
+    await expect(JSON.stringify(citas, null, 2)).toMatchFileSnapshot(
+      '__snapshots__/citas-resumenes.json',
     );
   });
 

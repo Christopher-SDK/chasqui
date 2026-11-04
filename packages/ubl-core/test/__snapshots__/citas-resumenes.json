@@ -1,0 +1,322 @@
+{
+  "RA: UBLVersionID 2.1": [
+    "2074 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L55"
+  ],
+  "RA: sin UBLVersionID": [
+    "2075 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L55"
+  ],
+  "RA: CustomizationID 2.0": [
+    "2072 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L67"
+  ],
+  "RA: ID distinto al nombre": [
+    "2220 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L79"
+  ],
+  "RA: fecha distinta a la del nombre": [
+    "2346 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L97"
+  ],
+  "RA: sin IssueDate": [
+    "2299 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L89"
+  ],
+  "RA: sin ReferenceDate": [
+    "2303 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L116"
+  ],
+  "RA: RUC del nombre distinto": [
+    "2221 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L148"
+  ],
+  "RA: sin RUC del emisor": [
+    "2217 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L236"
+  ],
+  "RA: tipo de documento del emisor 1": [
+    "2287 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L246"
+  ],
+  "RA: razón social de 2 caracteres": [
+    "2228 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L261"
+  ],
+  "RA: LineID 0": [
+    "2306 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L309"
+  ],
+  "RA: LineID duplicado": [
+    "2752 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L321"
+  ],
+  "RA: LineID con cero inicial": [
+    "2305 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L295"
+  ],
+  "RA: tipo de documento 03 en baja": [
+    "2308 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L337"
+  ],
+  "RA: serie de boleta en baja de factura": [
+    "2310 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L355"
+  ],
+  "RA: serie inválida en baja": [
+    "2310 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L355"
+  ],
+  "RA: número de 9 dígitos en baja": [
+    "2312 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L412"
+  ],
+  "RA: motivo de baja de 2 caracteres": [
+    "2314 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L440"
+  ],
+  "RA: documento repetido en la baja": [
+    "2752 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L321"
+  ],
+  "RA: serie numérica de contingencia": [],
+  "RA: serie numérica de contingencia (segunda línea)": [],
+  "RA: serie de 3 caracteres": [
+    "2310 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L355"
+  ],
+  "RA: serie de 3 caracteres (segunda línea)": [
+    "2310 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L355"
+  ],
+  "RA: serie numérica de 5 dígitos": [
+    "2310 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L355"
+  ],
+  "RA: serie numérica de 5 dígitos (segunda línea)": [
+    "2310 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L355"
+  ],
+  "RA: serie con sufijo": [
+    "2310 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L355"
+  ],
+  "RA: serie con sufijo (segunda línea)": [
+    "2310 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L355"
+  ],
+  "RA: número de 8 dígitos": [],
+  "RA: número de 8 dígitos (segunda línea)": [],
+  "RA: número no numérico": [
+    "2312 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L412"
+  ],
+  "RA: número no numérico (segunda línea)": [
+    "2312 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L412"
+  ],
+  "RA: motivo de 3 caracteres": [],
+  "RA: motivo de 3 caracteres (segunda línea)": [],
+  "RA: motivo con espacio inicial": [
+    "2314 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L440"
+  ],
+  "RA: motivo con espacio inicial (segunda línea)": [
+    "2314 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L440"
+  ],
+  "RA: tipo 070": [],
+  "RA: tipo 070 (segunda línea)": [],
+  "RA: tipo 99": [
+    "2308 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L337"
+  ],
+  "RA: tipo 99 (segunda línea)": [
+    "2308 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L337"
+  ],
+  "RA: LineID 001": [
+    "2305 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L295"
+  ],
+  "RA: LineID de 6 dígitos": [
+    "2305 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L295"
+  ],
+  "RA: LineID de 5 dígitos": [],
+  "RA: CustomizationID con sufijo": [
+    "2072 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L67"
+  ],
+  "RA: CustomizationID con prefijo": [
+    "2072 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L67"
+  ],
+  "RA: UBLVersionID 2.00": [
+    "2074 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L55"
+  ],
+  "RA: UBLVersionID x2.0": [
+    "2074 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L55"
+  ],
+  "RA: tipo de documento del emisor 66": [
+    "2287 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L246"
+  ],
+  "RA: razón social de 101 caracteres": [],
+  "RA: razón social de 100 caracteres": [],
+  "RA: razón social con espacio inicial": [
+    "2228 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L261"
+  ],
+  "RA: baja de un documento tipo 14 con serie S": [],
+  "RA: baja de un documento tipo 14 con serie F": [
+    "2345 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L393"
+  ],
+  "RA: mismo documento en dos líneas con igual LineID": [
+    "2752 @ ValidaExprRegSummaryVoided-1.0.1.xsl:L321"
+  ],
+  "RC: UBLVersionID 2.1": [
+    "2074 @ ValidaExprRegSummary-1.1.0.xsl:L67"
+  ],
+  "RC: sin UBLVersionID": [
+    "2075 @ ValidaExprRegSummary-1.1.0.xsl:L67"
+  ],
+  "RC: CustomizationID 2.0": [
+    "2072 @ ValidaExprRegSummary-1.1.0.xsl:L79"
+  ],
+  "RC: ID distinto al nombre": [
+    "2220 @ ValidaExprRegSummary-1.1.0.xsl:L91"
+  ],
+  "RC: fecha distinta a la del nombre": [
+    "2346 @ ValidaExprRegSummary-1.1.0.xsl:L101"
+  ],
+  "RC: RUC del nombre distinto": [
+    "1034 @ ValidaExprRegSummary-1.1.0.xsl:L149"
+  ],
+  "RC: sin RUC del emisor": [
+    "2217 @ ValidaExprRegSummary-1.1.0.xsl:L212"
+  ],
+  "RC: tipo de documento del emisor 1": [
+    "2218 @ ValidaExprRegSummary-1.1.0.xsl:L222"
+  ],
+  "RC: razón social de 2 caracteres": [
+    "2228 @ ValidaExprRegSummary-1.1.0.xsl:L237"
+  ],
+  "RC: LineID 0": [
+    "2239 @ ValidaExprRegSummary-1.1.0.xsl:L283"
+  ],
+  "RC: LineID duplicado": [
+    "2752 @ ValidaExprRegSummary-1.1.0.xsl:L295"
+  ],
+  "RC: LineID con cero inicial": [
+    "2238 @ ValidaExprRegSummary-1.1.0.xsl:L269"
+  ],
+  "RC: tipo de documento 01 en resumen": [
+    "2241 @ ValidaExprRegSummary-1.1.0.xsl:L367"
+  ],
+  "RC: sin condición del ítem": [
+    "2522 @ ValidaExprRegSummary-1.1.0.xsl:L307"
+  ],
+  "RC: condición fuera del catálogo 19": [
+    "2896 @ ValidaExprRegSummary-1.1.0.xsl:L315"
+  ],
+  "RC: serie-número de factura en resumen": [
+    "2513 @ ValidaExprRegSummary-1.1.0.xsl:L383"
+  ],
+  "RC: total con 3 decimales": [
+    "2251 @ ValidaExprRegSummary-1.1.0.xsl:L400"
+  ],
+  "RC: moneda distinta en un monto": [
+    "2071 @ ValidaExprRegSummary-1.1.0.xsl:L549"
+  ],
+  "RC: total mayor a 700 sin cliente": [
+    "4027 @ ValidaExprRegSummary-1.1.0.xsl:L531",
+    "2514 @ ValidaExprRegSummary-1.1.0.xsl:L562"
+  ],
+  "RC: cliente con RUC de 10 dígitos": [],
+  "RC: cliente con DNI de 7 dígitos": [],
+  "RC: cliente con documento fuera del catálogo": [],
+  "RC: pago con monto 0": [
+    "4027 @ ValidaExprRegSummary-1.1.0.xsl:L531",
+    "2260 @ ValidaExprRegSummary-1.1.0.xsl:L592"
+  ],
+  "RC: pago sin tipo": [
+    "4027 @ ValidaExprRegSummary-1.1.0.xsl:L531",
+    "2257 @ ValidaExprRegSummary-1.1.0.xsl:L604"
+  ],
+  "RC: pago con tipo fuera del catálogo 11": [
+    "4027 @ ValidaExprRegSummary-1.1.0.xsl:L531",
+    "2256 @ ValidaExprRegSummary-1.1.0.xsl:L614"
+  ],
+  "RC: pagos con el mismo tipo": [
+    "4027 @ ValidaExprRegSummary-1.1.0.xsl:L531",
+    "2357 @ ValidaExprRegSummary-1.1.0.xsl:L626"
+  ],
+  "RC: sin IGV": [
+    "4027 @ ValidaExprRegSummary-1.1.0.xsl:L531",
+    "2278 @ ValidaExprRegSummary-1.1.0.xsl:L693"
+  ],
+  "RC: IGV de subtotal distinto al total": [
+    "4027 @ ValidaExprRegSummary-1.1.0.xsl:L531",
+    "2344 @ ValidaExprRegSummary-1.1.0.xsl:L825"
+  ],
+  "RC: nombre de tributo distinto a IGV": [
+    "2276 @ ValidaExprRegSummary-1.1.0.xsl:L871"
+  ],
+  "RC: boleta con documento de referencia": [
+    "2512 @ ValidaExprRegSummary-1.1.0.xsl:L745"
+  ],
+  "RC: total 800 y cliente con RUC de 10 dígitos": [
+    "4027 @ ValidaExprRegSummary-1.1.0.xsl:L531",
+    "2017 @ ValidaExprRegSummary-1.1.0.xsl:L930"
+  ],
+  "RC: total 800 y cliente con DNI de 7 dígitos": [
+    "4027 @ ValidaExprRegSummary-1.1.0.xsl:L531",
+    "2027 @ ValidaExprRegSummary-1.1.0.xsl:L942"
+  ],
+  "RC: total 800 y cliente con documento fuera del catálogo": [
+    "4027 @ ValidaExprRegSummary-1.1.0.xsl:L531",
+    "2016 @ ValidaExprRegSummary-1.1.0.xsl:L982"
+  ],
+  "RC: total 800 y cliente con carné con caracteres inválidos": [
+    "4027 @ ValidaExprRegSummary-1.1.0.xsl:L531",
+    "2018 @ ValidaExprRegSummary-1.1.0.xsl:L956"
+  ],
+  "RC: serie-número de contingencia": [],
+  "RC: serie-número de contingencia (segunda línea)": [],
+  "RC: correlativo 0": [
+    "2513 @ ValidaExprRegSummary-1.1.0.xsl:L383"
+  ],
+  "RC: correlativo 0 (segunda línea)": [
+    "2513 @ ValidaExprRegSummary-1.1.0.xsl:L383"
+  ],
+  "RC: correlativo de 9 dígitos": [
+    "2513 @ ValidaExprRegSummary-1.1.0.xsl:L383"
+  ],
+  "RC: correlativo de 9 dígitos (segunda línea)": [
+    "2513 @ ValidaExprRegSummary-1.1.0.xsl:L383"
+  ],
+  "RC: serie de 3 caracteres": [
+    "2513 @ ValidaExprRegSummary-1.1.0.xsl:L383"
+  ],
+  "RC: serie de 3 caracteres (segunda línea)": [
+    "2513 @ ValidaExprRegSummary-1.1.0.xsl:L383"
+  ],
+  "RC: tipo 030": [],
+  "RC: tipo 030 (segunda línea)": [],
+  "RC: total negativo": [
+    "2251 @ ValidaExprRegSummary-1.1.0.xsl:L400"
+  ],
+  "RC: total negativo (segunda línea)": [
+    "2251 @ ValidaExprRegSummary-1.1.0.xsl:L400"
+  ],
+  "RC: LineID 001": [
+    "2238 @ ValidaExprRegSummary-1.1.0.xsl:L269"
+  ],
+  "RC: LineID de 6 dígitos": [
+    "2238 @ ValidaExprRegSummary-1.1.0.xsl:L269"
+  ],
+  "RC: LineID de 5 dígitos": [],
+  "RC: CustomizationID con sufijo": [
+    "2072 @ ValidaExprRegSummary-1.1.0.xsl:L79"
+  ],
+  "RC: CustomizationID con prefijo": [
+    "2072 @ ValidaExprRegSummary-1.1.0.xsl:L79"
+  ],
+  "RC: UBLVersionID 2.00": [
+    "2074 @ ValidaExprRegSummary-1.1.0.xsl:L67"
+  ],
+  "RC: UBLVersionID x2.0": [
+    "2074 @ ValidaExprRegSummary-1.1.0.xsl:L67"
+  ],
+  "RC: tipo de documento del emisor 66": [
+    "2218 @ ValidaExprRegSummary-1.1.0.xsl:L222"
+  ],
+  "RC: razón social de 101 caracteres": [],
+  "RC: razón social de 100 caracteres": [],
+  "RC: razón social con espacio inicial": [
+    "2228 @ ValidaExprRegSummary-1.1.0.xsl:L237"
+  ],
+  "RC: total +4 (dentro de la tolerancia de 5)": [],
+  "RC: total -6": [
+    "4027 @ ValidaExprRegSummary-1.1.0.xsl:L531"
+  ],
+  "RC: tributo IGV repetido en la línea": [
+    "2355 @ ValidaExprRegSummary-1.1.0.xsl:L778"
+  ],
+  "RC: tributo de la línea fuera del catálogo": [
+    "4027 @ ValidaExprRegSummary-1.1.0.xsl:L531",
+    "2278 @ ValidaExprRegSummary-1.1.0.xsl:L693"
+  ],
+  "RC: sin nombre del tributo": [
+    "2271 @ ValidaExprRegSummary-1.1.0.xsl:L859"
+  ],
+  "RC: IGV con 3 decimales": [
+    "2048 @ ValidaExprRegSummary-1.1.0.xsl:L811"
+  ],
+  "RC: pago con 3 decimales": [
+    "2254 @ ValidaExprRegSummary-1.1.0.xsl:L578"
+  ]
+}
