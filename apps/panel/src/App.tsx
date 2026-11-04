@@ -14,6 +14,8 @@ import {
   type Perfil,
   type Transaccion,
 } from './api';
+import { Identidad } from './Identidad';
+import { Pagos } from './Pagos';
 
 const AVISO = 'Simulador para pruebas. No afiliado a SUNAT ni a ninguna entidad financiera.';
 
@@ -97,6 +99,29 @@ function useTema() {
   return [oscuro, setOscuro] as const;
 }
 
+const VISTAS = [
+  { id: 'comprobantes', etiqueta: 'Comprobantes' },
+  { id: 'pagos', etiqueta: 'Pagos' },
+  { id: 'identidad', etiqueta: 'Identidad' },
+] as const;
+type Vista = (typeof VISTAS)[number]['id'];
+
+/** Vista activa en el hash (#pagos): sobrevive a recargas y se puede enlazar. */
+function useVista(): Vista {
+  const leer = (): Vista => VISTAS.find((v) => `#${v.id}` === location.hash)?.id ?? 'comprobantes';
+  const [vista, setVista] = useState(leer);
+  useEffect(() => {
+    const alCambiar = () => {
+      setVista(leer());
+    };
+    addEventListener('hashchange', alCambiar);
+    return () => {
+      removeEventListener('hashchange', alCambiar);
+    };
+  }, []);
+  return vista;
+}
+
 const hora = (iso: string) => new Date(iso).toLocaleTimeString('es-PE', { hour12: false });
 
 export function App() {
@@ -108,6 +133,7 @@ export function App() {
   const [oscuro, setOscuro] = useTema();
   const [listaPerfiles, setListaPerfiles] = useState<Perfil[]>([]);
   const [caos, setCaos] = useState<EstadoCaos | null>(null);
+  const vista = useVista();
 
   useEffect(() => {
     void perfiles()
@@ -181,7 +207,7 @@ export function App() {
           <div className="min-w-0">
             <h1 className="text-sm font-semibold tracking-tight">Chasqui</h1>
             <p className="truncate text-xs text-stone-500 dark:text-stone-400">
-              Laboratorio de integraciones · sunat-sim
+              Laboratorio de integraciones
             </p>
           </div>
           <span
@@ -207,81 +233,104 @@ export function App() {
         <p className="border-t border-amber-200/70 bg-amber-50 px-4 py-1.5 text-center text-xs font-medium text-amber-900 dark:border-amber-900/50 dark:bg-amber-950/40 dark:text-amber-200">
           {AVISO}
         </p>
+        <nav
+          className="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-4 sm:px-6"
+          aria-label="Servicios"
+        >
+          {VISTAS.map((v) => (
+            <a
+              key={v.id}
+              href={`#${v.id}`}
+              aria-current={vista === v.id ? 'page' : undefined}
+              className={`border-b-2 px-3 py-2 text-sm font-medium whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[var(--color-marca)] ${vista === v.id ? 'border-[var(--color-marca)] text-stone-900 dark:text-stone-100' : 'border-transparent text-stone-500 hover:text-stone-800 dark:text-stone-400 dark:hover:text-stone-200'}`}
+            >
+              {v.etiqueta}
+            </a>
+          ))}
+        </nav>
       </header>
 
       <main className="mx-auto grid max-w-7xl gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[1fr_20rem]">
         <section className="min-w-0 space-y-6">
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {(['aceptado', 'observado', 'rechazado', 'excepcion'] as const).map((e) => (
-              <button
-                key={e}
-                type="button"
-                onClick={() => {
-                  setFiltro(filtro === e ? 'todos' : e);
-                }}
-                aria-pressed={filtro === e}
-                className={`rounded-xl border bg-white p-4 text-left transition hover:border-stone-300 focus-visible:outline-2 focus-visible:outline-[var(--color-marca)] dark:bg-stone-900 dark:hover:border-stone-700 ${filtro === e ? 'border-[var(--color-marca)] ring-1 ring-[var(--color-marca)]' : 'border-stone-200 dark:border-stone-800'}`}
-              >
-                <p className="text-xs text-stone-500 dark:text-stone-400">{METRICA[e]}</p>
-                <p className="mt-1 text-2xl font-semibold tabular-nums">{conteo[e]}</p>
-              </button>
-            ))}
-          </div>
-
-          <div className="overflow-hidden rounded-xl border border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
-            <div className="flex items-center justify-between border-b border-stone-200 px-4 py-3 dark:border-stone-800">
-              <h2 className="text-sm font-semibold">Transacciones</h2>
-              <span className="text-xs text-stone-500 dark:text-stone-400">
-                {filtro === 'todos'
-                  ? `${String(filas.length)} en total`
-                  : `Filtro: ${ESTILO_ESTADO[filtro].etiqueta}`}
-              </span>
-            </div>
-            {error && (
-              <p className="px-4 py-3 text-sm text-rose-700 dark:text-rose-300">
-                No se pudo leer el historial: {error}. ¿Está corriendo sunat-sim en :7100?
-              </p>
-            )}
-            {visibles.length === 0 ? (
-              <div className="px-4 py-16 text-center">
-                <p className="text-sm font-medium">Todavía no llega ningún comprobante</p>
-                <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
-                  Envía uno desde tu sistema o usa «Probar» para ver el flujo completo.
-                </p>
-              </div>
-            ) : (
-              <ul className="divide-y divide-stone-100 dark:divide-stone-800">
-                {visibles.map((f) => (
-                  <li key={f.clave} className={f.enVivo ? 'fila-nueva' : undefined}>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setSeleccion(f);
-                      }}
-                      className="grid w-full grid-cols-[1fr_auto] items-center gap-3 px-4 py-3 text-left hover:bg-stone-50 focus-visible:bg-stone-50 focus-visible:outline-none sm:grid-cols-[4.5rem_1fr_9rem_3.5rem] dark:hover:bg-stone-800/60 dark:focus-visible:bg-stone-800/60"
-                    >
-                      <time className="hidden font-mono text-xs text-stone-500 tabular-nums sm:block dark:text-stone-400">
-                        {hora(f.en)}
-                      </time>
-                      <span className="min-w-0">
-                        <span className="block truncate font-mono text-sm">{f.nombre}</span>
-                        <span className="block truncate text-xs text-stone-500 dark:text-stone-400">
-                          <span className="font-mono sm:hidden">{hora(f.en)} · </span>
-                          {f.mensaje}
-                        </span>
-                      </span>
-                      <span className="justify-self-end sm:justify-self-start">
-                        <Insignia estado={f.estado} />
-                      </span>
-                      <span className="hidden font-mono text-xs text-stone-500 sm:block dark:text-stone-400">
-                        {f.codigo}
-                      </span>
-                    </button>
-                  </li>
+          {vista === 'pagos' ? (
+            <Pagos />
+          ) : vista === 'identidad' ? (
+            <Identidad />
+          ) : (
+            <>
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {(['aceptado', 'observado', 'rechazado', 'excepcion'] as const).map((e) => (
+                  <button
+                    key={e}
+                    type="button"
+                    onClick={() => {
+                      setFiltro(filtro === e ? 'todos' : e);
+                    }}
+                    aria-pressed={filtro === e}
+                    className={`rounded-xl border bg-white p-4 text-left transition hover:border-stone-300 focus-visible:outline-2 focus-visible:outline-[var(--color-marca)] dark:bg-stone-900 dark:hover:border-stone-700 ${filtro === e ? 'border-[var(--color-marca)] ring-1 ring-[var(--color-marca)]' : 'border-stone-200 dark:border-stone-800'}`}
+                  >
+                    <p className="text-xs text-stone-500 dark:text-stone-400">{METRICA[e]}</p>
+                    <p className="mt-1 text-2xl font-semibold tabular-nums">{conteo[e]}</p>
+                  </button>
                 ))}
-              </ul>
-            )}
-          </div>
+              </div>
+
+              <div className="overflow-hidden rounded-xl border border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+                <div className="flex items-center justify-between border-b border-stone-200 px-4 py-3 dark:border-stone-800">
+                  <h2 className="text-sm font-semibold">Transacciones</h2>
+                  <span className="text-xs text-stone-500 dark:text-stone-400">
+                    {filtro === 'todos'
+                      ? `${String(filas.length)} en total`
+                      : `Filtro: ${ESTILO_ESTADO[filtro].etiqueta}`}
+                  </span>
+                </div>
+                {error && (
+                  <p className="px-4 py-3 text-sm text-rose-700 dark:text-rose-300">
+                    No se pudo leer el historial: {error}. ¿Está corriendo sunat-sim en :7100?
+                  </p>
+                )}
+                {visibles.length === 0 ? (
+                  <div className="px-4 py-16 text-center">
+                    <p className="text-sm font-medium">Todavía no llega ningún comprobante</p>
+                    <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
+                      Envía uno desde tu sistema o usa «Probar» para ver el flujo completo.
+                    </p>
+                  </div>
+                ) : (
+                  <ul className="divide-y divide-stone-100 dark:divide-stone-800">
+                    {visibles.map((f) => (
+                      <li key={f.clave} className={f.enVivo ? 'fila-nueva' : undefined}>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setSeleccion(f);
+                          }}
+                          className="grid w-full grid-cols-[1fr_auto] items-center gap-3 px-4 py-3 text-left hover:bg-stone-50 focus-visible:bg-stone-50 focus-visible:outline-none sm:grid-cols-[4.5rem_1fr_9rem_3.5rem] dark:hover:bg-stone-800/60 dark:focus-visible:bg-stone-800/60"
+                        >
+                          <time className="hidden font-mono text-xs text-stone-500 tabular-nums sm:block dark:text-stone-400">
+                            {hora(f.en)}
+                          </time>
+                          <span className="min-w-0">
+                            <span className="block truncate font-mono text-sm">{f.nombre}</span>
+                            <span className="block truncate text-xs text-stone-500 dark:text-stone-400">
+                              <span className="font-mono sm:hidden">{hora(f.en)} · </span>
+                              {f.mensaje}
+                            </span>
+                          </span>
+                          <span className="justify-self-end sm:justify-self-start">
+                            <Insignia estado={f.estado} />
+                          </span>
+                          <span className="hidden font-mono text-xs text-stone-500 sm:block dark:text-stone-400">
+                            {f.codigo}
+                          </span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </>
+          )}
         </section>
 
         <aside className="space-y-3 lg:sticky lg:top-28 lg:self-start">

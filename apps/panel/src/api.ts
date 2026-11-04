@@ -189,3 +189,108 @@ export async function activarPerfil(nombre: string | null): Promise<EstadoCaos |
   );
   return r.ok ? ((await r.json()) as EstadoCaos) : null;
 }
+
+// ── pagos-sim e identidad-sim ──────────────────────────────────────────────────────────────
+
+export const BASE_PAGOS: string =
+  (import.meta.env.VITE_PAGOS_URL as string | undefined) ?? '/pagos';
+export const BASE_IDENTIDAD: string =
+  (import.meta.env.VITE_IDENTIDAD_URL as string | undefined) ?? '/identidad';
+
+export interface Cuenta {
+  celular: string;
+  titular: string;
+  billetera: string;
+  saldo: string;
+}
+
+export interface Transferencia {
+  id: string;
+  origen: string;
+  destino: string;
+  monto: string;
+  estado: 'pendiente' | 'completada' | 'rechazada' | 'revertida';
+  motivo: string | null;
+  creadoEn: string;
+  actualizadoEn: string;
+}
+
+/** Respuesta de error de los simuladores, o el estado HTTP si no vino JSON (falla «malformada»). */
+async function cuerpo<T>(r: Response): Promise<T> {
+  const texto = await r.text();
+  let json: unknown;
+  try {
+    json = JSON.parse(texto);
+  } catch {
+    throw new Error(`Respuesta inválida (HTTP ${String(r.status)})`);
+  }
+  if (!r.ok) {
+    const e = json as { codigo?: string; mensaje?: string; message?: string };
+    throw new Error(`${e.codigo ?? String(r.status)}: ${e.mensaje ?? e.message ?? ''}`);
+  }
+  return json as T;
+}
+
+export const cuentas = () =>
+  fetch(`${BASE_PAGOS}/api/v1/cuentas`, SIN_CAOS).then((r) => cuerpo<Cuenta[]>(r));
+
+export const transferencias = () =>
+  fetch(`${BASE_PAGOS}/api/v1/transferencias?limite=50`, SIN_CAOS).then((r) =>
+    cuerpo<Transferencia[]>(r),
+  );
+
+/** Las acciones del panel SÍ pasan por el caos: así se ve su efecto. */
+export const transferir = (origen: string, destino: string, monto: string) =>
+  fetch(`${BASE_PAGOS}/api/v1/transferencias`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', 'idempotency-key': crypto.randomUUID() },
+    body: JSON.stringify({ origen, destino, monto, descripcion: 'Desde el panel' }),
+  }).then((r) => cuerpo<Transferencia>(r));
+
+export const revertir = (id: string) =>
+  fetch(`${BASE_PAGOS}/api/v1/transferencias/${id}/reversion`, { method: 'POST' }).then((r) =>
+    cuerpo<Transferencia>(r),
+  );
+
+export const cobrar = (destino: string, monto: string) =>
+  fetch(`${BASE_PAGOS}/api/v1/cobros`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({
+      destino,
+      ...(monto ? { monto } : {}),
+      descripcion: 'Cobro desde el panel',
+    }),
+  }).then((r) => cuerpo<{ id: string; payload: string; qrPng: string }>(r));
+
+/** Avisa cada evento de pagos-sim (transferencias y fallas inyectadas). */
+export function escucharPagos(alRecibir: (e: { tipo: string; evento?: string }) => void) {
+  const fuente = new EventSource(`${BASE_PAGOS}/_chasqui/eventos`);
+  fuente.onmessage = (m: MessageEvent<string>) => {
+    alRecibir(JSON.parse(m.data) as { tipo: string; evento?: string });
+  };
+  return () => {
+    fuente.close();
+  };
+}
+
+export interface Contribuyente {
+  ruc: string;
+  razonSocial: string;
+  estado: string;
+  condicion: string;
+  ubigeo: string;
+  direccion: string;
+}
+
+export interface Persona {
+  dni: string;
+  nombres: string;
+  apellidoPaterno: string;
+  apellidoMaterno: string;
+}
+
+export const consultarDocumento = (numero: string) =>
+  fetch(`${BASE_IDENTIDAD}/api/v1/${numero.length === 8 ? 'dni' : 'ruc'}/${numero}`).then((r) =>
+    cuerpo<Contribuyente | Persona>(r),
+  );
