@@ -235,12 +235,23 @@ describe('plugin sobre un servidor real', () => {
     expect((await fetch(`${base}/salud`)).status).toBe(200);
   });
 
-  test('la misma clave (Idempotency-Key) da siempre la misma decisión', async () => {
-    const { base } = await levantar([{ porcentaje: 50, falla: { tipo: 'error5xx', estado: 503 } }]);
-    const conClave = async (k: string) =>
-      (await fetch(`${base}/api/v1/eco`, { headers: { 'idempotency-key': k } })).status;
-    for (const k of ['a', 'b', 'c', 'd', 'e', 'f'])
-      expect(await conClave(k)).toBe(await conClave(k));
+  test('el intento n de una clave decide igual en cada corrida; los reintentos pueden sanar', async () => {
+    const reglas = [{ porcentaje: 50, falla: { tipo: 'error5xx' as const, estado: 503 as const } }];
+    const corrida = async () => {
+      const { base } = await levantar(reglas);
+      const estados: number[] = [];
+      for (const k of ['a', 'b', 'c', 'd', 'e', 'f'])
+        for (let intento = 0; intento < 4; intento++)
+          estados.push(
+            (await fetch(`${base}/api/v1/eco`, { headers: { 'idempotency-key': k } })).status,
+          );
+      return estados;
+    };
+    const primera = await corrida();
+    expect(await corrida()).toEqual(primera);
+    // Alguna clave falla y luego responde bien en un reintento.
+    const porClave = Array.from({ length: 6 }, (_, i) => primera.slice(i * 4, i * 4 + 4));
+    expect(porClave.some((e) => e.includes(503) && e.includes(200))).toBe(true);
   });
 });
 

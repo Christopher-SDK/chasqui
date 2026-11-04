@@ -8,6 +8,9 @@ export class FuenteCaos {
   private actual: EstadoCaos = SIN_CAOS;
   private detenido = false;
   private abort?: AbortController;
+  private avisarListo!: () => void;
+  /** Se resuelve al recibir el primer estado de chaos-control (o al fijarlo a mano). */
+  readonly listo = new Promise<void>((ok) => (this.avisarListo = ok));
 
   constructor(private readonly url?: string) {}
 
@@ -16,6 +19,7 @@ export class FuenteCaos {
   /** Fija el estado localmente (pruebas o servicios sin chaos-control). */
   fijar(e: EstadoCaos): void {
     this.actual = EstadoCaos.parse(e);
+    this.avisarListo();
   }
 
   /** Conecta con `${url}/api/v1/caos/flujo` y reconecta con espera creciente si se corta. */
@@ -51,7 +55,7 @@ export class FuenteCaos {
           resto = eventos.pop() ?? '';
           for (const ev of eventos) {
             const linea = ev.split('\n').find((l) => l.startsWith('data: '));
-            if (linea) this.actual = EstadoCaos.parse(JSON.parse(linea.slice(6)));
+            if (linea) this.fijar(JSON.parse(linea.slice(6)) as EstadoCaos);
           }
         }
       } catch {

@@ -26,3 +26,10 @@ orden` de esa ruta. Con clave explícita la decisión no depende del orden de ll
 - Una prueba de resiliencia en CI fija la semilla y manda claves explícitas: la secuencia de fallas
   es idéntica en cada corrida (prueba «misma semilla, misma secuencia» en chaos-control).
 - El rate limiting depende del reloj (ventana de 1 s); en pruebas se inyecta el reloj.
+
+## Enmienda (2026-11-04)
+
+La clave incluye el número de intento: `<X-Chasqui-Clave o Idempotency-Key>#<n>`. Antes, todos los
+reintentos con la misma Idempotency-Key recibían la misma decisión, y una falla transitoria se
+volvía permanente. Las pruebas del SDK lo detectaron. Sigue siendo reproducible: el intento n de una
+clave decide siempre igual.

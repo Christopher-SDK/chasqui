@@ -77,12 +77,14 @@ export function registrarCaos(app: FastifyInstance, o: OpcionesCaos): void {
 
     const estado = o.estado();
     const cabecera = req.headers['x-chasqui-chaos'];
-    const base = `${req.method} ${ruta}`;
+    // Clave = (clave explícita o método + ruta) + número de intento. El intento n de una misma clave
+    // decide siempre igual (reproducible) y un reintento con la misma Idempotency-Key puede salir
+    // bien, como con una falla transitoria real. ADR 0007.
+    const explicita = req.headers['x-chasqui-clave'] ?? req.headers['idempotency-key'];
+    const base = explicita === undefined ? `${req.method} ${ruta}` : String(explicita);
     const n = (contadores.get(base) ?? 0) + 1;
     contadores.set(base, n);
-    const clave = String(
-      req.headers['x-chasqui-clave'] ?? req.headers['idempotency-key'] ?? `${base}#${String(n)}`,
-    );
+    const clave = `${base}#${String(n)}`;
 
     let fallas: Falla[];
     try {
