@@ -1,0 +1,19 @@
+meta {
+  name: Emitir factura de demostración
+  type: http
+  seq: 1
+}
+
+docs {
+  Envía una factura ficticia firmada a sunat-sim (el simulador la genera). Para enviar la tuya,
+  usa POST /api/v1/comprobantes con { nombreArchivo, contenido: ZIP en base64 } o el SDK.
+}
+
+post {
+  url: {{sunat}}/_chasqui/demo
+  body: json
+}
+
+body:json {
+  { "escenario": "valida" }
+}

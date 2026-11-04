@@ -1,0 +1,16 @@
+meta {
+  name: Consultar RUC
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{identidad}}/api/v1/ruc/20000000001
+}
+
+tests {
+  test("RUC ficticio con estado", function() {
+    expect(res.status).to.equal(200);
+    expect(res.body.estado).to.be.a("string");
+  });
+}

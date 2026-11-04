@@ -22,11 +22,18 @@ import type { Eventos } from './eventos.js';
  */
 
 export interface Config {
-  /** Días calendario para enviar el comprobante (2108). TODO verificar por tipo. */
+  /**
+   * Días calendario para enviar el comprobante (2108). Factura y notas vinculadas: «hasta el tercer
+   * día calendario siguiente al de la fecha de emisión» (RS 000003-2023/SUNAT, docs/fuentes.md §13).
+   * TODO verificar: el plazo de boletas enviadas una por una.
+   */
   plazoEnvioDias: number;
   /** Días hacia adelante que se tolera la fecha de emisión (2329, «mayor a dos días»). */
   toleranciaFuturoDias: number;
-  /** Días desde la recepción para dar de baja un comprobante (2958). TODO verificar. */
+  /**
+   * Días desde la recepción para dar de baja un comprobante (2958, «por exceder el plazo desde su
+   * fecha de recepcion»). TODO verificar: 7 días solo consta en fuentes privadas (§13).
+   */
   plazoBajaDias: number;
 }
 

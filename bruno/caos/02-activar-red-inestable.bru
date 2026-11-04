@@ -1,0 +1,14 @@
+meta {
+  name: Activar red-inestable (semilla fija)
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{caos}}/api/v1/caos
+  body: json
+}
+
+body:json {
+  { "perfil": "red-inestable", "semilla": "demo" }
+}

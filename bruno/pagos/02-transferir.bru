@@ -1,0 +1,28 @@
+meta {
+  name: Transferir (idempotente)
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{pagos}}/api/v1/transferencias
+  body: json
+}
+
+headers {
+  idempotency-key: {{$guid}}
+}
+
+body:json {
+  { "origen": "900000001", "destino": "900000002", "monto": "12.50", "descripcion": "Desde Bruno" }
+}
+
+vars:post-response {
+  transferencia: res.body.id
+}
+
+tests {
+  test("creada", function() {
+    expect(res.status).to.equal(201);
+  });
+}

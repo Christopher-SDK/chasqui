@@ -1,0 +1,16 @@
+meta {
+  name: RUC con dígito verificador incorrecto
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{identidad}}/api/v1/ruc/20000000002
+}
+
+tests {
+  test("400 RUC_INVALIDO", function() {
+    expect(res.status).to.equal(400);
+    expect(res.body.codigo).to.equal("RUC_INVALIDO");
+  });
+}

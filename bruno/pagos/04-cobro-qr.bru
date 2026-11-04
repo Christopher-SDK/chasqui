@@ -1,0 +1,14 @@
+meta {
+  name: Cobro QR (payload EMVCo)
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{pagos}}/api/v1/cobros
+  body: json
+}
+
+body:json {
+  { "destino": "900000003", "monto": "9.90", "descripcion": "Café" }
+}

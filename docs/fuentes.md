@@ -250,3 +250,34 @@ El parser devuelve 0306 cuando el XML no se puede leer.
   backoff de webhooks (1, 2, 4, 8 y 16 s; 6 intentos): valores de Chasqui, configurables.
 - **Webhooks**: `X-Chasqui-Firma: t=<unix>,v1=<HMAC-SHA256(secreto, "t.cuerpo")>`, el mismo
   esquema de firma con marca de tiempo que usan pasarelas de pago para evitar replay.
+
+## 13. Plazos de envío y de baja
+
+- **Factura electrónica y notas vinculadas: 3 días.** «Ampliar el citado plazo hasta el tercer día
+  calendario siguiente al de la fecha de emisión de la factura electrónica»: RS 000003-2023/SUNAT,
+  El Peruano, 5 de enero de 2023 (modifica la RS 000193-2020/SUNAT, que lo había reducido a 1 día).
+  Chasqui acepta un atraso de hasta 3 días y responde 2108 («Presentacion fuera de fecha») desde el
+  cuarto. Revisado el 2026-11-04; no se halló una norma posterior que lo cambie.
+- `TODO verificar`: **boletas** enviadas una por una (Chasqui aplica los mismos 3 días).
+- `TODO verificar`: **comunicación de baja en 7 días** desde la recepción. El catálogo oficial
+  define 2958 («…por exceder el plazo desde su fecha de recepcion»), pero el número de días solo
+  consta en documentación de proveedores (Sovos, «Comunicación de baja»), no en una norma revisada.
+
+## 14. Guía de remisión: reglas agregadas en el pulido (2026-11-04)
+
+Al ampliar la prueba diferencial de guías de 62 a 117 casos (anclas de expresiones regulares,
+conductor con carné, dos conductores, modalidad 01, motivos 01/02/04/18), el oráculo oficial
+reveló reglas que el port no tenía. Se portaron desde `ValidaExprRegGreRemitente-2.0.1.xsl`:
+
+| Código | Línea XSL | Regla                                                                         |
+| ------ | --------- | ----------------------------------------------------------------------------- |
+| 2554   | 359       | Motivos 02, 04, 07, 18: el destinatario debe ser el mismo RUC del remitente   |
+| 2555   | 368       | Motivos 01, 03, 05, 06, 09, 14, 17: el destinatario no puede ser el remitente |
+| 4375   | 415       | Motivos 02 y 07 sin proveedor (`SellerSupplierParty`): observación            |
+| 3617   | 1225      | Modalidad 01: fecha de entrega de bienes al transportista obligatoria         |
+| 3619   | 1231      | Modalidad 01: formato de esa fecha                                            |
+| 3618   | 1250      | Modalidad 01: esa fecha no puede ser anterior a la emisión                    |
+| 3616   | 1264      | Modalidad 01 con conductores del transportista: inicio ≥ entrega              |
+| 2558   | 1423      | Modalidad 01 sin M1L: transportista obligatorio                               |
+
+El resto del bloque del transportista (2561, 2485, 2560, 2563…) no está portado; ver README.
