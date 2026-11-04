@@ -113,6 +113,14 @@ def hoja(tipo):
             _xslt[tipo] = etree.XSLT(etree.fromstring(parchear(f.read()).encode(), parser, base_url=ruta))
     return _xslt[tipo]
 
+# Formatos de mensaje de validate_utils.xsl: «...: errorCode 2074 (nodo...» (la mayoría),
+# «...: 1001 (nodo: ...» (regexpValidateElementIfExist) y «...: 3462» (isTrueExpresionEmptyNode).
+CODIGO = re.compile(r'errorCode (\d{4})|: (\d{4}) \(nodo|: (\d{4})\s*$')
+
+def codigo(mensaje):
+    m = CODIGO.search(mensaje)
+    return next(g for g in m.groups() if g) if m else None
+
 def validar(caso):
     xslt = hoja(caso['tipo'])
     res = {'estado': 'ok', 'codigo': None, 'observaciones': []}
@@ -120,13 +128,12 @@ def validar(caso):
         xslt(etree.fromstring(caso['xml'].encode()), nombreArchivoEnviado=etree.XSLT.strparam(caso['nombre']))
     except etree.XSLTApplyError as e:
         res['estado'] = 'rechazo'
-        m = re.search(r'errorCode (\d{4})', str(e))
-        res['codigo'] = m.group(1) if m else str(e)
+        res['codigo'] = codigo(str(e)) or str(e)
     for m in xslt.error_log:
         # El rechazo llega como ' error: ...'; las observaciones (addWarning) sin ese prefijo.
-        w = re.search(r'errorCode (\d{4})', m.message)
-        if w and not m.message.lstrip().startswith('error:'):
-            res['observaciones'].append(w.group(1))
+        c = codigo(m.message)
+        if c and not m.message.lstrip().startswith('error:'):
+            res['observaciones'].append(c)
     return res
 
 if __name__ == '__main__':
