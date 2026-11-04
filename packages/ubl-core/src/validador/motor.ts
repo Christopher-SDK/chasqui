@@ -109,6 +109,17 @@ export class ContextoNodo {
     return compilar(expr).evaluateNumber(this.opciones());
   }
 
+  /**
+   * number() de XPath 1.0 sobre el primer nodo de `nodo`: NaN si no hay nodos o si el texto no
+   * es un número. No se usa number() de la librería `xpath` porque devuelve 0 para un conjunto
+   * vacío (desviación del estándar que cambiaba el resultado de 4296).
+   */
+  numeroDe(nodo: string): number {
+    const [primero] = this.nodos(nodo);
+    if (!primero) return Number.NaN;
+    return numeroXPath(primero.textContent ?? '');
+  }
+
   verdad(expr: string): boolean {
     return compilar(expr).evaluateBoolean(this.opciones());
   }
@@ -200,16 +211,28 @@ export class ContextoNodo {
   }
 }
 
+/** Conversión string → number de XPath 1.0 (sin exponentes ni signo +). */
+export function numeroXPath(texto: string): number {
+  const t = texto.trim();
+  return /^-?(\d+(\.\d*)?|\.\d+)$/.test(t) ? Number(t) : Number.NaN;
+}
+
 export class XmlIlegible extends Error {}
 
 export function parsear(xml: string): Document {
   const errores: string[] = [];
-  const doc = new DOMParser({
-    onError: (nivel, msg) => {
-      if (nivel !== 'warning') errores.push(msg);
-    },
-  }).parseFromString(xml, 'text/xml');
-  if (errores.length || !doc.documentElement)
+  let doc: Document;
+  try {
+    doc = new DOMParser({
+      onError: (nivel, msg) => {
+        if (nivel !== 'warning') errores.push(msg);
+      },
+    }).parseFromString(xml, 'text/xml') as unknown as Document;
+  } catch (e) {
+    // xmldom 0.9 lanza ParseError ante errores fatales en lugar de notificarlos por onError.
+    throw new XmlIlegible(e instanceof Error ? e.message : String(e));
+  }
+  if (errores.length || !(doc.documentElement as Element | null))
     throw new XmlIlegible(errores.join('; ') || 'XML vacío');
-  return doc as unknown as Document;
+  return doc;
 }

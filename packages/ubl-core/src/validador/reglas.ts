@@ -75,6 +75,8 @@ const TRIBUTOS_IMPUESTO =
 const redondear2 = (x: number) => Math.floor(x * 100 + 0.5) / 100;
 
 interface TaxTotalCabL {
+  exoneradas: number;
+  inafectas: number;
   total: number;
   base: number;
   monto: number;
@@ -106,17 +108,44 @@ function taxTotalCabecera(c: ContextoNodo, linea: string, l: TaxTotalCabL, esNot
       });
     };
     const o4301 = () => {
-      const total = t.numero('number(cbc:TaxAmount)');
+      const total = t.numeroDe('cbc:TaxAmount');
       const suma = redondear2(t.numero(`sum(${TRIBUTOS_IMPUESTO}/cbc:TaxAmount)`));
       t.falla('4301', redondear2(total + 1) < suma || redondear2(total - 1) > suma, {
         l: l.impuestos,
         esError: false,
       });
     };
+    const baseDeLineas = (id: string) =>
+      t.numero(
+        `sum($root/${linea}/cac:TaxTotal/cac:TaxSubtotal[cac:TaxCategory/cac:TaxScheme/cbc:ID[text() = '${id}']]/cbc:TaxableAmount)`,
+      );
+    // $totalBaseExoneradas/$totalBaseInafectas son conjuntos de nodos: si faltan, number() = NaN
+    // y toda comparación es falsa, como en XPath.
+    const baseCabecera = (id: string) =>
+      t.numeroDe(
+        `cac:TaxSubtotal[cac:TaxCategory/cac:TaxScheme/cbc:ID[text() = '${id}']]/cbc:TaxableAmount`,
+      );
+    const o4297 = () => {
+      const exo = baseCabecera('9997');
+      const calc = baseDeLineas('9997');
+      t.falla('4297', redondear2(exo + 1) < calc || redondear2(exo - 1) > calc, {
+        l: l.exoneradas,
+        esError: false,
+      });
+    };
+    const o4296 = () => {
+      const ina = baseCabecera('9998');
+      const calc = baseDeLineas('9998');
+      t.falla('4296', ina + 1 < calc || ina - 1 > calc, { l: l.inafectas, esError: false });
+    };
     if (esNota) {
       o4301();
+      o4297();
+      o4296();
       o4299();
     } else {
+      o4297();
+      o4296();
       o4299();
       o4301();
     }
@@ -285,6 +314,10 @@ interface LineasL {
   unidad?: number;
   cantidad?: [number, number];
   descripcion?: number;
+  /** 2027: descripción de más de 500 caracteres (boleta: también vacía) o en blanco. */
+  descripcionFormato?: { l: number; lRegex: number; vacia?: boolean };
+  /** 4288: valor de venta de la línea vs. valor unitario × cantidad. */
+  valorVentaCalculado?: { l: number; antesDeValorVenta?: boolean };
   precio: number;
   precioRef?: number;
   sinTaxTotal: number;
@@ -292,14 +325,8 @@ interface LineasL {
   /** El monto del TaxTotal de línea se valida en la plantilla de línea (notas) o en la de TaxTotal. */
   taxTotalEnLinea?: boolean;
   valorVenta: number;
-  sub: {
-    id: number;
-    cat: number;
-    calculo: number;
-    monto: number;
-    afectacion: number;
-    percent: number;
-  };
+  /** Pasos del subtotal de línea en el orden del XSL de cada tipo: [paso, línea]. */
+  subtotal: [PasoSubtotal, number][];
   /** Observaciones del TaxTotal de línea: 4293 (suma de tributos) y 4294 (base del IGV). */
   obs: {
     impuestos: number;
@@ -307,9 +334,10 @@ interface LineasL {
     impuestosAntesDeSubtotales?: boolean;
     baseConTolerancia?: boolean;
   };
-  /** Dónde evalúa cada XSL la regla 3103 dentro del subtotal de línea. */
-  ordenCalculo: 'antesDeMonto' | 'despuesDeMonto' | 'despuesDeAfectacion';
-  afectacionSoloConBase?: boolean;
+  /** 3105: el TaxTotal de línea debe tener un tributo IGV/IVAP/exonerado/inafecto/… */
+  tributoObligatorio: { l: number; conBase?: boolean };
+  /** 4287: precio unitario de referencia vs. (valor de venta + impuestos) / cantidad. */
+  precioUnitario?: { l: number; antesDeValorVenta?: boolean };
   precioAntesDeTaxTotal?: boolean;
 }
 
@@ -321,7 +349,7 @@ function lineas(c: ContextoNodo, etiqueta: string, cantidad: string, l: LineasL)
       if (l.id !== undefined)
         ln.existeYCumple('2023', '2023', 'cbc:ID', /^(?!0*$)\d{1,3}$/, { l: l.id });
       // key('by-…Line-id', number(cbc:ID)): conteo de líneas con el mismo número.
-      const propio = ln.numero('number(cbc:ID)');
+      const propio = ln.numeroDe('cbc:ID');
       ln.falla('2752', ids.filter((x) => x === propio).length > 1, { l: l.duplicada });
       if (l.unidad !== undefined && ln.verdad(`cbc:${cantidad}`))
         ln.existe('2883', `cbc:${cantidad}/@unitCode`, { l: l.unidad });
@@ -334,6 +362,15 @@ function lineas(c: ContextoNodo, etiqueta: string, cantidad: string, l: LineasL)
       }
       if (l.descripcion !== undefined)
         ln.existe('2026', 'cac:Item/cbc:Description', { l: l.descripcion });
+      if (l.descripcionFormato) {
+        const largo = ln.numero('string-length(cac:Item/cbc:Description)');
+        if (largo > 500 || (l.descripcionFormato.vacia === true && largo < 1))
+          ln.falla('2027', true, { l: l.descripcionFormato.l });
+        else
+          ln.cumpleSiExiste('2027', 'cac:Item/cbc:Description', /^(?!\s*$)[\s\S].{0,}/, {
+            l: l.descripcionFormato.lRegex,
+          });
+      }
       const precio = () => {
         ln.existeDecimal(
           l.precioRef === undefined ? '2369' : '2068',
@@ -357,7 +394,7 @@ function lineas(c: ContextoNodo, etiqueta: string, cantidad: string, l: LineasL)
           l: l.taxTotal,
           mayorCero: false,
         });
-      const valorVenta = ln.numero('number(cbc:LineExtensionAmount)');
+      const valorVenta = ln.numeroDe('cbc:LineExtensionAmount');
       ln.cada('cac:TaxTotal', (t) => {
         if (!l.taxTotalEnLinea)
           t.existeDecimal('3021', '3021', 'cbc:TaxAmount', 2, { l: l.taxTotal, mayorCero: false });
@@ -365,7 +402,7 @@ function lineas(c: ContextoNodo, etiqueta: string, cantidad: string, l: LineasL)
         t.cada(
           'cac:TaxSubtotal',
           (s) => {
-            subtotalLinea(s, l);
+            subtotalLinea(s, l.subtotal);
           },
           (s) => ({
             codigoTributo: s.texto('cac:TaxCategory/cac:TaxScheme/cbc:ID'),
@@ -373,14 +410,89 @@ function lineas(c: ContextoNodo, etiqueta: string, cantidad: string, l: LineasL)
         );
         if (!l.obs.impuestosAntesDeSubtotales) obsImpuestosLinea(t, l);
         obsBaseLinea(t, l, valorVenta);
+        tributoObligatorio(t, l);
       });
+      if (l.precioUnitario?.antesDeValorVenta) obsPrecioUnitario(ln, cantidad, l.precioUnitario.l);
+      if (l.valorVentaCalculado?.antesDeValorVenta)
+        obsValorVenta(ln, cantidad, l.valorVentaCalculado.l);
       ln.existeDecimal('2370', '2370', 'cbc:LineExtensionAmount', 2, {
         l: l.valorVenta,
         mayorCero: false,
       });
+      if (l.precioUnitario && !l.precioUnitario.antesDeValorVenta)
+        obsPrecioUnitario(ln, cantidad, l.precioUnitario.l);
+      if (l.valorVentaCalculado && !l.valorVentaCalculado.antesDeValorVenta)
+        obsValorVenta(ln, cantidad, l.valorVentaCalculado.l);
     },
     (ln) => ({ nroLinea: ln.texto('cbc:ID') }),
   );
+}
+
+/** 3105 (factura L3236; boleta L3812 exige además base > 0). */
+function tributoObligatorio(t: ContextoNodo, l: LineasL) {
+  const ids =
+    "text() = '1000' or text() = '1016' or text() = '9995' or text() = '9996' or text() = '9997' or text() = '9998'";
+  if (l.tributoObligatorio.conBase) {
+    if (
+      t.verdad(
+        "$tipoOperacion != '2100' and $tipoOperacion != '2101' and $tipoOperacion != '2102' and $tipoOperacion != '2103' and $tipoOperacion != '2104'",
+      )
+    )
+      t.falla(
+        '3105',
+        `count(cac:TaxSubtotal[cac:TaxCategory/cac:TaxScheme/cbc:ID[${ids}] and cbc:TaxableAmount > 0]) < 1`,
+        { l: l.tributoObligatorio.l },
+      );
+    return;
+  }
+  // La factura incluye además 7152 (ICBPER) en la lista; Chasqui no genera ICBPER.
+  t.falla('3105', `count(cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID[${ids}]) < 1`, {
+    l: l.tributoObligatorio.l,
+  });
+}
+
+/** 4287 (factura L1996-L2016): precio unitario de referencia (tipo 01) vs. el calculado. */
+function obsPrecioUnitario(ln: ContextoNodo, cantidad: string, l: number) {
+  const precio = ln.numero(
+    "sum(cac:PricingReference/cac:AlternativeConditionPrice[cbc:PriceTypeCode = '01']/cbc:PriceAmount)",
+  );
+  const valorVenta = ln.numeroDe('cbc:LineExtensionAmount');
+  const impuestos = ln.numeroDe('cac:TaxTotal/cbc:TaxAmount');
+  const descuentos = ln.numero(
+    "sum(cac:AllowanceCharge[cbc:AllowanceChargeReasonCode = '01']/cbc:Amount)",
+  );
+  const cargos = ln.numero(
+    "sum(cac:AllowanceCharge[cbc:AllowanceChargeReasonCode = '48']/cbc:Amount)",
+  );
+  const calculado = (valorVenta + impuestos - descuentos + cargos) / ln.numeroDe(`cbc:${cantidad}`);
+  const gratuita = ln.verdad(
+    "cac:TaxTotal/cac:TaxSubtotal[cac:TaxCategory/cac:TaxScheme/cbc:ID[text() = '9996']]/cbc:TaxableAmount > 0",
+  );
+  // Precedencia literal del XSL: (not(gratuita) and A) or B.
+  ln.falla('4287', (!gratuita && precio + 1 < calculado) || precio - 1 > calculado, {
+    l,
+    esError: false,
+  });
+}
+
+/** 4288 (factura L2026, rama no gratuita): valor de venta vs. valor unitario × cantidad. */
+function obsValorVenta(ln: ContextoNodo, cantidad: string, l: number) {
+  if (
+    ln.verdad(
+      "cac:TaxTotal/cac:TaxSubtotal[cac:TaxCategory/cac:TaxScheme/cbc:ID[text() = '9996']]/cbc:TaxableAmount > 0",
+    )
+  )
+    return;
+  const valorVenta = ln.numeroDe('cbc:LineExtensionAmount');
+  const descuentos = ln.numero(
+    "sum(cac:AllowanceCharge[cbc:AllowanceChargeReasonCode = '00']/cbc:Amount)",
+  );
+  const cargos = ln.numero(
+    "sum(cac:AllowanceCharge[cbc:AllowanceChargeReasonCode = '47']/cbc:Amount)",
+  );
+  const calculado =
+    ln.numeroDe('cac:Price/cbc:PriceAmount') * ln.numeroDe(`cbc:${cantidad}`) - descuentos + cargos;
+  ln.falla('4288', valorVenta + 1 < calculado || valorVenta - 1 > calculado, { l, esError: false });
 }
 
 /** 4293: TaxAmount del TaxTotal de línea vs. suma de sus tributos (factura L3194-L3201). */
@@ -391,7 +503,7 @@ function obsImpuestosLinea(t: ContextoNodo, l: LineasL) {
     )
   )
     return;
-  const total = t.numero('number(cbc:TaxAmount)');
+  const total = t.numeroDe('cbc:TaxAmount');
   const suma = t.numero(
     "sum(cac:TaxSubtotal[cac:TaxCategory/cac:TaxScheme/cbc:ID[text() = '1000' or text() = '7152' or text() = '1016' or text() = '2000' or text() = '9999']]/cbc:TaxAmount)",
   );
@@ -401,65 +513,162 @@ function obsImpuestosLinea(t: ContextoNodo, l: LineasL) {
   });
 }
 
-/** 4294: base del IGV de la línea vs. valor de venta + ISC (factura L3205-L3233; notas L3497-L3517). */
+/**
+ * 4294: base del IGV de la línea vs. su valor de venta (factura L3227; notas L3509-L3517).
+ * El XSL suma el ISC al valor de venta y, si hay ISC, compara con ±1 (factura L3218). El ISC está
+ * fuera del subconjunto, así que aquí vale 0 (ver docs/fuentes.md §6).
+ */
 function obsBaseLinea(t: ContextoNodo, l: LineasL, valorVenta: number) {
-  const isc = t.verdad(
-    "cac:TaxSubtotal[cac:TaxCategory/cac:TaxScheme/cbc:ID = '2000']/cbc:TaxAmount",
-  )
-    ? t.numero(
-        "number(cac:TaxSubtotal[cac:TaxCategory/cac:TaxScheme/cbc:ID = '2000']/cbc:TaxAmount)",
-      )
-    : 0;
-  const calculado = valorVenta + isc;
   const base =
     "cac:TaxSubtotal[cac:TaxCategory/cac:TaxScheme/cbc:ID[text() = '1000' or text() = '1016']]/cbc:TaxableAmount";
   if (l.obs.baseConTolerancia) {
     // Notas: $BaseIGVIVAPxLinea es el conjunto de nodos; se compara su primer valor con ±1.
     if (!t.verdad(base)) return;
-    const b = t.numero(`number(${base})`);
-    t.falla('4294', b + 1 < calculado || b - 1 > calculado, { l: l.obs.base, esError: false });
+    const b = t.numeroDe(base);
+    t.falla('4294', b + 1 < valorVenta || b - 1 > valorVenta, { l: l.obs.base, esError: false });
     return;
   }
   // Factura y boleta: $BaseIGVIVAPxLinea = sum(...); el xsl:if exige que no sea 0 ni NaN.
   const b = t.numero(`sum(${base})`);
-  if (!b) return;
-  if (isc > 0)
-    t.falla('4294', b + 1 < calculado || b - 1 > calculado, { l: l.obs.base - 9, esError: false });
-  else t.falla('4294', b !== calculado, { l: l.obs.base, esError: false });
+  if (b) t.falla('4294', b !== valorVenta, { l: l.obs.base, esError: false });
 }
 
-function subtotalLinea(s: ContextoNodo, l: LineasL) {
-  const L = l.sub;
-  s.existe('2037', 'cac:TaxCategory/cac:TaxScheme/cbc:ID', { l: L.id });
-  s.enCatalogo('2036', 'cac:TaxCategory/cac:TaxScheme/cbc:ID', '05', { l: L.cat });
-  const calculo = () => {
-    // MontoTributo, BaseImponible y Tasa (L2763-L2792 de factura): xsl:choose sobre el nodo.
-    if (
-      !s.verdad(
-        "cac:TaxCategory/cbc:TaxExemptionReasonCode[text() = '10' or text() = '11' or text() = '12' or text() = '13' or text() = '14' or text = '15' or text() = '16' or text() = '17']",
-      )
-    )
-      return;
-    const monto = s.verdad('cbc:TaxAmount') ? s.numero('number(cbc:TaxAmount)') : 0;
-    const base = s.verdad('cbc:TaxableAmount') ? s.numero('number(cbc:TaxableAmount)') : monto;
-    const tasa = s.verdad('cac:TaxCategory/cbc:Percent')
-      ? s.numero('number(cac:TaxCategory/cbc:Percent)')
-      : 0;
-    const calculado = base * tasa * 0.01;
-    s.falla('3103', monto + 1 < calculado || monto - 1 > calculado, { l: L.calculo });
-  };
-  if (l.ordenCalculo === 'antesDeMonto') calculo();
-  s.existeDecimal('2033', '2033', 'cbc:TaxAmount', 2, { l: L.monto, mayorCero: false });
-  if (l.ordenCalculo === 'despuesDeMonto') calculo();
-  if (s.verdad("$codigoTributo != '7152'")) {
-    const aplica = l.afectacionSoloConBase
-      ? s.verdad("$codigoTributo != '2000' and $codigoTributo != '9999' and cbc:TaxableAmount > 0")
-      : s.verdad("$codigoTributo != '2000' and $codigoTributo != '9999' and $codigoTributo != ''");
-    if (aplica) s.existe('2371', 'cac:TaxCategory/cbc:TaxExemptionReasonCode', { l: L.afectacion });
+type PasoSubtotal =
+  | 'id'
+  | 'catalogo'
+  | 'calculo'
+  | 'monto'
+  | 'montoCeroExoInaExp'
+  | 'montoRetiro'
+  | 'montoGratuito'
+  | 'montoGravado'
+  | 'montoGravadoBoleta'
+  | 'afectacion'
+  | 'afectacionConBase'
+  | 'percentFormato'
+  | 'tasaCeroRetiro'
+  | 'tasaCero'
+  | 'tasaCeroBoleta'
+  | 'afectacionEnOtros'
+  | 'percent';
+
+const RETIRO_GRAVADO =
+  "cac:TaxCategory/cbc:TaxExemptionReasonCode[text() = '11' or text() = '12' or text() = '13' or text() = '14' or text() = '15' or text() = '16' or text() = '17']";
+const RETIRO_NO_GRAVADO =
+  "cac:TaxCategory/cbc:TaxExemptionReasonCode[text() = '21' or text() = '31' or text() = '32' or text() = '33' or text() = '34' or text() = '35' or text() = '36' or text() = '37' or text() = '40']";
+
+function subtotalLinea(s: ContextoNodo, pasos: [PasoSubtotal, number][]) {
+  for (const [paso, l] of pasos) {
+    switch (paso) {
+      case 'id':
+        s.existe('2037', 'cac:TaxCategory/cac:TaxScheme/cbc:ID', { l });
+        break;
+      case 'catalogo':
+        s.enCatalogo('2036', 'cac:TaxCategory/cac:TaxScheme/cbc:ID', '05', { l });
+        break;
+      case 'calculo': {
+        // MontoTributo, BaseImponible y Tasa (factura L2763-L2792): xsl:choose sobre el nodo.
+        if (
+          !s.verdad(
+            "cac:TaxCategory/cbc:TaxExemptionReasonCode[text() = '10' or text() = '11' or text() = '12' or text() = '13' or text() = '14' or text = '15' or text() = '16' or text() = '17']",
+          )
+        )
+          break;
+        const monto = s.verdad('cbc:TaxAmount') ? s.numeroDe('cbc:TaxAmount') : 0;
+        const base = s.verdad('cbc:TaxableAmount') ? s.numeroDe('cbc:TaxableAmount') : monto;
+        const tasa = s.verdad('cac:TaxCategory/cbc:Percent')
+          ? s.numeroDe('cac:TaxCategory/cbc:Percent')
+          : 0;
+        const calculado = base * tasa * 0.01;
+        s.falla('3103', monto + 1 < calculado || monto - 1 > calculado, { l });
+        break;
+      }
+      case 'monto':
+        s.existeDecimal('2033', '2033', 'cbc:TaxAmount', 2, { l, mayorCero: false });
+        break;
+      case 'montoCeroExoInaExp':
+        if (
+          s.verdad("$codigoTributo = '9995' or $codigoTributo = '9997' or $codigoTributo = '9998'")
+        )
+          s.falla('3110', 'cbc:TaxAmount != 0', { l });
+        break;
+      case 'montoRetiro':
+        if (s.verdad("$codigoTributo = '9996'"))
+          s.falla('3111', `cbc:TaxableAmount > 0 and ${RETIRO_GRAVADO} and cbc:TaxAmount = 0`, {
+            l,
+          });
+        break;
+      case 'montoGratuito':
+        if (s.verdad("$codigoTributo = '9996'"))
+          s.falla('3110', `cbc:TaxableAmount > 0 and ${RETIRO_NO_GRAVADO} and cbc:TaxAmount != 0`, {
+            l,
+          });
+        break;
+      case 'montoGravado':
+        if (s.verdad("$codigoTributo = '1000' or $codigoTributo = '1016'"))
+          s.falla('3111', 'cbc:TaxableAmount > 0 and cbc:TaxAmount = 0', { l });
+        break;
+      case 'montoGravadoBoleta':
+        if (s.verdad("$codigoTributo = '1000' or $codigoTributo = '1016'"))
+          s.falla(
+            '3111',
+            "cbc:TaxableAmount > 0 and $tipoOperacion != '0113' and cbc:TaxAmount = 0",
+            { l },
+          );
+        break;
+      case 'afectacion':
+      case 'afectacionConBase': {
+        if (!s.verdad("$codigoTributo != '7152'")) break;
+        const aplica =
+          paso === 'afectacionConBase'
+            ? s.verdad(
+                "$codigoTributo != '2000' and $codigoTributo != '9999' and cbc:TaxableAmount > 0",
+              )
+            : s.verdad(
+                "$codigoTributo != '2000' and $codigoTributo != '9999' and $codigoTributo != ''",
+              );
+        if (aplica) s.existe('2371', 'cac:TaxCategory/cbc:TaxExemptionReasonCode', { l });
+        break;
+      }
+      case 'percentFormato':
+        s.cumpleSiExiste(
+          '3102',
+          'cac:TaxCategory/cbc:Percent',
+          /^(?!(0)[0-9]+$)[0-9]{1,3}(\.[0-9]{1,5})?$/,
+          { l },
+        );
+        break;
+      case 'tasaCeroRetiro':
+        if (s.verdad("$codigoTributo = '9996'"))
+          // Copia literal: el XSL oficial escribe `text = '15'` (un hijo «text», no text()).
+          s.falla(
+            '2993',
+            "cbc:TaxableAmount > 0 and cac:TaxCategory/cbc:TaxExemptionReasonCode[text() = '11' or text() = '12' or text() = '13' or text() = '14' or text = '15' or text() = '16' or text() = '17'] and cac:TaxCategory/cbc:Percent = 0",
+            { l },
+          );
+        break;
+      case 'tasaCero':
+        if (s.verdad("$codigoTributo = '1000' or $codigoTributo = '1016'"))
+          s.falla('2993', 'cbc:TaxableAmount > 0 and cac:TaxCategory/cbc:Percent = 0', { l });
+        break;
+      case 'tasaCeroBoleta':
+        if (s.verdad("$codigoTributo = '1000' or $codigoTributo = '1016'"))
+          s.falla(
+            '2993',
+            "cbc:TaxableAmount > 0 and $tipoOperacion != '0113' and cac:TaxCategory/cbc:Percent = 0",
+            { l },
+          );
+        break;
+      case 'afectacionEnOtros':
+        if (s.verdad("$codigoTributo = '2000' or $codigoTributo = '9999'"))
+          s.falla('3050', 'cac:TaxCategory/cbc:TaxExemptionReasonCode', { l });
+        break;
+      case 'percent':
+        if (s.verdad("$codigoTributo != '7152'"))
+          s.existe('2992', 'cac:TaxCategory/cbc:Percent', { l });
+        break;
+    }
   }
-  if (l.ordenCalculo === 'despuesDeAfectacion') calculo();
-  if (s.verdad("$codigoTributo != '7152'"))
-    s.existe('2992', 'cac:TaxCategory/cbc:Percent', { l: L.percent });
 }
 
 // ── Secuencias por tipo ──────────────────────────────────────────────────────────────────────
@@ -507,14 +716,32 @@ export function validarFactura(ctx: Contexto): void {
     unidad: 1526,
     cantidad: [1549, 1556],
     descripcion: 1693,
+    descripcionFormato: { l: 1850, lRegex: 1858 },
+    valorVentaCalculado: { l: 2026 },
     precio: 1870,
     precioRef: 1885,
     sinTaxTotal: 1961,
     taxTotal: 3173,
     valorVenta: 1983,
-    sub: { id: 2925, cat: 2930, calculo: 2937, monto: 2946, afectacion: 3031, percent: 3101 },
-    ordenCalculo: 'antesDeMonto',
+    subtotal: [
+      ['id', 2925],
+      ['catalogo', 2930],
+      ['calculo', 2937],
+      ['monto', 2946],
+      ['montoCeroExoInaExp', 2954],
+      ['montoRetiro', 2962],
+      ['montoGratuito', 2968],
+      ['montoGravado', 2976],
+      ['percentFormato', 2983],
+      ['tasaCeroRetiro', 2990],
+      ['tasaCero', 3006],
+      ['afectacion', 3031],
+      ['afectacionEnOtros', 3040],
+      ['percent', 3101],
+    ],
     obs: { impuestos: 3197, base: 3227 },
+    tributoObligatorio: { l: 3236 },
+    precioUnitario: { l: 2010 },
   });
   c.existeDecimal('2062', '2062', 'cac:LegalMonetaryTotal/cbc:PayableAmount', 2, {
     l: 239,
@@ -532,7 +759,17 @@ export function validarFactura(ctx: Contexto): void {
   taxTotalCabecera(
     c,
     'cac:InvoiceLine',
-    { total: 4645, base: 4559, monto: 4568, id: 4583, cat: 4587, baseIgv: 4776, impuestos: 4802 },
+    {
+      total: 4645,
+      base: 4559,
+      monto: 4568,
+      id: 4583,
+      cat: 4587,
+      exoneradas: 4727,
+      inafectas: 4737,
+      baseIgv: 4776,
+      impuestos: 4802,
+    },
     false,
   );
   igvCabecera(c, 'cac:InvoiceLine', { mezcla: 328, indicadores: 462, suma: 467 });
@@ -553,8 +790,21 @@ export function validarBoleta(ctx: Contexto): void {
   emisor(c, { schemeID: 1102, nombre: 1148 });
   c.cada('cac:AccountingCustomerParty', (p) => {
     p.existeNodo('2014', ID_CLIENTE, { l: 1509 });
-    if (p.verdad(`${ID_CLIENTE} != '-'`) && p.verdad(`${ID_CLIENTE}/@schemeID ='6'`))
-      p.cumpleSiExiste('2017', ID_CLIENTE, /^[\d]{11}$/, { l: 1519 });
+    // xsl:choose de L1516-L1545: RUC (error), DNI y otros documentos (observaciones).
+    if (p.verdad(`${ID_CLIENTE} != '-'`)) {
+      if (p.verdad(`${ID_CLIENTE}/@schemeID ='6'`))
+        p.cumpleSiExiste('2017', ID_CLIENTE, /^[\d]{11}$/, { l: 1519 });
+      else if (p.verdad(`${ID_CLIENTE}/@schemeID ='1'`))
+        p.cumpleSiExiste('4207', ID_CLIENTE, /^[\d]{8}$/, { l: 1528, esError: false });
+      else if (
+        p.verdad(
+          ['4', '7', '0', 'A', 'B', 'C', 'D', 'E']
+            .map((t) => `${ID_CLIENTE}/@schemeID ='${t}'`)
+            .join(' or '),
+        )
+      )
+        p.cumpleSiExiste('4208', ID_CLIENTE, /^(?!\s*$)[^\s]{1,15}$/, { l: 1539, esError: false });
+    }
     p.existeNodo('2015', `${ID_CLIENTE}/@schemeID`, { l: 1552 });
     p.existeYCumple('2021', '2022', 'cac:Party/cac:PartyLegalEntity/cbc:RegistrationName', NOMBRE, {
       l: 1609,
@@ -566,14 +816,32 @@ export function validarBoleta(ctx: Contexto): void {
     unidad: 1927,
     cantidad: [1952, 1960],
     descripcion: 2109,
+    descripcionFormato: { l: 2117, lRegex: 2125, vacia: true },
+    valorVentaCalculado: { l: 2353 },
     precio: 2146,
     precioRef: 2164,
     sinTaxTotal: 2267,
     taxTotal: 3722,
     valorVenta: 2292,
-    sub: { id: 3356, cat: 3363, calculo: 3468, monto: 3372, afectacion: 3478, percent: 3572 },
-    ordenCalculo: 'despuesDeMonto',
+    subtotal: [
+      ['id', 3356],
+      ['catalogo', 3363],
+      ['monto', 3372],
+      ['montoCeroExoInaExp', 3382],
+      ['montoRetiro', 3391],
+      ['montoGratuito', 3398],
+      ['montoGravadoBoleta', 3407],
+      ['percentFormato', 3415],
+      ['tasaCeroRetiro', 3423],
+      ['tasaCeroBoleta', 3441],
+      ['calculo', 3468],
+      ['afectacion', 3478],
+      ['afectacionEnOtros', 3499],
+      ['percent', 3572],
+    ],
     obs: { impuestos: 3764, base: 3799 },
+    tributoObligatorio: { l: 3812, conBase: true },
+    precioUnitario: { l: 2335 },
   });
   c.existeDecimal('2062', '2062', 'cac:LegalMonetaryTotal/cbc:PayableAmount', 2, {
     l: 417,
@@ -591,7 +859,17 @@ export function validarBoleta(ctx: Contexto): void {
   taxTotalCabecera(
     c,
     'cac:InvoiceLine',
-    { total: 5195, base: 5044, monto: 5055, id: 5084, cat: 5089, baseIgv: 5354, impuestos: 5385 },
+    {
+      total: 5195,
+      base: 5044,
+      monto: 5055,
+      id: 5084,
+      cat: 5089,
+      exoneradas: 5295,
+      inafectas: 5307,
+      baseIgv: 5354,
+      impuestos: 5385,
+    },
     false,
   );
   // 4290 tiene una rama propia para la operación 0113 (NRUS) que Chasqui no genera.
@@ -617,8 +895,10 @@ function validarNota(ctx: Contexto, tipo: '07' | '08'): void {
     c.existeNodo('2524', 'cac:BillingReference', { l: 306 });
   emisor(c, { nombre: nc ? 777 : 506 });
   c.cada('cac:AccountingCustomerParty', (p) => {
+    p.existe('2679', ID_CLIENTE, { l: nc ? 985 : 664 });
     if (p.verdad(`${ID_CLIENTE}/@schemeID = '6'`))
       p.cumpleSiExiste('2017', ID_CLIENTE, /^[\d]{11}$/, { l: nc ? 993 : 670 });
+    p.existe('2679', `${ID_CLIENTE}/@schemeID`, { l: nc ? 1004 : 678 });
     p.existeYCumple(
       '2021',
       '2022',
@@ -630,6 +910,25 @@ function validarNota(ctx: Contexto, tipo: '07' | '08'): void {
   c.cada('cac:BillingReference', (b) => {
     if (b.verdad(`$root/cac:DiscrepancyResponse/cbc:ResponseCode != '${nc ? '10' : '03'}'`))
       b.existeNodo('2524', 'cac:InvoiceDocumentReference', { l: nc ? 1086 : 733 });
+    // Formato del documento modificado según su tipo (NC L1149/L1163; ND L768/L777).
+    const codigo = nc ? '2117' : '2205';
+    const id = 'cac:InvoiceDocumentReference/cbc:ID';
+    if (b.verdad("cac:InvoiceDocumentReference/cbc:DocumentTypeCode = '01'"))
+      b.existeYCumple(
+        codigo,
+        codigo,
+        id,
+        /^(([F][A-Z0-9]{3}-[0-9]{1,8})|((E001)-[0-9]{1,8})|([0-9]{1,4}-[0-9]{1,8}))$/,
+        { l: nc ? 1149 : 768 },
+      );
+    if (b.verdad("cac:InvoiceDocumentReference/cbc:DocumentTypeCode = '03'"))
+      b.existeYCumple(
+        codigo,
+        codigo,
+        id,
+        /^(([B][A-Z0-9]{3}-[0-9]{1,8})|((EB01)-[0-9]{1,8})|([0-9]{1,4}-[0-9]{1,8}))$/,
+        { l: nc ? 1163 : 777 },
+      );
   });
   if (nc) c.existe('2956', 'cac:TaxTotal', { l: 377 });
   const linea = nc ? 'cac:CreditNoteLine' : 'cac:DebitNoteLine';
@@ -643,6 +942,8 @@ function validarNota(ctx: Contexto, tipo: '07' | '08'): void {
           monto: 2242,
           id: 2259,
           cat: 2266,
+          exoneradas: 1772,
+          inafectas: 1783,
           baseIgv: 1829,
           impuestos: 1699,
         }
@@ -652,6 +953,8 @@ function validarNota(ctx: Contexto, tipo: '07' | '08'): void {
           monto: 1359,
           id: 1372,
           cat: 1377,
+          exoneradas: 1117,
+          inafectas: 1125,
           baseIgv: 1148,
           impuestos: 1065,
         },
@@ -688,14 +991,50 @@ function validarNota(ctx: Contexto, tipo: '07' | '08'): void {
     taxTotalEnLinea: true,
     valorVenta: nc ? 2923 : 1835,
     precioAntesDeTaxTotal: !nc,
-    ordenCalculo: nc ? 'despuesDeAfectacion' : 'despuesDeMonto',
     obs: nc
       ? { impuestos: 3481, base: 3513, impuestosAntesDeSubtotales: true, baseConTolerancia: true }
       : { impuestos: 2373, base: 2394, baseConTolerancia: true },
-    afectacionSoloConBase: !nc,
-    sub: nc
-      ? { id: 3757, cat: 3763, calculo: 4122, monto: 3783, afectacion: 3794, percent: 4201 }
-      : { id: 2084, cat: 2089, calculo: 2198, monto: 2106, afectacion: 2207, percent: 2295 },
+    tributoObligatorio: { l: nc ? 3524 : 2403 },
+    // La NC no tiene la observación 4287; en la ND va antes de 2370.
+    ...(nc
+      ? { valorVentaCalculado: { l: 2958 } }
+      : {
+          precioUnitario: { l: 1809, antesDeValorVenta: true },
+          valorVentaCalculado: { l: 1825, antesDeValorVenta: true },
+        }),
+    subtotal: nc
+      ? [
+          ['id', 3757],
+          ['catalogo', 3763],
+          ['monto', 3783],
+          ['afectacion', 3794],
+          ['montoRetiro', 3804],
+          ['montoGratuito', 3811],
+          ['tasaCeroRetiro', 3818],
+          ['percentFormato', 3829],
+          ['montoGravado', 3849],
+          ['tasaCero', 3889],
+          ['afectacionEnOtros', 3940],
+          ['montoCeroExoInaExp', 4051],
+          ['calculo', 4122],
+          ['percent', 4201],
+        ]
+      : [
+          ['id', 2084],
+          ['catalogo', 2089],
+          ['monto', 2106],
+          ['montoCeroExoInaExp', 2114],
+          ['montoRetiro', 2122],
+          ['montoGratuito', 2128],
+          ['montoGravado', 2136],
+          ['percentFormato', 2143],
+          ['tasaCeroRetiro', 2158],
+          ['tasaCero', 2174],
+          ['calculo', 2198],
+          ['afectacionConBase', 2207],
+          ['afectacionEnOtros', 2218],
+          ['percent', 2295],
+        ],
   });
 }
 

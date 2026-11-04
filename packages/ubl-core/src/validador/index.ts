@@ -17,7 +17,8 @@ export interface Veredicto {
   observaciones: Hallazgo[];
 }
 
-const NOMBRE = /^(\d{11})-(01|03|07|08)-([A-Z0-9]{4})-(\d{1,8})\.xml$/;
+// El número no se limita aquí: el formato SERIE-CORRELATIVO lo valida la regla 1001 del XSL.
+const NOMBRE = /^(\d{11})-(01|03|07|08)-([A-Z0-9]{4})-(\d+)\.xml$/;
 
 /**
  * Valida un comprobante UBL 2.1 con el subconjunto de reglas oficiales de SUNAT portado en
