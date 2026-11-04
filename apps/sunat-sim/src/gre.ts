@@ -11,7 +11,7 @@ import type { FastifyPluginCallback, FastifyRequest } from 'fastify';
 import type { ZodTypeProvider } from 'fastify-type-provider-zod';
 import { z } from 'zod';
 import { enLima, type Dependencias } from './recepcion.js';
-import { DEMORA_TICKET_MS } from './tickets.js';
+import { DEMORA_TICKET_MS, NUNCA } from './tickets.js';
 
 /**
  * Guía de remisión electrónica por REST con OAuth simulado. Rutas y esquemas de la API GRE según
@@ -163,13 +163,19 @@ export function rutasGre(deps: Dependencias): FastifyPluginCallback {
           .where('id', '=', nombre)
           .executeTakeFirst();
         const firma = verificarFirma(abierto.xml);
-        const codigo = previo
-          ? previo.estado === 'rechazado'
-            ? '1032'
-            : '1033'
-          : !firma.valida
-            ? firma.codigo
-            : (validarXml(abierto.xml, abierto.nombreXml).error?.codigo ?? '0');
+        const forzado = req.caos.find((f) => f.tipo === 'rechazo');
+        const duplicado = req.caos.some((f) => f.tipo === 'duplicado');
+        const codigo = duplicado
+          ? '1033'
+          : forzado
+            ? forzado.codigo
+            : previo
+              ? previo.estado === 'rechazado'
+                ? '1032'
+                : '1033'
+              : !firma.valida
+                ? firma.codigo
+                : (validarXml(abierto.xml, abierto.nombreXml).error?.codigo ?? '0');
         const ticket = randomUUID();
         await deps.db
           .insertInto('tickets')
@@ -182,7 +188,9 @@ export function rutasGre(deps: Dependencias): FastifyPluginCallback {
             cdr: null,
             xml: abierto.xml,
             creado_en: ahora.toISOString(),
-            listo_en: new Date(ahora.getTime() + DEMORA_TICKET_MS).toISOString(),
+            listo_en: req.caos.some((f) => f.tipo === 'ticketEterno')
+              ? NUNCA
+              : new Date(ahora.getTime() + DEMORA_TICKET_MS).toISOString(),
           })
           .execute();
         deps.eventos.emitir({

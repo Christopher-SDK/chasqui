@@ -119,7 +119,7 @@ export function rutasSoap(deps: Dependencias): FastifyPluginCallback {
           const ruc = autenticar(sobre);
           if (cuerpo.sendBill) {
             const { nombre, zip } = archivo(cuerpo.sendBill, ruc);
-            const r = await recibir(deps, nombre, zip, 'soap');
+            const r = await recibir(deps, nombre, zip, 'soap', req.caos);
             if (r.tipo === 'excepcion') throw new FaultSoap(r.codigo, r.mensaje);
             return await respuesta(
               reply,
@@ -128,7 +128,7 @@ export function rutasSoap(deps: Dependencias): FastifyPluginCallback {
           }
           if (cuerpo.sendSummary) {
             const { nombre, zip } = archivo(cuerpo.sendSummary, ruc);
-            const r = await recibirResumen(deps, nombre, zip, 'soap');
+            const r = await recibirResumen(deps, nombre, zip, 'soap', req.caos);
             if (r.tipo === 'excepcion') throw new FaultSoap(r.codigo, r.mensaje);
             return await respuesta(
               reply,

@@ -96,6 +96,7 @@ export function rutasRest(deps: Dependencias): FastifyPluginCallback {
           req.body.nombreArchivo,
           Buffer.from(req.body.contenido, 'base64'),
           'rest',
+          req.caos,
         );
         if (res.tipo === 'excepcion')
           return reply.code(400).send({ codigo: res.codigo, mensaje: res.mensaje });

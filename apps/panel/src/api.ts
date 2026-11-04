@@ -1,9 +1,11 @@
 /** Cliente mínimo de sunat-sim para el panel (REST + SSE). */
 
+export const BASE_CAOS: string = (import.meta.env.VITE_CAOS_URL as string | undefined) ?? '/caos';
+
 export const BASE_SUNAT: string =
   (import.meta.env.VITE_SUNAT_URL as string | undefined) ?? '/sunat';
 
-export type Estado = 'aceptado' | 'observado' | 'rechazado' | 'anulado' | 'excepcion';
+export type Estado = 'aceptado' | 'observado' | 'rechazado' | 'anulado' | 'excepcion' | 'falla';
 
 export interface Transaccion {
   /** Clave única en el panel (las excepciones no se registran en sunat-sim). */
@@ -41,8 +43,11 @@ interface Resumen {
   recibidoEn: string;
 }
 
+/** El panel observa el caos, no lo sufre: sus lecturas piden «sin caos». */
+const SIN_CAOS = { headers: { 'x-chasqui-chaos': 'ninguno' } };
+
 export async function historial(): Promise<Transaccion[]> {
-  const r = await fetch(`${BASE_SUNAT}/api/v1/comprobantes?limite=200`);
+  const r = await fetch(`${BASE_SUNAT}/api/v1/comprobantes?limite=200`, SIN_CAOS);
   if (!r.ok) throw new Error(`sunat-sim respondió ${String(r.status)}`);
   const filas = (await r.json()) as Resumen[];
   return filas.map((f) => ({
@@ -58,7 +63,7 @@ export async function historial(): Promise<Transaccion[]> {
 }
 
 export async function detalle(id: string): Promise<Detalle | null> {
-  const r = await fetch(`${BASE_SUNAT}/api/v1/comprobantes/${encodeURIComponent(id)}`);
+  const r = await fetch(`${BASE_SUNAT}/api/v1/comprobantes/${encodeURIComponent(id)}`, SIN_CAOS);
   return r.ok ? ((await r.json()) as Detalle) : null;
 }
 
@@ -95,6 +100,28 @@ export function escuchar(
   };
   fuente.onmessage = (m: MessageEvent<string>) => {
     const e = JSON.parse(m.data) as EventoSse;
+    if (e.tipo === 'falla') {
+      const f = e as unknown as {
+        falla: string;
+        detalle: string;
+        metodo: string;
+        ruta: string;
+        servicio: string;
+        en: string;
+      };
+      alRecibir({
+        clave: `falla@${f.en}@${f.ruta}@${f.falla}`,
+        nombre: `${f.metodo} ${f.ruta}`,
+        canal: f.servicio,
+        estado: 'falla',
+        codigo: f.falla,
+        mensaje: `Falla inyectada: ${f.falla} (${f.detalle})`,
+        observaciones: [],
+        en: f.en,
+        enVivo: true,
+      });
+      return;
+    }
     if (e.tipo !== 'comprobante' && e.tipo !== 'excepcion') return;
     alRecibir({
       clave: e.tipo === 'excepcion' ? `${e.nombre}@${e.en}` : e.nombre,
@@ -126,4 +153,39 @@ export function formatearXml(xml: string): string {
       return salida;
     })
     .join('\n');
+}
+
+export interface Perfil {
+  nombre: string;
+  descripcion: string;
+}
+
+export interface EstadoCaos {
+  perfil: string | null;
+  reglas: unknown[];
+  semilla: string;
+}
+
+export async function perfiles(): Promise<Perfil[]> {
+  const r = await fetch(`${BASE_CAOS}/api/v1/perfiles`);
+  return r.ok ? ((await r.json()) as Perfil[]) : [];
+}
+
+export async function estadoCaos(): Promise<EstadoCaos | null> {
+  const r = await fetch(`${BASE_CAOS}/api/v1/caos`).catch(() => null);
+  return r?.ok ? ((await r.json()) as EstadoCaos) : null;
+}
+
+export async function activarPerfil(nombre: string | null): Promise<EstadoCaos | null> {
+  const r = await fetch(
+    `${BASE_CAOS}/api/v1/caos`,
+    nombre
+      ? {
+          method: 'PUT',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ perfil: nombre }),
+        }
+      : { method: 'DELETE' },
+  );
+  return r.ok ? ((await r.json()) as EstadoCaos) : null;
 }

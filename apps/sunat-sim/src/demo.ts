@@ -10,7 +10,7 @@ import type { FastifyPluginCallback } from 'fastify';
 import type { ZodTypeProvider } from 'fastify-type-provider-zod';
 import { z } from 'zod';
 import { siguiente } from './db.js';
-import { enLima, recibir, type Dependencias } from './recepcion.js';
+import { enLima, type Dependencias } from './recepcion.js';
 
 /**
  * Emisión de comprobantes de demostración (datos ficticios) para el panel y el guion de demo:
@@ -71,6 +71,27 @@ function comprobanteDemo(correlativo: number, fecha: string): Comprobante {
 export function rutasDemo(deps: Dependencias): FastifyPluginCallback {
   let ultimoValido: { nombreZip: string; zip: Uint8Array } | null = null;
   return (app, _o, listo) => {
+    /**
+     * Se envía por el endpoint REST real (app.inject), así el motor de caos se aplica igual que a
+     * cualquier cliente: con un perfil activo, «Probar» muestra su efecto en el panel.
+     */
+    const enviar = async (nombreZip: string, zip: Uint8Array) => {
+      const r = await app.inject({
+        method: 'POST',
+        url: '/api/v1/comprobantes',
+        payload: { nombreArchivo: nombreZip, contenido: Buffer.from(zip).toString('base64') },
+      });
+      const cuerpo = (r.headers['content-type'] ?? '').includes('json')
+        ? r.json<{ codigo?: string; estado?: string }>()
+        : {};
+      const estado =
+        r.statusCode === 200
+          ? (cuerpo.estado ?? 'aceptado')
+          : r.statusCode === 400
+            ? 'excepcion'
+            : 'falla';
+      return { http: r.statusCode, codigo: cuerpo.codigo ?? String(r.statusCode), estado };
+    };
     app
       .withTypeProvider<ZodTypeProvider>()
       .post(
@@ -79,12 +100,7 @@ export function rutasDemo(deps: Dependencias): FastifyPluginCallback {
         async (req) => {
           const { escenario } = req.body;
           if (escenario === 'duplicada' && ultimoValido) {
-            const r = await recibir(deps, ultimoValido.nombreZip, ultimoValido.zip, 'rest');
-            return {
-              escenario,
-              codigo: r.codigo,
-              estado: r.tipo === 'cdr' ? r.estado : 'excepcion',
-            };
+            return { escenario, ...(await enviar(ultimoValido.nombreZip, ultimoValido.zip)) };
           }
           const c = comprobanteDemo(await siguiente(deps.db, 'demo'), enLima(deps.ahora()).fecha);
           const nombre = nombreArchivo(c);
@@ -95,10 +111,10 @@ export function rutasDemo(deps: Dependencias): FastifyPluginCallback {
             escenario === 'excepcion'
               ? nombre.replace(/-(\d+)$/, '-9$1') + '.zip'
               : `${nombre}.zip`;
-          const r = await recibir(deps, nombreZip, zip, 'rest');
+          const r = await enviar(nombreZip, zip);
           if (escenario === 'valida' || escenario === 'duplicada')
             ultimoValido = { nombreZip, zip };
-          return { escenario, codigo: r.codigo, estado: r.tipo === 'cdr' ? r.estado : 'excepcion' };
+          return { escenario, ...r };
         },
       );
     listo();

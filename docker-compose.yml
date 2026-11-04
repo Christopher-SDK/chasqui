@@ -20,9 +20,17 @@ services:
     <<: *servicio
     build: { <<: *build, args: { APP: sunat-sim } }
     image: chasqui/sunat-sim:dev
-    environment: { PORT: 7100, DB_RUTA: /data/sunat.sqlite }
+    environment:
+      { PORT: 7100, DB_RUTA: /data/sunat.sqlite, CHAOS_CONTROL_URL: 'http://chaos-control:7400' }
     volumes: ['datos-sunat:/data']
     ports: ['7100:7100']
+
+  chaos-control:
+    <<: *servicio
+    build: { <<: *build, args: { APP: chaos-control } }
+    image: chasqui/chaos-control:dev
+    environment: { PORT: 7400 }
+    ports: ['7400:7400']
 
   panel:
     build: { context: ., target: panel }
@@ -30,6 +38,7 @@ services:
     restart: unless-stopped
     depends_on:
       sunat-sim: { condition: service_healthy }
+      chaos-control: { condition: service_healthy }
     healthcheck:
       test: ['CMD', 'wget', '-qO-', 'http://127.0.0.1/sunat/salud']
       interval: 5s

@@ -6,6 +6,7 @@ import {
   validarXml,
   verificarFirma,
 } from '@chasqui/ubl-core';
+import type { Falla } from '@chasqui/chaos-engine';
 import { siguiente } from './db.js';
 import { enLima, type Canal, type Dependencias } from './recepcion.js';
 
@@ -18,6 +19,9 @@ import { enLima, type Canal, type Dependencias } from './recepcion.js';
 const NOMBRE = /^(\d{11})-(RC|RA)-(\d{8})-(\d{1,5})\.zip$/;
 
 /** Milisegundos que un ticket permanece «en proceso». Configurable para pruebas y caos. */
+/** Fecha de resolución de un ticket que nunca resuelve. */
+export const NUNCA = '9999-12-31T23:59:59.999Z';
+
 export const DEMORA_TICKET_MS = Number(process.env.DEMORA_TICKET_MS ?? 2000);
 
 export type ResultadoResumen =
@@ -28,6 +32,7 @@ export async function recibirResumen(
   nombreZip: string,
   zip: Uint8Array,
   canal: Canal,
+  caos: readonly Falla[] = [],
 ): Promise<ResultadoResumen> {
   const m = NOMBRE.exec(nombreZip);
   if (!m) return { tipo: 'excepcion', codigo: '0151', mensaje: mensajeError('0151') };
@@ -54,7 +59,10 @@ export async function recibirResumen(
       cdr: null,
       xml: abierto.xml,
       creado_en: ahora.toISOString(),
-      listo_en: new Date(ahora.getTime() + DEMORA_TICKET_MS).toISOString(),
+      // Caos «ticketEterno»: el ticket queda en proceso (98) para siempre.
+      listo_en: caos.some((f) => f.tipo === 'ticketEterno')
+        ? NUNCA
+        : new Date(ahora.getTime() + DEMORA_TICKET_MS).toISOString(),
     })
     .execute();
   deps.eventos.emitir({

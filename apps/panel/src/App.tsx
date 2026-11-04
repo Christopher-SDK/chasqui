@@ -1,12 +1,17 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
+  activarPerfil,
   detalle,
   emitirDemo,
   escuchar,
+  estadoCaos,
   formatearXml,
   historial,
+  perfiles,
   type Detalle,
   type Estado,
+  type EstadoCaos,
+  type Perfil,
   type Transaccion,
 } from './api';
 
@@ -37,6 +42,11 @@ const ESTILO_ESTADO: Record<Estado, { etiqueta: string; clase: string }> = {
     etiqueta: 'Excepción',
     clase:
       'bg-violet-50 text-violet-700 ring-violet-600/20 dark:bg-violet-500/10 dark:text-violet-300 dark:ring-violet-400/30',
+  },
+  falla: {
+    etiqueta: 'Falla inyectada',
+    clase:
+      'bg-orange-50 text-orange-800 ring-orange-600/20 dark:bg-orange-500/10 dark:text-orange-300 dark:ring-orange-400/30',
   },
 };
 
@@ -96,6 +106,21 @@ export function App() {
   const [seleccion, setSeleccion] = useState<Transaccion | null>(null);
   const [filtro, setFiltro] = useState<Estado | 'todos'>('todos');
   const [oscuro, setOscuro] = useTema();
+  const [listaPerfiles, setListaPerfiles] = useState<Perfil[]>([]);
+  const [caos, setCaos] = useState<EstadoCaos | null>(null);
+
+  useEffect(() => {
+    void perfiles()
+      .then(setListaPerfiles)
+      .catch(() => undefined);
+    const leer = () => void estadoCaos().then(setCaos);
+    leer();
+    // Otro cliente (SDK, MCP, curl) puede cambiar el caos: se relee cada 3 s.
+    const intervalo = setInterval(leer, 3000);
+    return () => {
+      clearInterval(intervalo);
+    };
+  }, []);
 
   useEffect(() => {
     historial()
@@ -126,6 +151,7 @@ export function App() {
       rechazado: 0,
       anulado: 0,
       excepcion: 0,
+      falla: 0,
     };
     for (const f of filas) c[f.estado]++;
     return c;
@@ -259,6 +285,61 @@ export function App() {
         </section>
 
         <aside className="space-y-3 lg:sticky lg:top-28 lg:self-start">
+          <div className="rounded-xl border border-stone-200 bg-white p-4 dark:border-stone-800 dark:bg-stone-900">
+            <div className="flex items-center justify-between">
+              <h2 className="text-sm font-semibold">Caos</h2>
+              <span className="text-xs text-stone-500 dark:text-stone-400">
+                {caos
+                  ? (caos.perfil ?? (caos.reglas.length ? 'reglas propias' : 'apagado'))
+                  : 'chaos-control no responde'}
+              </span>
+            </div>
+            <p className="mt-1 text-xs text-stone-500 dark:text-stone-400">
+              Activa un perfil y mira el efecto en las transacciones.{' '}
+              {conteo.falla > 0 && (
+                <span className="font-medium text-orange-700 dark:text-orange-300">
+                  {conteo.falla} fallas inyectadas.
+                </span>
+              )}
+            </p>
+            <ul className="mt-3 space-y-2">
+              {listaPerfiles.map((p) => {
+                const activo = caos?.perfil === p.nombre;
+                return (
+                  <li key={p.nombre}>
+                    <button
+                      type="button"
+                      role="switch"
+                      aria-checked={activo}
+                      disabled={!caos}
+                      onClick={() => void activarPerfil(activo ? null : p.nombre).then(setCaos)}
+                      className={`flex w-full items-start gap-3 rounded-lg border px-3 py-2 text-left focus-visible:outline-2 focus-visible:outline-[var(--color-marca)] disabled:opacity-50 ${activo ? 'border-orange-400 bg-orange-50/70 dark:border-orange-500/60 dark:bg-orange-500/10' : 'border-stone-200 hover:border-stone-300 dark:border-stone-700'}`}
+                    >
+                      <span
+                        className={`mt-0.5 flex h-5 w-9 shrink-0 items-center rounded-full p-0.5 transition ${activo ? 'bg-orange-500' : 'bg-stone-300 dark:bg-stone-700'}`}
+                        aria-hidden
+                      >
+                        <span
+                          className={`size-4 rounded-full bg-white shadow transition ${activo ? 'translate-x-4' : ''}`}
+                        />
+                      </span>
+                      <span className="min-w-0">
+                        <span className="block font-mono text-sm font-medium">{p.nombre}</span>
+                        <span className="block text-xs text-stone-500 dark:text-stone-400">
+                          {p.descripcion}
+                        </span>
+                      </span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+            {caos && (
+              <p className="mt-2 font-mono text-xs text-stone-500 dark:text-stone-400">
+                semilla: {caos.semilla}
+              </p>
+            )}
+          </div>
           <div className="rounded-xl border border-stone-200 bg-white p-4 dark:border-stone-800 dark:bg-stone-900">
             <h2 className="text-sm font-semibold">Probar</h2>
             <p className="mt-1 text-xs text-stone-500 dark:text-stone-400">

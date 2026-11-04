@@ -7,6 +7,7 @@ import {
   validatorCompiler,
   type ZodTypeProvider,
 } from 'fastify-type-provider-zod';
+import { FuenteCaos, registrarCaos } from '@chasqui/chaos-engine';
 import { abrirDb, migrar, type Db } from './db.js';
 import { Eventos } from './eventos.js';
 import { CONFIG_POR_DEFECTO, type Config, type Dependencias } from './recepcion.js';
@@ -22,6 +23,8 @@ export interface OpcionesServidor {
   ahora?: () => Date;
   config?: Partial<Config>;
   registro?: boolean;
+  /** Estado del caos; por defecto, el de chaos-control (CHAOS_CONTROL_URL) o ninguno. */
+  caos?: FuenteCaos;
 }
 
 export async function construirServidor(
@@ -56,6 +59,19 @@ export async function construirServidor(
     transform: jsonSchemaTransform,
   });
   await app.register(swaggerUi, { routePrefix: '/docs' });
+
+  // Motor de caos antes de las rutas: las fallas inyectadas se publican en el flujo del panel.
+  const caos = o.caos ?? new FuenteCaos(process.env.CHAOS_CONTROL_URL).iniciar();
+  registrarCaos(app, {
+    servicio: 'sunat-sim',
+    estado: caos.estado,
+    alInyectar: (e) => {
+      deps.eventos.emitir({ tipo: 'falla', ...e });
+    },
+  });
+  app.addHook('onClose', () => {
+    caos.detener();
+  });
 
   app.addHook('onSend', async (_req, reply) => {
     reply.header('x-chasqui-aviso', 'simulador-no-oficial');

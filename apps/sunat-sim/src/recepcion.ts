@@ -8,6 +8,7 @@ import {
   verificarFirma,
   type Hallazgo,
 } from '@chasqui/ubl-core';
+import type { Falla } from '@chasqui/chaos-engine';
 import { siguiente, type Db, type EstadoComprobante } from './db.js';
 import type { Eventos } from './eventos.js';
 
@@ -79,6 +80,7 @@ export async function recibir(
   nombreZip: string,
   zip: Uint8Array,
   canal: Canal,
+  caos: readonly Falla[] = [],
 ): Promise<ResultadoRecepcion> {
   const nombre = nombreZip.replace(/\.zip$/i, '');
   const excepcion = (codigo: string, detalle?: string): ResultadoRecepcion => {
@@ -115,6 +117,8 @@ export async function recibir(
     .where('serie', '=', serie)
     .where('numero', '=', numero)
     .executeTakeFirst();
+  // Caos de negocio: duplicado forzado (1033) aunque el comprobante sea nuevo.
+  if (caos.some((f) => f.tipo === 'duplicado')) return excepcion('1033');
   if (previo)
     return excepcion(
       previo.estado === 'rechazado' || previo.estado === 'anulado' ? '1032' : '1033',
@@ -132,6 +136,15 @@ export async function recibir(
       observaciones: [],
     };
   }
+
+  // Caos de negocio: rechazo forzado con CDR (por defecto 2335, documento alterado).
+  const forzado = caos.find((f) => f.tipo === 'rechazo');
+  if (forzado && veredicto.estado !== 'rechazado')
+    veredicto = {
+      estado: 'rechazado',
+      error: { codigo: forzado.codigo, mensaje: mensajeError(forzado.codigo), fuente: 'caos' },
+      observaciones: [],
+    };
 
   const fechaEmision = /<cbc:IssueDate>([^<]+)<\/cbc:IssueDate>/.exec(abierto.xml)?.[1] ?? '';
   const { fecha, hora } = enLima(deps.ahora());
