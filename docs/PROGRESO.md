@@ -41,4 +41,19 @@
 - [x] identidad-sim (:7300): DNI y RUC ficticios deterministas, dígito verificador módulo 11, estados de contribuyente
 - [x] test-kit (generadores) y @chasqui/db (persistencia compartida)
 
-## Siguiente: Fase 5 — sdk + test-kit + tienda-demo + Pact
+## Fase 5 — sdk + test-kit + tienda-demo + Pact ✅
+
+- [x] @chasqui/sdk: builders fluidos (factura, boleta, notas), clientes tipados, reintentos idempotentes, `chaos.con`, `verificarWebhook`
+- [x] tienda-demo (:7600): checkout con validación de RUC, cobro QR y comprobante; pago a salvo si SUNAT cae
+- [x] Contratos Pact SDK → sunat-sim, pagos-sim e identidad-sim (pacts/ versionados, verificados por cada proveedor)
+- [x] @chasqui/ecosistema: los cuatro servicios en un proceso para pruebas
+- [x] Corrección del caos: el número de intento entra en la clave (ADR 0007, enmienda)
+
+## Fase 6 — panel completo + E2E ✅
+
+- [x] Panel con pestañas Comprobantes, Pagos (cuentas, transferencias en vivo, reversión, cobro QR) e Identidad (DNI/RUC); aviso legal en todas
+- [x] E2E con Playwright: Page Objects, escritorio y móvil, trazas y video (siempre en CI, al fallar en local)
+- [x] Modo todo en uno (`pnpm todo-en-uno`): los cuatro servicios en un proceso, sin Docker
+- [x] Revisión visual claro/oscuro/móvil: corregidos los valores por defecto del formulario (con regresión E2E) y el desborde de la tabla en móvil
+
+## Siguiente: Fase 7 — observabilidad (OTel, Jaeger, Prometheus, Grafana)

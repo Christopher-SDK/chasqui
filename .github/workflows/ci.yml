@@ -48,6 +48,25 @@ jobs:
         if: always()
         with: { name: cobertura, path: reports/coverage }
 
+  e2e:
+    name: e2e del panel (Playwright, escritorio y móvil)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version-file: .nvmrc, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: e2e-reporte-trazas-videos
+          path: |
+            reports/e2e
+            reports/e2e-resultados
+
   mutation:
     name: mutation testing (validador)
     runs-on: ubuntu-latest
@@ -96,7 +115,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: docker compose up -d --build --wait
-      - run: curl -fsS localhost:7100/salud && curl -fsS localhost:7200/salud && curl -fsS localhost:7300/salud && curl -fsS localhost:7400/salud
+      - run: curl -fsS localhost:7100/salud && curl -fsS localhost:7200/salud && curl -fsS localhost:7300/salud && curl -fsS localhost:7400/salud && curl -fsS localhost:7600/salud
       - name: Panel y proxy hacia sunat-sim
         run: curl -fsS localhost:7500/sunat/salud && curl -fsS localhost:7500/ | grep -q 'Chasqui'
       - if: failure()

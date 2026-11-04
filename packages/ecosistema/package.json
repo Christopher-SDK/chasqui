@@ -13,7 +13,8 @@
     }
   },
   "scripts": {
-    "typecheck": "tsc -p tsconfig.json"
+    "typecheck": "tsc -p tsconfig.json",
+    "start": "tsx --conditions=source src/cli.ts"
   },
   "dependencies": {
     "@chasqui/chaos-control": "workspace:*",

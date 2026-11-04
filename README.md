@@ -21,9 +21,24 @@ docker compose up
 | pagos-sim · billetera      | http://localhost:7200/docs                |
 | identidad-sim · DNI y RUC  | http://localhost:7300/docs                |
 | chaos-control              | http://localhost:7400/docs                |
+| tienda-demo (usa el SDK)   | http://localhost:7600                     |
 | sunat-sim · GRE (OAuth)    | `POST /v1/clientessol/{id}/oauth2/token/` |
 
 Credenciales de prueba (como en el ambiente beta): usuario `<RUC>MODDATOS`, clave `moddatos`.
+
+## Sin Docker
+
+```bash
+pnpm install
+pnpm todo-en-uno          # sunat-sim :7100, pagos-sim :7200, identidad-sim :7300, chaos-control :7400
+pnpm --filter @chasqui/panel dev   # panel en :7500
+pnpm e2e                  # pruebas de punta a punta del panel (Playwright)
+```
+
+## SDK
+
+`@chasqui/sdk`: builders de comprobantes y clientes con reintentos idempotentes. Ver
+[docs/sdk.md](docs/sdk.md).
 
 ## Caos
 

@@ -20,7 +20,9 @@
     "prepare": "husky",
     "sunat:preparar": "node tools/sunat-oficial/descargar.mjs && python3 -m venv tools/sunat-oficial/.venv && tools/sunat-oficial/.venv/bin/pip install -q -r tools/sunat-oficial/requirements.txt",
     "mutation": "pnpm --filter @chasqui/ubl-core mutation",
-    "dev": "pnpm --parallel --filter @chasqui/sunat-sim --filter @chasqui/panel dev"
+    "dev": "pnpm --parallel --filter @chasqui/sunat-sim --filter @chasqui/panel dev",
+    "e2e": "playwright test",
+    "todo-en-uno": "pnpm --filter @chasqui/ecosistema start"
   },
   "lint-staged": {
     "*.{ts,tsx,js,mjs}": [
