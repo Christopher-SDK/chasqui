@@ -328,3 +328,132 @@ describe('demo', () => {
     expect(await enviar('excepcion')).toMatchObject({ estado: 'excepcion', codigo: '0161' });
   });
 });
+
+describe('GRE por REST con OAuth', () => {
+  async function token(usuario = '20000000001MODDATOS', clave = 'moddatos') {
+    const r = await fetch(`${s.base}/v1/clientessol/test-85e5b0ae/oauth2/token/`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        grant_type: 'password',
+        scope: 'https://api-cpe',
+        client_id: 'test-85e5b0ae',
+        client_secret: 'secreto',
+        username: usuario,
+        password: clave,
+      }),
+    });
+    return { status: r.status, cuerpo: await json(r) };
+  }
+
+  async function enviarGuia(t: string, alterar: (x: string) => string = (x) => x, correlativo = 1) {
+    const { empaquetar, firmar, generarGuia, nombreGuia } = await import('@chasqui/ubl-core');
+    const { createHash } = await import('node:crypto');
+    const g = {
+      serie: 'T001',
+      correlativo,
+      fechaEmision: '2026-11-03',
+      emisor: factura().emisor,
+      destinatario: {
+        tipoDocumento: '6' as const,
+        numeroDocumento: '20000000002',
+        nombre: 'CLIENTE DEMO S.A.',
+      },
+      motivo: '01',
+      fechaTraslado: '2026-11-03',
+      pesoBrutoKg: '10',
+      partida: { ubigeo: '150101', linea: 'AV. FICTICIA 123' },
+      llegada: { ubigeo: '150122', linea: 'JR. INVENTADO 456' },
+      vehiculo: { placa: 'ABC123' },
+      conductor: {
+        tipoDocumento: '1' as const,
+        numeroDocumento: '00000001',
+        nombres: 'JUAN',
+        apellidos: 'PEREZ',
+        licencia: 'Q00000001',
+      },
+      items: [{ descripcion: 'Producto', cantidad: 1, unidad: 'NIU' as const, codigo: 'P1' }],
+    };
+    const nombre = nombreGuia(g);
+    const zip = Buffer.from(empaquetar(nombre, firmar(alterar(generarGuia(g)))));
+    const r = await fetch(`${s.base}/v1/contribuyente/gem/comprobantes/${nombre}`, {
+      method: 'POST',
+      headers: { authorization: `Bearer ${t}`, 'content-type': 'application/json' },
+      body: JSON.stringify({
+        archivo: {
+          nomArchivo: `${nombre}.zip`,
+          arcGreZip: zip.toString('base64'),
+          hashZip: createHash('sha256').update(zip).digest('hex'),
+        },
+      }),
+    });
+    return { status: r.status, cuerpo: await json(r) };
+  }
+
+  const consultar = async (t: string, ticket: string) =>
+    json(
+      await fetch(`${s.base}/v1/contribuyente/gem/comprobantes/envios/${ticket}`, {
+        headers: { authorization: `Bearer ${t}` },
+      }),
+    );
+
+  test('token, envío, 98 y luego 0 con CDR', async () => {
+    const { cuerpo } = await token();
+    const t = cuerpo.access_token as string;
+    expect(cuerpo).toMatchObject({ token_type: 'JWT', expires_in: 3600 });
+    const envio = await enviarGuia(t);
+    expect(envio.status).toBe(200);
+    const ticket = envio.cuerpo.numTicket as string;
+    expect(ticket).toMatch(/^[0-9a-f-]{36}$/);
+    expect(await consultar(t, ticket)).toEqual({ codRespuesta: '98' });
+    s.avanzar(3000);
+    const listo = await consultar(t, ticket);
+    expect(listo).toMatchObject({ codRespuesta: '0', indCdrGenerado: '1' });
+    expect(leerCdr(Buffer.from(listo.arcCdr as string, 'base64'))).toMatchObject({
+      aceptado: true,
+      serieNumero: 'T001-1',
+    });
+    expect(await json(await fetch(`${s.base}/api/v1/estado/20000000001/09/T001/1`))).toMatchObject({
+      estado: 'aceptado',
+    });
+  });
+
+  test('guía con error de las reglas oficiales → 99 con CDR de rechazo', async () => {
+    const t = (await token()).cuerpo.access_token as string;
+    const envio = await enviarGuia(t, (x) => x.replace('<cbc:ID>ABC123<', '<cbc:ID>ABC-123<'));
+    s.avanzar(3000);
+    const r = await consultar(t, envio.cuerpo.numTicket as string);
+    expect(r).toMatchObject({
+      codRespuesta: '99',
+      error: { numError: '2567' },
+      indCdrGenerado: '1',
+    });
+  });
+
+  test('duplicada → 99 sin CDR (excepción 1033)', async () => {
+    const t = (await token()).cuerpo.access_token as string;
+    const primera = await enviarGuia(t);
+    s.avanzar(3000);
+    await consultar(t, primera.cuerpo.numTicket as string);
+    const segunda = await enviarGuia(t);
+    s.avanzar(3000);
+    expect(await consultar(t, segunda.cuerpo.numTicket as string)).toMatchObject({
+      codRespuesta: '99',
+      error: { numError: '1033' },
+      indCdrGenerado: '0',
+    });
+  });
+
+  test('credenciales, token y hash', async () => {
+    expect((await token('20000000001MODDATOS', 'otra')).status).toBe(400);
+    expect((await enviarGuia('token.falso.x')).status).toBe(401);
+    const t = (await token()).cuerpo.access_token as string;
+    s.avanzar(3601 * 1000);
+    expect((await enviarGuia(t)).status).toBe(401); // vencido
+    const otro = (await token('20999999999MODDATOS')).cuerpo.access_token as string;
+    expect(await enviarGuia(otro)).toMatchObject({
+      status: 422,
+      cuerpo: { errors: [{ cod: '0154' }] },
+    });
+  });
+});

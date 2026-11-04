@@ -13,6 +13,7 @@ import { CONFIG_POR_DEFECTO, type Config, type Dependencias } from './recepcion.
 import { rutasRest } from './rest.js';
 import { rutasSoap } from './soap.js';
 import { rutasDemo } from './demo.js';
+import { rutasGre } from './gre.js';
 
 export const AVISO = 'Simulador para pruebas. No afiliado a SUNAT ni a ninguna entidad financiera.';
 
@@ -100,6 +101,7 @@ export async function construirServidor(
   await app.register(rutasRest(deps));
   await app.register(rutasSoap(deps));
   await app.register(rutasDemo(deps));
+  await app.register(rutasGre(deps));
   app.addHook('onClose', async () => {
     await deps.db.destroy();
   });
