@@ -1,0 +1,127 @@
+{
+  "consumer": {
+    "name": "chasqui-sdk"
+  },
+  "interactions": [
+    {
+      "description": "el envío de una factura firmada",
+      "pending": false,
+      "request": {
+        "body": {
+          "content": {
+            "contenido": "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",
+            "nombreArchivo": "20000000001-01-F001-1.zip"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": ["application/json"]
+        },
+        "matchingRules": {
+          "body": {
+            "$.contenido": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.nombreArchivo": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "^\\d{11}-\\d{2}-[A-Z0-9]{4}-\\d{1,8}\\.zip$"
+                }
+              ]
+            }
+          }
+        },
+        "method": "POST",
+        "path": "/api/v1/comprobantes"
+      },
+      "response": {
+        "body": {
+          "content": {
+            "cdr": "UEsDBA==",
+            "codigo": "0",
+            "estado": "aceptado",
+            "id": "cmp_1",
+            "mensaje": "La Factura numero F001-1, ha sido aceptada",
+            "observaciones": []
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": ["application/json"]
+        },
+        "matchingRules": {
+          "body": {
+            "$.cdr": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.codigo": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "^\\d+$"
+                }
+              ]
+            },
+            "$.estado": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "^(aceptado|observado|rechazado)$"
+                }
+              ]
+            },
+            "$.id": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.mensaje": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "17.1.4"
+    },
+    "pactRust": {
+      "ffi": "0.5.8",
+      "models": "1.3.16"
+    },
+    "pactSpecification": {
+      "version": "4.0"
+    }
+  },
+  "provider": {
+    "name": "sunat-sim"
+  }
+}

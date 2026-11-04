@@ -1,0 +1,168 @@
+{
+  "consumer": {
+    "name": "chasqui-sdk"
+  },
+  "interactions": [
+    {
+      "description": "una consulta de saldo",
+      "pending": false,
+      "providerStates": [
+        {
+          "name": "las cuentas de prueba están sembradas"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/cuentas/900000001/saldo"
+      },
+      "response": {
+        "body": {
+          "content": {
+            "celular": "900000001",
+            "moneda": "PEN",
+            "saldo": "1000.00"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": ["application/json"]
+        },
+        "matchingRules": {
+          "body": {
+            "$.saldo": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "^\\d+\\.\\d{2}$"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "una transferencia entre cuentas de la misma billetera",
+      "pending": false,
+      "providerStates": [
+        {
+          "name": "las cuentas de prueba están sembradas"
+        }
+      ],
+      "request": {
+        "body": {
+          "content": {
+            "destino": "900000003",
+            "monto": "10.00",
+            "origen": "900000001"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": ["application/json"],
+          "content-type": ["application/json"],
+          "idempotency-key": ["clave-de-prueba-0001"]
+        },
+        "matchingRules": {
+          "header": {
+            "idempotency-key": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "^.{8,120}$"
+                }
+              ]
+            }
+          }
+        },
+        "method": "POST",
+        "path": "/api/v1/transferencias"
+      },
+      "response": {
+        "body": {
+          "content": {
+            "actualizadoEn": "2026-11-04T15:00:00.000Z",
+            "cobroId": null,
+            "creadoEn": "2026-11-04T15:00:00.000Z",
+            "descripcion": "",
+            "destino": "900000003",
+            "estado": "completada",
+            "id": "trf_abc123",
+            "moneda": "PEN",
+            "monto": "10.00",
+            "motivo": null,
+            "origen": "900000001"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": ["application/json"]
+        },
+        "matchingRules": {
+          "body": {
+            "$.actualizadoEn": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "^\\d{4}-\\d{2}-\\d{2}T[\\d:.]+Z$"
+                }
+              ]
+            },
+            "$.creadoEn": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "^\\d{4}-\\d{2}-\\d{2}T[\\d:.]+Z$"
+                }
+              ]
+            },
+            "$.estado": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "^(pendiente|completada|rechazada|revertida)$"
+                }
+              ]
+            },
+            "$.id": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "^trf_[\\w-]+$"
+                }
+              ]
+            }
+          }
+        },
+        "status": 201
+      },
+      "type": "Synchronous/HTTP"
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "17.1.4"
+    },
+    "pactRust": {
+      "ffi": "0.5.8",
+      "models": "1.3.16"
+    },
+    "pactSpecification": {
+      "version": "4.0"
+    }
+  },
+  "provider": {
+    "name": "pagos-sim"
+  }
+}
