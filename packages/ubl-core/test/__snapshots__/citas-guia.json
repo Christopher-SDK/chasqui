@@ -176,6 +176,155 @@
     "2883 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3890"
   ],
   "cantidad 0 (sin documento relacionado: no se valida)": [],
+  "UBLVersionID «x2.1»": [
+    "2110 @ ValidaExprRegGreRemitente-2.0.1.xsl:L87"
+  ],
+  "UBLVersionID «2.1x»": [
+    "2110 @ ValidaExprRegGreRemitente-2.0.1.xsl:L87"
+  ],
+  "CustomizationID «x2.0»": [
+    "2112 @ ValidaExprRegGreRemitente-2.0.1.xsl:L96"
+  ],
+  "CustomizationID «2.0x»": [
+    "2112 @ ValidaExprRegGreRemitente-2.0.1.xsl:L96"
+  ],
+  "ID «XT001-1»": [
+    "1001 @ ValidaExprRegGreRemitente-2.0.1.xsl:L105"
+  ],
+  "ID «T001-1X»": [
+    "1001 @ ValidaExprRegGreRemitente-2.0.1.xsl:L105"
+  ],
+  "IssueDate «x2026-11-03»": [
+    "3436 @ ValidaExprRegGreRemitente-2.0.1.xsl:L135"
+  ],
+  "IssueDate «2026-11-03x»": [
+    "3436 @ ValidaExprRegGreRemitente-2.0.1.xsl:L135"
+  ],
+  "IssueTime «x10:00:00»": [
+    "3438 @ ValidaExprRegGreRemitente-2.0.1.xsl:L148"
+  ],
+  "IssueTime «10:00:00x»": [
+    "3438 @ ValidaExprRegGreRemitente-2.0.1.xsl:L148"
+  ],
+  "tipo de documento «x09»": [
+    "1051 @ ValidaExprRegGreRemitente-2.0.1.xsl:L156"
+  ],
+  "tipo de documento «09x»": [
+    "1051 @ ValidaExprRegGreRemitente-2.0.1.xsl:L156"
+  ],
+  "remitente con schemeID «x6»": [
+    "2511 @ ValidaExprRegGreRemitente-2.0.1.xsl:L190"
+  ],
+  "remitente con schemeID «6x»": [
+    "2511 @ ValidaExprRegGreRemitente-2.0.1.xsl:L190"
+  ],
+  "destinatario: DNI válido": [],
+  "destinatario: DNI con letra delante": [
+    "2758 @ ValidaExprRegGreRemitente-2.0.1.xsl:L322"
+  ],
+  "destinatario: DNI con letra detrás": [
+    "2758 @ ValidaExprRegGreRemitente-2.0.1.xsl:L322"
+  ],
+  "destinatario: RUC con letra delante": [
+    "2758 @ ValidaExprRegGreRemitente-2.0.1.xsl:L330"
+  ],
+  "destinatario: RUC con letra detrás": [
+    "2758 @ ValidaExprRegGreRemitente-2.0.1.xsl:L330"
+  ],
+  "destinatario: carné válido": [],
+  "peso con unidad «xKGM»": [
+    "2523 @ ValidaExprRegGreRemitente-2.0.1.xsl:L977"
+  ],
+  "peso con unidad «TNEx»": [
+    "2523 @ ValidaExprRegGreRemitente-2.0.1.xsl:L977"
+  ],
+  "peso con unidad «KGMx»": [],
+  "modalidad «x02»": [
+    "2773 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1159"
+  ],
+  "modalidad «02x»": [
+    "2773 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1159"
+  ],
+  "modalidad «01»": [
+    "3617 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1225"
+  ],
+  "fecha de traslado «x2026-11-03»": [
+    "3407 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1201"
+  ],
+  "fecha de traslado «2026-11-03x»": [
+    "3407 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1201"
+  ],
+  "placa «000000»": [
+    "2567 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1650"
+  ],
+  "placa «0AB123»": [],
+  "placa «xABC123»": [
+    "2567 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1650"
+  ],
+  "placa «ABC123x»": [
+    "2567 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1650"
+  ],
+  "licencia «000000000»": [
+    "2573 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3781"
+  ],
+  "licencia «0Q0000001»": [],
+  "licencia «xQ00000001»": [
+    "2573 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3781"
+  ],
+  "licencia «Q00000001x»": [
+    "2573 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3781"
+  ],
+  "ubigeo de partida «x150101»": [
+    "2776 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1840"
+  ],
+  "ubigeo de llegada «x150101»": [
+    "2776 @ ValidaExprRegGreRemitente-2.0.1.xsl:L2003"
+  ],
+  "ubigeo de partida «150101x»": [
+    "2776 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1840"
+  ],
+  "ubigeo de llegada «150101x»": [
+    "2776 @ ValidaExprRegGreRemitente-2.0.1.xsl:L2003"
+  ],
+  "número de línea de 2 dígitos": [],
+  "conductor con carné de extranjería": [],
+  "conductor con carné de 16 caracteres": [
+    "2569 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3594"
+  ],
+  "conductor con carné con espacio": [
+    "2569 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3602"
+  ],
+  "conductor con cargo «Secundario»": [
+    "3357 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1802"
+  ],
+  "conductor con cargo «Ayudante»": [
+    "3357 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1802"
+  ],
+  "dos conductores principales": [
+    "3358 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1809"
+  ],
+  "conductor secundario además del principal": [],
+  "motivo 18": [
+    "2554 @ ValidaExprRegGreRemitente-2.0.1.xsl:L359"
+  ],
+  "motivo 02 con destinatario = remitente": [
+    "4375 @ ValidaExprRegGreRemitente-2.0.1.xsl:L415"
+  ],
+  "motivo 01 con destinatario = remitente": [
+    "2555 @ ValidaExprRegGreRemitente-2.0.1.xsl:L368"
+  ],
+  "motivo 04 con destinatario distinto": [
+    "2554 @ ValidaExprRegGreRemitente-2.0.1.xsl:L359"
+  ],
+  "modalidad 01 con entrega al transportista": [
+    "2558 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1423"
+  ],
+  "modalidad 01 con entrega antes de la emisión": [
+    "3618 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1250"
+  ],
+  "modalidad 01 con fecha de entrega mal formada": [
+    "3619 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1231"
+  ],
   "línea sin descripción": [
     "2781 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3960"
   ]

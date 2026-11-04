@@ -53,11 +53,37 @@ export function validarGuia(ctx: Contexto): void {
   else if (c.verdad(`string-length(${DESTINATARIO}) > 15 or string-length(${DESTINATARIO}) < 1`))
     c.falla('2758', true, { l: 340 });
   else c.cumpleSiExiste('2758', DESTINATARIO, /^[^\s]{1,}$/, { l: 348 });
+  // Destinatario frente a remitente según el motivo (catálogo 20): traslados entre establecimientos
+  // del mismo RUC exigen destinatario = remitente; las ventas y compras, que sean distintos.
+  // Expresiones textuales del XSL: con nodos ausentes, «!=» y «not(=)» no son equivalentes en XPath.
+  const REMITENTE = 'cac:DespatchSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID';
+  if (c.verdad("$motivoTraslado[text() = '02' or text() = '04' or text() = '18' or text() = '07']"))
+    c.falla('2554', `${DESTINATARIO}/@schemeID != '6' or (${DESTINATARIO} != ${REMITENTE})`, {
+      l: 359,
+    });
+  if (
+    c.verdad(
+      "$motivoTraslado[text() = '01' or text() = '03' or text() = '05' or text() = '06' or text() = '09' or text() = '14' or text() = '17']",
+    )
+  )
+    c.falla('2555', `${DESTINATARIO}/@schemeID = '6' and (${DESTINATARIO} = ${REMITENTE})`, {
+      l: 368,
+    });
   c.existe(
     '2761',
     'cac:DeliveryCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName',
     { l: 379 },
   );
+  // Motivos 02 (compra) y 07: se espera el proveedor (SellerSupplierParty); si falta, observación.
+  if (c.verdad("$motivoTraslado[text() = '02' or text() = '07']"))
+    c.falla(
+      '4375',
+      "count(cac:SellerSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID[text() != '']) = 0",
+      {
+        l: 415,
+        esError: false,
+      },
+    );
 
   c.existe('3404', 'cac:Shipment/cbc:HandlingCode', { l: 733 });
   c.enCatalogo('3405', 'cac:Shipment/cbc:HandlingCode', '20', { l: 738 });
@@ -93,6 +119,47 @@ export function validarGuia(ctx: Contexto): void {
         { l: 1208 },
       );
   }
+  // Modalidad 01 (transporte público): fecha de entrega de bienes al transportista (PAS20251U210700052).
+  if (c.verdad("$modalidadTraslado = '01'")) {
+    c.existe(
+      '3617',
+      'cac:Shipment/cac:ShipmentStage/cac:LoadingTransportEvent/cbc:OccurrenceDate',
+      { l: 1225 },
+    );
+    c.cumpleSiExiste(
+      '3619',
+      'cac:Shipment/cac:ShipmentStage/cac:LoadingTransportEvent/cbc:OccurrenceDate',
+      /^[0-9]{4}-[0-9]{2}-[0-9]{2}?$/,
+      { l: 1231 },
+    );
+    c.falla(
+      '3618',
+      "number(translate(cac:Shipment/cac:ShipmentStage/cac:LoadingTransportEvent/cbc:OccurrenceDate,'-','')) < number(translate(cbc:IssueDate,'-',''))",
+      { l: 1250 },
+    );
+  }
+  if (
+    c.verdad(
+      "$modalidadTraslado = '01' and count(cac:Shipment/cbc:SpecialInstructions[text() = 'SUNAT_Envio_IndicadorTrasladoVehiculoM1L']) = 0 and count(cac:Shipment/cbc:SpecialInstructions[text() = 'SUNAT_Envio_IndicadorVehiculoConductoresTransp']) = 1",
+    )
+  )
+    c.falla(
+      '3616',
+      "number(translate(cac:Shipment/cac:ShipmentStage/cac:TransitPeriod/cbc:StartDate,'-','')) < number(translate(cac:Shipment/cac:ShipmentStage/cac:LoadingTransportEvent/cbc:OccurrenceDate,'-',''))",
+      { l: 1264 },
+    );
+  // Modalidad 01 sin M1L: transportista obligatorio. Solo se porta la existencia (2558); el resto
+  // del bloque del transportista (2561, 2485, 2560, 2563…) está fuera de alcance (README).
+  if (
+    c.verdad(
+      "$modalidadTraslado = '01' and count(cac:Shipment/cbc:SpecialInstructions[text() = 'SUNAT_Envio_IndicadorTrasladoVehiculoM1L']) = 0",
+    )
+  )
+    c.existe(
+      '2558',
+      'cac:Shipment/cac:ShipmentStage/cac:CarrierParty/cac:PartyIdentification/cbc:ID',
+      { l: 1423 },
+    );
   if (c.verdad(CON_VEHICULO_02))
     c.existe('2566', 'cac:Shipment/cac:TransportHandlingUnit/cac:TransportEquipment/cbc:ID', {
       l: 1634,

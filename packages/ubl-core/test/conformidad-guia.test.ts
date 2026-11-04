@@ -284,6 +284,159 @@ const MUTACIONES: {
     nombre: 'cantidad 0 (sin documento relacionado: no se valida)',
     aplicar: cada(`${linea}/cbc:DeliveredQuantity`, texto('0')),
   },
+  // ── Anclas de las expresiones regulares (basura antes o después de un valor válido) ──
+  ...['x2.1', '2.1x'].map((v) => ({
+    nombre: `UBLVersionID «${v}»`,
+    aplicar: cada(`${r}/cbc:UBLVersionID`, texto(v)),
+  })),
+  ...['x2.0', '2.0x'].map((v) => ({
+    nombre: `CustomizationID «${v}»`,
+    aplicar: cada(`${r}/cbc:CustomizationID`, texto(v)),
+  })),
+  ...['XT001-1', 'T001-1X'].map((v) => ({
+    nombre: `ID «${v}»`,
+    aplicar: cada(`${r}/cbc:ID`, texto(v)),
+  })),
+  ...['x2026-11-03', '2026-11-03x'].map((v) => ({
+    nombre: `IssueDate «${v}»`,
+    aplicar: cada(`${r}/cbc:IssueDate`, texto(v)),
+  })),
+  ...['x10:00:00', '10:00:00x'].map((v) => ({
+    nombre: `IssueTime «${v}»`,
+    aplicar: cada(`${r}/cbc:IssueTime`, texto(v)),
+  })),
+  ...['x09', '09x'].map((v) => ({
+    nombre: `tipo de documento «${v}»`,
+    aplicar: cada(`${r}/cbc:DespatchAdviceTypeCode`, texto(v)),
+  })),
+  ...['x6', '6x'].map((v) => ({
+    nombre: `remitente con schemeID «${v}»`,
+    aplicar: cada(
+      `${r}/cac:DespatchSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID`,
+      attr('schemeID', v),
+    ),
+  })),
+  ...(
+    [
+      ['1', '12345678', 'DNI válido'],
+      ['1', 'a12345678', 'DNI con letra delante'],
+      ['1', '12345678a', 'DNI con letra detrás'],
+      ['6', 'x20000000002', 'RUC con letra delante'],
+      ['6', '20000000002x', 'RUC con letra detrás'],
+      ['4', 'X1234567', 'carné válido'],
+    ] as const
+  ).map(([tipo, numero, titulo]) => ({
+    nombre: `destinatario: ${titulo}`,
+    aplicar: cada(dest, (e: Element) => {
+      e.setAttribute('schemeID', tipo);
+      e.textContent = numero;
+    }),
+  })),
+  ...['xKGM', 'TNEx', 'KGMx'].map((v) => ({
+    nombre: `peso con unidad «${v}»`,
+    aplicar: cada(`${r}/cac:Shipment/cbc:GrossWeightMeasure`, attr('unitCode', v)),
+  })),
+  ...['x02', '02x', '01'].map((v) => ({
+    nombre: `modalidad «${v}»`,
+    aplicar: cada(`${r}/cac:Shipment/cac:ShipmentStage/cbc:TransportModeCode`, texto(v)),
+  })),
+  ...['x2026-11-03', '2026-11-03x'].map((v) => ({
+    nombre: `fecha de traslado «${v}»`,
+    aplicar: cada(`${r}/cac:Shipment/cac:ShipmentStage/cac:TransitPeriod/cbc:StartDate`, texto(v)),
+  })),
+  ...['000000', '0AB123', 'xABC123', 'ABC123x'].map((v) => ({
+    nombre: `placa «${v}»`,
+    aplicar: cada(
+      `${r}/cac:Shipment/cac:TransportHandlingUnit/cac:TransportEquipment/cbc:ID`,
+      texto(v),
+    ),
+  })),
+  ...['000000000', '0Q0000001', 'xQ00000001', 'Q00000001x'].map((v) => ({
+    nombre: `licencia «${v}»`,
+    aplicar: cada(`${cond}/cac:IdentityDocumentReference/cbc:ID`, texto(v)),
+  })),
+  ...['x150101', '150101x'].flatMap((v) => [
+    {
+      nombre: `ubigeo de partida «${v}»`,
+      aplicar: cada(
+        `${r}/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cbc:ID`,
+        texto(v),
+      ),
+    },
+    {
+      nombre: `ubigeo de llegada «${v}»`,
+      aplicar: cada(`${r}/cac:Shipment/cac:Delivery/cac:DeliveryAddress/cbc:ID`, texto(v)),
+    },
+  ]),
+  { nombre: 'número de línea de 2 dígitos', aplicar: cada(`${linea}/cbc:ID`, texto('12')) },
+  // ── Ramas del conductor ──
+  ...(
+    [
+      ['4', 'X1234567', 'con carné de extranjería'],
+      ['4', 'X123456789012345', 'con carné de 16 caracteres'],
+      ['4', 'X 1234', 'con carné con espacio'],
+    ] as const
+  ).map(([tipo, numero, titulo]) => ({
+    nombre: `conductor ${titulo}`,
+    aplicar: cada(`${cond}/cbc:ID`, (e: Element) => {
+      e.setAttribute('schemeID', tipo);
+      e.textContent = numero;
+    }),
+  })),
+  ...['Secundario', 'Ayudante'].map((v) => ({
+    nombre: `conductor con cargo «${v}»`,
+    aplicar: cada(`${cond}/cbc:JobTitle`, texto(v)),
+  })),
+  {
+    nombre: 'dos conductores principales',
+    aplicar: cada(cond, (e: Element) => e.parentNode?.insertBefore(e.cloneNode(true), e)),
+  },
+  {
+    nombre: 'conductor secundario además del principal',
+    aplicar: cada(cond, (e: Element) => {
+      const otro = e.cloneNode(true) as Element;
+      const cargo = otro.getElementsByTagName('cbc:JobTitle')[0];
+      if (cargo) cargo.textContent = 'Secundario';
+      e.parentNode?.insertBefore(otro, e.nextSibling);
+    }),
+  },
+  { nombre: 'motivo 18', aplicar: cada(`${r}/cac:Shipment/cbc:HandlingCode`, texto('18')) },
+  // ── Reglas 2554/2555 (destinatario frente a remitente) y 3616-3619 (modalidad 01) ──
+  ...(
+    [
+      ['02', true, 'motivo 02 con destinatario = remitente'],
+      ['01', true, 'motivo 01 con destinatario = remitente'],
+      ['04', false, 'motivo 04 con destinatario distinto'],
+    ] as const
+  ).map(([motivo, mismo, titulo]) => ({
+    nombre: titulo,
+    aplicar: (sel: Sel) => {
+      cada(`${r}/cac:Shipment/cbc:HandlingCode`, texto(motivo))(sel);
+      if (mismo) cada(dest, texto(emisor.ruc))(sel);
+    },
+  })),
+  ...(
+    [
+      ['2026-11-03', 'modalidad 01 con entrega al transportista'],
+      ['2026-11-02', 'modalidad 01 con entrega antes de la emisión'],
+      ['03/11/2026', 'modalidad 01 con fecha de entrega mal formada'],
+    ] as const
+  ).map(([fecha, titulo]) => ({
+    nombre: titulo,
+    aplicar: (sel: Sel) => {
+      cada(`${r}/cac:Shipment/cac:ShipmentStage/cbc:TransportModeCode`, texto('01'))(sel);
+      cada(`${r}/cac:Shipment/cac:ShipmentStage/cac:TransitPeriod`, (e: Element) => {
+        const doc = e.ownerDocument;
+        const ns = 'urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2';
+        const nsb = 'urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2';
+        const evento = doc.createElementNS(ns, 'cac:LoadingTransportEvent');
+        const f = doc.createElementNS(nsb, 'cbc:OccurrenceDate');
+        f.textContent = fecha;
+        evento.appendChild(f);
+        e.parentNode?.insertBefore(evento, e.nextSibling);
+      })(sel);
+    },
+  })),
   { nombre: 'línea sin descripción', aplicar: cada(`${linea}/cac:Item/cbc:Description`, quitar) },
 ];
 
