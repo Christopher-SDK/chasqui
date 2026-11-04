@@ -26,8 +26,11 @@ const CATALOGOS = {
   10: 'Tipo de nota de débito',
   11: 'Tipo de valor de venta (resumen diario)',
   12: 'Documentos relacionados tributarios',
+  13: 'Ubigeo (INEI)',
   16: 'Tipo de precio de venta unitario',
+  18: 'Modalidad de traslado',
   19: 'Código de estado del ítem (resumen diario)',
+  20: 'Motivo de traslado',
   51: 'Tipo de operación',
 };
 

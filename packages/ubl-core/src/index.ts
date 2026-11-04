@@ -49,3 +49,4 @@ export {
   type LineaResumen,
   type ResumenDiario,
 } from './resumenes.js';
+export { generarGuia, nombreGuia, type GuiaRemision } from './guia.js';

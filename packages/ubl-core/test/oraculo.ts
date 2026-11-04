@@ -12,7 +12,7 @@ export interface VeredictoOficial {
 }
 
 export interface CasoOraculo {
-  tipo: '01' | '03' | '07' | '08' | 'RA' | 'RC';
+  tipo: '01' | '03' | '07' | '08' | '09' | 'RA' | 'RC';
   nombre: string;
   xml: string;
 }

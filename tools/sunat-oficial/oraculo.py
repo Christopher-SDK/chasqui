@@ -24,6 +24,7 @@ XSL = {
     '03': 'xsl/2.X/ValidaExprRegBoleta-2.0.1.xsl',
     '07': 'xsl/2.X/ValidaExprRegNC-2.0.1.xsl',
     '08': 'xsl/2.X/ValidaExprRegND-2.0.1.xsl',
+    '09': 'xsl/2.X/ValidaExprRegGreRemitente-2.0.1.xsl',
     'RA': 'xsl/1.X/ValidaExprRegSummaryVoided-1.0.1.xsl',
     'RC': 'xsl/1.X/ValidaExprRegSummary-1.1.0.xsl',
 }
@@ -51,7 +52,9 @@ def coincide(ctx, valor, patron):
 _docs = {}
 def evaluar(ctx, expr):
     m = re.match(r"document\('([^']+)'\)(.*)$", expr, re.S)
-    url = os.path.normpath(os.path.join(BASE, 'error', m.group(1)))
+    url = ruta_local(m.group(1))
+    if not os.path.isabs(url):
+        url = os.path.normpath(os.path.join(BASE, 'error', url))
     doc = _docs.get(url) or _docs.setdefault(url, etree.parse(url))
     return doc.xpath('/' + m.group(2).lstrip('/'))
 
@@ -103,11 +106,20 @@ def desambiguar_variables(src):
         _desambiguar(plantilla, {}, {})
     return etree.tostring(raiz, encoding='unicode')
 
+# La hoja de GRE usa rutas absolutas de una instalación del SFS: se traducen a la descarga.
+SFS = re.compile(r'^(file://)?/cpe/data/sunat_archivos/sfs/VALI/commons/')
+
+def ruta_local(url):
+    return SFS.sub(BASE + '/', url).removeprefix('file://')
+
 class Resolver(etree.Resolver):
     def resolve(self, url, pubid, ctx):
-        if url.endswith('.xsl'):
-            with open(url.removeprefix('file://'), encoding='utf-8') as f:
+        local = ruta_local(url)
+        if local.endswith('.xsl'):
+            with open(local, encoding='utf-8') as f:
                 return self.resolve_string(parchear(f.read()), ctx)
+        if local != url.removeprefix('file://'):
+            return self.resolve_filename(local, ctx)
 
 _xslt = {}
 def hoja(tipo):

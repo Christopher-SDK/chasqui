@@ -76,6 +76,6325 @@ export const catalogo12 = {
   }
 } as const;
 
+/** Catálogo N.° 13: Ubigeo (INEI). Fuente: cat_13.xml (sha256 03de66f39c21ffa8c309bfe457d0d82a536632a5f0665c4d86dedfeae89df5b9). */
+export const catalogo13 = {
+  "100000": {
+    "nombre": "HUANUCO"
+  },
+  "100100": {
+    "nombre": "HUANUCO"
+  },
+  "100101": {
+    "nombre": "HUANUCO"
+  },
+  "100102": {
+    "nombre": "AMARILIS"
+  },
+  "100103": {
+    "nombre": "CHINCHAO"
+  },
+  "100104": {
+    "nombre": "CHURUBAMBA"
+  },
+  "100105": {
+    "nombre": "MARGOS"
+  },
+  "100106": {
+    "nombre": "QUISQUI"
+  },
+  "100107": {
+    "nombre": "SAN FRANCISCO DE CAYRAN"
+  },
+  "100108": {
+    "nombre": "SAN PEDRO DE CHAULAN"
+  },
+  "100109": {
+    "nombre": "SANTA MARIA DEL VALLE"
+  },
+  "100110": {
+    "nombre": "YARUMAYO"
+  },
+  "100111": {
+    "nombre": "PILLCO MARCA"
+  },
+  "100112": {
+    "nombre": "YACUS"
+  },
+  "100113": {
+    "nombre": "SAN PABLO DE PILLAO"
+  },
+  "100200": {
+    "nombre": "AMBO"
+  },
+  "100201": {
+    "nombre": "AMBO"
+  },
+  "100202": {
+    "nombre": "CAYNA"
+  },
+  "100203": {
+    "nombre": "COLPAS"
+  },
+  "100204": {
+    "nombre": "CONCHAMARCA"
+  },
+  "100205": {
+    "nombre": "HUACAR"
+  },
+  "100206": {
+    "nombre": "SAN FRANCISCO"
+  },
+  "100207": {
+    "nombre": "SAN RAFAEL"
+  },
+  "100208": {
+    "nombre": "TOMAY KICHWA"
+  },
+  "100300": {
+    "nombre": "DOS DE MAYO"
+  },
+  "100301": {
+    "nombre": "LA UNION"
+  },
+  "100307": {
+    "nombre": "CHUQUIS"
+  },
+  "100311": {
+    "nombre": "MARIAS"
+  },
+  "100313": {
+    "nombre": "PACHAS"
+  },
+  "100316": {
+    "nombre": "QUIVILLA"
+  },
+  "100317": {
+    "nombre": "RIPAN"
+  },
+  "100321": {
+    "nombre": "SHUNQUI"
+  },
+  "100322": {
+    "nombre": "SILLAPATA"
+  },
+  "100323": {
+    "nombre": "YANAS"
+  },
+  "100400": {
+    "nombre": "HUACAYBAMBA"
+  },
+  "100401": {
+    "nombre": "HUACAYBAMBA"
+  },
+  "100402": {
+    "nombre": "CANCHABAMBA"
+  },
+  "100403": {
+    "nombre": "COCHABAMBA"
+  },
+  "100404": {
+    "nombre": "PINRA"
+  },
+  "100500": {
+    "nombre": "HUAMALIES"
+  },
+  "100501": {
+    "nombre": "LLATA"
+  },
+  "100502": {
+    "nombre": "ARANCAY"
+  },
+  "100503": {
+    "nombre": "CHAVIN DE PARIARCA"
+  },
+  "100504": {
+    "nombre": "JACAS GRANDE"
+  },
+  "100505": {
+    "nombre": "JIRCAN"
+  },
+  "100506": {
+    "nombre": "MIRAFLORES"
+  },
+  "100507": {
+    "nombre": "MONZON"
+  },
+  "100508": {
+    "nombre": "PUNCHAO"
+  },
+  "100509": {
+    "nombre": "PUÑOS"
+  },
+  "100510": {
+    "nombre": "SINGA"
+  },
+  "100511": {
+    "nombre": "TANTAMAYO"
+  },
+  "100600": {
+    "nombre": "LEONCIO PRADO"
+  },
+  "100601": {
+    "nombre": "RUPA-RUPA"
+  },
+  "100602": {
+    "nombre": "DANIEL ALOMIA ROBLES"
+  },
+  "100603": {
+    "nombre": "HERMILIO VALDIZAN"
+  },
+  "100604": {
+    "nombre": "JOSE CRESPO Y CASTILLO"
+  },
+  "100605": {
+    "nombre": "LUYANDO"
+  },
+  "100606": {
+    "nombre": "MARIANO DAMASO BERAUN"
+  },
+  "100607": {
+    "nombre": "PUCAYACU"
+  },
+  "100608": {
+    "nombre": "CASTILLO GRANDE"
+  },
+  "100609": {
+    "nombre": "PUEBLO NUEVO"
+  },
+  "100610": {
+    "nombre": "SANTO DOMINGO DE ANDA"
+  },
+  "100700": {
+    "nombre": "MARAÑON"
+  },
+  "100701": {
+    "nombre": "HUACRACHUCO"
+  },
+  "100702": {
+    "nombre": "CHOLON"
+  },
+  "100703": {
+    "nombre": "SAN BUENAVENTURA"
+  },
+  "100704": {
+    "nombre": "LA MORADA"
+  },
+  "100705": {
+    "nombre": "SANTA ROSA DE ALTO YANAJANCA"
+  },
+  "100800": {
+    "nombre": "PACHITEA"
+  },
+  "100801": {
+    "nombre": "PANAO"
+  },
+  "100802": {
+    "nombre": "CHAGLLA"
+  },
+  "100803": {
+    "nombre": "MOLINO"
+  },
+  "100804": {
+    "nombre": "UMARI"
+  },
+  "100900": {
+    "nombre": "PUERTO INCA"
+  },
+  "100901": {
+    "nombre": "PUERTO INCA"
+  },
+  "100902": {
+    "nombre": "CODO DEL POZUZO"
+  },
+  "100903": {
+    "nombre": "HONORIA"
+  },
+  "100904": {
+    "nombre": "TOURNAVISTA"
+  },
+  "100905": {
+    "nombre": "YUYAPICHIS"
+  },
+  "101000": {
+    "nombre": "LAURICOCHA"
+  },
+  "101001": {
+    "nombre": "JESUS"
+  },
+  "101002": {
+    "nombre": "BAÑOS"
+  },
+  "101003": {
+    "nombre": "JIVIA"
+  },
+  "101004": {
+    "nombre": "QUEROPALCA"
+  },
+  "101005": {
+    "nombre": "RONDOS"
+  },
+  "101006": {
+    "nombre": "SAN FRANCISCO DE ASIS"
+  },
+  "101007": {
+    "nombre": "SAN MIGUEL DE CAURI"
+  },
+  "101100": {
+    "nombre": "YAROWILCA"
+  },
+  "101101": {
+    "nombre": "CHAVINILLO"
+  },
+  "101102": {
+    "nombre": "CAHUAC"
+  },
+  "101103": {
+    "nombre": "CHACABAMBA"
+  },
+  "101104": {
+    "nombre": "APARICIO POMARES"
+  },
+  "101105": {
+    "nombre": "JACAS CHICO"
+  },
+  "101106": {
+    "nombre": "OBAS"
+  },
+  "101107": {
+    "nombre": "PAMPAMARCA"
+  },
+  "101108": {
+    "nombre": "CHORAS"
+  },
+  "110000": {
+    "nombre": "ICA"
+  },
+  "110100": {
+    "nombre": "ICA"
+  },
+  "110101": {
+    "nombre": "ICA"
+  },
+  "110102": {
+    "nombre": "LA TINGUIÑA"
+  },
+  "110103": {
+    "nombre": "LOS AQUIJES"
+  },
+  "110104": {
+    "nombre": "OCUCAJE"
+  },
+  "110105": {
+    "nombre": "PACHACUTEC"
+  },
+  "110106": {
+    "nombre": "PARCONA"
+  },
+  "110107": {
+    "nombre": "PUEBLO NUEVO"
+  },
+  "110108": {
+    "nombre": "SALAS"
+  },
+  "110109": {
+    "nombre": "SAN JOSE DE LOS MOLINOS"
+  },
+  "110110": {
+    "nombre": "SAN JUAN BAUTISTA"
+  },
+  "110111": {
+    "nombre": "SANTIAGO"
+  },
+  "110112": {
+    "nombre": "SUBTANJALLA"
+  },
+  "110113": {
+    "nombre": "TATE"
+  },
+  "110114": {
+    "nombre": "YAUCA DEL ROSARIO"
+  },
+  "110200": {
+    "nombre": "CHINCHA"
+  },
+  "110201": {
+    "nombre": "CHINCHA ALTA"
+  },
+  "110202": {
+    "nombre": "ALTO LARAN"
+  },
+  "110203": {
+    "nombre": "CHAVIN"
+  },
+  "110204": {
+    "nombre": "CHINCHA BAJA"
+  },
+  "110205": {
+    "nombre": "EL CARMEN"
+  },
+  "110206": {
+    "nombre": "GROCIO PRADO"
+  },
+  "110207": {
+    "nombre": "PUEBLO NUEVO"
+  },
+  "110208": {
+    "nombre": "SAN JUAN DE YANAC"
+  },
+  "110209": {
+    "nombre": "SAN PEDRO DE HUACARPANA"
+  },
+  "110210": {
+    "nombre": "SUNAMPE"
+  },
+  "110211": {
+    "nombre": "TAMBO DE MORA"
+  },
+  "110300": {
+    "nombre": "NAZCA"
+  },
+  "110301": {
+    "nombre": "NASCA"
+  },
+  "110302": {
+    "nombre": "CHANGUILLO"
+  },
+  "110303": {
+    "nombre": "EL INGENIO"
+  },
+  "110304": {
+    "nombre": "MARCONA"
+  },
+  "110305": {
+    "nombre": "VISTA ALEGRE"
+  },
+  "110400": {
+    "nombre": "PALPA"
+  },
+  "110401": {
+    "nombre": "PALPA"
+  },
+  "110402": {
+    "nombre": "LLIPATA"
+  },
+  "110403": {
+    "nombre": "RIO GRANDE"
+  },
+  "110404": {
+    "nombre": "SANTA CRUZ"
+  },
+  "110405": {
+    "nombre": "TIBILLO"
+  },
+  "110500": {
+    "nombre": "PISCO"
+  },
+  "110501": {
+    "nombre": "PISCO"
+  },
+  "110502": {
+    "nombre": "HUANCANO"
+  },
+  "110503": {
+    "nombre": "HUMAY"
+  },
+  "110504": {
+    "nombre": "INDEPENDENCIA"
+  },
+  "110505": {
+    "nombre": "PARACAS"
+  },
+  "110506": {
+    "nombre": "SAN ANDRES"
+  },
+  "110507": {
+    "nombre": "SAN CLEMENTE"
+  },
+  "110508": {
+    "nombre": "TUPAC AMARU INCA"
+  },
+  "120000": {
+    "nombre": "JUNIN"
+  },
+  "120100": {
+    "nombre": "HUANCAYO"
+  },
+  "120101": {
+    "nombre": "HUANCAYO"
+  },
+  "120104": {
+    "nombre": "CARHUACALLANGA"
+  },
+  "120105": {
+    "nombre": "CHACAPAMPA"
+  },
+  "120106": {
+    "nombre": "CHICCHE"
+  },
+  "120107": {
+    "nombre": "CHILCA"
+  },
+  "120108": {
+    "nombre": "CHONGOS ALTO"
+  },
+  "120111": {
+    "nombre": "CHUPURO"
+  },
+  "120112": {
+    "nombre": "COLCA"
+  },
+  "120113": {
+    "nombre": "CULLHUAS"
+  },
+  "120114": {
+    "nombre": "EL TAMBO"
+  },
+  "120116": {
+    "nombre": "HUACRAPUQUIO"
+  },
+  "120117": {
+    "nombre": "HUALHUAS"
+  },
+  "120119": {
+    "nombre": "HUANCAN"
+  },
+  "120120": {
+    "nombre": "HUASICANCHA"
+  },
+  "120121": {
+    "nombre": "HUAYUCACHI"
+  },
+  "120122": {
+    "nombre": "INGENIO"
+  },
+  "120124": {
+    "nombre": "PARIAHUANCA"
+  },
+  "120125": {
+    "nombre": "PILCOMAYO"
+  },
+  "120126": {
+    "nombre": "PUCARA"
+  },
+  "120127": {
+    "nombre": "QUICHUAY"
+  },
+  "120128": {
+    "nombre": "QUILCAS"
+  },
+  "120129": {
+    "nombre": "SAN AGUSTIN"
+  },
+  "120130": {
+    "nombre": "SAN JERONIMO DE TUNAN"
+  },
+  "120132": {
+    "nombre": "SAÑO"
+  },
+  "120133": {
+    "nombre": "SAPALLANGA"
+  },
+  "120134": {
+    "nombre": "SICAYA"
+  },
+  "120135": {
+    "nombre": "SANTO DOMINGO DE ACOBAMBA"
+  },
+  "120136": {
+    "nombre": "VIQUES"
+  },
+  "120200": {
+    "nombre": "CONCEPCION"
+  },
+  "120201": {
+    "nombre": "CONCEPCION"
+  },
+  "120202": {
+    "nombre": "ACO"
+  },
+  "120203": {
+    "nombre": "ANDAMARCA"
+  },
+  "120204": {
+    "nombre": "CHAMBARA"
+  },
+  "120205": {
+    "nombre": "COCHAS"
+  },
+  "120206": {
+    "nombre": "COMAS"
+  },
+  "120207": {
+    "nombre": "HEROINAS TOLEDO"
+  },
+  "120208": {
+    "nombre": "MANZANARES"
+  },
+  "120209": {
+    "nombre": "MARISCAL CASTILLA"
+  },
+  "120210": {
+    "nombre": "MATAHUASI"
+  },
+  "120211": {
+    "nombre": "MITO"
+  },
+  "120212": {
+    "nombre": "NUEVE DE JULIO"
+  },
+  "120213": {
+    "nombre": "ORCOTUNA"
+  },
+  "120214": {
+    "nombre": "SAN JOSE DE QUERO"
+  },
+  "120215": {
+    "nombre": "SANTA ROSA DE OCOPA"
+  },
+  "120300": {
+    "nombre": "CHANCHAMAYO"
+  },
+  "120301": {
+    "nombre": "CHANCHAMAYO"
+  },
+  "120302": {
+    "nombre": "PERENE"
+  },
+  "120303": {
+    "nombre": "PICHANAQUI"
+  },
+  "120304": {
+    "nombre": "SAN LUIS DE SHUARO"
+  },
+  "120305": {
+    "nombre": "SAN RAMON"
+  },
+  "120306": {
+    "nombre": "VITOC"
+  },
+  "120400": {
+    "nombre": "JAUJA"
+  },
+  "120401": {
+    "nombre": "JAUJA"
+  },
+  "120402": {
+    "nombre": "ACOLLA"
+  },
+  "120403": {
+    "nombre": "APATA"
+  },
+  "120404": {
+    "nombre": "ATAURA"
+  },
+  "120405": {
+    "nombre": "CANCHAYLLO"
+  },
+  "120406": {
+    "nombre": "CURICACA"
+  },
+  "120407": {
+    "nombre": "EL MANTARO"
+  },
+  "120408": {
+    "nombre": "HUAMALI"
+  },
+  "120409": {
+    "nombre": "HUARIPAMPA"
+  },
+  "120410": {
+    "nombre": "HUERTAS"
+  },
+  "120411": {
+    "nombre": "JANJAILLO"
+  },
+  "120412": {
+    "nombre": "JULCAN"
+  },
+  "120413": {
+    "nombre": "LEONOR ORDOÑEZ"
+  },
+  "120414": {
+    "nombre": "LLOCLLAPAMPA"
+  },
+  "120415": {
+    "nombre": "MARCO"
+  },
+  "120416": {
+    "nombre": "MASMA"
+  },
+  "120417": {
+    "nombre": "MASMA CHICCHE"
+  },
+  "120418": {
+    "nombre": "MOLINOS"
+  },
+  "120419": {
+    "nombre": "MONOBAMBA"
+  },
+  "120420": {
+    "nombre": "MUQUI"
+  },
+  "120421": {
+    "nombre": "MUQUIYAUYO"
+  },
+  "120422": {
+    "nombre": "PACA"
+  },
+  "120423": {
+    "nombre": "PACCHA"
+  },
+  "120424": {
+    "nombre": "PANCAN"
+  },
+  "120425": {
+    "nombre": "PARCO"
+  },
+  "120426": {
+    "nombre": "POMACANCHA"
+  },
+  "120427": {
+    "nombre": "RICRAN"
+  },
+  "120428": {
+    "nombre": "SAN LORENZO"
+  },
+  "120429": {
+    "nombre": "SAN PEDRO DE CHUNAN"
+  },
+  "120430": {
+    "nombre": "SAUSA"
+  },
+  "120431": {
+    "nombre": "SINCOS"
+  },
+  "120432": {
+    "nombre": "TUNAN MARCA"
+  },
+  "120433": {
+    "nombre": "YAULI"
+  },
+  "120434": {
+    "nombre": "YAUYOS"
+  },
+  "120500": {
+    "nombre": "JUNIN"
+  },
+  "120501": {
+    "nombre": "JUNIN"
+  },
+  "120502": {
+    "nombre": "CARHUAMAYO"
+  },
+  "120503": {
+    "nombre": "ONDORES"
+  },
+  "120504": {
+    "nombre": "ULCUMAYO"
+  },
+  "120600": {
+    "nombre": "SATIPO"
+  },
+  "120601": {
+    "nombre": "SATIPO"
+  },
+  "120602": {
+    "nombre": "COVIRIALI"
+  },
+  "120603": {
+    "nombre": "LLAYLLA"
+  },
+  "120604": {
+    "nombre": "MAZAMARI"
+  },
+  "120605": {
+    "nombre": "PAMPA HERMOSA"
+  },
+  "120606": {
+    "nombre": "PANGOA"
+  },
+  "120607": {
+    "nombre": "RIO NEGRO"
+  },
+  "120608": {
+    "nombre": "RIO TAMBO"
+  },
+  "120609": {
+    "nombre": "VIZCATAN DEL ENE"
+  },
+  "120700": {
+    "nombre": "TARMA"
+  },
+  "120701": {
+    "nombre": "TARMA"
+  },
+  "120702": {
+    "nombre": "ACOBAMBA"
+  },
+  "120703": {
+    "nombre": "HUARICOLCA"
+  },
+  "120704": {
+    "nombre": "HUASAHUASI"
+  },
+  "120705": {
+    "nombre": "LA UNION"
+  },
+  "120706": {
+    "nombre": "PALCA"
+  },
+  "120707": {
+    "nombre": "PALCAMAYO"
+  },
+  "120708": {
+    "nombre": "SAN PEDRO DE CAJAS"
+  },
+  "120709": {
+    "nombre": "TAPO"
+  },
+  "120800": {
+    "nombre": "YAULI"
+  },
+  "120801": {
+    "nombre": "LA OROYA"
+  },
+  "120802": {
+    "nombre": "CHACAPALPA"
+  },
+  "120803": {
+    "nombre": "HUAY-HUAY"
+  },
+  "120804": {
+    "nombre": "MARCAPOMACOCHA"
+  },
+  "120805": {
+    "nombre": "MOROCOCHA"
+  },
+  "120806": {
+    "nombre": "PACCHA"
+  },
+  "120807": {
+    "nombre": "SANTA BARBARA DE CARHUACAYAN"
+  },
+  "120808": {
+    "nombre": "SANTA ROSA DE SACCO"
+  },
+  "120809": {
+    "nombre": "SUITUCANCHA"
+  },
+  "120810": {
+    "nombre": "YAULI"
+  },
+  "120900": {
+    "nombre": "CHUPACA"
+  },
+  "120901": {
+    "nombre": "CHUPACA"
+  },
+  "120902": {
+    "nombre": "AHUAC"
+  },
+  "120903": {
+    "nombre": "CHONGOS BAJO"
+  },
+  "120904": {
+    "nombre": "HUACHAC"
+  },
+  "120905": {
+    "nombre": "HUAMANCACA CHICO"
+  },
+  "120906": {
+    "nombre": "SAN JUAN DE ISCOS"
+  },
+  "120907": {
+    "nombre": "SAN JUAN DE JARPA"
+  },
+  "120908": {
+    "nombre": "TRES DE DICIEMBRE"
+  },
+  "120909": {
+    "nombre": "YANACANCHA"
+  },
+  "130000": {
+    "nombre": "LA LIBERTAD"
+  },
+  "130100": {
+    "nombre": "TRUJILLO"
+  },
+  "130101": {
+    "nombre": "TRUJILLO"
+  },
+  "130102": {
+    "nombre": "EL PORVENIR"
+  },
+  "130103": {
+    "nombre": "FLORENCIA DE MORA"
+  },
+  "130104": {
+    "nombre": "HUANCHACO"
+  },
+  "130105": {
+    "nombre": "LA ESPERANZA"
+  },
+  "130106": {
+    "nombre": "LAREDO"
+  },
+  "130107": {
+    "nombre": "MOCHE"
+  },
+  "130108": {
+    "nombre": "POROTO"
+  },
+  "130109": {
+    "nombre": "SALAVERRY"
+  },
+  "130110": {
+    "nombre": "SIMBAL"
+  },
+  "130111": {
+    "nombre": "VICTOR LARCO HERRERA"
+  },
+  "130200": {
+    "nombre": "ASCOPE"
+  },
+  "130201": {
+    "nombre": "ASCOPE"
+  },
+  "130202": {
+    "nombre": "CHICAMA"
+  },
+  "130203": {
+    "nombre": "CHOCOPE"
+  },
+  "130204": {
+    "nombre": "MAGDALENA DE CAO"
+  },
+  "130205": {
+    "nombre": "PAIJAN"
+  },
+  "130206": {
+    "nombre": "RAZURI"
+  },
+  "130207": {
+    "nombre": "SANTIAGO DE CAO"
+  },
+  "130208": {
+    "nombre": "CASA GRANDE"
+  },
+  "130300": {
+    "nombre": "BOLIVAR"
+  },
+  "130301": {
+    "nombre": "BOLIVAR"
+  },
+  "130302": {
+    "nombre": "BAMBAMARCA"
+  },
+  "130303": {
+    "nombre": "CONDORMARCA"
+  },
+  "130304": {
+    "nombre": "LONGOTEA"
+  },
+  "130305": {
+    "nombre": "UCHUMARCA"
+  },
+  "130306": {
+    "nombre": "UCUNCHA"
+  },
+  "130400": {
+    "nombre": "CHEPEN"
+  },
+  "130401": {
+    "nombre": "CHEPEN"
+  },
+  "130402": {
+    "nombre": "PACANGA"
+  },
+  "130403": {
+    "nombre": "PUEBLO NUEVO"
+  },
+  "130500": {
+    "nombre": "JULCAN"
+  },
+  "130501": {
+    "nombre": "JULCAN"
+  },
+  "130502": {
+    "nombre": "CALAMARCA"
+  },
+  "130503": {
+    "nombre": "CARABAMBA"
+  },
+  "130504": {
+    "nombre": "HUASO"
+  },
+  "130600": {
+    "nombre": "OTUZCO"
+  },
+  "130601": {
+    "nombre": "OTUZCO"
+  },
+  "130602": {
+    "nombre": "AGALLPAMPA"
+  },
+  "130604": {
+    "nombre": "CHARAT"
+  },
+  "130605": {
+    "nombre": "HUARANCHAL"
+  },
+  "130606": {
+    "nombre": "LA CUESTA"
+  },
+  "130608": {
+    "nombre": "MACHE"
+  },
+  "130610": {
+    "nombre": "PARANDAY"
+  },
+  "130611": {
+    "nombre": "SALPO"
+  },
+  "130613": {
+    "nombre": "SINSICAP"
+  },
+  "130614": {
+    "nombre": "USQUIL"
+  },
+  "130700": {
+    "nombre": "PACASMAYO"
+  },
+  "130701": {
+    "nombre": "SAN PEDRO DE LLOC"
+  },
+  "130702": {
+    "nombre": "GUADALUPE"
+  },
+  "130703": {
+    "nombre": "JEQUETEPEQUE"
+  },
+  "130704": {
+    "nombre": "PACASMAYO"
+  },
+  "130705": {
+    "nombre": "SAN JOSE"
+  },
+  "130800": {
+    "nombre": "PATAZ"
+  },
+  "130801": {
+    "nombre": "TAYABAMBA"
+  },
+  "130802": {
+    "nombre": "BULDIBUYO"
+  },
+  "130803": {
+    "nombre": "CHILLIA"
+  },
+  "130804": {
+    "nombre": "HUANCASPATA"
+  },
+  "130805": {
+    "nombre": "HUAYLILLAS"
+  },
+  "130806": {
+    "nombre": "HUAYO"
+  },
+  "130807": {
+    "nombre": "ONGON"
+  },
+  "130808": {
+    "nombre": "PARCOY"
+  },
+  "130809": {
+    "nombre": "PATAZ"
+  },
+  "130810": {
+    "nombre": "PIAS"
+  },
+  "130811": {
+    "nombre": "SANTIAGO DE CHALLAS"
+  },
+  "130812": {
+    "nombre": "TAURIJA"
+  },
+  "130813": {
+    "nombre": "URPAY"
+  },
+  "130900": {
+    "nombre": "SANCHEZ CARRION"
+  },
+  "130901": {
+    "nombre": "HUAMACHUCO"
+  },
+  "130902": {
+    "nombre": "CHUGAY"
+  },
+  "130903": {
+    "nombre": "COCHORCO"
+  },
+  "130904": {
+    "nombre": "CURGOS"
+  },
+  "130905": {
+    "nombre": "MARCABAL"
+  },
+  "130906": {
+    "nombre": "SANAGORAN"
+  },
+  "130907": {
+    "nombre": "SARIN"
+  },
+  "130908": {
+    "nombre": "SARTIMBAMBA"
+  },
+  "131000": {
+    "nombre": "SANTIAGO DE CHUCO"
+  },
+  "131001": {
+    "nombre": "SANTIAGO DE CHUCO"
+  },
+  "131002": {
+    "nombre": "ANGASMARCA"
+  },
+  "131003": {
+    "nombre": "CACHICADAN"
+  },
+  "131004": {
+    "nombre": "MOLLEBAMBA"
+  },
+  "131005": {
+    "nombre": "MOLLEPATA"
+  },
+  "131006": {
+    "nombre": "QUIRUVILCA"
+  },
+  "131007": {
+    "nombre": "SANTA CRUZ DE CHUCA"
+  },
+  "131008": {
+    "nombre": "SITABAMBA"
+  },
+  "131100": {
+    "nombre": "GRAN CHIMU"
+  },
+  "131101": {
+    "nombre": "CASCAS"
+  },
+  "131102": {
+    "nombre": "LUCMA"
+  },
+  "131103": {
+    "nombre": "MARMOT"
+  },
+  "131104": {
+    "nombre": "SAYAPULLO"
+  },
+  "131200": {
+    "nombre": "VIRU"
+  },
+  "131201": {
+    "nombre": "VIRU"
+  },
+  "131202": {
+    "nombre": "CHAO"
+  },
+  "131203": {
+    "nombre": "GUADALUPITO"
+  },
+  "140000": {
+    "nombre": "LAMBAYEQUE"
+  },
+  "140100": {
+    "nombre": "CHICLAYO"
+  },
+  "140101": {
+    "nombre": "CHICLAYO"
+  },
+  "140102": {
+    "nombre": "CHONGOYAPE"
+  },
+  "140103": {
+    "nombre": "ETEN"
+  },
+  "140104": {
+    "nombre": "ETEN PUERTO"
+  },
+  "140105": {
+    "nombre": "JOSE LEONARDO ORTIZ"
+  },
+  "140106": {
+    "nombre": "LA VICTORIA"
+  },
+  "140107": {
+    "nombre": "LAGUNAS"
+  },
+  "140108": {
+    "nombre": "MONSEFU"
+  },
+  "140109": {
+    "nombre": "NUEVA ARICA"
+  },
+  "140110": {
+    "nombre": "OYOTUN"
+  },
+  "140111": {
+    "nombre": "PICSI"
+  },
+  "140112": {
+    "nombre": "PIMENTEL"
+  },
+  "140113": {
+    "nombre": "REQUE"
+  },
+  "140114": {
+    "nombre": "SANTA ROSA"
+  },
+  "140115": {
+    "nombre": "SAÑA"
+  },
+  "140116": {
+    "nombre": "CAYALTI"
+  },
+  "140117": {
+    "nombre": "PATAPO"
+  },
+  "140118": {
+    "nombre": "POMALCA"
+  },
+  "140119": {
+    "nombre": "PUCALA"
+  },
+  "140120": {
+    "nombre": "TUMAN"
+  },
+  "140200": {
+    "nombre": "FERREÑAFE"
+  },
+  "140201": {
+    "nombre": "FERREÑAFE"
+  },
+  "140202": {
+    "nombre": "CAÑARIS"
+  },
+  "140203": {
+    "nombre": "INCAHUASI"
+  },
+  "140204": {
+    "nombre": "MANUEL ANTONIO MESONES MURO"
+  },
+  "140205": {
+    "nombre": "PITIPO"
+  },
+  "140206": {
+    "nombre": "PUEBLO NUEVO"
+  },
+  "140300": {
+    "nombre": "LAMBAYEQUE"
+  },
+  "140301": {
+    "nombre": "LAMBAYEQUE"
+  },
+  "140302": {
+    "nombre": "CHOCHOPE"
+  },
+  "140303": {
+    "nombre": "ILLIMO"
+  },
+  "140304": {
+    "nombre": "JAYANCA"
+  },
+  "140305": {
+    "nombre": "MOCHUMI"
+  },
+  "140306": {
+    "nombre": "MORROPE"
+  },
+  "140307": {
+    "nombre": "MOTUPE"
+  },
+  "140308": {
+    "nombre": "OLMOS"
+  },
+  "140309": {
+    "nombre": "PACORA"
+  },
+  "140310": {
+    "nombre": "SALAS"
+  },
+  "140311": {
+    "nombre": "SAN JOSE"
+  },
+  "140312": {
+    "nombre": "TUCUME"
+  },
+  "150000": {
+    "nombre": "LIMA"
+  },
+  "150100": {
+    "nombre": "LIMA"
+  },
+  "150101": {
+    "nombre": "LIMA"
+  },
+  "150102": {
+    "nombre": "ANCON"
+  },
+  "150103": {
+    "nombre": "ATE"
+  },
+  "150104": {
+    "nombre": "BARRANCO"
+  },
+  "150105": {
+    "nombre": "BREÑA"
+  },
+  "150106": {
+    "nombre": "CARABAYLLO"
+  },
+  "150107": {
+    "nombre": "CHACLACAYO"
+  },
+  "150108": {
+    "nombre": "CHORRILLOS"
+  },
+  "150109": {
+    "nombre": "CIENEGUILLA"
+  },
+  "150110": {
+    "nombre": "COMAS"
+  },
+  "150111": {
+    "nombre": "EL AGUSTINO"
+  },
+  "150112": {
+    "nombre": "INDEPENDENCIA"
+  },
+  "150113": {
+    "nombre": "JESUS MARIA"
+  },
+  "150114": {
+    "nombre": "LA MOLINA"
+  },
+  "150115": {
+    "nombre": "LA VICTORIA"
+  },
+  "150116": {
+    "nombre": "LINCE"
+  },
+  "150117": {
+    "nombre": "LOS OLIVOS"
+  },
+  "150118": {
+    "nombre": "LURIGANCHO"
+  },
+  "150119": {
+    "nombre": "LURIN"
+  },
+  "150120": {
+    "nombre": "MAGDALENA DEL MAR"
+  },
+  "150121": {
+    "nombre": "PUEBLO LIBRE (MAGDALENA VIEJA)"
+  },
+  "150122": {
+    "nombre": "MIRAFLORES"
+  },
+  "150123": {
+    "nombre": "PACHACAMAC"
+  },
+  "150124": {
+    "nombre": "PUCUSANA"
+  },
+  "150125": {
+    "nombre": "PUENTE PIEDRA"
+  },
+  "150126": {
+    "nombre": "PUNTA HERMOSA"
+  },
+  "150127": {
+    "nombre": "PUNTA NEGRA"
+  },
+  "150128": {
+    "nombre": "RIMAC"
+  },
+  "150129": {
+    "nombre": "SAN BARTOLO"
+  },
+  "150130": {
+    "nombre": "SAN BORJA"
+  },
+  "150131": {
+    "nombre": "SAN ISIDRO"
+  },
+  "150132": {
+    "nombre": "SAN JUAN DE LURIGANCHO"
+  },
+  "150133": {
+    "nombre": "SAN JUAN DE MIRAFLORES"
+  },
+  "150134": {
+    "nombre": "SAN LUIS"
+  },
+  "150135": {
+    "nombre": "SAN MARTIN DE PORRES"
+  },
+  "150136": {
+    "nombre": "SAN MIGUEL"
+  },
+  "150137": {
+    "nombre": "SANTA ANITA"
+  },
+  "150138": {
+    "nombre": "SANTA MARIA DEL MAR"
+  },
+  "150139": {
+    "nombre": "SANTA ROSA"
+  },
+  "150140": {
+    "nombre": "SANTIAGO DE SURCO"
+  },
+  "150141": {
+    "nombre": "SURQUILLO"
+  },
+  "150142": {
+    "nombre": "VILLA EL SALVADOR"
+  },
+  "150143": {
+    "nombre": "VILLA MARIA DEL TRIUNFO"
+  },
+  "150200": {
+    "nombre": "BARRANCA"
+  },
+  "150201": {
+    "nombre": "BARRANCA"
+  },
+  "150202": {
+    "nombre": "PARAMONGA"
+  },
+  "150203": {
+    "nombre": "PATIVILCA"
+  },
+  "150204": {
+    "nombre": "SUPE"
+  },
+  "150205": {
+    "nombre": "SUPE PUERTO"
+  },
+  "150300": {
+    "nombre": "CAJATAMBO"
+  },
+  "150301": {
+    "nombre": "CAJATAMBO"
+  },
+  "150302": {
+    "nombre": "COPA"
+  },
+  "150303": {
+    "nombre": "GORGOR"
+  },
+  "150304": {
+    "nombre": "HUANCAPON"
+  },
+  "150305": {
+    "nombre": "MANAS"
+  },
+  "150400": {
+    "nombre": "CANTA"
+  },
+  "150401": {
+    "nombre": "CANTA"
+  },
+  "150402": {
+    "nombre": "ARAHUAY"
+  },
+  "150403": {
+    "nombre": "HUAMANTANGA"
+  },
+  "150404": {
+    "nombre": "HUAROS"
+  },
+  "150405": {
+    "nombre": "LACHAQUI"
+  },
+  "150406": {
+    "nombre": "SAN BUENAVENTURA"
+  },
+  "150407": {
+    "nombre": "SANTA ROSA DE QUIVES"
+  },
+  "150500": {
+    "nombre": "CAÑETE"
+  },
+  "150501": {
+    "nombre": "SAN VICENTE DE CAÑETE"
+  },
+  "150502": {
+    "nombre": "ASIA"
+  },
+  "150503": {
+    "nombre": "CALANGO"
+  },
+  "150504": {
+    "nombre": "CERRO AZUL"
+  },
+  "150505": {
+    "nombre": "CHILCA"
+  },
+  "150506": {
+    "nombre": "COAYLLO"
+  },
+  "150507": {
+    "nombre": "IMPERIAL"
+  },
+  "150508": {
+    "nombre": "LUNAHUANA"
+  },
+  "150509": {
+    "nombre": "MALA"
+  },
+  "150510": {
+    "nombre": "NUEVO IMPERIAL"
+  },
+  "150511": {
+    "nombre": "PACARAN"
+  },
+  "150512": {
+    "nombre": "QUILMANA"
+  },
+  "150513": {
+    "nombre": "SAN ANTONIO"
+  },
+  "150514": {
+    "nombre": "SAN LUIS"
+  },
+  "150515": {
+    "nombre": "SANTA CRUZ DE FLORES"
+  },
+  "150516": {
+    "nombre": "ZUÑIGA"
+  },
+  "150600": {
+    "nombre": "HUARAL"
+  },
+  "150601": {
+    "nombre": "HUARAL"
+  },
+  "150602": {
+    "nombre": "ATAVILLOS ALTO"
+  },
+  "150603": {
+    "nombre": "ATAVILLOS BAJO"
+  },
+  "150604": {
+    "nombre": "AUCALLAMA"
+  },
+  "150605": {
+    "nombre": "CHANCAY"
+  },
+  "150606": {
+    "nombre": "IHUARI"
+  },
+  "150607": {
+    "nombre": "LAMPIAN"
+  },
+  "150608": {
+    "nombre": "PACARAOS"
+  },
+  "150609": {
+    "nombre": "SAN MIGUEL DE ACOS"
+  },
+  "150610": {
+    "nombre": "SANTA CRUZ DE ANDAMARCA"
+  },
+  "150611": {
+    "nombre": "SUMBILCA"
+  },
+  "150612": {
+    "nombre": "VEINTISIETE DE NOVIEMBRE"
+  },
+  "150700": {
+    "nombre": "HUAROCHIRI"
+  },
+  "150701": {
+    "nombre": "MATUCANA"
+  },
+  "150702": {
+    "nombre": "ANTIOQUIA"
+  },
+  "150703": {
+    "nombre": "CALLAHUANCA"
+  },
+  "150704": {
+    "nombre": "CARAMPOMA"
+  },
+  "150705": {
+    "nombre": "CHICLA"
+  },
+  "150706": {
+    "nombre": "CUENCA"
+  },
+  "150707": {
+    "nombre": "HUACHUPAMPA"
+  },
+  "150708": {
+    "nombre": "HUANZA"
+  },
+  "150709": {
+    "nombre": "HUAROCHIRI"
+  },
+  "150710": {
+    "nombre": "LAHUAYTAMBO"
+  },
+  "150711": {
+    "nombre": "LANGA"
+  },
+  "150712": {
+    "nombre": "LARAOS"
+  },
+  "150713": {
+    "nombre": "MARIATANA"
+  },
+  "150714": {
+    "nombre": "RICARDO PALMA"
+  },
+  "150715": {
+    "nombre": "SAN ANDRES DE TUPICOCHA"
+  },
+  "150716": {
+    "nombre": "SAN ANTONIO"
+  },
+  "150717": {
+    "nombre": "SAN BARTOLOME"
+  },
+  "150718": {
+    "nombre": "SAN DAMIAN"
+  },
+  "150719": {
+    "nombre": "SAN JUAN DE IRIS"
+  },
+  "150720": {
+    "nombre": "SAN JUAN DE TANTARANCHE"
+  },
+  "150721": {
+    "nombre": "SAN LORENZO DE QUINTI"
+  },
+  "150722": {
+    "nombre": "SAN MATEO"
+  },
+  "150723": {
+    "nombre": "SAN MATEO DE OTAO"
+  },
+  "150724": {
+    "nombre": "SAN PEDRO DE CASTA"
+  },
+  "150725": {
+    "nombre": "SAN PEDRO DE HUANCAYRE"
+  },
+  "150726": {
+    "nombre": "SANGALLAYA"
+  },
+  "150727": {
+    "nombre": "SANTA CRUZ DE COCACHACRA"
+  },
+  "150728": {
+    "nombre": "SANTA EULALIA"
+  },
+  "150729": {
+    "nombre": "SANTIAGO DE ANCHUCAYA"
+  },
+  "150730": {
+    "nombre": "SANTIAGO DE TUNA"
+  },
+  "150731": {
+    "nombre": "SANTO DOMINGO DE LOS OLLEROS"
+  },
+  "150732": {
+    "nombre": "SURCO"
+  },
+  "150800": {
+    "nombre": "HUAURA"
+  },
+  "150801": {
+    "nombre": "HUACHO"
+  },
+  "150802": {
+    "nombre": "AMBAR"
+  },
+  "150803": {
+    "nombre": "CALETA DE CARQUIN"
+  },
+  "150804": {
+    "nombre": "CHECRAS"
+  },
+  "150805": {
+    "nombre": "HUALMAY"
+  },
+  "150806": {
+    "nombre": "HUAURA"
+  },
+  "150807": {
+    "nombre": "LEONCIO PRADO"
+  },
+  "150808": {
+    "nombre": "PACCHO"
+  },
+  "150809": {
+    "nombre": "SANTA LEONOR"
+  },
+  "150810": {
+    "nombre": "SANTA MARIA"
+  },
+  "150811": {
+    "nombre": "SAYAN"
+  },
+  "150812": {
+    "nombre": "VEGUETA"
+  },
+  "150900": {
+    "nombre": "OYON"
+  },
+  "150901": {
+    "nombre": "OYON"
+  },
+  "150902": {
+    "nombre": "ANDAJES"
+  },
+  "150903": {
+    "nombre": "CAUJUL"
+  },
+  "150904": {
+    "nombre": "COCHAMARCA"
+  },
+  "150905": {
+    "nombre": "NAVAN"
+  },
+  "150906": {
+    "nombre": "PACHANGARA"
+  },
+  "151000": {
+    "nombre": "YAUYOS"
+  },
+  "151001": {
+    "nombre": "YAUYOS"
+  },
+  "151002": {
+    "nombre": "ALIS"
+  },
+  "151003": {
+    "nombre": "AYAUCA"
+  },
+  "151004": {
+    "nombre": "AYAVIRI"
+  },
+  "151005": {
+    "nombre": "AZANGARO"
+  },
+  "151006": {
+    "nombre": "CACRA"
+  },
+  "151007": {
+    "nombre": "CARANIA"
+  },
+  "151008": {
+    "nombre": "CATAHUASI"
+  },
+  "151009": {
+    "nombre": "CHOCOS"
+  },
+  "151010": {
+    "nombre": "COCHAS"
+  },
+  "151011": {
+    "nombre": "COLONIA"
+  },
+  "151012": {
+    "nombre": "HONGOS"
+  },
+  "151013": {
+    "nombre": "HUAMPARA"
+  },
+  "151014": {
+    "nombre": "HUANCAYA"
+  },
+  "151015": {
+    "nombre": "HUANGASCAR"
+  },
+  "151016": {
+    "nombre": "HUANTAN"
+  },
+  "151017": {
+    "nombre": "HUAÑEC"
+  },
+  "151018": {
+    "nombre": "LARAOS"
+  },
+  "151019": {
+    "nombre": "LINCHA"
+  },
+  "151020": {
+    "nombre": "MADEAN"
+  },
+  "151021": {
+    "nombre": "MIRAFLORES"
+  },
+  "151022": {
+    "nombre": "OMAS"
+  },
+  "151023": {
+    "nombre": "PUTINZA"
+  },
+  "151024": {
+    "nombre": "QUINCHES"
+  },
+  "151025": {
+    "nombre": "QUINOCAY"
+  },
+  "151026": {
+    "nombre": "SAN JOAQUIN"
+  },
+  "151027": {
+    "nombre": "SAN PEDRO DE PILAS"
+  },
+  "151028": {
+    "nombre": "TANTA"
+  },
+  "151029": {
+    "nombre": "TAURIPAMPA"
+  },
+  "151030": {
+    "nombre": "TOMAS"
+  },
+  "151031": {
+    "nombre": "TUPE"
+  },
+  "151032": {
+    "nombre": "VIÑAC"
+  },
+  "151033": {
+    "nombre": "VITIS"
+  },
+  "160000": {
+    "nombre": "LORETO"
+  },
+  "160100": {
+    "nombre": "MAYNAS"
+  },
+  "160101": {
+    "nombre": "IQUITOS"
+  },
+  "160102": {
+    "nombre": "ALTO NANAY"
+  },
+  "160103": {
+    "nombre": "FERNANDO LORES"
+  },
+  "160104": {
+    "nombre": "INDIANA"
+  },
+  "160105": {
+    "nombre": "LAS AMAZONAS"
+  },
+  "160106": {
+    "nombre": "MAZAN"
+  },
+  "160107": {
+    "nombre": "NAPO"
+  },
+  "160108": {
+    "nombre": "PUNCHANA"
+  },
+  "160109": {
+    "nombre": "PUTUMAYO"
+  },
+  "160110": {
+    "nombre": "TORRES CAUSANA"
+  },
+  "160111": {
+    "nombre": "YAQUERANA"
+  },
+  "160112": {
+    "nombre": "BELEN"
+  },
+  "160113": {
+    "nombre": "SAN JUAN BAUTISTA"
+  },
+  "160114": {
+    "nombre": "TENIENTE MANUEL CLAVERO"
+  },
+  "160200": {
+    "nombre": "ALTO AMAZONAS"
+  },
+  "160201": {
+    "nombre": "YURIMAGUAS"
+  },
+  "160202": {
+    "nombre": "BALSAPUERTO"
+  },
+  "160203": {
+    "nombre": "BARRANCA"
+  },
+  "160204": {
+    "nombre": "CAHUAPANAS"
+  },
+  "160205": {
+    "nombre": "JEBEROS"
+  },
+  "160206": {
+    "nombre": "LAGUNAS"
+  },
+  "160207": {
+    "nombre": "MANSERICHE"
+  },
+  "160208": {
+    "nombre": "MORONA"
+  },
+  "160209": {
+    "nombre": "PASTAZA"
+  },
+  "160210": {
+    "nombre": "SANTA CRUZ"
+  },
+  "160211": {
+    "nombre": "TENIENTE CESAR LOPEZ ROJAS"
+  },
+  "160300": {
+    "nombre": "LORETO"
+  },
+  "160301": {
+    "nombre": "NAUTA"
+  },
+  "160302": {
+    "nombre": "PARINARI"
+  },
+  "160303": {
+    "nombre": "TIGRE"
+  },
+  "160304": {
+    "nombre": "TROMPETEROS"
+  },
+  "160305": {
+    "nombre": "URARINAS"
+  },
+  "160400": {
+    "nombre": "MARISCAL RAMON CASTILLA"
+  },
+  "160401": {
+    "nombre": "RAMON CASTILLA"
+  },
+  "160402": {
+    "nombre": "PEBAS"
+  },
+  "160403": {
+    "nombre": "YAVARI"
+  },
+  "160404": {
+    "nombre": "SAN PABLO"
+  },
+  "160500": {
+    "nombre": "REQUENA"
+  },
+  "160501": {
+    "nombre": "REQUENA"
+  },
+  "160502": {
+    "nombre": "ALTO TAPICHE"
+  },
+  "160503": {
+    "nombre": "CAPELO"
+  },
+  "160504": {
+    "nombre": "EMILIO SAN MARTIN"
+  },
+  "160505": {
+    "nombre": "MAQUIA"
+  },
+  "160506": {
+    "nombre": "PUINAHUA"
+  },
+  "160507": {
+    "nombre": "SAQUENA"
+  },
+  "160508": {
+    "nombre": "SOPLIN"
+  },
+  "160509": {
+    "nombre": "TAPICHE"
+  },
+  "160510": {
+    "nombre": "JENARO HERRERA"
+  },
+  "160511": {
+    "nombre": "YAQUERANA"
+  },
+  "160600": {
+    "nombre": "UCAYALI"
+  },
+  "160601": {
+    "nombre": "CONTAMANA"
+  },
+  "160602": {
+    "nombre": "INAHUAYA"
+  },
+  "160603": {
+    "nombre": "PADRE MARQUEZ"
+  },
+  "160604": {
+    "nombre": "PAMPA HERMOSA"
+  },
+  "160605": {
+    "nombre": "SARAYACU"
+  },
+  "160606": {
+    "nombre": "VARGAS GUERRA"
+  },
+  "160700": {
+    "nombre": "DATEM DEL MARAÑON"
+  },
+  "160701": {
+    "nombre": "BARRANCA"
+  },
+  "160702": {
+    "nombre": "CAHUAPANAS"
+  },
+  "160703": {
+    "nombre": "MANSERICHE"
+  },
+  "160704": {
+    "nombre": "MORONA"
+  },
+  "160705": {
+    "nombre": "PASTAZA"
+  },
+  "160706": {
+    "nombre": "ANDOAS"
+  },
+  "160800": {
+    "nombre": "PUTUMAYO"
+  },
+  "160801": {
+    "nombre": "PUTUMAYO"
+  },
+  "160802": {
+    "nombre": "ROSA PANDURO"
+  },
+  "160803": {
+    "nombre": "TENIENTE MANUEL CLAVERO"
+  },
+  "160804": {
+    "nombre": "YAGUAS"
+  },
+  "170000": {
+    "nombre": "MADRE DE DIOS"
+  },
+  "170100": {
+    "nombre": "TAMBOPATA"
+  },
+  "170101": {
+    "nombre": "TAMBOPATA"
+  },
+  "170102": {
+    "nombre": "INAMBARI"
+  },
+  "170103": {
+    "nombre": "LAS PIEDRAS"
+  },
+  "170104": {
+    "nombre": "LABERINTO"
+  },
+  "170200": {
+    "nombre": "MANU"
+  },
+  "170201": {
+    "nombre": "MANU"
+  },
+  "170202": {
+    "nombre": "FITZCARRALD"
+  },
+  "170203": {
+    "nombre": "MADRE DE DIOS"
+  },
+  "170204": {
+    "nombre": "HUEPETUHE"
+  },
+  "170300": {
+    "nombre": "TAHUAMANU"
+  },
+  "170301": {
+    "nombre": "IÑAPARI"
+  },
+  "170302": {
+    "nombre": "IBERIA"
+  },
+  "170303": {
+    "nombre": "TAHUAMANU"
+  },
+  "180000": {
+    "nombre": "MOQUEGUA"
+  },
+  "180100": {
+    "nombre": "MARISCAL NIETO"
+  },
+  "180101": {
+    "nombre": "MOQUEGUA"
+  },
+  "180102": {
+    "nombre": "CARUMAS"
+  },
+  "180103": {
+    "nombre": "CUCHUMBAYA"
+  },
+  "180104": {
+    "nombre": "SAMEGUA"
+  },
+  "180105": {
+    "nombre": "SAN CRISTOBAL"
+  },
+  "180106": {
+    "nombre": "TORATA"
+  },
+  "180200": {
+    "nombre": "GENERAL SANCHEZ CERRO"
+  },
+  "180201": {
+    "nombre": "OMATE"
+  },
+  "180202": {
+    "nombre": "CHOJATA"
+  },
+  "180203": {
+    "nombre": "COALAQUE"
+  },
+  "180204": {
+    "nombre": "ICHUÑA"
+  },
+  "180205": {
+    "nombre": "LA CAPILLA"
+  },
+  "180206": {
+    "nombre": "LLOQUE"
+  },
+  "180207": {
+    "nombre": "MATALAQUE"
+  },
+  "180208": {
+    "nombre": "PUQUINA"
+  },
+  "180209": {
+    "nombre": "QUINISTAQUILLAS"
+  },
+  "180210": {
+    "nombre": "UBINAS"
+  },
+  "180211": {
+    "nombre": "YUNGA"
+  },
+  "180300": {
+    "nombre": "ILO"
+  },
+  "180301": {
+    "nombre": "ILO"
+  },
+  "180302": {
+    "nombre": "EL ALGARROBAL"
+  },
+  "180303": {
+    "nombre": "PACOCHA"
+  },
+  "190000": {
+    "nombre": "PASCO"
+  },
+  "190100": {
+    "nombre": "PASCO"
+  },
+  "190101": {
+    "nombre": "CHAUPIMARCA"
+  },
+  "190102": {
+    "nombre": "HUACHON"
+  },
+  "190103": {
+    "nombre": "HUARIACA"
+  },
+  "190104": {
+    "nombre": "HUAYLLAY"
+  },
+  "190105": {
+    "nombre": "NINACACA"
+  },
+  "190106": {
+    "nombre": "PALLANCHACRA"
+  },
+  "190107": {
+    "nombre": "PAUCARTAMBO"
+  },
+  "190108": {
+    "nombre": "SAN FCO.DE ASIS DE YARUSYACAN"
+  },
+  "190109": {
+    "nombre": "SIMON BOLIVAR"
+  },
+  "190110": {
+    "nombre": "TICLACAYAN"
+  },
+  "190111": {
+    "nombre": "TINYAHUARCO"
+  },
+  "190112": {
+    "nombre": "VICCO"
+  },
+  "190113": {
+    "nombre": "YANACANCHA"
+  },
+  "190200": {
+    "nombre": "DANIEL ALCIDES CARRION"
+  },
+  "190201": {
+    "nombre": "YANAHUANCA"
+  },
+  "190202": {
+    "nombre": "CHACAYAN"
+  },
+  "190203": {
+    "nombre": "GOYLLARISQUIZGA"
+  },
+  "190204": {
+    "nombre": "PAUCAR"
+  },
+  "190205": {
+    "nombre": "SAN PEDRO DE PILLAO"
+  },
+  "190206": {
+    "nombre": "SANTA ANA DE TUSI"
+  },
+  "190207": {
+    "nombre": "TAPUC"
+  },
+  "190208": {
+    "nombre": "VILCABAMBA"
+  },
+  "190300": {
+    "nombre": "OXAPAMPA"
+  },
+  "190301": {
+    "nombre": "OXAPAMPA"
+  },
+  "190302": {
+    "nombre": "CHONTABAMBA"
+  },
+  "190303": {
+    "nombre": "HUANCABAMBA"
+  },
+  "190304": {
+    "nombre": "PALCAZU"
+  },
+  "190305": {
+    "nombre": "POZUZO"
+  },
+  "190306": {
+    "nombre": "PUERTO BERMUDEZ"
+  },
+  "190307": {
+    "nombre": "VILLA RICA"
+  },
+  "190308": {
+    "nombre": "CONSTITUCION"
+  },
+  "200000": {
+    "nombre": "PIURA"
+  },
+  "200100": {
+    "nombre": "PIURA"
+  },
+  "200101": {
+    "nombre": "PIURA"
+  },
+  "200104": {
+    "nombre": "CASTILLA"
+  },
+  "200105": {
+    "nombre": "CATACAOS"
+  },
+  "200107": {
+    "nombre": "CURA MORI"
+  },
+  "200108": {
+    "nombre": "EL TALLAN"
+  },
+  "200109": {
+    "nombre": "LA ARENA"
+  },
+  "200110": {
+    "nombre": "LA UNION"
+  },
+  "200111": {
+    "nombre": "LAS LOMAS"
+  },
+  "200114": {
+    "nombre": "TAMBO GRANDE"
+  },
+  "200115": {
+    "nombre": "VEINTISEIS DE OCTUBRE"
+  },
+  "200200": {
+    "nombre": "AYABACA"
+  },
+  "200201": {
+    "nombre": "AYABACA"
+  },
+  "200202": {
+    "nombre": "FRIAS"
+  },
+  "200203": {
+    "nombre": "JILILI"
+  },
+  "200204": {
+    "nombre": "LAGUNAS"
+  },
+  "200205": {
+    "nombre": "MONTERO"
+  },
+  "200206": {
+    "nombre": "PACAIPAMPA"
+  },
+  "200207": {
+    "nombre": "PAIMAS"
+  },
+  "200208": {
+    "nombre": "SAPILLICA"
+  },
+  "200209": {
+    "nombre": "SICCHEZ"
+  },
+  "200210": {
+    "nombre": "SUYO"
+  },
+  "200300": {
+    "nombre": "HUANCABAMBA"
+  },
+  "200301": {
+    "nombre": "HUANCABAMBA"
+  },
+  "200302": {
+    "nombre": "CANCHAQUE"
+  },
+  "200303": {
+    "nombre": "EL CARMEN DE LA FRONTERA"
+  },
+  "200304": {
+    "nombre": "HUARMACA"
+  },
+  "200305": {
+    "nombre": "LALAQUIZ"
+  },
+  "200306": {
+    "nombre": "SAN MIGUEL DE EL FAIQUE"
+  },
+  "200307": {
+    "nombre": "SONDOR"
+  },
+  "200308": {
+    "nombre": "SONDORILLO"
+  },
+  "200400": {
+    "nombre": "MORROPON"
+  },
+  "200401": {
+    "nombre": "CHULUCANAS"
+  },
+  "200402": {
+    "nombre": "BUENOS AIRES"
+  },
+  "200403": {
+    "nombre": "CHALACO"
+  },
+  "200404": {
+    "nombre": "LA MATANZA"
+  },
+  "200405": {
+    "nombre": "MORROPON"
+  },
+  "200406": {
+    "nombre": "SALITRAL"
+  },
+  "200407": {
+    "nombre": "SAN JUAN DE BIGOTE"
+  },
+  "200408": {
+    "nombre": "SANTA CATALINA DE MOSSA"
+  },
+  "200409": {
+    "nombre": "SANTO DOMINGO"
+  },
+  "200410": {
+    "nombre": "YAMANGO"
+  },
+  "200500": {
+    "nombre": "PAITA"
+  },
+  "200501": {
+    "nombre": "PAITA"
+  },
+  "200502": {
+    "nombre": "AMOTAPE"
+  },
+  "200503": {
+    "nombre": "ARENAL"
+  },
+  "200504": {
+    "nombre": "COLAN"
+  },
+  "200505": {
+    "nombre": "LA HUACA"
+  },
+  "200506": {
+    "nombre": "TAMARINDO"
+  },
+  "200507": {
+    "nombre": "VICHAYAL"
+  },
+  "200600": {
+    "nombre": "SULLANA"
+  },
+  "200601": {
+    "nombre": "SULLANA"
+  },
+  "200602": {
+    "nombre": "BELLAVISTA"
+  },
+  "200603": {
+    "nombre": "IGNACIO ESCUDERO"
+  },
+  "200604": {
+    "nombre": "LANCONES"
+  },
+  "200605": {
+    "nombre": "MARCAVELICA"
+  },
+  "200606": {
+    "nombre": "MIGUEL CHECA"
+  },
+  "200607": {
+    "nombre": "QUERECOTILLO"
+  },
+  "200608": {
+    "nombre": "SALITRAL"
+  },
+  "200700": {
+    "nombre": "TALARA"
+  },
+  "200701": {
+    "nombre": "PARIÑAS"
+  },
+  "200702": {
+    "nombre": "EL ALTO"
+  },
+  "200703": {
+    "nombre": "LA BREA"
+  },
+  "200704": {
+    "nombre": "LOBITOS"
+  },
+  "200705": {
+    "nombre": "LOS ORGANOS"
+  },
+  "200706": {
+    "nombre": "MANCORA"
+  },
+  "200800": {
+    "nombre": "SECHURA"
+  },
+  "200801": {
+    "nombre": "SECHURA"
+  },
+  "200802": {
+    "nombre": "BELLAVISTA DE LA UNION"
+  },
+  "200803": {
+    "nombre": "BERNAL"
+  },
+  "200804": {
+    "nombre": "CRISTO NOS VALGA"
+  },
+  "200805": {
+    "nombre": "VICE"
+  },
+  "200806": {
+    "nombre": "RINCONADA LLICUAR"
+  },
+  "210000": {
+    "nombre": "PUNO"
+  },
+  "210100": {
+    "nombre": "PUNO"
+  },
+  "210101": {
+    "nombre": "PUNO"
+  },
+  "210102": {
+    "nombre": "ACORA"
+  },
+  "210103": {
+    "nombre": "AMANTANI"
+  },
+  "210104": {
+    "nombre": "ATUNCOLLA"
+  },
+  "210105": {
+    "nombre": "CAPACHICA"
+  },
+  "210106": {
+    "nombre": "CHUCUITO"
+  },
+  "210107": {
+    "nombre": "COATA"
+  },
+  "210108": {
+    "nombre": "HUATA"
+  },
+  "210109": {
+    "nombre": "MAÑAZO"
+  },
+  "210110": {
+    "nombre": "PAUCARCOLLA"
+  },
+  "210111": {
+    "nombre": "PICHACANI"
+  },
+  "210112": {
+    "nombre": "PLATERIA"
+  },
+  "210113": {
+    "nombre": "SAN ANTONIO"
+  },
+  "210114": {
+    "nombre": "TIQUILLACA"
+  },
+  "210115": {
+    "nombre": "VILQUE"
+  },
+  "210200": {
+    "nombre": "AZANGARO"
+  },
+  "210201": {
+    "nombre": "AZANGARO"
+  },
+  "210202": {
+    "nombre": "ACHAYA"
+  },
+  "210203": {
+    "nombre": "ARAPA"
+  },
+  "210204": {
+    "nombre": "ASILLO"
+  },
+  "210205": {
+    "nombre": "CAMINACA"
+  },
+  "210206": {
+    "nombre": "CHUPA"
+  },
+  "210207": {
+    "nombre": "JOSE DOMINGO CHOQUEHUANCA"
+  },
+  "210208": {
+    "nombre": "MUÑANI"
+  },
+  "210209": {
+    "nombre": "POTONI"
+  },
+  "210210": {
+    "nombre": "SAMAN"
+  },
+  "210211": {
+    "nombre": "SAN ANTON"
+  },
+  "210212": {
+    "nombre": "SAN JOSE"
+  },
+  "210213": {
+    "nombre": "SAN JUAN DE SALINAS"
+  },
+  "210214": {
+    "nombre": "SANTIAGO DE PUPUJA"
+  },
+  "210215": {
+    "nombre": "TIRAPATA"
+  },
+  "210300": {
+    "nombre": "CARABAYA"
+  },
+  "210301": {
+    "nombre": "MACUSANI"
+  },
+  "210302": {
+    "nombre": "AJOYANI"
+  },
+  "210303": {
+    "nombre": "AYAPATA"
+  },
+  "210304": {
+    "nombre": "COASA"
+  },
+  "210305": {
+    "nombre": "CORANI"
+  },
+  "210306": {
+    "nombre": "CRUCERO"
+  },
+  "210307": {
+    "nombre": "ITUATA"
+  },
+  "210308": {
+    "nombre": "OLLACHEA"
+  },
+  "210309": {
+    "nombre": "SAN GABAN"
+  },
+  "210310": {
+    "nombre": "USICAYOS"
+  },
+  "210400": {
+    "nombre": "CHUCUITO"
+  },
+  "210401": {
+    "nombre": "JULI"
+  },
+  "210402": {
+    "nombre": "DESAGUADERO"
+  },
+  "210403": {
+    "nombre": "HUACULLANI"
+  },
+  "210404": {
+    "nombre": "KELLUYO"
+  },
+  "210405": {
+    "nombre": "PISACOMA"
+  },
+  "210406": {
+    "nombre": "POMATA"
+  },
+  "210407": {
+    "nombre": "ZEPITA"
+  },
+  "210500": {
+    "nombre": "EL COLLAO"
+  },
+  "210501": {
+    "nombre": "ILAVE"
+  },
+  "210502": {
+    "nombre": "CAPAZO"
+  },
+  "210503": {
+    "nombre": "PILCUYO"
+  },
+  "210504": {
+    "nombre": "SANTA ROSA"
+  },
+  "210505": {
+    "nombre": "CONDURIRI"
+  },
+  "210600": {
+    "nombre": "HUANCANE"
+  },
+  "210601": {
+    "nombre": "HUANCANE"
+  },
+  "210602": {
+    "nombre": "COJATA"
+  },
+  "210603": {
+    "nombre": "HUATASANI"
+  },
+  "210604": {
+    "nombre": "INCHUPALLA"
+  },
+  "210605": {
+    "nombre": "PUSI"
+  },
+  "210606": {
+    "nombre": "ROSASPATA"
+  },
+  "210607": {
+    "nombre": "TARACO"
+  },
+  "210608": {
+    "nombre": "VILQUE CHICO"
+  },
+  "210700": {
+    "nombre": "LAMPA"
+  },
+  "210701": {
+    "nombre": "LAMPA"
+  },
+  "210702": {
+    "nombre": "CABANILLA"
+  },
+  "210703": {
+    "nombre": "CALAPUJA"
+  },
+  "210704": {
+    "nombre": "NICASIO"
+  },
+  "210705": {
+    "nombre": "OCUVIRI"
+  },
+  "210706": {
+    "nombre": "PALCA"
+  },
+  "210707": {
+    "nombre": "PARATIA"
+  },
+  "210708": {
+    "nombre": "PUCARA"
+  },
+  "210709": {
+    "nombre": "SANTA LUCIA"
+  },
+  "210710": {
+    "nombre": "VILAVILA"
+  },
+  "210800": {
+    "nombre": "MELGAR"
+  },
+  "210801": {
+    "nombre": "AYAVIRI"
+  },
+  "210802": {
+    "nombre": "ANTAUTA"
+  },
+  "210803": {
+    "nombre": "CUPI"
+  },
+  "210804": {
+    "nombre": "LLALLI"
+  },
+  "210805": {
+    "nombre": "MACARI"
+  },
+  "210806": {
+    "nombre": "NUÑOA"
+  },
+  "210807": {
+    "nombre": "ORURILLO"
+  },
+  "210808": {
+    "nombre": "SANTA ROSA"
+  },
+  "210809": {
+    "nombre": "UMACHIRI"
+  },
+  "210900": {
+    "nombre": "MOHO"
+  },
+  "210901": {
+    "nombre": "MOHO"
+  },
+  "210902": {
+    "nombre": "CONIMA"
+  },
+  "210903": {
+    "nombre": "HUAYRAPATA"
+  },
+  "210904": {
+    "nombre": "TILALI"
+  },
+  "211000": {
+    "nombre": "SAN ANTONIO DE PUTINA"
+  },
+  "211001": {
+    "nombre": "PUTINA"
+  },
+  "211002": {
+    "nombre": "ANANEA"
+  },
+  "211003": {
+    "nombre": "PEDRO VILCA APAZA"
+  },
+  "211004": {
+    "nombre": "QUILCAPUNCU"
+  },
+  "211005": {
+    "nombre": "SINA"
+  },
+  "211100": {
+    "nombre": "SAN ROMAN"
+  },
+  "211101": {
+    "nombre": "JULIACA"
+  },
+  "211102": {
+    "nombre": "CABANA"
+  },
+  "211103": {
+    "nombre": "CABANILLAS"
+  },
+  "211104": {
+    "nombre": "CARACOTO"
+  },
+  "211105": {
+    "nombre": "SAN MIGUEL"
+  },
+  "211200": {
+    "nombre": "SANDIA"
+  },
+  "211201": {
+    "nombre": "SANDIA"
+  },
+  "211202": {
+    "nombre": "CUYOCUYO"
+  },
+  "211203": {
+    "nombre": "LIMBANI"
+  },
+  "211204": {
+    "nombre": "PATAMBUCO"
+  },
+  "211205": {
+    "nombre": "PHARA"
+  },
+  "211206": {
+    "nombre": "QUIACA"
+  },
+  "211207": {
+    "nombre": "SAN JUAN DEL ORO"
+  },
+  "211208": {
+    "nombre": "YANAHUAYA"
+  },
+  "211209": {
+    "nombre": "ALTO INAMBARI"
+  },
+  "211210": {
+    "nombre": "SAN PEDRO DE PUTINA PUNCO"
+  },
+  "211300": {
+    "nombre": "YUNGUYO"
+  },
+  "211301": {
+    "nombre": "YUNGUYO"
+  },
+  "211302": {
+    "nombre": "ANAPIA"
+  },
+  "211303": {
+    "nombre": "COPANI"
+  },
+  "211304": {
+    "nombre": "CUTURAPI"
+  },
+  "211305": {
+    "nombre": "OLLARAYA"
+  },
+  "211306": {
+    "nombre": "TINICACHI"
+  },
+  "211307": {
+    "nombre": "UNICACHI"
+  },
+  "220000": {
+    "nombre": "SAN MARTIN"
+  },
+  "220100": {
+    "nombre": "MOYOBAMBA"
+  },
+  "220101": {
+    "nombre": "MOYOBAMBA"
+  },
+  "220102": {
+    "nombre": "CALZADA"
+  },
+  "220103": {
+    "nombre": "HABANA"
+  },
+  "220104": {
+    "nombre": "JEPELACIO"
+  },
+  "220105": {
+    "nombre": "SORITOR"
+  },
+  "220106": {
+    "nombre": "YANTALO"
+  },
+  "220200": {
+    "nombre": "BELLAVISTA"
+  },
+  "220201": {
+    "nombre": "BELLAVISTA"
+  },
+  "220202": {
+    "nombre": "ALTO BIAVO"
+  },
+  "220203": {
+    "nombre": "BAJO BIAVO"
+  },
+  "220204": {
+    "nombre": "HUALLAGA"
+  },
+  "220205": {
+    "nombre": "SAN PABLO"
+  },
+  "220206": {
+    "nombre": "SAN RAFAEL"
+  },
+  "220300": {
+    "nombre": "EL DORADO"
+  },
+  "220301": {
+    "nombre": "SAN JOSE DE SISA"
+  },
+  "220302": {
+    "nombre": "AGUA BLANCA"
+  },
+  "220303": {
+    "nombre": "SAN MARTIN"
+  },
+  "220304": {
+    "nombre": "SANTA ROSA"
+  },
+  "220305": {
+    "nombre": "SHATOJA"
+  },
+  "220400": {
+    "nombre": "HUALLAGA"
+  },
+  "220401": {
+    "nombre": "SAPOSOA"
+  },
+  "220402": {
+    "nombre": "ALTO SAPOSOA"
+  },
+  "220403": {
+    "nombre": "EL ESLABON"
+  },
+  "220404": {
+    "nombre": "PISCOYACU"
+  },
+  "220405": {
+    "nombre": "SACANCHE"
+  },
+  "220406": {
+    "nombre": "TINGO DE SAPOSOA"
+  },
+  "220500": {
+    "nombre": "LAMAS"
+  },
+  "220501": {
+    "nombre": "LAMAS"
+  },
+  "220502": {
+    "nombre": "ALONSO DE ALVARADO"
+  },
+  "220503": {
+    "nombre": "BARRANQUITA"
+  },
+  "220504": {
+    "nombre": "CAYNARACHI"
+  },
+  "220505": {
+    "nombre": "CUÑUMBUQUI"
+  },
+  "220506": {
+    "nombre": "PINTO RECODO"
+  },
+  "220507": {
+    "nombre": "RUMISAPA"
+  },
+  "220508": {
+    "nombre": "SAN ROQUE DE CUMBAZA"
+  },
+  "220509": {
+    "nombre": "SHANAO"
+  },
+  "220510": {
+    "nombre": "TABALOSOS"
+  },
+  "220511": {
+    "nombre": "ZAPATERO"
+  },
+  "220600": {
+    "nombre": "MARISCAL CACERES"
+  },
+  "220601": {
+    "nombre": "JUANJUI"
+  },
+  "220602": {
+    "nombre": "CAMPANILLA"
+  },
+  "220603": {
+    "nombre": "HUICUNGO"
+  },
+  "220604": {
+    "nombre": "PACHIZA"
+  },
+  "220605": {
+    "nombre": "PAJARILLO"
+  },
+  "220700": {
+    "nombre": "PICOTA"
+  },
+  "220701": {
+    "nombre": "PICOTA"
+  },
+  "220702": {
+    "nombre": "BUENOS AIRES"
+  },
+  "220703": {
+    "nombre": "CASPISAPA"
+  },
+  "220704": {
+    "nombre": "PILLUANA"
+  },
+  "220705": {
+    "nombre": "PUCACACA"
+  },
+  "220706": {
+    "nombre": "SAN CRISTOBAL"
+  },
+  "220707": {
+    "nombre": "SAN HILARION"
+  },
+  "220708": {
+    "nombre": "SHAMBOYACU"
+  },
+  "220709": {
+    "nombre": "TINGO DE PONASA"
+  },
+  "220710": {
+    "nombre": "TRES UNIDOS"
+  },
+  "220800": {
+    "nombre": "RIOJA"
+  },
+  "220801": {
+    "nombre": "RIOJA"
+  },
+  "220802": {
+    "nombre": "AWAJUN"
+  },
+  "220803": {
+    "nombre": "ELIAS SOPLIN VARGAS"
+  },
+  "220804": {
+    "nombre": "NUEVA CAJAMARCA"
+  },
+  "220805": {
+    "nombre": "PARDO MIGUEL"
+  },
+  "220806": {
+    "nombre": "POSIC"
+  },
+  "220807": {
+    "nombre": "SAN FERNANDO"
+  },
+  "220808": {
+    "nombre": "YORONGOS"
+  },
+  "220809": {
+    "nombre": "YURACYACU"
+  },
+  "220900": {
+    "nombre": "SAN MARTIN"
+  },
+  "220901": {
+    "nombre": "TARAPOTO"
+  },
+  "220902": {
+    "nombre": "ALBERTO LEVEAU"
+  },
+  "220903": {
+    "nombre": "CACATACHI"
+  },
+  "220904": {
+    "nombre": "CHAZUTA"
+  },
+  "220905": {
+    "nombre": "CHIPURANA"
+  },
+  "220906": {
+    "nombre": "EL PORVENIR"
+  },
+  "220907": {
+    "nombre": "HUIMBAYOC"
+  },
+  "220908": {
+    "nombre": "JUAN GUERRA"
+  },
+  "220909": {
+    "nombre": "LA BANDA DE SHILCAYO"
+  },
+  "220910": {
+    "nombre": "MORALES"
+  },
+  "220911": {
+    "nombre": "PAPAPLAYA"
+  },
+  "220912": {
+    "nombre": "SAN ANTONIO"
+  },
+  "220913": {
+    "nombre": "SAUCE"
+  },
+  "220914": {
+    "nombre": "SHAPAJA"
+  },
+  "221000": {
+    "nombre": "TOCACHE"
+  },
+  "221001": {
+    "nombre": "TOCACHE"
+  },
+  "221002": {
+    "nombre": "NUEVO PROGRESO"
+  },
+  "221003": {
+    "nombre": "POLVORA"
+  },
+  "221004": {
+    "nombre": "SHUNTE"
+  },
+  "221005": {
+    "nombre": "UCHIZA"
+  },
+  "221006": {
+    "nombre": "SANTA LUCIA"
+  },
+  "230000": {
+    "nombre": "TACNA"
+  },
+  "230100": {
+    "nombre": "TACNA"
+  },
+  "230101": {
+    "nombre": "TACNA"
+  },
+  "230102": {
+    "nombre": "ALTO DE LA ALIANZA"
+  },
+  "230103": {
+    "nombre": "CALANA"
+  },
+  "230104": {
+    "nombre": "CIUDAD NUEVA"
+  },
+  "230105": {
+    "nombre": "INCLAN"
+  },
+  "230106": {
+    "nombre": "PACHIA"
+  },
+  "230107": {
+    "nombre": "PALCA"
+  },
+  "230108": {
+    "nombre": "POCOLLAY"
+  },
+  "230109": {
+    "nombre": "SAMA"
+  },
+  "230110": {
+    "nombre": "CRL. GREG. ALBARRACIN LANCHIPA"
+  },
+  "230111": {
+    "nombre": "LA YARADA LOS PALOS"
+  },
+  "230200": {
+    "nombre": "CANDARAVE"
+  },
+  "230201": {
+    "nombre": "CANDARAVE"
+  },
+  "230202": {
+    "nombre": "CAIRANI"
+  },
+  "230203": {
+    "nombre": "CAMILACA"
+  },
+  "230204": {
+    "nombre": "CURIBAYA"
+  },
+  "230205": {
+    "nombre": "HUANUARA"
+  },
+  "230206": {
+    "nombre": "QUILAHUANI"
+  },
+  "230300": {
+    "nombre": "JORGE BASADRE"
+  },
+  "230301": {
+    "nombre": "LOCUMBA"
+  },
+  "230302": {
+    "nombre": "ILABAYA"
+  },
+  "230303": {
+    "nombre": "ITE"
+  },
+  "230400": {
+    "nombre": "TARATA"
+  },
+  "230401": {
+    "nombre": "TARATA"
+  },
+  "230402": {
+    "nombre": "HEROES ALBARRACIN"
+  },
+  "230403": {
+    "nombre": "ESTIQUE"
+  },
+  "230404": {
+    "nombre": "ESTIQUE-PAMPA"
+  },
+  "230405": {
+    "nombre": "SITAJARA"
+  },
+  "230406": {
+    "nombre": "SUSAPAYA"
+  },
+  "230407": {
+    "nombre": "TARUCACHI"
+  },
+  "230408": {
+    "nombre": "TICACO"
+  },
+  "240000": {
+    "nombre": "TUMBES"
+  },
+  "240100": {
+    "nombre": "TUMBES"
+  },
+  "240101": {
+    "nombre": "TUMBES"
+  },
+  "240102": {
+    "nombre": "CORRALES"
+  },
+  "240103": {
+    "nombre": "LA CRUZ"
+  },
+  "240104": {
+    "nombre": "PAMPAS DE HOSPITAL"
+  },
+  "240105": {
+    "nombre": "SAN JACINTO"
+  },
+  "240106": {
+    "nombre": "SAN JUAN DE LA VIRGEN"
+  },
+  "240200": {
+    "nombre": "CONTRALMIRANTE VILLAR"
+  },
+  "240201": {
+    "nombre": "ZORRITOS"
+  },
+  "240202": {
+    "nombre": "CASITAS"
+  },
+  "240203": {
+    "nombre": "CANOAS DE PUNTA SAL"
+  },
+  "240300": {
+    "nombre": "ZARUMILLA"
+  },
+  "240301": {
+    "nombre": "ZARUMILLA"
+  },
+  "240302": {
+    "nombre": "AGUAS VERDES"
+  },
+  "240303": {
+    "nombre": "MATAPALO"
+  },
+  "240304": {
+    "nombre": "PAPAYAL"
+  },
+  "250000": {
+    "nombre": "UCAYALI"
+  },
+  "250100": {
+    "nombre": "CORONEL PORTILLO"
+  },
+  "250101": {
+    "nombre": "CALLERIA"
+  },
+  "250102": {
+    "nombre": "CAMPOVERDE"
+  },
+  "250103": {
+    "nombre": "IPARIA"
+  },
+  "250104": {
+    "nombre": "MASISEA"
+  },
+  "250105": {
+    "nombre": "YARINACOCHA"
+  },
+  "250106": {
+    "nombre": "NUEVA REQUENA"
+  },
+  "250107": {
+    "nombre": "MANANTAY"
+  },
+  "250200": {
+    "nombre": "ATALAYA"
+  },
+  "250201": {
+    "nombre": "RAYMONDI"
+  },
+  "250202": {
+    "nombre": "SEPAHUA"
+  },
+  "250203": {
+    "nombre": "TAHUANIA"
+  },
+  "250204": {
+    "nombre": "YURUA"
+  },
+  "250300": {
+    "nombre": "PADRE ABAD"
+  },
+  "250301": {
+    "nombre": "PADRE ABAD"
+  },
+  "250302": {
+    "nombre": "IRAZOLA"
+  },
+  "250303": {
+    "nombre": "CURIMANA"
+  },
+  "250304": {
+    "nombre": "NESHUYA"
+  },
+  "250305": {
+    "nombre": "ALEXANDER VON HUMBOLDT"
+  },
+  "250400": {
+    "nombre": "PURUS"
+  },
+  "250401": {
+    "nombre": "PURUS"
+  },
+  "010000": {
+    "nombre": "AMAZONAS"
+  },
+  "010100": {
+    "nombre": "CHACHAPOYAS"
+  },
+  "010101": {
+    "nombre": "CHACHAPOYAS"
+  },
+  "010102": {
+    "nombre": "ASUNCION"
+  },
+  "010103": {
+    "nombre": "BALSAS"
+  },
+  "010104": {
+    "nombre": "CHETO"
+  },
+  "010105": {
+    "nombre": "CHILIQUIN"
+  },
+  "010106": {
+    "nombre": "CHUQUIBAMBA"
+  },
+  "010107": {
+    "nombre": "GRANADA"
+  },
+  "010108": {
+    "nombre": "HUANCAS"
+  },
+  "010109": {
+    "nombre": "LA JALCA"
+  },
+  "010110": {
+    "nombre": "LEIMEBAMBA"
+  },
+  "010111": {
+    "nombre": "LEVANTO"
+  },
+  "010112": {
+    "nombre": "MAGDALENA"
+  },
+  "010113": {
+    "nombre": "MARISCAL CASTILLA"
+  },
+  "010114": {
+    "nombre": "MOLINOPAMPA"
+  },
+  "010115": {
+    "nombre": "MONTEVIDEO"
+  },
+  "010116": {
+    "nombre": "OLLEROS"
+  },
+  "010117": {
+    "nombre": "QUINJALCA"
+  },
+  "010118": {
+    "nombre": "SAN FRANCISCO DE DAGUAS"
+  },
+  "010119": {
+    "nombre": "SAN ISIDRO DE MAINO"
+  },
+  "010120": {
+    "nombre": "SOLOCO"
+  },
+  "010121": {
+    "nombre": "SONCHE"
+  },
+  "010200": {
+    "nombre": "BAGUA"
+  },
+  "010201": {
+    "nombre": "BAGUA"
+  },
+  "010202": {
+    "nombre": "ARAMANGO"
+  },
+  "010203": {
+    "nombre": "COPALLIN"
+  },
+  "010204": {
+    "nombre": "EL PARCO"
+  },
+  "010205": {
+    "nombre": "IMAZA"
+  },
+  "010206": {
+    "nombre": "LA PECA"
+  },
+  "010300": {
+    "nombre": "BONGARA"
+  },
+  "010301": {
+    "nombre": "JUMBILLA"
+  },
+  "010302": {
+    "nombre": "CHISQUILLA"
+  },
+  "010303": {
+    "nombre": "CHURUJA"
+  },
+  "010304": {
+    "nombre": "COROSHA"
+  },
+  "010305": {
+    "nombre": "CUISPES"
+  },
+  "010306": {
+    "nombre": "FLORIDA"
+  },
+  "010307": {
+    "nombre": "JAZAN"
+  },
+  "010308": {
+    "nombre": "RECTA"
+  },
+  "010309": {
+    "nombre": "SAN CARLOS"
+  },
+  "010310": {
+    "nombre": "SHIPASBAMBA"
+  },
+  "010311": {
+    "nombre": "VALERA"
+  },
+  "010312": {
+    "nombre": "YAMBRASBAMBA"
+  },
+  "010400": {
+    "nombre": "CONDORCANQUI"
+  },
+  "010401": {
+    "nombre": "NIEVA"
+  },
+  "010402": {
+    "nombre": "EL CENEPA"
+  },
+  "010403": {
+    "nombre": "RIO SANTIAGO"
+  },
+  "010500": {
+    "nombre": "LUYA"
+  },
+  "010501": {
+    "nombre": "LAMUD"
+  },
+  "010502": {
+    "nombre": "CAMPORREDONDO"
+  },
+  "010503": {
+    "nombre": "COCABAMBA"
+  },
+  "010504": {
+    "nombre": "COLCAMAR"
+  },
+  "010505": {
+    "nombre": "CONILA"
+  },
+  "010506": {
+    "nombre": "INGUILPATA"
+  },
+  "010507": {
+    "nombre": "LONGUITA"
+  },
+  "010508": {
+    "nombre": "LONYA CHICO"
+  },
+  "010509": {
+    "nombre": "LUYA"
+  },
+  "010510": {
+    "nombre": "LUYA VIEJO"
+  },
+  "010511": {
+    "nombre": "MARIA"
+  },
+  "010512": {
+    "nombre": "OCALLI"
+  },
+  "010513": {
+    "nombre": "OCUMAL"
+  },
+  "010514": {
+    "nombre": "PISUQUIA"
+  },
+  "010515": {
+    "nombre": "PROVIDENCIA"
+  },
+  "010516": {
+    "nombre": "SAN CRISTOBAL"
+  },
+  "010517": {
+    "nombre": "SAN FRANCISCO DEL YESO"
+  },
+  "010518": {
+    "nombre": "SAN JERONIMO"
+  },
+  "010519": {
+    "nombre": "SAN JUAN DE LOPECANCHA"
+  },
+  "010520": {
+    "nombre": "SANTA CATALINA"
+  },
+  "010521": {
+    "nombre": "SANTO TOMAS"
+  },
+  "010522": {
+    "nombre": "TINGO"
+  },
+  "010523": {
+    "nombre": "TRITA"
+  },
+  "010600": {
+    "nombre": "RODRIGUEZ DE MENDOZA"
+  },
+  "010601": {
+    "nombre": "SAN NICOLAS"
+  },
+  "010602": {
+    "nombre": "CHIRIMOTO"
+  },
+  "010603": {
+    "nombre": "COCHAMAL"
+  },
+  "010604": {
+    "nombre": "HUAMBO"
+  },
+  "010605": {
+    "nombre": "LIMABAMBA"
+  },
+  "010606": {
+    "nombre": "LONGAR"
+  },
+  "010607": {
+    "nombre": "MARISCAL BENAVIDES"
+  },
+  "010608": {
+    "nombre": "MILPUC"
+  },
+  "010609": {
+    "nombre": "OMIA"
+  },
+  "010610": {
+    "nombre": "SANTA ROSA"
+  },
+  "010611": {
+    "nombre": "TOTORA"
+  },
+  "010612": {
+    "nombre": "VISTA ALEGRE"
+  },
+  "010700": {
+    "nombre": "UTCUBAMBA"
+  },
+  "010701": {
+    "nombre": "BAGUA GRANDE"
+  },
+  "010702": {
+    "nombre": "CAJARURO"
+  },
+  "010703": {
+    "nombre": "CUMBA"
+  },
+  "010704": {
+    "nombre": "EL MILAGRO"
+  },
+  "010705": {
+    "nombre": "JAMALCA"
+  },
+  "010706": {
+    "nombre": "LONYA GRANDE"
+  },
+  "010707": {
+    "nombre": "YAMON"
+  },
+  "020000": {
+    "nombre": "ANCASH"
+  },
+  "020100": {
+    "nombre": "HUARAZ"
+  },
+  "020101": {
+    "nombre": "HUARAZ"
+  },
+  "020102": {
+    "nombre": "COCHABAMBA"
+  },
+  "020103": {
+    "nombre": "COLCABAMBA"
+  },
+  "020104": {
+    "nombre": "HUANCHAY"
+  },
+  "020105": {
+    "nombre": "INDEPENDENCIA"
+  },
+  "020106": {
+    "nombre": "JANGAS"
+  },
+  "020107": {
+    "nombre": "LA LIBERTAD"
+  },
+  "020108": {
+    "nombre": "OLLEROS"
+  },
+  "020109": {
+    "nombre": "PAMPAS GRANDE"
+  },
+  "020110": {
+    "nombre": "PARIACOTO"
+  },
+  "020111": {
+    "nombre": "PIRA"
+  },
+  "020112": {
+    "nombre": "TARICA"
+  },
+  "020200": {
+    "nombre": "AIJA"
+  },
+  "020201": {
+    "nombre": "AIJA"
+  },
+  "020202": {
+    "nombre": "CORIS"
+  },
+  "020203": {
+    "nombre": "HUACLLAN"
+  },
+  "020204": {
+    "nombre": "LA MERCED"
+  },
+  "020205": {
+    "nombre": "SUCCHA"
+  },
+  "020300": {
+    "nombre": "ANTONIO RAYMONDI"
+  },
+  "020301": {
+    "nombre": "LLAMELLIN"
+  },
+  "020302": {
+    "nombre": "ACZO"
+  },
+  "020303": {
+    "nombre": "CHACCHO"
+  },
+  "020304": {
+    "nombre": "CHINGAS"
+  },
+  "020305": {
+    "nombre": "MIRGAS"
+  },
+  "020306": {
+    "nombre": "SAN JUAN DE RONTOY"
+  },
+  "020400": {
+    "nombre": "ASUNCION"
+  },
+  "020401": {
+    "nombre": "CHACAS"
+  },
+  "020402": {
+    "nombre": "ACOCHACA"
+  },
+  "020500": {
+    "nombre": "BOLOGNESI"
+  },
+  "020501": {
+    "nombre": "CHIQUIAN"
+  },
+  "020502": {
+    "nombre": "ABELARDO PARDO LEZAMETA"
+  },
+  "020503": {
+    "nombre": "ANTONIO RAYMONDI"
+  },
+  "020504": {
+    "nombre": "AQUIA"
+  },
+  "020505": {
+    "nombre": "CAJACAY"
+  },
+  "020506": {
+    "nombre": "CANIS"
+  },
+  "020507": {
+    "nombre": "COLQUIOC"
+  },
+  "020508": {
+    "nombre": "HUALLANCA"
+  },
+  "020509": {
+    "nombre": "HUASTA"
+  },
+  "020510": {
+    "nombre": "HUAYLLACAYAN"
+  },
+  "020511": {
+    "nombre": "LA PRIMAVERA"
+  },
+  "020512": {
+    "nombre": "MANGAS"
+  },
+  "020513": {
+    "nombre": "PACLLON"
+  },
+  "020514": {
+    "nombre": "SAN MIGUEL DE CORPANQUI"
+  },
+  "020515": {
+    "nombre": "TICLLOS"
+  },
+  "020600": {
+    "nombre": "CARHUAZ"
+  },
+  "020601": {
+    "nombre": "CARHUAZ"
+  },
+  "020602": {
+    "nombre": "ACOPAMPA"
+  },
+  "020603": {
+    "nombre": "AMASHCA"
+  },
+  "020604": {
+    "nombre": "ANTA"
+  },
+  "020605": {
+    "nombre": "ATAQUERO"
+  },
+  "020606": {
+    "nombre": "MARCARA"
+  },
+  "020607": {
+    "nombre": "PARIAHUANCA"
+  },
+  "020608": {
+    "nombre": "SAN MIGUEL DE ACO"
+  },
+  "020609": {
+    "nombre": "SHILLA"
+  },
+  "020610": {
+    "nombre": "TINCO"
+  },
+  "020611": {
+    "nombre": "YUNGAR"
+  },
+  "020700": {
+    "nombre": "CARLOS F. FITZCARRALD"
+  },
+  "020701": {
+    "nombre": "SAN LUIS"
+  },
+  "020702": {
+    "nombre": "SAN NICOLAS"
+  },
+  "020703": {
+    "nombre": "YAUYA"
+  },
+  "020800": {
+    "nombre": "CASMA"
+  },
+  "020801": {
+    "nombre": "CASMA"
+  },
+  "020802": {
+    "nombre": "BUENA VISTA ALTA"
+  },
+  "020803": {
+    "nombre": "COMANDANTE NOEL"
+  },
+  "020804": {
+    "nombre": "YAUTAN"
+  },
+  "020900": {
+    "nombre": "CORONGO"
+  },
+  "020901": {
+    "nombre": "CORONGO"
+  },
+  "020902": {
+    "nombre": "ACO"
+  },
+  "020903": {
+    "nombre": "BAMBAS"
+  },
+  "020904": {
+    "nombre": "CUSCA"
+  },
+  "020905": {
+    "nombre": "LA PAMPA"
+  },
+  "020906": {
+    "nombre": "YANAC"
+  },
+  "020907": {
+    "nombre": "YUPAN"
+  },
+  "021000": {
+    "nombre": "HUARI"
+  },
+  "021001": {
+    "nombre": "HUARI"
+  },
+  "021002": {
+    "nombre": "ANRA"
+  },
+  "021003": {
+    "nombre": "CAJAY"
+  },
+  "021004": {
+    "nombre": "CHAVIN DE HUANTAR"
+  },
+  "021005": {
+    "nombre": "HUACACHI"
+  },
+  "021006": {
+    "nombre": "HUACCHIS"
+  },
+  "021007": {
+    "nombre": "HUACHIS"
+  },
+  "021008": {
+    "nombre": "HUANTAR"
+  },
+  "021009": {
+    "nombre": "MASIN"
+  },
+  "021010": {
+    "nombre": "PAUCAS"
+  },
+  "021011": {
+    "nombre": "PONTO"
+  },
+  "021012": {
+    "nombre": "RAHUAPAMPA"
+  },
+  "021013": {
+    "nombre": "RAPAYAN"
+  },
+  "021014": {
+    "nombre": "SAN MARCOS"
+  },
+  "021015": {
+    "nombre": "SAN PEDRO DE CHANA"
+  },
+  "021016": {
+    "nombre": "UCO"
+  },
+  "021100": {
+    "nombre": "HUARMEY"
+  },
+  "021101": {
+    "nombre": "HUARMEY"
+  },
+  "021102": {
+    "nombre": "COCHAPETI"
+  },
+  "021103": {
+    "nombre": "CULEBRAS"
+  },
+  "021104": {
+    "nombre": "HUAYAN"
+  },
+  "021105": {
+    "nombre": "MALVAS"
+  },
+  "021200": {
+    "nombre": "HUAYLAS"
+  },
+  "021201": {
+    "nombre": "CARAZ"
+  },
+  "021202": {
+    "nombre": "HUALLANCA"
+  },
+  "021203": {
+    "nombre": "HUATA"
+  },
+  "021204": {
+    "nombre": "HUAYLAS"
+  },
+  "021205": {
+    "nombre": "MATO"
+  },
+  "021206": {
+    "nombre": "PAMPAROMAS"
+  },
+  "021207": {
+    "nombre": "PUEBLO LIBRE"
+  },
+  "021208": {
+    "nombre": "SANTA CRUZ"
+  },
+  "021209": {
+    "nombre": "SANTO TORIBIO"
+  },
+  "021210": {
+    "nombre": "YURACMARCA"
+  },
+  "021300": {
+    "nombre": "MARISCAL LUZURIAGA"
+  },
+  "021301": {
+    "nombre": "PISCOBAMBA"
+  },
+  "021302": {
+    "nombre": "CASCA"
+  },
+  "021303": {
+    "nombre": "ELEAZAR GUZMAN BARRON"
+  },
+  "021304": {
+    "nombre": "FIDEL OLIVAS ESCUDERO"
+  },
+  "021305": {
+    "nombre": "LLAMA"
+  },
+  "021306": {
+    "nombre": "LLUMPA"
+  },
+  "021307": {
+    "nombre": "LUCMA"
+  },
+  "021308": {
+    "nombre": "MUSGA"
+  },
+  "021400": {
+    "nombre": "OCROS"
+  },
+  "021401": {
+    "nombre": "OCROS"
+  },
+  "021402": {
+    "nombre": "ACAS"
+  },
+  "021403": {
+    "nombre": "CAJAMARQUILLA"
+  },
+  "021404": {
+    "nombre": "CARHUAPAMPA"
+  },
+  "021405": {
+    "nombre": "COCHAS"
+  },
+  "021406": {
+    "nombre": "CONGAS"
+  },
+  "021407": {
+    "nombre": "LLIPA"
+  },
+  "021408": {
+    "nombre": "SAN CRISTOBAL DE RAJAN"
+  },
+  "021409": {
+    "nombre": "SAN PEDRO"
+  },
+  "021410": {
+    "nombre": "SANTIAGO DE CHILCAS"
+  },
+  "021500": {
+    "nombre": "PALLASCA"
+  },
+  "021501": {
+    "nombre": "CABANA"
+  },
+  "021502": {
+    "nombre": "BOLOGNESI"
+  },
+  "021503": {
+    "nombre": "CONCHUCOS"
+  },
+  "021504": {
+    "nombre": "HUACASCHUQUE"
+  },
+  "021505": {
+    "nombre": "HUANDOVAL"
+  },
+  "021506": {
+    "nombre": "LACABAMBA"
+  },
+  "021507": {
+    "nombre": "LLAPO"
+  },
+  "021508": {
+    "nombre": "PALLASCA"
+  },
+  "021509": {
+    "nombre": "PAMPAS"
+  },
+  "021510": {
+    "nombre": "SANTA ROSA"
+  },
+  "021511": {
+    "nombre": "TAUCA"
+  },
+  "021600": {
+    "nombre": "POMABAMBA"
+  },
+  "021601": {
+    "nombre": "POMABAMBA"
+  },
+  "021602": {
+    "nombre": "HUAYLLAN"
+  },
+  "021603": {
+    "nombre": "PAROBAMBA"
+  },
+  "021604": {
+    "nombre": "QUINUABAMBA"
+  },
+  "021700": {
+    "nombre": "RECUAY"
+  },
+  "021701": {
+    "nombre": "RECUAY"
+  },
+  "021702": {
+    "nombre": "CATAC"
+  },
+  "021703": {
+    "nombre": "COTAPARACO"
+  },
+  "021704": {
+    "nombre": "HUAYLLAPAMPA"
+  },
+  "021705": {
+    "nombre": "LLACLLIN"
+  },
+  "021706": {
+    "nombre": "MARCA"
+  },
+  "021707": {
+    "nombre": "PAMPAS CHICO"
+  },
+  "021708": {
+    "nombre": "PARARIN"
+  },
+  "021709": {
+    "nombre": "TAPACOCHA"
+  },
+  "021710": {
+    "nombre": "TICAPAMPA"
+  },
+  "021800": {
+    "nombre": "SANTA"
+  },
+  "021801": {
+    "nombre": "CHIMBOTE"
+  },
+  "021802": {
+    "nombre": "CACERES DEL PERU"
+  },
+  "021803": {
+    "nombre": "COISHCO"
+  },
+  "021804": {
+    "nombre": "MACATE"
+  },
+  "021805": {
+    "nombre": "MORO"
+  },
+  "021806": {
+    "nombre": "NEPEÑA"
+  },
+  "021807": {
+    "nombre": "SAMANCO"
+  },
+  "021808": {
+    "nombre": "SANTA"
+  },
+  "021809": {
+    "nombre": "NUEVO CHIMBOTE"
+  },
+  "021900": {
+    "nombre": "SIHUAS"
+  },
+  "021901": {
+    "nombre": "SIHUAS"
+  },
+  "021902": {
+    "nombre": "ACOBAMBA"
+  },
+  "021903": {
+    "nombre": "ALFONSO UGARTE"
+  },
+  "021904": {
+    "nombre": "CASHAPAMPA"
+  },
+  "021905": {
+    "nombre": "CHINGALPO"
+  },
+  "021906": {
+    "nombre": "HUAYLLABAMBA"
+  },
+  "021907": {
+    "nombre": "QUICHES"
+  },
+  "021908": {
+    "nombre": "RAGASH"
+  },
+  "021909": {
+    "nombre": "SAN JUAN"
+  },
+  "021910": {
+    "nombre": "SICSIBAMBA"
+  },
+  "022000": {
+    "nombre": "YUNGAY"
+  },
+  "022001": {
+    "nombre": "YUNGAY"
+  },
+  "022002": {
+    "nombre": "CASCAPARA"
+  },
+  "022003": {
+    "nombre": "MANCOS"
+  },
+  "022004": {
+    "nombre": "MATACOTO"
+  },
+  "022005": {
+    "nombre": "QUILLO"
+  },
+  "022006": {
+    "nombre": "RANRAHIRCA"
+  },
+  "022007": {
+    "nombre": "SHUPLUY"
+  },
+  "022008": {
+    "nombre": "YANAMA"
+  },
+  "030000": {
+    "nombre": "APURIMAC"
+  },
+  "030100": {
+    "nombre": "ABANCAY"
+  },
+  "030101": {
+    "nombre": "ABANCAY"
+  },
+  "030102": {
+    "nombre": "CHACOCHE"
+  },
+  "030103": {
+    "nombre": "CIRCA"
+  },
+  "030104": {
+    "nombre": "CURAHUASI"
+  },
+  "030105": {
+    "nombre": "HUANIPACA"
+  },
+  "030106": {
+    "nombre": "LAMBRAMA"
+  },
+  "030107": {
+    "nombre": "PICHIRHUA"
+  },
+  "030108": {
+    "nombre": "SAN PEDRO DE CACHORA"
+  },
+  "030109": {
+    "nombre": "TAMBURCO"
+  },
+  "030200": {
+    "nombre": "ANDAHUAYLAS"
+  },
+  "030201": {
+    "nombre": "ANDAHUAYLAS"
+  },
+  "030202": {
+    "nombre": "ANDARAPA"
+  },
+  "030203": {
+    "nombre": "CHIARA"
+  },
+  "030204": {
+    "nombre": "HUANCARAMA"
+  },
+  "030205": {
+    "nombre": "HUANCARAY"
+  },
+  "030206": {
+    "nombre": "HUAYANA"
+  },
+  "030207": {
+    "nombre": "KISHUARA"
+  },
+  "030208": {
+    "nombre": "PACOBAMBA"
+  },
+  "030209": {
+    "nombre": "PACUCHA"
+  },
+  "030210": {
+    "nombre": "PAMPACHIRI"
+  },
+  "030211": {
+    "nombre": "POMACOCHA"
+  },
+  "030212": {
+    "nombre": "SAN ANTONIO DE CACHI"
+  },
+  "030213": {
+    "nombre": "SAN JERONIMO"
+  },
+  "030214": {
+    "nombre": "SAN MIGUEL DE CHACCRAMPA"
+  },
+  "030215": {
+    "nombre": "SANTA MARIA DE CHICMO"
+  },
+  "030216": {
+    "nombre": "TALAVERA"
+  },
+  "030217": {
+    "nombre": "TUMAY HUARACA"
+  },
+  "030218": {
+    "nombre": "TURPO"
+  },
+  "030219": {
+    "nombre": "KAQUIABAMBA"
+  },
+  "030220": {
+    "nombre": "JOSE MARIA ARGUEDAS"
+  },
+  "030300": {
+    "nombre": "ANTABAMBA"
+  },
+  "030301": {
+    "nombre": "ANTABAMBA"
+  },
+  "030302": {
+    "nombre": "EL ORO"
+  },
+  "030303": {
+    "nombre": "HUAQUIRCA"
+  },
+  "030304": {
+    "nombre": "JUAN ESPINOZA MEDRANO"
+  },
+  "030305": {
+    "nombre": "OROPESA"
+  },
+  "030306": {
+    "nombre": "PACHACONAS"
+  },
+  "030307": {
+    "nombre": "SABAINO"
+  },
+  "030400": {
+    "nombre": "AYMARAES"
+  },
+  "030401": {
+    "nombre": "CHALHUANCA"
+  },
+  "030402": {
+    "nombre": "CAPAYA"
+  },
+  "030403": {
+    "nombre": "CARAYBAMBA"
+  },
+  "030404": {
+    "nombre": "CHAPIMARCA"
+  },
+  "030405": {
+    "nombre": "COLCABAMBA"
+  },
+  "030406": {
+    "nombre": "COTARUSE"
+  },
+  "030407": {
+    "nombre": "IHUAYLLO"
+  },
+  "030408": {
+    "nombre": "JUSTO APU SAHUARAURA"
+  },
+  "030409": {
+    "nombre": "LUCRE"
+  },
+  "030410": {
+    "nombre": "POCOHUANCA"
+  },
+  "030411": {
+    "nombre": "SAN JUAN DE CHACÑA"
+  },
+  "030412": {
+    "nombre": "SAÑAYCA"
+  },
+  "030413": {
+    "nombre": "SORAYA"
+  },
+  "030414": {
+    "nombre": "TAPAIRIHUA"
+  },
+  "030415": {
+    "nombre": "TINTAY"
+  },
+  "030416": {
+    "nombre": "TORAYA"
+  },
+  "030417": {
+    "nombre": "YANACA"
+  },
+  "030500": {
+    "nombre": "COTABAMBAS"
+  },
+  "030501": {
+    "nombre": "TAMBOBAMBA"
+  },
+  "030502": {
+    "nombre": "COTABAMBAS"
+  },
+  "030503": {
+    "nombre": "COYLLURQUI"
+  },
+  "030504": {
+    "nombre": "HAQUIRA"
+  },
+  "030505": {
+    "nombre": "MARA"
+  },
+  "030506": {
+    "nombre": "CHALLHUAHUACHO"
+  },
+  "030600": {
+    "nombre": "CHINCHEROS"
+  },
+  "030601": {
+    "nombre": "CHINCHEROS"
+  },
+  "030602": {
+    "nombre": "ANCO-HUALLO"
+  },
+  "030603": {
+    "nombre": "COCHARCAS"
+  },
+  "030604": {
+    "nombre": "HUACCANA"
+  },
+  "030605": {
+    "nombre": "OCOBAMBA"
+  },
+  "030606": {
+    "nombre": "ONGOY"
+  },
+  "030607": {
+    "nombre": "URANMARCA"
+  },
+  "030608": {
+    "nombre": "RANRACANCHA"
+  },
+  "030609": {
+    "nombre": "ROCCHACC"
+  },
+  "030610": {
+    "nombre": "EL PORVENIR"
+  },
+  "030611": {
+    "nombre": "LOS CHANKAS"
+  },
+  "030700": {
+    "nombre": "GRAU"
+  },
+  "030701": {
+    "nombre": "CHUQUIBAMBILLA"
+  },
+  "030702": {
+    "nombre": "CURPAHUASI"
+  },
+  "030703": {
+    "nombre": "GAMARRA"
+  },
+  "030704": {
+    "nombre": "HUAYLLATI"
+  },
+  "030705": {
+    "nombre": "MAMARA"
+  },
+  "030706": {
+    "nombre": "MICAELA BASTIDAS"
+  },
+  "030707": {
+    "nombre": "PATAYPAMPA"
+  },
+  "030708": {
+    "nombre": "PROGRESO"
+  },
+  "030709": {
+    "nombre": "SAN ANTONIO"
+  },
+  "030710": {
+    "nombre": "SANTA ROSA"
+  },
+  "030711": {
+    "nombre": "TURPAY"
+  },
+  "030712": {
+    "nombre": "VILCABAMBA"
+  },
+  "030713": {
+    "nombre": "VIRUNDO"
+  },
+  "030714": {
+    "nombre": "CURASCO"
+  },
+  "040000": {
+    "nombre": "AREQUIPA"
+  },
+  "040100": {
+    "nombre": "AREQUIPA"
+  },
+  "040101": {
+    "nombre": "AREQUIPA"
+  },
+  "040102": {
+    "nombre": "ALTO SELVA ALEGRE"
+  },
+  "040103": {
+    "nombre": "CAYMA"
+  },
+  "040104": {
+    "nombre": "CERRO COLORADO"
+  },
+  "040105": {
+    "nombre": "CHARACATO"
+  },
+  "040106": {
+    "nombre": "CHIGUATA"
+  },
+  "040107": {
+    "nombre": "JACOBO HUNTER"
+  },
+  "040108": {
+    "nombre": "LA JOYA"
+  },
+  "040109": {
+    "nombre": "MARIANO MELGAR"
+  },
+  "040110": {
+    "nombre": "MIRAFLORES"
+  },
+  "040111": {
+    "nombre": "MOLLEBAYA"
+  },
+  "040112": {
+    "nombre": "PAUCARPATA"
+  },
+  "040113": {
+    "nombre": "POCSI"
+  },
+  "040114": {
+    "nombre": "POLOBAYA"
+  },
+  "040115": {
+    "nombre": "QUEQUEÑA"
+  },
+  "040116": {
+    "nombre": "SABANDIA"
+  },
+  "040117": {
+    "nombre": "SACHACA"
+  },
+  "040118": {
+    "nombre": "SAN JUAN DE SIGUAS"
+  },
+  "040119": {
+    "nombre": "SAN JUAN DE TARUCANI"
+  },
+  "040120": {
+    "nombre": "SANTA ISABEL DE SIGUAS"
+  },
+  "040121": {
+    "nombre": "SANTA RITA DE SIGUAS"
+  },
+  "040122": {
+    "nombre": "SOCABAYA"
+  },
+  "040123": {
+    "nombre": "TIABAYA"
+  },
+  "040124": {
+    "nombre": "UCHUMAYO"
+  },
+  "040125": {
+    "nombre": "VITOR"
+  },
+  "040126": {
+    "nombre": "YANAHUARA"
+  },
+  "040127": {
+    "nombre": "YARABAMBA"
+  },
+  "040128": {
+    "nombre": "YURA"
+  },
+  "040129": {
+    "nombre": "JOSE LUIS BUSTAMANTE Y RIVERO"
+  },
+  "040200": {
+    "nombre": "CAMANA"
+  },
+  "040201": {
+    "nombre": "CAMANA"
+  },
+  "040202": {
+    "nombre": "JOSE MARIA QUIMPER"
+  },
+  "040203": {
+    "nombre": "MARIANO NICOLAS VALCARCEL"
+  },
+  "040204": {
+    "nombre": "MARISCAL CACERES"
+  },
+  "040205": {
+    "nombre": "NICOLAS DE PIEROLA"
+  },
+  "040206": {
+    "nombre": "OCOÑA"
+  },
+  "040207": {
+    "nombre": "QUILCA"
+  },
+  "040208": {
+    "nombre": "SAMUEL PASTOR"
+  },
+  "040300": {
+    "nombre": "CARAVELI"
+  },
+  "040301": {
+    "nombre": "CARAVELI"
+  },
+  "040302": {
+    "nombre": "ACARI"
+  },
+  "040303": {
+    "nombre": "ATICO"
+  },
+  "040304": {
+    "nombre": "ATIQUIPA"
+  },
+  "040305": {
+    "nombre": "BELLA UNION"
+  },
+  "040306": {
+    "nombre": "CAHUACHO"
+  },
+  "040307": {
+    "nombre": "CHALA"
+  },
+  "040308": {
+    "nombre": "CHAPARRA"
+  },
+  "040309": {
+    "nombre": "HUANUHUANU"
+  },
+  "040310": {
+    "nombre": "JAQUI"
+  },
+  "040311": {
+    "nombre": "LOMAS"
+  },
+  "040312": {
+    "nombre": "QUICACHA"
+  },
+  "040313": {
+    "nombre": "YAUCA"
+  },
+  "040400": {
+    "nombre": "CASTILLA"
+  },
+  "040401": {
+    "nombre": "APLAO"
+  },
+  "040402": {
+    "nombre": "ANDAGUA"
+  },
+  "040403": {
+    "nombre": "AYO"
+  },
+  "040404": {
+    "nombre": "CHACHAS"
+  },
+  "040405": {
+    "nombre": "CHILCAYMARCA"
+  },
+  "040406": {
+    "nombre": "CHOCO"
+  },
+  "040407": {
+    "nombre": "HUANCARQUI"
+  },
+  "040408": {
+    "nombre": "MACHAGUAY"
+  },
+  "040409": {
+    "nombre": "ORCOPAMPA"
+  },
+  "040410": {
+    "nombre": "PAMPACOLCA"
+  },
+  "040411": {
+    "nombre": "TIPAN"
+  },
+  "040412": {
+    "nombre": "UÑON"
+  },
+  "040413": {
+    "nombre": "URACA"
+  },
+  "040414": {
+    "nombre": "VIRACO"
+  },
+  "040500": {
+    "nombre": "CAYLLOMA"
+  },
+  "040501": {
+    "nombre": "CHIVAY"
+  },
+  "040502": {
+    "nombre": "ACHOMA"
+  },
+  "040503": {
+    "nombre": "CABANACONDE"
+  },
+  "040504": {
+    "nombre": "CALLALLI"
+  },
+  "040505": {
+    "nombre": "CAYLLOMA"
+  },
+  "040506": {
+    "nombre": "COPORAQUE"
+  },
+  "040507": {
+    "nombre": "HUAMBO"
+  },
+  "040508": {
+    "nombre": "HUANCA"
+  },
+  "040509": {
+    "nombre": "ICHUPAMPA"
+  },
+  "040510": {
+    "nombre": "LARI"
+  },
+  "040511": {
+    "nombre": "LLUTA"
+  },
+  "040512": {
+    "nombre": "MACA"
+  },
+  "040513": {
+    "nombre": "MADRIGAL"
+  },
+  "040514": {
+    "nombre": "SAN ANTONIO DE CHUCA"
+  },
+  "040515": {
+    "nombre": "SIBAYO"
+  },
+  "040516": {
+    "nombre": "TAPAY"
+  },
+  "040517": {
+    "nombre": "TISCO"
+  },
+  "040518": {
+    "nombre": "TUTI"
+  },
+  "040519": {
+    "nombre": "YANQUE"
+  },
+  "040520": {
+    "nombre": "MAJES"
+  },
+  "040600": {
+    "nombre": "CONDESUYOS"
+  },
+  "040601": {
+    "nombre": "CHUQUIBAMBA"
+  },
+  "040602": {
+    "nombre": "ANDARAY"
+  },
+  "040603": {
+    "nombre": "CAYARANI"
+  },
+  "040604": {
+    "nombre": "CHICHAS"
+  },
+  "040605": {
+    "nombre": "IRAY"
+  },
+  "040606": {
+    "nombre": "RIO GRANDE"
+  },
+  "040607": {
+    "nombre": "SALAMANCA"
+  },
+  "040608": {
+    "nombre": "YANAQUIHUA"
+  },
+  "040700": {
+    "nombre": "ISLAY"
+  },
+  "040701": {
+    "nombre": "MOLLENDO"
+  },
+  "040702": {
+    "nombre": "COCACHACRA"
+  },
+  "040703": {
+    "nombre": "DEAN VALDIVIA"
+  },
+  "040704": {
+    "nombre": "ISLAY"
+  },
+  "040705": {
+    "nombre": "MEJIA"
+  },
+  "040706": {
+    "nombre": "PUNTA DE BOMBON"
+  },
+  "040800": {
+    "nombre": "LA UNION"
+  },
+  "040801": {
+    "nombre": "COTAHUASI"
+  },
+  "040802": {
+    "nombre": "ALCA"
+  },
+  "040803": {
+    "nombre": "CHARCANA"
+  },
+  "040804": {
+    "nombre": "HUAYNACOTAS"
+  },
+  "040805": {
+    "nombre": "PAMPAMARCA"
+  },
+  "040806": {
+    "nombre": "PUYCA"
+  },
+  "040807": {
+    "nombre": "QUECHUALLA"
+  },
+  "040808": {
+    "nombre": "SAYLA"
+  },
+  "040809": {
+    "nombre": "TAURIA"
+  },
+  "040810": {
+    "nombre": "TOMEPAMPA"
+  },
+  "040811": {
+    "nombre": "TORO"
+  },
+  "050000": {
+    "nombre": "AYACUCHO"
+  },
+  "050100": {
+    "nombre": "HUAMANGA"
+  },
+  "050101": {
+    "nombre": "AYACUCHO"
+  },
+  "050102": {
+    "nombre": "ACOCRO"
+  },
+  "050103": {
+    "nombre": "ACOS VINCHOS"
+  },
+  "050104": {
+    "nombre": "CARMEN ALTO"
+  },
+  "050105": {
+    "nombre": "CHIARA"
+  },
+  "050106": {
+    "nombre": "OCROS"
+  },
+  "050107": {
+    "nombre": "PACAYCASA"
+  },
+  "050108": {
+    "nombre": "QUINUA"
+  },
+  "050109": {
+    "nombre": "SAN JOSE DE TICLLAS"
+  },
+  "050110": {
+    "nombre": "SAN JUAN BAUTISTA"
+  },
+  "050111": {
+    "nombre": "SANTIAGO DE PISCHA"
+  },
+  "050112": {
+    "nombre": "SOCOS"
+  },
+  "050113": {
+    "nombre": "TAMBILLO"
+  },
+  "050114": {
+    "nombre": "VINCHOS"
+  },
+  "050115": {
+    "nombre": "JESUS NAZARENO"
+  },
+  "050116": {
+    "nombre": "ANDRES AVELINO CACERES"
+  },
+  "050200": {
+    "nombre": "CANGALLO"
+  },
+  "050201": {
+    "nombre": "CANGALLO"
+  },
+  "050202": {
+    "nombre": "CHUSCHI"
+  },
+  "050203": {
+    "nombre": "LOS MOROCHUCOS"
+  },
+  "050204": {
+    "nombre": "MARIA PARADO DE BELLIDO"
+  },
+  "050205": {
+    "nombre": "PARAS"
+  },
+  "050206": {
+    "nombre": "TOTOS"
+  },
+  "050300": {
+    "nombre": "HUANCA SANCOS"
+  },
+  "050301": {
+    "nombre": "SANCOS"
+  },
+  "050302": {
+    "nombre": "CARAPO"
+  },
+  "050303": {
+    "nombre": "SACSAMARCA"
+  },
+  "050304": {
+    "nombre": "SANTIAGO DE LUCANAMARCA"
+  },
+  "050400": {
+    "nombre": "HUANTA"
+  },
+  "050401": {
+    "nombre": "HUANTA"
+  },
+  "050402": {
+    "nombre": "AYAHUANCO"
+  },
+  "050403": {
+    "nombre": "HUAMANGUILLA"
+  },
+  "050404": {
+    "nombre": "IGUAIN"
+  },
+  "050405": {
+    "nombre": "LURICOCHA"
+  },
+  "050406": {
+    "nombre": "SANTILLANA"
+  },
+  "050407": {
+    "nombre": "SIVIA"
+  },
+  "050408": {
+    "nombre": "LLOCHEGUA"
+  },
+  "050409": {
+    "nombre": "CANAYRE"
+  },
+  "050410": {
+    "nombre": "UCHURACCAY"
+  },
+  "050411": {
+    "nombre": "PUCACOLPA"
+  },
+  "050412": {
+    "nombre": "CHACA"
+  },
+  "050500": {
+    "nombre": "LA MAR"
+  },
+  "050501": {
+    "nombre": "SAN MIGUEL"
+  },
+  "050502": {
+    "nombre": "ANCO"
+  },
+  "050503": {
+    "nombre": "AYNA"
+  },
+  "050504": {
+    "nombre": "CHILCAS"
+  },
+  "050505": {
+    "nombre": "CHUNGUI"
+  },
+  "050506": {
+    "nombre": "LUIS CARRANZA"
+  },
+  "050507": {
+    "nombre": "SANTA ROSA"
+  },
+  "050508": {
+    "nombre": "TAMBO"
+  },
+  "050509": {
+    "nombre": "SAMUGARI"
+  },
+  "050510": {
+    "nombre": "ANCHIHUAY"
+  },
+  "050511": {
+    "nombre": "ORONCCOY"
+  },
+  "050600": {
+    "nombre": "LUCANAS"
+  },
+  "050601": {
+    "nombre": "PUQUIO"
+  },
+  "050602": {
+    "nombre": "AUCARA"
+  },
+  "050603": {
+    "nombre": "CABANA"
+  },
+  "050604": {
+    "nombre": "CARMEN SALCEDO"
+  },
+  "050605": {
+    "nombre": "CHAVIÑA"
+  },
+  "050606": {
+    "nombre": "CHIPAO"
+  },
+  "050607": {
+    "nombre": "HUAC-HUAS"
+  },
+  "050608": {
+    "nombre": "LARAMATE"
+  },
+  "050609": {
+    "nombre": "LEONCIO PRADO"
+  },
+  "050610": {
+    "nombre": "LLAUTA"
+  },
+  "050611": {
+    "nombre": "LUCANAS"
+  },
+  "050612": {
+    "nombre": "OCAÑA"
+  },
+  "050613": {
+    "nombre": "OTOCA"
+  },
+  "050614": {
+    "nombre": "SAISA"
+  },
+  "050615": {
+    "nombre": "SAN CRISTOBAL"
+  },
+  "050616": {
+    "nombre": "SAN JUAN"
+  },
+  "050617": {
+    "nombre": "SAN PEDRO"
+  },
+  "050618": {
+    "nombre": "SAN PEDRO DE PALCO"
+  },
+  "050619": {
+    "nombre": "SANCOS"
+  },
+  "050620": {
+    "nombre": "SANTA ANA DE HUAYCAHUACHO"
+  },
+  "050621": {
+    "nombre": "SANTA LUCIA"
+  },
+  "050700": {
+    "nombre": "PARINACOCHAS"
+  },
+  "050701": {
+    "nombre": "CORACORA"
+  },
+  "050702": {
+    "nombre": "CHUMPI"
+  },
+  "050703": {
+    "nombre": "CORONEL CASTAÑEDA"
+  },
+  "050704": {
+    "nombre": "PACAPAUSA"
+  },
+  "050705": {
+    "nombre": "PULLO"
+  },
+  "050706": {
+    "nombre": "PUYUSCA"
+  },
+  "050707": {
+    "nombre": "SAN FRANCISCO DE RAVACAYCO"
+  },
+  "050708": {
+    "nombre": "UPAHUACHO"
+  },
+  "050800": {
+    "nombre": "PAUCAR DEL SARA SARA"
+  },
+  "050801": {
+    "nombre": "PAUSA"
+  },
+  "050802": {
+    "nombre": "COLTA"
+  },
+  "050803": {
+    "nombre": "CORCULLA"
+  },
+  "050804": {
+    "nombre": "LAMPA"
+  },
+  "050805": {
+    "nombre": "MARCABAMBA"
+  },
+  "050806": {
+    "nombre": "OYOLO"
+  },
+  "050807": {
+    "nombre": "PARARCA"
+  },
+  "050808": {
+    "nombre": "SAN JAVIER DE ALPABAMBA"
+  },
+  "050809": {
+    "nombre": "SAN JOSE DE USHUA"
+  },
+  "050810": {
+    "nombre": "SARA SARA"
+  },
+  "050900": {
+    "nombre": "SUCRE"
+  },
+  "050901": {
+    "nombre": "QUEROBAMBA"
+  },
+  "050902": {
+    "nombre": "BELEN"
+  },
+  "050903": {
+    "nombre": "CHALCOS"
+  },
+  "050904": {
+    "nombre": "CHILCAYOC"
+  },
+  "050905": {
+    "nombre": "HUACAÑA"
+  },
+  "050906": {
+    "nombre": "MORCOLLA"
+  },
+  "050907": {
+    "nombre": "PAICO"
+  },
+  "050908": {
+    "nombre": "SAN PEDRO DE LARCAY"
+  },
+  "050909": {
+    "nombre": "SAN SALVADOR DE QUIJE"
+  },
+  "050910": {
+    "nombre": "SANTIAGO DE PAUCARAY"
+  },
+  "050911": {
+    "nombre": "SORAS"
+  },
+  "051000": {
+    "nombre": "VICTOR FAJARDO"
+  },
+  "051001": {
+    "nombre": "HUANCAPI"
+  },
+  "051002": {
+    "nombre": "ALCAMENCA"
+  },
+  "051003": {
+    "nombre": "APONGO"
+  },
+  "051004": {
+    "nombre": "ASQUIPATA"
+  },
+  "051005": {
+    "nombre": "CANARIA"
+  },
+  "051006": {
+    "nombre": "CAYARA"
+  },
+  "051007": {
+    "nombre": "COLCA"
+  },
+  "051008": {
+    "nombre": "HUAMANQUIQUIA"
+  },
+  "051009": {
+    "nombre": "HUANCARAYLLA"
+  },
+  "051010": {
+    "nombre": "HUAYA"
+  },
+  "051011": {
+    "nombre": "SARHUA"
+  },
+  "051012": {
+    "nombre": "VILCANCHOS"
+  },
+  "051100": {
+    "nombre": "VILCAS HUAMAN"
+  },
+  "051101": {
+    "nombre": "VILCAS HUAMAN"
+  },
+  "051102": {
+    "nombre": "ACCOMARCA"
+  },
+  "051103": {
+    "nombre": "CARHUANCA"
+  },
+  "051104": {
+    "nombre": "CONCEPCION"
+  },
+  "051105": {
+    "nombre": "HUAMBALPA"
+  },
+  "051106": {
+    "nombre": "INDEPENDENCIA"
+  },
+  "051107": {
+    "nombre": "SAURAMA"
+  },
+  "051108": {
+    "nombre": "VISCHONGO"
+  },
+  "060000": {
+    "nombre": "CAJAMARCA"
+  },
+  "060100": {
+    "nombre": "CAJAMARCA"
+  },
+  "060101": {
+    "nombre": "CAJAMARCA"
+  },
+  "060102": {
+    "nombre": "ASUNCION"
+  },
+  "060103": {
+    "nombre": "CHETILLA"
+  },
+  "060104": {
+    "nombre": "COSPAN"
+  },
+  "060105": {
+    "nombre": "ENCAÑADA"
+  },
+  "060106": {
+    "nombre": "JESUS"
+  },
+  "060107": {
+    "nombre": "LLACANORA"
+  },
+  "060108": {
+    "nombre": "LOS BAÑOS DEL INCA"
+  },
+  "060109": {
+    "nombre": "MAGDALENA"
+  },
+  "060110": {
+    "nombre": "MATARA"
+  },
+  "060111": {
+    "nombre": "NAMORA"
+  },
+  "060112": {
+    "nombre": "SAN JUAN"
+  },
+  "060200": {
+    "nombre": "CAJABAMBA"
+  },
+  "060201": {
+    "nombre": "CAJABAMBA"
+  },
+  "060202": {
+    "nombre": "CACHACHI"
+  },
+  "060203": {
+    "nombre": "CONDEBAMBA"
+  },
+  "060204": {
+    "nombre": "SITACOCHA"
+  },
+  "060300": {
+    "nombre": "CELENDIN"
+  },
+  "060301": {
+    "nombre": "CELENDIN"
+  },
+  "060302": {
+    "nombre": "CHUMUCH"
+  },
+  "060303": {
+    "nombre": "CORTEGANA"
+  },
+  "060304": {
+    "nombre": "HUASMIN"
+  },
+  "060305": {
+    "nombre": "JORGE CHAVEZ"
+  },
+  "060306": {
+    "nombre": "JOSE GALVEZ"
+  },
+  "060307": {
+    "nombre": "MIGUEL IGLESIAS"
+  },
+  "060308": {
+    "nombre": "OXAMARCA"
+  },
+  "060309": {
+    "nombre": "SOROCHUCO"
+  },
+  "060310": {
+    "nombre": "SUCRE"
+  },
+  "060311": {
+    "nombre": "UTCO"
+  },
+  "060312": {
+    "nombre": "LA LIBERTAD DE PALLAN"
+  },
+  "060400": {
+    "nombre": "CHOTA"
+  },
+  "060401": {
+    "nombre": "CHOTA"
+  },
+  "060402": {
+    "nombre": "ANGUIA"
+  },
+  "060403": {
+    "nombre": "CHADIN"
+  },
+  "060404": {
+    "nombre": "CHIGUIRIP"
+  },
+  "060405": {
+    "nombre": "CHIMBAN"
+  },
+  "060406": {
+    "nombre": "CHOROPAMPA"
+  },
+  "060407": {
+    "nombre": "COCHABAMBA"
+  },
+  "060408": {
+    "nombre": "CONCHAN"
+  },
+  "060409": {
+    "nombre": "HUAMBOS"
+  },
+  "060410": {
+    "nombre": "LAJAS"
+  },
+  "060411": {
+    "nombre": "LLAMA"
+  },
+  "060412": {
+    "nombre": "MIRACOSTA"
+  },
+  "060413": {
+    "nombre": "PACCHA"
+  },
+  "060414": {
+    "nombre": "PION"
+  },
+  "060415": {
+    "nombre": "QUEROCOTO"
+  },
+  "060416": {
+    "nombre": "SAN JUAN DE LICUPIS"
+  },
+  "060417": {
+    "nombre": "TACABAMBA"
+  },
+  "060418": {
+    "nombre": "TOCMOCHE"
+  },
+  "060419": {
+    "nombre": "CHALAMARCA"
+  },
+  "060500": {
+    "nombre": "CONTUMAZA"
+  },
+  "060501": {
+    "nombre": "CONTUMAZA"
+  },
+  "060502": {
+    "nombre": "CHILETE"
+  },
+  "060503": {
+    "nombre": "CUPISNIQUE"
+  },
+  "060504": {
+    "nombre": "GUZMANGO"
+  },
+  "060505": {
+    "nombre": "SAN BENITO"
+  },
+  "060506": {
+    "nombre": "SANTA CRUZ DE TOLED"
+  },
+  "060507": {
+    "nombre": "TANTARICA"
+  },
+  "060508": {
+    "nombre": "YONAN"
+  },
+  "060600": {
+    "nombre": "CUTERVO"
+  },
+  "060601": {
+    "nombre": "CUTERVO"
+  },
+  "060602": {
+    "nombre": "CALLAYUC"
+  },
+  "060603": {
+    "nombre": "CHOROS"
+  },
+  "060604": {
+    "nombre": "CUJILLO"
+  },
+  "060605": {
+    "nombre": "LA RAMADA"
+  },
+  "060606": {
+    "nombre": "PIMPINGOS"
+  },
+  "060607": {
+    "nombre": "QUEROCOTILLO"
+  },
+  "060608": {
+    "nombre": "SAN ANDRES DE CUTERVO"
+  },
+  "060609": {
+    "nombre": "SAN JUAN DE CUTERVO"
+  },
+  "060610": {
+    "nombre": "SAN LUIS DE LUCMA"
+  },
+  "060611": {
+    "nombre": "SANTA CRUZ"
+  },
+  "060612": {
+    "nombre": "SANTO DOMINGO DE LA CAPILLA"
+  },
+  "060613": {
+    "nombre": "SANTO TOMAS"
+  },
+  "060614": {
+    "nombre": "SOCOTA"
+  },
+  "060615": {
+    "nombre": "TORIBIO CASANOVA"
+  },
+  "060700": {
+    "nombre": "HUALGAYOC"
+  },
+  "060701": {
+    "nombre": "BAMBAMARCA"
+  },
+  "060702": {
+    "nombre": "CHUGUR"
+  },
+  "060703": {
+    "nombre": "HUALGAYOC"
+  },
+  "060800": {
+    "nombre": "JAEN"
+  },
+  "060801": {
+    "nombre": "JAEN"
+  },
+  "060802": {
+    "nombre": "BELLAVISTA"
+  },
+  "060803": {
+    "nombre": "CHONTALI"
+  },
+  "060804": {
+    "nombre": "COLASAY"
+  },
+  "060805": {
+    "nombre": "HUABAL"
+  },
+  "060806": {
+    "nombre": "LAS PIRIAS"
+  },
+  "060807": {
+    "nombre": "POMAHUACA"
+  },
+  "060808": {
+    "nombre": "PUCARA"
+  },
+  "060809": {
+    "nombre": "SALLIQUE"
+  },
+  "060810": {
+    "nombre": "SAN FELIPE"
+  },
+  "060811": {
+    "nombre": "SAN JOSE DEL ALTO"
+  },
+  "060812": {
+    "nombre": "SANTA ROSA"
+  },
+  "060900": {
+    "nombre": "SAN IGNACIO"
+  },
+  "060901": {
+    "nombre": "SAN IGNACIO"
+  },
+  "060902": {
+    "nombre": "CHIRINOS"
+  },
+  "060903": {
+    "nombre": "HUARANGO"
+  },
+  "060904": {
+    "nombre": "LA COIPA"
+  },
+  "060905": {
+    "nombre": "NAMBALLE"
+  },
+  "060906": {
+    "nombre": "SAN JOSE DE LOURDES"
+  },
+  "060907": {
+    "nombre": "TABACONAS"
+  },
+  "061000": {
+    "nombre": "SAN MARCOS"
+  },
+  "061001": {
+    "nombre": "PEDRO GALVEZ"
+  },
+  "061002": {
+    "nombre": "CHANCAY"
+  },
+  "061003": {
+    "nombre": "EDUARDO VILLANUEVA"
+  },
+  "061004": {
+    "nombre": "GREGORIO PITA"
+  },
+  "061005": {
+    "nombre": "ICHOCAN"
+  },
+  "061006": {
+    "nombre": "JOSE MANUEL QUIROZ"
+  },
+  "061007": {
+    "nombre": "JOSE SABOGAL"
+  },
+  "061100": {
+    "nombre": "SAN MIGUEL"
+  },
+  "061101": {
+    "nombre": "SAN MIGUEL"
+  },
+  "061102": {
+    "nombre": "BOLIVAR"
+  },
+  "061103": {
+    "nombre": "CALQUIS"
+  },
+  "061104": {
+    "nombre": "CATILLUC"
+  },
+  "061105": {
+    "nombre": "EL PRADO"
+  },
+  "061106": {
+    "nombre": "LA FLORIDA"
+  },
+  "061107": {
+    "nombre": "LLAPA"
+  },
+  "061108": {
+    "nombre": "NANCHOC"
+  },
+  "061109": {
+    "nombre": "NIEPOS"
+  },
+  "061110": {
+    "nombre": "SAN GREGORIO"
+  },
+  "061111": {
+    "nombre": "SAN SILVESTRE DE COCHAN"
+  },
+  "061112": {
+    "nombre": "TONGOD"
+  },
+  "061113": {
+    "nombre": "UNION AGUA BLANCA"
+  },
+  "061200": {
+    "nombre": "SAN PABLO"
+  },
+  "061201": {
+    "nombre": "SAN PABLO"
+  },
+  "061202": {
+    "nombre": "SAN BERNARDINO"
+  },
+  "061203": {
+    "nombre": "SAN LUIS"
+  },
+  "061204": {
+    "nombre": "TUMBADEN"
+  },
+  "061300": {
+    "nombre": "SANTA CRUZ"
+  },
+  "061301": {
+    "nombre": "SANTA CRUZ"
+  },
+  "061302": {
+    "nombre": "ANDABAMBA"
+  },
+  "061303": {
+    "nombre": "CATACHE"
+  },
+  "061304": {
+    "nombre": "CHANCAYBAÑOS"
+  },
+  "061305": {
+    "nombre": "LA ESPERANZA"
+  },
+  "061306": {
+    "nombre": "NINABAMBA"
+  },
+  "061307": {
+    "nombre": "PULAN"
+  },
+  "061308": {
+    "nombre": "SAUCEPAMPA"
+  },
+  "061309": {
+    "nombre": "SEXI"
+  },
+  "061310": {
+    "nombre": "UTICYACU"
+  },
+  "061311": {
+    "nombre": "YAUYUCAN"
+  },
+  "070000": {
+    "nombre": "PROV. CONST. DEL CALLAO"
+  },
+  "070100": {
+    "nombre": "PROV. CONST. DEL CALLAO"
+  },
+  "070101": {
+    "nombre": "CALLAO"
+  },
+  "070102": {
+    "nombre": "BELLAVISTA"
+  },
+  "070103": {
+    "nombre": "CARMEN DE LA LEGUA REYNOSO"
+  },
+  "070104": {
+    "nombre": "LA PERLA"
+  },
+  "070105": {
+    "nombre": "LA PUNTA"
+  },
+  "070106": {
+    "nombre": "VENTANILLA"
+  },
+  "070107": {
+    "nombre": "MI PERU"
+  },
+  "080000": {
+    "nombre": "CUSCO"
+  },
+  "080100": {
+    "nombre": "CUSCO"
+  },
+  "080101": {
+    "nombre": "CUSCO"
+  },
+  "080102": {
+    "nombre": "CCORCA"
+  },
+  "080103": {
+    "nombre": "POROY"
+  },
+  "080104": {
+    "nombre": "SAN JERONIMO"
+  },
+  "080105": {
+    "nombre": "SAN SEBASTIAN"
+  },
+  "080106": {
+    "nombre": "SANTIAGO"
+  },
+  "080107": {
+    "nombre": "SAYLLA"
+  },
+  "080108": {
+    "nombre": "WANCHAQ"
+  },
+  "080200": {
+    "nombre": "ACOMAYO"
+  },
+  "080201": {
+    "nombre": "ACOMAYO"
+  },
+  "080202": {
+    "nombre": "ACOPIA"
+  },
+  "080203": {
+    "nombre": "ACOS"
+  },
+  "080204": {
+    "nombre": "MOSOC LLACTA"
+  },
+  "080205": {
+    "nombre": "POMACANCHI"
+  },
+  "080206": {
+    "nombre": "RONDOCAN"
+  },
+  "080207": {
+    "nombre": "SANGARARA"
+  },
+  "080300": {
+    "nombre": "ANTA"
+  },
+  "080301": {
+    "nombre": "ANTA"
+  },
+  "080302": {
+    "nombre": "ANCAHUASI"
+  },
+  "080303": {
+    "nombre": "CACHIMAYO"
+  },
+  "080304": {
+    "nombre": "CHINCHAYPUJIO"
+  },
+  "080305": {
+    "nombre": "HUAROCONDO"
+  },
+  "080306": {
+    "nombre": "LIMATAMBO"
+  },
+  "080307": {
+    "nombre": "MOLLEPATA"
+  },
+  "080308": {
+    "nombre": "PUCYURA"
+  },
+  "080309": {
+    "nombre": "ZURITE"
+  },
+  "080400": {
+    "nombre": "CALCA"
+  },
+  "080401": {
+    "nombre": "CALCA"
+  },
+  "080402": {
+    "nombre": "COYA"
+  },
+  "080403": {
+    "nombre": "LAMAY"
+  },
+  "080404": {
+    "nombre": "LARES"
+  },
+  "080405": {
+    "nombre": "PISAC"
+  },
+  "080406": {
+    "nombre": "SAN SALVADOR"
+  },
+  "080407": {
+    "nombre": "TARAY"
+  },
+  "080408": {
+    "nombre": "YANATILE"
+  },
+  "080500": {
+    "nombre": "CANAS"
+  },
+  "080501": {
+    "nombre": "YANAOCA"
+  },
+  "080502": {
+    "nombre": "CHECCA"
+  },
+  "080503": {
+    "nombre": "KUNTURKANKI"
+  },
+  "080504": {
+    "nombre": "LANGUI"
+  },
+  "080505": {
+    "nombre": "LAYO"
+  },
+  "080506": {
+    "nombre": "PAMPAMARCA"
+  },
+  "080507": {
+    "nombre": "QUEHUE"
+  },
+  "080508": {
+    "nombre": "TUPAC AMARU"
+  },
+  "080600": {
+    "nombre": "CANCHIS"
+  },
+  "080601": {
+    "nombre": "SICUANI"
+  },
+  "080602": {
+    "nombre": "CHECACUPE"
+  },
+  "080603": {
+    "nombre": "COMBAPATA"
+  },
+  "080604": {
+    "nombre": "MARANGANI"
+  },
+  "080605": {
+    "nombre": "PITUMARCA"
+  },
+  "080606": {
+    "nombre": "SAN PABLO"
+  },
+  "080607": {
+    "nombre": "SAN PEDRO"
+  },
+  "080608": {
+    "nombre": "TINTA"
+  },
+  "080700": {
+    "nombre": "CHUMBIVILCAS"
+  },
+  "080701": {
+    "nombre": "SANTO TOMAS"
+  },
+  "080702": {
+    "nombre": "CAPACMARCA"
+  },
+  "080703": {
+    "nombre": "CHAMACA"
+  },
+  "080704": {
+    "nombre": "COLQUEMARCA"
+  },
+  "080705": {
+    "nombre": "LIVITACA"
+  },
+  "080706": {
+    "nombre": "LLUSCO"
+  },
+  "080707": {
+    "nombre": "QUIÑOTA"
+  },
+  "080708": {
+    "nombre": "VELILLE"
+  },
+  "080800": {
+    "nombre": "ESPINAR"
+  },
+  "080801": {
+    "nombre": "ESPINAR"
+  },
+  "080802": {
+    "nombre": "CONDOROMA"
+  },
+  "080803": {
+    "nombre": "COPORAQUE"
+  },
+  "080804": {
+    "nombre": "OCORURO"
+  },
+  "080805": {
+    "nombre": "PALLPATA"
+  },
+  "080806": {
+    "nombre": "PICHIGUA"
+  },
+  "080807": {
+    "nombre": "SUYCKUTAMBO"
+  },
+  "080808": {
+    "nombre": "ALTO PICHIGUA"
+  },
+  "080900": {
+    "nombre": "LA CONVENCION"
+  },
+  "080901": {
+    "nombre": "SANTA ANA"
+  },
+  "080902": {
+    "nombre": "ECHARATE"
+  },
+  "080903": {
+    "nombre": "HUAYOPATA"
+  },
+  "080904": {
+    "nombre": "MARANURA"
+  },
+  "080905": {
+    "nombre": "OCOBAMBA"
+  },
+  "080906": {
+    "nombre": "QUELLOUNO"
+  },
+  "080907": {
+    "nombre": "KIMBIRI"
+  },
+  "080908": {
+    "nombre": "SANTA TERESA"
+  },
+  "080909": {
+    "nombre": "VILCABAMBA"
+  },
+  "080910": {
+    "nombre": "PICHARI"
+  },
+  "080911": {
+    "nombre": "INKAWASI"
+  },
+  "080912": {
+    "nombre": "VILLA VIRGEN"
+  },
+  "080913": {
+    "nombre": "VILLA KINTIARINA"
+  },
+  "080914": {
+    "nombre": "MEGANTONI"
+  },
+  "081000": {
+    "nombre": "PARURO"
+  },
+  "081001": {
+    "nombre": "PARURO"
+  },
+  "081002": {
+    "nombre": "ACCHA"
+  },
+  "081003": {
+    "nombre": "CCAPI"
+  },
+  "081004": {
+    "nombre": "COLCHA"
+  },
+  "081005": {
+    "nombre": "HUANOQUITE"
+  },
+  "081006": {
+    "nombre": "OMACHA"
+  },
+  "081007": {
+    "nombre": "PACCARITAMBO"
+  },
+  "081008": {
+    "nombre": "PILLPINTO"
+  },
+  "081009": {
+    "nombre": "YAURISQUE"
+  },
+  "081100": {
+    "nombre": "PAUCARTAMBO"
+  },
+  "081101": {
+    "nombre": "PAUCARTAMBO"
+  },
+  "081102": {
+    "nombre": "CAICAY"
+  },
+  "081103": {
+    "nombre": "CHALLABAMBA"
+  },
+  "081104": {
+    "nombre": "COLQUEPATA"
+  },
+  "081105": {
+    "nombre": "HUANCARANI"
+  },
+  "081106": {
+    "nombre": "KOSÑIPATA"
+  },
+  "081200": {
+    "nombre": "QUISPICANCHI"
+  },
+  "081201": {
+    "nombre": "URCOS"
+  },
+  "081202": {
+    "nombre": "ANDAHUAYLILLAS"
+  },
+  "081203": {
+    "nombre": "CAMANTI"
+  },
+  "081204": {
+    "nombre": "CCARHUAYO"
+  },
+  "081205": {
+    "nombre": "CCATCA"
+  },
+  "081206": {
+    "nombre": "CUSIPATA"
+  },
+  "081207": {
+    "nombre": "HUARO"
+  },
+  "081208": {
+    "nombre": "LUCRE"
+  },
+  "081209": {
+    "nombre": "MARCAPATA"
+  },
+  "081210": {
+    "nombre": "OCONGATE"
+  },
+  "081211": {
+    "nombre": "OROPESA"
+  },
+  "081212": {
+    "nombre": "QUIQUIJANA"
+  },
+  "081300": {
+    "nombre": "URUBAMBA"
+  },
+  "081301": {
+    "nombre": "URUBAMBA"
+  },
+  "081302": {
+    "nombre": "CHINCHERO"
+  },
+  "081303": {
+    "nombre": "HUAYLLABAMBA"
+  },
+  "081304": {
+    "nombre": "MACHUPICCHU"
+  },
+  "081305": {
+    "nombre": "MARAS"
+  },
+  "081306": {
+    "nombre": "OLLANTAYTAMBO"
+  },
+  "081307": {
+    "nombre": "YUCAY"
+  },
+  "090000": {
+    "nombre": "HUANCAVELICA"
+  },
+  "090100": {
+    "nombre": "HUANCAVELICA"
+  },
+  "090101": {
+    "nombre": "HUANCAVELICA"
+  },
+  "090102": {
+    "nombre": "ACOBAMBILLA"
+  },
+  "090103": {
+    "nombre": "ACORIA"
+  },
+  "090104": {
+    "nombre": "CONAYCA"
+  },
+  "090105": {
+    "nombre": "CUENCA"
+  },
+  "090106": {
+    "nombre": "HUACHOCOLPA"
+  },
+  "090107": {
+    "nombre": "HUAYLLAHUARA"
+  },
+  "090108": {
+    "nombre": "IZCUCHACA"
+  },
+  "090109": {
+    "nombre": "LARIA"
+  },
+  "090110": {
+    "nombre": "MANTA"
+  },
+  "090111": {
+    "nombre": "MARISCAL CACERES"
+  },
+  "090112": {
+    "nombre": "MOYA"
+  },
+  "090113": {
+    "nombre": "NUEVO OCCORO"
+  },
+  "090114": {
+    "nombre": "PALCA"
+  },
+  "090115": {
+    "nombre": "PILCHACA"
+  },
+  "090116": {
+    "nombre": "VILCA"
+  },
+  "090117": {
+    "nombre": "YAULI"
+  },
+  "090118": {
+    "nombre": "ASCENSION"
+  },
+  "090119": {
+    "nombre": "HUANDO"
+  },
+  "090200": {
+    "nombre": "ACOBAMBA"
+  },
+  "090201": {
+    "nombre": "ACOBAMBA"
+  },
+  "090202": {
+    "nombre": "ANDABAMBA"
+  },
+  "090203": {
+    "nombre": "ANTA"
+  },
+  "090204": {
+    "nombre": "CAJA"
+  },
+  "090205": {
+    "nombre": "MARCAS"
+  },
+  "090206": {
+    "nombre": "PAUCARA"
+  },
+  "090207": {
+    "nombre": "POMACOCHA"
+  },
+  "090208": {
+    "nombre": "ROSARIO"
+  },
+  "090300": {
+    "nombre": "ANGARAES"
+  },
+  "090301": {
+    "nombre": "LIRCAY"
+  },
+  "090302": {
+    "nombre": "ANCHONGA"
+  },
+  "090303": {
+    "nombre": "CALLANMARCA"
+  },
+  "090304": {
+    "nombre": "CCOCHACCASA"
+  },
+  "090305": {
+    "nombre": "CHINCHO"
+  },
+  "090306": {
+    "nombre": "CONGALLA"
+  },
+  "090307": {
+    "nombre": "HUANCA-HUANCA"
+  },
+  "090308": {
+    "nombre": "HUAYLLAY GRANDE"
+  },
+  "090309": {
+    "nombre": "JULCAMARCA"
+  },
+  "090310": {
+    "nombre": "SAN ANTONIO DE ANTAPARCO"
+  },
+  "090311": {
+    "nombre": "SANTO TOMAS DE PATA"
+  },
+  "090312": {
+    "nombre": "SECCLLA"
+  },
+  "090400": {
+    "nombre": "CASTROVIRREYNA"
+  },
+  "090401": {
+    "nombre": "CASTROVIRREYNA"
+  },
+  "090402": {
+    "nombre": "ARMA"
+  },
+  "090403": {
+    "nombre": "AURAHUA"
+  },
+  "090404": {
+    "nombre": "CAPILLAS"
+  },
+  "090405": {
+    "nombre": "CHUPAMARCA"
+  },
+  "090406": {
+    "nombre": "COCAS"
+  },
+  "090407": {
+    "nombre": "HUACHOS"
+  },
+  "090408": {
+    "nombre": "HUAMATAMBO"
+  },
+  "090409": {
+    "nombre": "MOLLEPAMPA"
+  },
+  "090410": {
+    "nombre": "SAN JUAN"
+  },
+  "090411": {
+    "nombre": "SANTA ANA"
+  },
+  "090412": {
+    "nombre": "TANTARA"
+  },
+  "090413": {
+    "nombre": "TICRAPO"
+  },
+  "090500": {
+    "nombre": "CHURCAMPA"
+  },
+  "090501": {
+    "nombre": "CHURCAMPA"
+  },
+  "090502": {
+    "nombre": "ANCO"
+  },
+  "090503": {
+    "nombre": "CHINCHIHUASI"
+  },
+  "090504": {
+    "nombre": "EL CARMEN"
+  },
+  "090505": {
+    "nombre": "LA MERCED"
+  },
+  "090506": {
+    "nombre": "LOCROJA"
+  },
+  "090507": {
+    "nombre": "PAUCARBAMBA"
+  },
+  "090508": {
+    "nombre": "SAN MIGUEL DE MAYOCC"
+  },
+  "090509": {
+    "nombre": "SAN PEDRO DE CORIS"
+  },
+  "090510": {
+    "nombre": "PACHAMARCA"
+  },
+  "090511": {
+    "nombre": "COSME"
+  },
+  "090600": {
+    "nombre": "HUAYTARA"
+  },
+  "090601": {
+    "nombre": "HUAYTARA"
+  },
+  "090602": {
+    "nombre": "AYAVI"
+  },
+  "090603": {
+    "nombre": "CORDOVA"
+  },
+  "090604": {
+    "nombre": "HUAYACUNDO ARMA"
+  },
+  "090605": {
+    "nombre": "LARAMARCA"
+  },
+  "090606": {
+    "nombre": "OCOYO"
+  },
+  "090607": {
+    "nombre": "PILPICHACA"
+  },
+  "090608": {
+    "nombre": "QUERCO"
+  },
+  "090609": {
+    "nombre": "QUITO-ARMA"
+  },
+  "090610": {
+    "nombre": "SAN ANTONIO DE CUSICANCHA"
+  },
+  "090611": {
+    "nombre": "SAN FRANCISCO DE SANGAYAICO"
+  },
+  "090612": {
+    "nombre": "SAN ISIDRO"
+  },
+  "090613": {
+    "nombre": "SANTIAGO DE CHOCORVOS"
+  },
+  "090614": {
+    "nombre": "SANTIAGO DE QUIRAHUARA"
+  },
+  "090615": {
+    "nombre": "SANTO DOMINGO DE CAPILLAS"
+  },
+  "090616": {
+    "nombre": "TAMBO"
+  },
+  "090700": {
+    "nombre": "TAYACAJA"
+  },
+  "090701": {
+    "nombre": "PAMPAS"
+  },
+  "090702": {
+    "nombre": "ACOSTAMBO"
+  },
+  "090703": {
+    "nombre": "ACRAQUIA"
+  },
+  "090704": {
+    "nombre": "AHUAYCHA"
+  },
+  "090705": {
+    "nombre": "COLCABAMBA"
+  },
+  "090706": {
+    "nombre": "DANIEL HERNANDEZ"
+  },
+  "090707": {
+    "nombre": "HUACHOCOLPA"
+  },
+  "090708": {
+    "nombre": "HUANDO"
+  },
+  "090709": {
+    "nombre": "HUARIBAMBA"
+  },
+  "090710": {
+    "nombre": "ÑAHUIMPUQUIO"
+  },
+  "090711": {
+    "nombre": "PAZOS"
+  },
+  "090713": {
+    "nombre": "QUISHUAR"
+  },
+  "090714": {
+    "nombre": "SALCABAMBA"
+  },
+  "090715": {
+    "nombre": "SALCAHUASI"
+  },
+  "090716": {
+    "nombre": "SAN MARCOS DE ROCCHAC"
+  },
+  "090717": {
+    "nombre": "SURCUBAMBA"
+  },
+  "090718": {
+    "nombre": "TINTAY PUNCU"
+  },
+  "090719": {
+    "nombre": "QUICHUAS"
+  },
+  "090720": {
+    "nombre": "ANDAYMARCA"
+  },
+  "090721": {
+    "nombre": "ROBLE"
+  },
+  "090722": {
+    "nombre": "PICHOS"
+  },
+  "090723": {
+    "nombre": "SANTIAGO DE TUCUMA"
+  }
+} as const;
+
 /** Catálogo N.° 16: Tipo de precio de venta unitario. Fuente: cat_16.xml (sha256 56a62abec5ea264706ab3b9848a486c2b0392849d1de739293b958e038aaeee9). */
 export const catalogo16 = {
   "01": {
@@ -83,6 +6402,16 @@ export const catalogo16 = {
   },
   "02": {
     "nombre": "Valor referencial unitario en operaciones no onerosas"
+  }
+} as const;
+
+/** Catálogo N.° 18: Modalidad de traslado. Fuente: cat_18.xml (sha256 96471f198b4228ae42db9e71a056a5f96955d756289458db2d2e8a7a4d0ccfd0). */
+export const catalogo18 = {
+  "01": {
+    "nombre": "Transporte público"
+  },
+  "02": {
+    "nombre": "Transporte privado"
   }
 } as const;
 
@@ -96,6 +6425,49 @@ export const catalogo19 = {
   },
   "3": {
     "nombre": "Anular"
+  }
+} as const;
+
+/** Catálogo N.° 20: Motivo de traslado. Fuente: cat_20.xml (sha256 fa96be0494181c6034fede3b29fe04b7a6c01f40374381b56708dbedc9b2ca1f). */
+export const catalogo20 = {
+  "13": {
+    "nombre": "Otros"
+  },
+  "14": {
+    "nombre": "Venta sujeta a confirmación del comprador"
+  },
+  "17": {
+    "nombre": "Traslado de bienes para transformación"
+  },
+  "18": {
+    "nombre": "Traslado emisor itinerante CP"
+  },
+  "01": {
+    "nombre": "Venta"
+  },
+  "02": {
+    "nombre": "Compra"
+  },
+  "03": {
+    "nombre": "Venta con entrega a terceros"
+  },
+  "04": {
+    "nombre": "Traslado entre establecimientos de la misma empresa"
+  },
+  "05": {
+    "nombre": "Consignacion"
+  },
+  "06": {
+    "nombre": "Devolucion"
+  },
+  "07": {
+    "nombre": "Recojo de bienes transformados"
+  },
+  "08": {
+    "nombre": "Importación"
+  },
+  "09": {
+    "nombre": "Exportación"
   }
 } as const;
 

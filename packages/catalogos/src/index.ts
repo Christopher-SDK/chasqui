@@ -14,8 +14,11 @@ export const catalogos = {
   '10': g.catalogo10,
   '11': g.catalogo11,
   '12': g.catalogo12,
+  '13': g.catalogo13,
   '16': g.catalogo16,
+  '18': g.catalogo18,
   '19': g.catalogo19,
+  '20': g.catalogo20,
   '51': g.catalogo51,
 } as const;
 

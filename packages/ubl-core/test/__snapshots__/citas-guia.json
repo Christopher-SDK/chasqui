@@ -1,0 +1,182 @@
+{
+  "UBLVersionID 2.0": [
+    "2110 @ ValidaExprRegGreRemitente-2.0.1.xsl:L87"
+  ],
+  "sin UBLVersionID": [
+    "2111 @ ValidaExprRegGreRemitente-2.0.1.xsl:L87"
+  ],
+  "CustomizationID 1.0": [
+    "2112 @ ValidaExprRegGreRemitente-2.0.1.xsl:L96"
+  ],
+  "sin CustomizationID": [
+    "2113 @ ValidaExprRegGreRemitente-2.0.1.xsl:L96"
+  ],
+  "serie de factura": [
+    "1001 @ ValidaExprRegGreRemitente-2.0.1.xsl:L105"
+  ],
+  "RUC del nombre distinto": [
+    "1034 @ ValidaExprRegGreRemitente-2.0.1.xsl:L114"
+  ],
+  "serie del nombre distinta": [
+    "1035 @ ValidaExprRegGreRemitente-2.0.1.xsl:L121"
+  ],
+  "número del nombre distinto": [
+    "1036 @ ValidaExprRegGreRemitente-2.0.1.xsl:L128"
+  ],
+  "fecha de emisión mal formada": [
+    "3436 @ ValidaExprRegGreRemitente-2.0.1.xsl:L135"
+  ],
+  "hora mal formada": [
+    "3438 @ ValidaExprRegGreRemitente-2.0.1.xsl:L148"
+  ],
+  "sin hora": [
+    "3437 @ ValidaExprRegGreRemitente-2.0.1.xsl:L148"
+  ],
+  "tipo de documento 01": [
+    "1051 @ ValidaExprRegGreRemitente-2.0.1.xsl:L156"
+  ],
+  "sin tipo de documento": [
+    "1050 @ ValidaExprRegGreRemitente-2.0.1.xsl:L156"
+  ],
+  "remitente con schemeID 1": [
+    "2511 @ ValidaExprRegGreRemitente-2.0.1.xsl:L190"
+  ],
+  "remitente sin razón social": [
+    "1037 @ ValidaExprRegGreRemitente-2.0.1.xsl:L221"
+  ],
+  "destinatario sin documento": [
+    "2757 @ ValidaExprRegGreRemitente-2.0.1.xsl:L267"
+  ],
+  "destinatario sin tipo": [
+    "2759 @ ValidaExprRegGreRemitente-2.0.1.xsl:L272"
+  ],
+  "destinatario con tipo fuera del catálogo": [
+    "2760 @ ValidaExprRegGreRemitente-2.0.1.xsl:L277"
+  ],
+  "destinatario con RUC de 10 dígitos": [
+    "2758 @ ValidaExprRegGreRemitente-2.0.1.xsl:L330"
+  ],
+  "destinatario con RUC que empieza en 3": [
+    "2758 @ ValidaExprRegGreRemitente-2.0.1.xsl:L330"
+  ],
+  "destinatario con DNI de 7 dígitos": [
+    "2758 @ ValidaExprRegGreRemitente-2.0.1.xsl:L322"
+  ],
+  "destinatario con carné de 16 caracteres": [
+    "2758 @ ValidaExprRegGreRemitente-2.0.1.xsl:L340"
+  ],
+  "destinatario con carné con espacio": [
+    "2758 @ ValidaExprRegGreRemitente-2.0.1.xsl:L348"
+  ],
+  "destinatario sin nombre": [
+    "2761 @ ValidaExprRegGreRemitente-2.0.1.xsl:L379"
+  ],
+  "sin motivo de traslado": [
+    "3404 @ ValidaExprRegGreRemitente-2.0.1.xsl:L733"
+  ],
+  "motivo fuera del catálogo 20": [
+    "3405 @ ValidaExprRegGreRemitente-2.0.1.xsl:L738"
+  ],
+  "sin peso bruto": [
+    "2880 @ ValidaExprRegGreRemitente-2.0.1.xsl:L957"
+  ],
+  "peso con 3 decimales": [],
+  "peso sin unidad": [
+    "2881 @ ValidaExprRegGreRemitente-2.0.1.xsl:L971"
+  ],
+  "peso en libras": [
+    "2523 @ ValidaExprRegGreRemitente-2.0.1.xsl:L977"
+  ],
+  "peso en toneladas": [],
+  "modalidad 03": [
+    "2773 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1159"
+  ],
+  "sin modalidad": [
+    "2532 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1159"
+  ],
+  "sin fecha de traslado": [
+    "3406 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1196"
+  ],
+  "fecha de traslado mal formada": [
+    "3407 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1201"
+  ],
+  "traslado antes de la emisión": [
+    "3343 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1208"
+  ],
+  "sin placa": [
+    "2566 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1634"
+  ],
+  "placa de 5 caracteres": [
+    "2567 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1650"
+  ],
+  "placa con guion": [
+    "2567 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1650"
+  ],
+  "conductor sin documento": [
+    "2568 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3463"
+  ],
+  "conductor sin tipo": [
+    "2570 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3469"
+  ],
+  "conductor con RUC": [
+    "2571 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3525"
+  ],
+  "conductor con tipo fuera del catálogo": [
+    "2571 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3518"
+  ],
+  "conductor con DNI de 9 dígitos": [
+    "2569 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3584"
+  ],
+  "conductor sin nombres": [
+    "3360 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3620"
+  ],
+  "conductor sin apellidos": [
+    "3361 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3626"
+  ],
+  "conductor sin licencia": [
+    "2572 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3749"
+  ],
+  "licencia de 8 caracteres": [
+    "2573 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3781"
+  ],
+  "licencia en minúsculas": [
+    "2573 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3781"
+  ],
+  "conductor sin cargo": [
+    "3357 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1802"
+  ],
+  "ubigeo de partida de 5 dígitos": [
+    "2776 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1840"
+  ],
+  "ubigeo de partida inexistente": [
+    "3363 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1848"
+  ],
+  "sin dirección de partida": [
+    "2577 @ ValidaExprRegGreRemitente-2.0.1.xsl:L1879"
+  ],
+  "sin ubigeo de llegada": [
+    "2775 @ ValidaExprRegGreRemitente-2.0.1.xsl:L2003"
+  ],
+  "ubigeo de llegada inexistente": [
+    "3368 @ ValidaExprRegGreRemitente-2.0.1.xsl:L2011"
+  ],
+  "sin dirección de llegada": [
+    "2574 @ ValidaExprRegGreRemitente-2.0.1.xsl:L2036"
+  ],
+  "número de línea de 5 dígitos": [
+    "2023 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3809"
+  ],
+  "número de línea duplicado": [
+    "2752 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3832"
+  ],
+  "línea sin cantidad": [
+    "2580 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3848"
+  ],
+  "cantidad sin unidad": [
+    "2883 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3890"
+  ],
+  "cantidad 0 (sin documento relacionado: no se valida)": [],
+  "línea sin descripción": [
+    "2781 @ ValidaExprRegGreRemitente-2.0.1.xsl:L3960"
+  ]
+}

@@ -48,6 +48,10 @@ const DECIMAL = {
     mayorCero: /^(?!0[0-9]*(\.0*)?$)[0-9]{1,12}(\.[0-9]{1,2})?$/,
     cualquiera: /^(?!(0)[0-9]+$)[0-9]{1,12}(\.[0-9]{1,2})?$/,
   },
+  3: {
+    mayorCero: /^(?!0[0-9]*(\.0*)?$)[0-9]{1,12}(\.[0-9]{1,3})?$/,
+    cualquiera: /^(?!(0)[0-9]+$)[0-9]{1,12}(\.[0-9]{1,3})?$/,
+  },
   10: {
     mayorCero: /^(?!0[0-9]*(\.0*)?$)[0-9]{1,12}(\.[0-9]{1,10})?$/,
     cualquiera: /^(?!(0)[0-9]+$)[0-9]{1,12}(\.[0-9]{1,10})?$/,
@@ -181,21 +185,21 @@ export class ContextoNodo {
     codigoNoExiste: string,
     codigo: string,
     nodo: string,
-    decimales: 2 | 10,
+    decimales: 2 | 3 | 10,
     o: OpcionesRegla & { mayorCero?: boolean },
   ): void {
     const re = DECIMAL[decimales][o.mayorCero === false ? 'cualquiera' : 'mayorCero'];
     this.existeYCumple(codigoNoExiste, codigo, nodo, re, o);
   }
 
-  /** validateValueTwoDecimalIfExist. */
-  decimalSiExiste(codigo: string, nodo: string, o: OpcionesRegla & { mayorCero?: boolean }): void {
-    this.cumpleSiExiste(
-      codigo,
-      nodo,
-      DECIMAL[2][o.mayorCero === false ? 'cualquiera' : 'mayorCero'],
-      o,
-    );
+  /** validateValueTwoDecimalIfExist / ThreeDecimalIfExist. */
+  decimalSiExiste(
+    codigo: string,
+    nodo: string,
+    o: OpcionesRegla & { mayorCero?: boolean; decimales?: 2 | 3 },
+  ): void {
+    const re = DECIMAL[o.decimales ?? 2][o.mayorCero === false ? 'cualquiera' : 'mayorCero'];
+    this.cumpleSiExiste(codigo, nodo, re, o);
   }
 
   /** Itera `expr` como xsl:apply-templates / xsl:for-each. */
