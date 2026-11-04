@@ -14,6 +14,7 @@
     "@chasqui/catalogos": "workspace:*",
     "@chasqui/chaos-engine": "workspace:*",
     "@chasqui/db": "workspace:*",
+    "@chasqui/telemetria": "workspace:*",
     "@chasqui/ubl-core": "workspace:*",
     "@fastify/swagger": "^9.9.3",
     "@fastify/swagger-ui": "^6.1.3",

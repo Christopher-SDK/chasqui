@@ -1,5 +1,8 @@
+import { iniciarTelemetria } from '@chasqui/telemetria';
 import { abrirDb } from './db.js';
 import { construirServidor } from './servidor.js';
+
+iniciarTelemetria('sunat-sim');
 
 const app = await construirServidor({
   db: abrirDb(process.env.DB_URL ?? process.env.DB_RUTA ?? ':memory:'),

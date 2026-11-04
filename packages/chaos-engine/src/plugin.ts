@@ -1,3 +1,4 @@
+import { metrics } from '@opentelemetry/api';
 import type { OutgoingHttpHeaders } from 'node:http';
 import type { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import { CabeceraInvalida, decidir, milisegundos } from './decision.js';
@@ -56,7 +57,11 @@ export function registrarCaos(app: FastifyInstance, o: OpcionesCaos): void {
   // Valor real en onRequest: Fastify 5 no admite referencias compartidas como valor inicial.
   app.decorateRequest('caos', null as unknown as Falla[]);
 
+  const fallas = metrics.getMeter('chasqui').createCounter('chasqui_fallas_inyectadas', {
+    description: 'Fallas inyectadas por el motor de caos',
+  });
   const avisar = (req: FastifyRequest, falla: Falla, detalle: string) => {
+    fallas.add(1, { servicio: o.servicio, falla: falla.tipo });
     o.alInyectar?.({
       servicio: o.servicio,
       ruta: req.url,

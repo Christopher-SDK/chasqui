@@ -3,6 +3,7 @@ import {
   activarPerfil,
   detalle,
   emitirDemo,
+  enlaceTraza,
   escuchar,
   estadoCaos,
   formatearXml,
@@ -478,6 +479,16 @@ function PanelDetalle({ t, alCerrar }: { t: Transaccion; alCerrar: () => void })
               <span>código {t.codigo || '—'}</span>
               <span>· {t.canal.toUpperCase()}</span>
               <span>· {hora(t.en)}</span>
+              {t.traza && (
+                <a
+                  href={enlaceTraza(t.traza)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium text-[var(--color-marca)] hover:underline"
+                >
+                  · Ver traza en Jaeger ↗
+                </a>
+              )}
             </div>
           </div>
           <button

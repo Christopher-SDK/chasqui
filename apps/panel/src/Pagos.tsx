@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import {
   cobrar,
   cuentas,
+  enlaceTraza,
   escucharPagos,
   revertir,
   transferencias,
@@ -33,6 +34,7 @@ export function Pagos() {
   const [movimientos, setMovimientos] = useState<Transferencia[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [aviso, setAviso] = useState<string | null>(null);
+  const [traza, setTraza] = useState<string | null>(null);
   const [ocupado, setOcupado] = useState(false);
   const [qr, setQr] = useState<{ qrPng: string; payload: string } | null>(null);
 
@@ -57,6 +59,7 @@ export function Pagos() {
   const accion = (fn: () => Promise<string>) => {
     setOcupado(true);
     setAviso(null);
+    setTraza(null);
     fn()
       .then(setAviso)
       .catch((e: unknown) => {
@@ -75,6 +78,7 @@ export function Pagos() {
         d.get('destino') as string,
         d.get('monto') as string,
       );
+      setTraza(t.traza);
       return `Transferencia ${t.estado}${t.motivo ? ` (${t.motivo})` : ''} · S/ ${t.monto}`;
     });
   };
@@ -188,6 +192,16 @@ export function Pagos() {
           className="rounded-lg border border-stone-200 px-4 py-2 text-sm dark:border-stone-800"
         >
           {aviso}
+          {traza && (
+            <a
+              href={enlaceTraza(traza)}
+              target="_blank"
+              rel="noreferrer"
+              className="ml-2 font-medium text-[var(--color-marca)] hover:underline"
+            >
+              Ver traza en Jaeger ↗
+            </a>
+          )}
         </p>
       )}
 

@@ -1,3 +1,4 @@
+import { contador, instrumentar, trazaActual } from '@chasqui/telemetria';
 import { randomBytes } from 'node:crypto';
 import swagger from '@fastify/swagger';
 import swaggerUi from '@fastify/swagger-ui';
@@ -72,6 +73,7 @@ export async function construirServidor(o: OpcionesPagos = {}) {
   }).withTypeProvider<ZodTypeProvider>();
   app.setValidatorCompiler(validatorCompiler);
   app.setSerializerCompiler(serializerCompiler);
+  await instrumentar(app, 'pagos-sim');
 
   const db = o.db ?? abrirDb();
   await migrar(db);
@@ -83,17 +85,23 @@ export async function construirServidor(o: OpcionesPagos = {}) {
     if (recientes.length > 200) recientes.shift();
     bus.emit('evento', e);
   };
+  const contarEvento = contador(
+    'chasqui_pagos_eventos',
+    'Eventos de pagos (completadas, rechazadas, revertidas, cobros)',
+  );
   const ctx: Contexto = {
     db,
     ahora: o.ahora ?? (() => new Date()),
     demoraInterbilletera:
       o.demoraInterbilletera ?? Number(process.env.DEMORA_INTERBILLETERA_MS ?? 1500),
     publicar: async (evento, datos) => {
+      contarEvento({ evento });
       await encolar(ctx, evento, datos);
       emitirEvento({
         tipo: 'pago',
         servicio: 'pagos-sim',
         evento,
+        traza: trazaActual(),
         ...datos,
         en: ctx.ahora().toISOString(),
       });

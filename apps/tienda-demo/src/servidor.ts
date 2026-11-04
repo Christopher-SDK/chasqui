@@ -1,3 +1,4 @@
+import { instrumentar } from '@chasqui/telemetria';
 import { randomUUID } from 'node:crypto';
 import {
   boleta,
@@ -85,12 +86,13 @@ const Checkout = z.object({
     .min(1),
 });
 
-export function construirServidor(o: { chasqui?: OpcionesCliente; registro?: boolean } = {}) {
+export async function construirServidor(o: { chasqui?: OpcionesCliente; registro?: boolean } = {}) {
   const app = Fastify({
     logger: o.registro ?? process.env.NODE_ENV !== 'test',
   }).withTypeProvider<ZodTypeProvider>();
   app.setValidatorCompiler(validatorCompiler);
   app.setSerializerCompiler(serializerCompiler);
+  await instrumentar(app, 'tienda-demo');
   const desdeEntorno = Object.fromEntries(
     Object.entries({
       sunat: process.env.SUNAT_URL,

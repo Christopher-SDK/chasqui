@@ -1,3 +1,4 @@
+import { instrumentar } from '@chasqui/telemetria';
 import swagger from '@fastify/swagger';
 import swaggerUi from '@fastify/swagger-ui';
 import { EstadoCaos, PERFILES, Perfil, perfil, Regla, SIN_CAOS } from '@chasqui/chaos-engine';
@@ -24,6 +25,7 @@ export async function construirServidor(o: { registro?: boolean } = {}) {
   }).withTypeProvider<ZodTypeProvider>();
   app.setValidatorCompiler(validatorCompiler);
   app.setSerializerCompiler(serializerCompiler);
+  await instrumentar(app, 'chaos-control');
   await app.register(swagger, {
     openapi: {
       openapi: '3.1.0',

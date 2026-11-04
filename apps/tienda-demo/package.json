@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@chasqui/sdk": "workspace:*",
+    "@chasqui/telemetria": "workspace:*",
     "@chasqui/ubl-core": "workspace:*",
     "fastify": "^5.12.8",
     "fastify-type-provider-zod": "^7.0.0",

@@ -1,3 +1,4 @@
+import { instrumentar } from '@chasqui/telemetria';
 import { createHash } from 'node:crypto';
 import swagger from '@fastify/swagger';
 import swaggerUi from '@fastify/swagger-ui';
@@ -32,6 +33,7 @@ export async function construirServidor(o: { registro?: boolean; caos?: FuenteCa
   }).withTypeProvider<ZodTypeProvider>();
   app.setValidatorCompiler(validatorCompiler);
   app.setSerializerCompiler(serializerCompiler);
+  await instrumentar(app, 'identidad-sim');
   await app.register(swagger, {
     openapi: {
       openapi: '3.1.0',

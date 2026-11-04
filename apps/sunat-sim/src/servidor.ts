@@ -1,3 +1,4 @@
+import { instrumentar } from '@chasqui/telemetria';
 import swagger from '@fastify/swagger';
 import swaggerUi from '@fastify/swagger-ui';
 import Fastify, { type FastifyInstance } from 'fastify';
@@ -37,6 +38,7 @@ export async function construirServidor(
   }).withTypeProvider<ZodTypeProvider>();
   app.setValidatorCompiler(validatorCompiler);
   app.setSerializerCompiler(serializerCompiler);
+  await instrumentar(app, 'sunat-sim');
 
   const db = o.db ?? abrirDb();
   await migrar(db);

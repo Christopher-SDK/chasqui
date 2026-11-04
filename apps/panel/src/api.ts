@@ -2,6 +2,10 @@
 
 export const BASE_CAOS: string = (import.meta.env.VITE_CAOS_URL as string | undefined) ?? '/caos';
 
+export const BASE_JAEGER: string =
+  (import.meta.env.VITE_JAEGER_URL as string | undefined) ?? 'http://localhost:16686';
+export const enlaceTraza = (id: string) => `${BASE_JAEGER}/trace/${id}`;
+
 export const BASE_SUNAT: string =
   (import.meta.env.VITE_SUNAT_URL as string | undefined) ?? '/sunat';
 
@@ -19,6 +23,8 @@ export interface Transaccion {
   en: string;
   /** true si llegó por el flujo en vivo (para animar la fila). */
   enVivo?: boolean;
+  /** Id de traza OpenTelemetry (solo con observabilidad activa). */
+  traza?: string;
 }
 
 export interface Detalle {
@@ -83,6 +89,7 @@ interface EventoSse {
   codigo?: string;
   mensaje?: string;
   observaciones?: string[];
+  traza?: string;
   en: string;
 }
 
@@ -133,6 +140,7 @@ export function escuchar(
       observaciones: e.observaciones ?? [],
       en: e.en,
       enVivo: true,
+      ...(e.traza ? { traza: e.traza } : {}),
     });
   };
   return () => {
@@ -245,7 +253,10 @@ export const transferir = (origen: string, destino: string, monto: string) =>
     method: 'POST',
     headers: { 'content-type': 'application/json', 'idempotency-key': crypto.randomUUID() },
     body: JSON.stringify({ origen, destino, monto, descripcion: 'Desde el panel' }),
-  }).then((r) => cuerpo<Transferencia>(r));
+  }).then(async (r) => ({
+    ...(await cuerpo<Transferencia>(r)),
+    traza: r.headers.get('x-chasqui-traza'),
+  }));
 
 export const revertir = (id: string) =>
   fetch(`${BASE_PAGOS}/api/v1/transferencias/${id}/reversion`, { method: 'POST' }).then((r) =>

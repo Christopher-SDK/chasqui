@@ -4,10 +4,10 @@ import { afterAll, beforeAll, describe, expect, test } from 'vitest';
 import { construirServidor } from '../src/servidor.js';
 
 let eco: Ecosistema;
-let tienda: ReturnType<typeof construirServidor>;
+let tienda: Awaited<ReturnType<typeof construirServidor>>;
 beforeAll(async () => {
   eco = await levantarEcosistema({ pagos: { demoraInterbilletera: 50 } });
-  tienda = construirServidor({ registro: false, chasqui: { ...eco.urls, esperaBase: 10 } });
+  tienda = await construirServidor({ registro: false, chasqui: { ...eco.urls, esperaBase: 10 } });
 });
 afterAll(async () => {
   await tienda.close();
