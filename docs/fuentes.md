@@ -198,3 +198,29 @@ la prueba diferencial lo detectó en la regla 4296.
 Códigos de `CatalogoErrores.xml` que aplica `desempaquetar()`: 0151 nombre del ZIP, 0155 ZIP
 vacío, 0156 ZIP corrupto, 0159 nombre del XML, 0160 XML vacío, 0161 el XML no coincide con el ZIP.
 El parser devuelve 0306 cuando el XML no se puede leer.
+
+## 9. Resumen diario, comunicación de baja y guía de remisión
+
+| Documento                       | XSL oficial                            | Casos idénticos al oráculo |
+| ------------------------------- | -------------------------------------- | -------------------------- |
+| Comunicación de baja (RA)       | `ValidaExprRegSummaryVoided-1.0.1.xsl` | incluidos en 118           |
+| Resumen diario (RC)             | `ValidaExprRegSummary-1.1.0.xsl`       | incluidos en 118           |
+| Guía de remisión remitente (09) | `ValidaExprRegGreRemitente-2.0.1.xsl`  | 62                         |
+
+- Las reglas de fecha 2301 y 4036 de la baja están **comentadas** en el XSL oficial («hasta conseguir
+  las librerías para reconocer la función seconds()»): no se aplican.
+- La guía cubre transporte privado (modalidad 02). La hoja oficial incluye `validate_utils.xsl` con
+  la ruta absoluta de una instalación del SFS (`/cpe/data/sunat_archivos/sfs/VALI/commons/`); el
+  oráculo la traduce a la carpeta descargada.
+- Estructura: plantillas de Greenter `voided.xml.twig`, `summary.xml.twig` y `despatch2022.xml.twig`.
+
+## 10. Servicios web
+
+- **SOAP (billService)**: WSDL y XSD de [Greenter](https://github.com/thegreenter/greenter) (MIT),
+  `packages/ws/src/Resources/wsdl/`. La dirección del servicio se reemplaza por la de sunat-sim.
+- **API GRE**: rutas y esquemas del OpenAPI de [thegreenter/gre-api](https://github.com/thegreenter/gre-api)
+  (MIT): token OAuth2 `password`, `POST /v1/contribuyente/gem/comprobantes/{archivo}` y
+  `GET /v1/contribuyente/gem/comprobantes/envios/{numTicket}`.
+- **CDR**: estructura de CDR reales incluidos en Greenter (`packages/ws/tests/Resources/R-*.xml`).
+  El emisor del CDR es un RUC ficticio del simulador (20000000000), nunca el de SUNAT.
+- **Reglas de servidor** (duplicados, firma, plazos y bajas) y su orden: ADR [0006](adr/0006-reglas-de-servidor-en-sunat-sim.md).

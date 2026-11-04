@@ -17,4 +17,13 @@
 - [x] Mutation testing (Stryker): 84.34 % (umbral 80 %)
 - [x] CI en verde: calidad + conformidad, docker compose y mutation (incremental)
 
-## Siguiente: Fase 2 — sunat-sim (SOAP + REST, CDR, tickets, GRE)
+## Fase 2 — sunat-sim + panel adelantado ✅
+
+- [x] SOAP compatible con billService (sendBill, sendSummary, getStatus) y REST con OpenAPI 3.1
+- [x] CDR firmado por el simulador; duplicados, firma, plazos; consulta de estado; historial
+- [x] Resumen diario y bajas con reglas oficiales (118/118 vs oráculo) y tickets asíncronos
+- [x] Guía de remisión por REST con OAuth simulado (62/62 vs oráculo)
+- [x] Panel en vivo en :7500 (SSE, detalle de XML y CDR, escenarios de prueba, claro/oscuro)
+- [x] 94 pruebas (31 de integración por HTTP real) · mutation 82.74 %
+
+## Siguiente: Fase 3 — chaos-engine + chaos-control

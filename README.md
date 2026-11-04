@@ -10,8 +10,17 @@ Laboratorio local (_digital twin_) para probar integraciones con los servicios d
 ## Arranque
 
 ```bash
-docker compose up        # sunat-sim en http://localhost:7100/salud
+docker compose up
 ```
+
+| Servicio                   | URL                                       |
+| -------------------------- | ----------------------------------------- |
+| Panel en vivo              | http://localhost:7500                     |
+| sunat-sim · SOAP (WSDL)    | http://localhost:7100/billService?wsdl    |
+| sunat-sim · REST + OpenAPI | http://localhost:7100/docs                |
+| sunat-sim · GRE (OAuth)    | `POST /v1/clientessol/{id}/oauth2/token/` |
+
+Credenciales de prueba (como en el ambiente beta): usuario `<RUC>MODDATOS`, clave `moddatos`.
 
 Desarrollo local: Node 22 y `corepack enable`, luego `pnpm install && pnpm test`.
 
@@ -29,13 +38,16 @@ Reglas no confirmadas en una fuente oficial (`TODO verificar` en el código):
 
 - **2334 vs. 2335** (documento alterado): el catálogo oficial da el mismo mensaje a ambos códigos;
   Chasqui usa 2335 para cualquier alteración detectada en la firma.
+- **Plazos** de envío (3 días, 2108) y de baja (7 días, 2958): configurables; varían por norma.
+- **hashZip inválido en la GRE**: no se halló el código oficial; Chasqui responde 0156.
+- **Orden de las reglas de servidor** (duplicado, firma, plazos): decisión documentada en el ADR 0006.
 
 Fuera del alcance actual del generador y del validador:
 
 - Operaciones gratuitas, IVAP, exportación, ISC, ICBPER, detracción, percepción, anticipos,
   descuentos y cargos, pago a crédito con cuotas.
 - La firma no valida la cadena de confianza del certificado ni su pertenencia al RUC emisor.
-- Las reglas de servidor (duplicados 1032/1033, plazos 2108/2329) llegan con `sunat-sim` (fase 2).
+- La guía de remisión cubre transporte privado (modalidad 02); no incluye transportista, puertos ni contenedores.
 
 ## Autor
 
