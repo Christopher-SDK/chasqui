@@ -6,10 +6,12 @@ Salida (stdout):  JSON [{"estado": "ok"|"rechazo", "codigo": "2074"|null, "obser
 Las reglas oficiales están escritas para IBM DataPower. Se adaptan EN MEMORIA, sin tocar los
 archivos descargados (docs/adr/0003):
 - `func` se declara como prefijo de extensión (DataPower lo tolera sin declarar; libxslt no).
-- `current-date()` (XSLT 2.0) se reemplaza por FECHA_ORACULO: el oráculo es determinista.
+- `current-date()` (XSLT 2.0) y `date:date()` (EXSLT) se reemplazan por FECHA_ORACULO: el
+  oráculo es determinista y no depende del reloj de la máquina.
 - `matches(x, re, '!')` (Saxon, regex con sintaxis Java) pasa a una función de Python.
 - `dyn:evaluate("document('cat')/ruta")` se resuelve aquí, porque libxslt no expone document()
   dentro de dyn:evaluate.
+- `rejectCall` incluye siempre «errorCode N» en el mensaje (algunas llamadas directas no lo traen).
 - Variables redefinidas en una misma plantilla (XSLT 1.0 lo prohíbe; DataPower lo tolera): la
   redefinición se renombra a `nombre__N` y las referencias posteriores apuntan a ella.
 """
@@ -22,6 +24,8 @@ XSL = {
     '03': 'xsl/2.X/ValidaExprRegBoleta-2.0.1.xsl',
     '07': 'xsl/2.X/ValidaExprRegNC-2.0.1.xsl',
     '08': 'xsl/2.X/ValidaExprRegND-2.0.1.xsl',
+    'RA': 'xsl/1.X/ValidaExprRegSummaryVoided-1.0.1.xsl',
+    'RC': 'xsl/1.X/ValidaExprRegSummary-1.1.0.xsl',
 }
 FECHA = os.environ.get('FECHA_ORACULO', '2026-11-03')
 CHQ = 'urn:chasqui:oraculo'
@@ -57,9 +61,11 @@ etree.FunctionNamespace(CHQ)['evaluar'] = evaluar
 def parchear(src):
     if 'xmlns:func=' in src:
         src = src.replace('extension-element-prefixes="dp"', 'extension-element-prefixes="dp func"')
-    src = src.replace('current-date()', f"'{FECHA}'")
+    src = src.replace('current-date()', f"'{FECHA}'").replace('date:date()', f"'{FECHA}'")
     src = re.sub(r"\bmatches\(([^,]+),([^,]+),\s*'!'\)", r"chq:coincide(\1,\2)", src)
     src = src.replace('dyn:evaluate(', 'chq:evaluar(')
+    # rejectCall invocado directamente arma mensajes sin el código: se le agrega siempre.
+    src = src.replace("""select="concat(' error: ', $errorMessage)""", """select="concat(' error: ', $errorMessage, ' errorCode ', $errorCode)""")
     src = src.replace('<xsl:stylesheet ', f'<xsl:stylesheet xmlns:chq="{CHQ}" ', 1)
     return desambiguar_variables(re.sub(r'^\ufeff?<\?xml[^>]*\?>', '', src))
 

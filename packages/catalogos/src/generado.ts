@@ -20,6 +20,25 @@ export const catalogo10 = {
   }
 } as const;
 
+/** Catálogo N.° 11: Tipo de valor de venta (resumen diario). Fuente: cat_11.xml (sha256 16c8d654e15fba45c2431e7f037dc50ac7d48aa72fc1e9724683248387b4636a). */
+export const catalogo11 = {
+  "01": {
+    "nombre": "Gravado"
+  },
+  "02": {
+    "nombre": "Exonerado"
+  },
+  "03": {
+    "nombre": "Inafecto"
+  },
+  "04": {
+    "nombre": "Exportación"
+  },
+  "05": {
+    "nombre": "Gratuitas"
+  }
+} as const;
+
 /** Catálogo N.° 12: Documentos relacionados tributarios. Fuente: cat_12.xml (sha256 074b7abc6c94b971f8e084b53c48120828e1c2f148a5f8a5f1c6ca161123118c). */
 export const catalogo12 = {
   "10": {

@@ -24,6 +24,7 @@ const CATALOGOS = {
   '07': 'Tipo de afectación del IGV',
   '09': 'Tipo de nota de crédito',
   10: 'Tipo de nota de débito',
+  11: 'Tipo de valor de venta (resumen diario)',
   12: 'Documentos relacionados tributarios',
   16: 'Tipo de precio de venta unitario',
   19: 'Código de estado del ítem (resumen diario)',

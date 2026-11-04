@@ -12,6 +12,7 @@ export const catalogos = {
   '07': g.catalogo07,
   '09': g.catalogo09,
   '10': g.catalogo10,
+  '11': g.catalogo11,
   '12': g.catalogo12,
   '16': g.catalogo16,
   '19': g.catalogo19,

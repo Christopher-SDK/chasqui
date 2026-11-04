@@ -38,3 +38,14 @@ export function emitir(c: Comprobante, firma: OpcionesFirma = {}) {
     zip: empaquetar(nombre, xml),
   };
 }
+export {
+  generarBaja,
+  generarResumen,
+  lineaResumen,
+  nombreBaja,
+  nombreResumen,
+  type ComunicacionBaja,
+  type LineaBaja,
+  type LineaResumen,
+  type ResumenDiario,
+} from './resumenes.js';
