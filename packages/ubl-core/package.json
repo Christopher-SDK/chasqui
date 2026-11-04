@@ -1,0 +1,28 @@
+{
+  "name": "@chasqui/ubl-core",
+  "version": "0.1.0",
+  "description": "Modelo, cálculo, generación, firma XML-DSig, empaquetado y validación de comprobantes UBL 2.1 compatibles con el formato que usa SUNAT",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@chasqui/catalogos": "workspace:*",
+    "@xmldom/xmldom": "^0.9.12",
+    "fflate": "^0.8.3",
+    "xml-crypto": "^6.4.0",
+    "xpath": "^0.0.36"
+  }
+}
