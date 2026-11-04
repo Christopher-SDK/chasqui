@@ -13,3 +13,4 @@ playwright-report/
 .venv/
 stryker-setup-*.js
 .data/
+carga/.datos/

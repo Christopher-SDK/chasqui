@@ -30,5 +30,12 @@ export default tseslint.config(
       globals: globals.node,
     },
   },
+  {
+    // Scripts de k6: corren en el runtime de k6, no en Node.
+    files: ['carga/**/*.js'],
+    languageOptions: {
+      globals: { __ENV: 'readonly', __VU: 'readonly', __ITER: 'readonly', open: 'readonly' },
+    },
+  },
   prettier,
 );

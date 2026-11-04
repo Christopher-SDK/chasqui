@@ -3,5 +3,5 @@
   "compilerOptions": {
     "noEmit": true
   },
-  "include": ["*.ts", "e2e/**/*.ts"]
+  "include": ["*.ts", "e2e/**/*.ts", "carga/**/*.ts"]
 }

@@ -90,7 +90,9 @@ jobs:
       - run: pnpm sunat:preparar
       - name: Stryker incremental (falla por debajo de 80 %)
         # Parte de packages/ubl-core/stryker-incremental.json (versionado): solo se prueban los
-        # mutantes del código que cambió. Para regenerarlo: `pnpm mutation` en local y commit.
+        # mutantes del código que cambió. Ojo: Stryker identifica las pruebas por nombre; si una prueba
+        # gana casos sin cambiar de nombre, reutiliza resultados viejos. El job nocturno corre completo.
+        # Para regenerarlo: `pnpm --filter @chasqui/ubl-core exec stryker run --force` y commit.
         run: pnpm mutation
       - name: Resumen de mutation score
         if: always() && hashFiles('reports/mutation/ubl-core/mutation.json') != ''

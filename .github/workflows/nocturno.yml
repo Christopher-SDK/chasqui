@@ -1,0 +1,62 @@
+name: Nocturno
+# Lo caro que no corre en cada push: carga con k6 y mutation testing completo (sin incremental).
+on:
+  schedule:
+    - cron: '0 8 * * *' # 03:00 en Lima
+  workflow_dispatch:
+permissions:
+  contents: read
+
+jobs:
+  carga:
+    name: carga (k6)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version-file: .nvmrc, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - uses: grafana/setup-k6-action@v1
+      - name: Servicios en un proceso
+        run: |
+          pnpm todo-en-uno > todo-en-uno.log 2>&1 &
+          for i in $(seq 1 60); do curl -sf localhost:7400/salud && curl -sf localhost:7100/salud && break; sleep 1; done
+      - run: pnpm carga:preparar 2000
+      - name: k6 (falla si se cruza un umbral)
+        run: DURACION=60s pnpm carga
+      - name: Resumen
+        if: always() && hashFiles('reports/carga/resumen.json') != ''
+        run: |
+          node -e "
+            const m = require('./reports/carga/resumen.json').metrics;
+            const fila = (e) => { const d = m['http_req_duration{scenario:' + e + '}']?.values ?? {}; const f = m['http_req_failed{scenario:' + e + '}']?.values ?? {};
+              return '| ' + e + ' | ' + (d.med ?? 0).toFixed(1) + ' | ' + (d['p(95)'] ?? 0).toFixed(1) + ' | ' + (100 * (f.rate ?? 0)).toFixed(2) + ' % |'; };
+            console.log(['## Carga (k6, 60 s)', '| escenario | mediana ms | p95 ms | errores |', '|---|---|---|---|', ...['sunat','pagos','identidad'].map(fila)].join('\n'));
+          " >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: carga-k6
+          path: |
+            reports/carga
+            todo-en-uno.log
+
+  mutation-completo:
+    name: mutation testing completo
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version-file: .nvmrc, cache: pnpm }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.13' }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm sunat:preparar
+      - name: Stryker sin incremental
+        run: rm -f packages/ubl-core/stryker-incremental.json && pnpm mutation
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: mutation-completo, path: reports/mutation }

@@ -12,7 +12,7 @@
   "scripts": {
     "build": "pnpm -r build",
     "typecheck": "tsc -p tsconfig.json && pnpm -r --parallel typecheck",
-    "lint": "eslint . --max-warnings 0",
+    "lint": "node --max-old-space-size=6144 node_modules/eslint/bin/eslint.js . --max-warnings 0",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "vitest run",
@@ -22,7 +22,9 @@
     "mutation": "pnpm --filter @chasqui/ubl-core mutation",
     "dev": "pnpm --parallel --filter @chasqui/sunat-sim --filter @chasqui/panel dev",
     "e2e": "playwright test",
-    "todo-en-uno": "pnpm --filter @chasqui/ecosistema start"
+    "todo-en-uno": "pnpm --filter @chasqui/ecosistema start",
+    "carga:preparar": "tsx --conditions=source carga/preparar.ts",
+    "carga": "mkdir -p reports/carga && K6_WEB_DASHBOARD=true K6_WEB_DASHBOARD_EXPORT=reports/carga/reporte.html k6 run carga/chasqui.js"
   },
   "lint-staged": {
     "*.{ts,tsx,js,mjs}": [
@@ -34,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "@chasqui/ubl-core": "workspace:*",
     "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.4",
     "@eslint/js": "^10.0.1",
