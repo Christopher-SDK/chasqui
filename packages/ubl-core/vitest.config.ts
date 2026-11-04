@@ -5,5 +5,5 @@ import base from '../../vitest.shared.js';
 // tardan varios segundos.
 export default mergeConfig(
   base,
-  defineProject({ test: { name: 'ubl-core', testTimeout: 60_000 } }),
+  defineProject({ test: { name: 'ubl-core', testTimeout: 300_000 } }), // conformidad con cobertura en CI: ~125 s por prueba
 );
