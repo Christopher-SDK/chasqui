@@ -102,10 +102,11 @@ Reanudada el 2026-11-04 (tarde):
 - [x] Panel «Probar»: «Crédito con detracción» (código 0 + 3249) e «ISC, bolsas y gratuita»; E2E escritorio y móvil
 - [x] Hallazgo documentado: la regla 3249 de la hoja oficial observa TODA factura al crédito (ruta relativa que nunca encuentra nodos); se reproduce a propósito
 - [x] Docs: ADR 0011 (reemplaza a la 0004), `fuentes.md` §6 y §15, README ES/EN, `sdk.md`, `mcp.md`, `demo.md`
+- [x] Mutation completo con `xml.ts`: 88.76 % (antes 84 %); incremental regenerado
+- [x] CI: timeout de conformidad a 300 s (con cobertura tarda ~125 s); pruebas de guardas de `calcular` (ramas de ubl-core 95.8 %); imágenes Docker construidas en CI
 
 Pendiente, en orden:
 
-1. Mutation testing completo con `xml.ts` agregado (en curso; ~1 h en local por los timeouts del intérprete) y commit del incremental
-2. Revisar `Dockerfile` construyendo una imagen (en CI: Docker local lento por otro proyecto); k6 de nuevo (el validador pasó de ~2 a ~16 ms)
-3. Fusionar a `main`, CI en verde y nocturno
-4. Auditoría «probador minucioso» antes de publicar en LinkedIn (clonar limpio, seguir el README, probar XML reales); preguntar al usuario antes de hacer público el repo
+1. k6 de nuevo (el validador pasó de ~2 a ~16 ms)
+2. Fusionar a `main`, CI en verde y nocturno
+3. Auditoría «probador minucioso» antes de publicar en LinkedIn (clonar limpio, seguir el README, probar XML reales); preguntar al usuario antes de hacer público el repo

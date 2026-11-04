@@ -3,7 +3,7 @@
 [![CI](https://github.com/Christopher-SDK/chasqui/actions/workflows/ci.yml/badge.svg)](https://github.com/Christopher-SDK/chasqui/actions/workflows/ci.yml)
 ![Node 22](https://img.shields.io/badge/node-22-339933)
 ![TypeScript](https://img.shields.io/badge/TypeScript-6-3178c6)
-![Mutation](https://img.shields.io/badge/mutation-84%25-success)
+![Mutation](https://img.shields.io/badge/mutation-88%25-success)
 ![Licencia MIT](https://img.shields.io/badge/licencia-MIT-blue)
 
 > **Simulador para pruebas. No afiliado a SUNAT ni a ninguna entidad financiera.**
@@ -83,7 +83,7 @@ flowchart LR
   ([ADR 0008](docs/adr/0008-pagos-sim.md)).
 - **Pruebas en todos los niveles.** Unitarias, de propiedades (fast-check), de conformidad,
   integración HTTP real, contratos Pact entre el SDK y cada simulador, E2E con Playwright en
-  escritorio y móvil, mutation testing con Stryker (84 %) y carga con k6 con umbrales.
+  escritorio y móvil, mutation testing con Stryker (88 %) y carga con k6 con umbrales.
 
 ## Para integrar
 
@@ -103,7 +103,7 @@ corepack enable && pnpm install
 pnpm sunat:preparar     # descarga y verifica (SHA-256) los XSL oficiales; requiere Python 3
 pnpm test               # unitarias, propiedades, conformidad, integración y contratos
 pnpm e2e                # Playwright
-pnpm mutation           # Stryker sobre el validador
+pnpm mutation           # Stryker sobre el validador, el cálculo y el XML
 pnpm carga:preparar && pnpm carga   # k6
 ```
 
