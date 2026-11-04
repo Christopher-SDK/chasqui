@@ -1,0 +1,11 @@
+node_modules/
+dist/
+coverage/
+reports/
+*.tsbuildinfo
+.env
+*.sqlite
+bitacora.log
+.stryker-tmp/
+test-results/
+playwright-report/
