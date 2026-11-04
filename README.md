@@ -22,6 +22,12 @@ docker compose up
 
 Credenciales de prueba (como en el ambiente beta): usuario `<RUC>MODDATOS`, clave `moddatos`.
 
+## Caos
+
+Activa fallas reproducibles desde el panel, la API de chaos-control (`:7400`) o la cabecera
+`X-Chasqui-Chaos`. Perfiles: `cierre-de-mes`, `sunat-caida`, `red-inestable`, `pagos-saturados`.
+Tutorial completo en [docs/guia-caos.md](docs/guia-caos.md).
+
 Desarrollo local: Node 22 y `corepack enable`, luego `pnpm install && pnpm test`.
 
 ## Fidelidad con SUNAT

@@ -26,4 +26,11 @@
 - [x] Panel en vivo en :7500 (SSE, detalle de XML y CDR, escenarios de prueba, claro/oscuro)
 - [x] 94 pruebas (31 de integración por HTTP real) · mutation 82.74 %
 
-## Siguiente: Fase 3 — chaos-engine + chaos-control
+## Fase 3 — chaos-engine + chaos-control ✅
+
+- [x] 10 fallas (latencia, timeout, 5xx, SOAP fault, malformada, desconexión, rate limit, rechazo, duplicado, ticket eterno)
+- [x] 4 perfiles; semilla reproducible por petición (ADR 0007); cabecera X-Chasqui-Chaos
+- [x] chaos-control (:7400) con REST + SSE; sunat-sim suscrito; interruptores en el panel
+- [x] Prueba de punta a punta: activar sunat-caida → 503/fault 0100; misma semilla, misma secuencia
+
+## Siguiente: Fase 4 — pagos-sim + identidad-sim
