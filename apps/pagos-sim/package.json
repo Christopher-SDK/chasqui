@@ -19,11 +19,11 @@
     "fastify-type-provider-zod": "^7.0.0",
     "kysely": "^0.29.8",
     "qrcode": "^1.5.4",
-    "zod": "^4.6.7"
+    "zod": "^4.6.7",
+    "@chasqui/test-kit": "workspace:*"
   },
   "devDependencies": {
     "@chasqui/sunat-sim": "workspace:*",
-    "@chasqui/test-kit": "workspace:*",
     "@chasqui/ubl-core": "workspace:*",
     "@types/qrcode": "^1.5.6"
   },

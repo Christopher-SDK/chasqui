@@ -12,7 +12,7 @@ x-servicio: &servicio
         "fetch('http://127.0.0.1:'+process.env.PORT+'/salud').then(r=>process.exit(r.ok?0:1),()=>process.exit(1))",
       ]
     interval: 5s
-    timeout: 3s
+    timeout: 10s
     retries: 10
 
 services:
@@ -41,6 +41,18 @@ services:
     environment: { PORT: 7300, CHAOS_CONTROL_URL: 'http://chaos-control:7400' }
     ports: ['7300:7300']
 
+  tienda-demo:
+    <<: *servicio
+    build: { <<: *build, args: { APP: tienda-demo } }
+    image: chasqui/tienda-demo:dev
+    environment:
+      PORT: 7600
+      SUNAT_URL: 'http://sunat-sim:7100'
+      PAGOS_URL: 'http://pagos-sim:7200'
+      IDENTIDAD_URL: 'http://identidad-sim:7300'
+      CHAOS_CONTROL_URL: 'http://chaos-control:7400'
+    ports: ['7600:7600']
+
   chaos-control:
     <<: *servicio
     build: { <<: *build, args: { APP: chaos-control } }
@@ -54,11 +66,13 @@ services:
     restart: unless-stopped
     depends_on:
       sunat-sim: { condition: service_healthy }
+      pagos-sim: { condition: service_healthy }
+      identidad-sim: { condition: service_healthy }
       chaos-control: { condition: service_healthy }
     healthcheck:
       test: ['CMD', 'wget', '-qO-', 'http://127.0.0.1/sunat/salud']
       interval: 5s
-      timeout: 3s
+      timeout: 10s
       retries: 10
     ports: ['7500:80']
 

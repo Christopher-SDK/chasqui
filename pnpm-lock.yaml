@@ -96,6 +96,9 @@ importers:
       '@chasqui/chaos-engine':
         specifier: workspace:*
         version: link:../../packages/chaos-engine
+      '@chasqui/test-kit':
+        specifier: workspace:*
+        version: link:../../packages/test-kit
       '@fastify/swagger':
         specifier: ^9.9.3
         version: 9.9.3
@@ -115,9 +118,6 @@ importers:
       '@chasqui/sunat-sim':
         specifier: workspace:*
         version: link:../sunat-sim
-      '@chasqui/test-kit':
-        specifier: workspace:*
-        version: link:../../packages/test-kit
       '@chasqui/ubl-core':
         specifier: workspace:*
         version: link:../../packages/ubl-core
@@ -130,6 +130,9 @@ importers:
       '@chasqui/db':
         specifier: workspace:*
         version: link:../../packages/db
+      '@chasqui/test-kit':
+        specifier: workspace:*
+        version: link:../../packages/test-kit
       '@fastify/swagger':
         specifier: ^9.9.3
         version: 9.9.3
@@ -155,9 +158,6 @@ importers:
       '@chasqui/sunat-sim':
         specifier: workspace:*
         version: link:../sunat-sim
-      '@chasqui/test-kit':
-        specifier: workspace:*
-        version: link:../../packages/test-kit
       '@chasqui/ubl-core':
         specifier: workspace:*
         version: link:../../packages/ubl-core

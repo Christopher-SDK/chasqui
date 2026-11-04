@@ -12,7 +12,10 @@ COPY . .
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --offline --frozen-lockfile --ignore-scripts
 RUN pnpm -r build
 ARG APP=sunat-sim
-RUN pnpm --filter "@chasqui/${APP}" deploy --prod --legacy /out
+# deploy --legacy resuelve rangos (no el lockfile): necesita metadatos del registro. Se cachean
+# store y metadatos entre builds, con poca concurrencia y reintentos para redes inestables.
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store --mount=type=cache,id=pnpm-meta,target=/root/.cache/pnpm \
+    pnpm --filter "@chasqui/${APP}" deploy --prod --legacy --network-concurrency=4 --fetch-retries=5 /out
 
 # Panel: estático detrás de nginx, que además hace de proxy hacia los simuladores.
 FROM nginx:1.29-alpine AS panel
