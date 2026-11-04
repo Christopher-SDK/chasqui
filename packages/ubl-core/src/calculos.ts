@@ -56,10 +56,17 @@ export function calcularLinea(item: Item, numero: number): LineaCalculada {
     throw new RangeError(`Ítem ${String(numero)}: el valor unitario no puede ser negativo`);
   const gravado = esGravado(item.afectacion);
   const valorVenta = cantidad.multiplicar(valorUnitario).redondear(2);
+  // Una venta onerosa con valor 0.00 es en realidad gratuita (no soportada) y la boleta la
+  // rechaza con 3105 (ValidaExprRegBoleta-2.0.1.xsl L3812).
+  if (valorVenta.esCero())
+    throw new RangeError(`Ítem ${String(numero)}: el valor de venta redondea a 0.00`);
   const igv = gravado ? valorVenta.multiplicar(TASA_IGV).redondear(2) : Decimal.CERO;
-  const precioUnitario = gravado
-    ? valorUnitario.multiplicar(Decimal.de(1).sumar(TASA_IGV))
-    : valorUnitario;
+  // Una línea gravada con IGV 0.00 se rechaza con 3111 (base > 0 e IGV = 0).
+  if (gravado && igv.esCero())
+    throw new RangeError(`Ítem ${String(numero)}: el IGV de una línea gravada redondea a 0.00`);
+  // Precio unitario con impuestos tal como lo recalcula SUNAT en la regla 4287:
+  // (valor de venta + impuestos de la línea) / cantidad.
+  const precioUnitario = valorVenta.sumar(igv).dividir(cantidad);
   return {
     numero,
     item,

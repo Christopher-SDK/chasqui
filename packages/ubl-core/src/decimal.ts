@@ -42,6 +42,13 @@ export class Decimal {
     return new Decimal(dividirRedondeando(this.v * Decimal.de(o).v, FACTOR));
   }
 
+  /** Cociente redondeado a 10 decimales (half-up). */
+  dividir(o: DecimalLike): Decimal {
+    const d = Decimal.de(o).v;
+    if (d === 0n) throw new RangeError('División por cero');
+    return new Decimal(dividirRedondeando(this.v * FACTOR, d));
+  }
+
   /** Redondeo comercial (half-up, simétrico respecto a cero) a `decimales`. */
   redondear(decimales: number): Decimal {
     const paso = 10n ** BigInt(ESCALA - decimales);
@@ -76,10 +83,13 @@ export class Decimal {
   }
 }
 
+/** a / b con redondeo half-up simétrico respecto a cero, para cualquier signo. */
 function dividirRedondeando(a: bigint, b: bigint): bigint {
-  const q = a / b;
-  const r = a % b;
-  return (r < 0n ? -r : r) * 2n >= b ? q + (a < 0n ? -1n : 1n) : q;
+  const negativo = a < 0n !== b < 0n;
+  const A = a < 0n ? -a : a;
+  const B = b < 0n ? -b : b;
+  const q = A / B + ((A % B) * 2n >= B ? 1n : 0n);
+  return negativo ? -q : q;
 }
 
 function numeroATexto(n: number): string {
