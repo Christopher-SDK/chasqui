@@ -105,8 +105,9 @@ Reanudada el 2026-11-04 (tarde):
 - [x] Mutation completo con `xml.ts`: 88.76 % (antes 84 %); incremental regenerado
 - [x] CI: timeout de conformidad a 300 s (con cobertura tarda ~125 s); pruebas de guardas de `calcular` (ramas de ubl-core 95.8 %); imágenes Docker construidas en CI
 
+- [x] k6 local: umbrales aprobados, 0 % de errores; p95 sunat 19.8 ms, pagos 2.3 ms, identidad 7.6 ms
+
 Pendiente, en orden:
 
-1. k6 de nuevo (el validador pasó de ~2 a ~16 ms)
-2. Fusionar a `main`, CI en verde y nocturno
-3. Auditoría «probador minucioso» antes de publicar en LinkedIn (clonar limpio, seguir el README, probar XML reales); preguntar al usuario antes de hacer público el repo
+1. Fusionar a `main`, CI en verde y nocturno
+2. Auditoría «probador minucioso» antes de publicar en LinkedIn (clonar limpio, seguir el README, probar XML reales); preguntar al usuario antes de hacer público el repo
