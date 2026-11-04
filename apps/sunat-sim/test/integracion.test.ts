@@ -1,6 +1,15 @@
 import { leerCdr, verificarFirma } from '@chasqui/ubl-core';
 import { afterEach, beforeEach, describe, expect, test } from 'vitest';
-import { baja, emitir, emitirAlterado, factura, levantar, sendBill } from './ayudas.js';
+import {
+  baja,
+  emitir,
+  emitirAlterado,
+  factura,
+  levantar,
+  resumenBoletas,
+  sendBill,
+  sendSummary,
+} from './ayudas.js';
 
 type Servidor = Awaited<ReturnType<typeof levantar>>;
 let s: Servidor;
@@ -207,6 +216,74 @@ describe('SOAP (billService)', () => {
     expect(
       await (await s.soap('<ser:getStatus><ticket>123</ticket></ser:getStatus>')).text(),
     ).toContain('Client.0127');
+  });
+});
+
+describe('tickets: resumen diario y bajas', () => {
+  /** Envía por sendSummary, avanza el reloj y devuelve el estado y el código del CDR. */
+  async function procesar(envio: { nombreZip: string; zip: Uint8Array }) {
+    const xml = await (await s.soap(sendSummary(envio.nombreZip, envio.zip))).text();
+    const ticket = /<ticket>(\d+)<\/ticket>/.exec(xml)?.[1];
+    if (!ticket) throw new Error(xml);
+    s.avanzar(3000);
+    const r = await (
+      await s.soap(`<ser:getStatus><ticket>${ticket}</ticket></ser:getStatus>`)
+    ).text();
+    const contenido = /<content>([^<]+)</.exec(r)?.[1] ?? '';
+    return {
+      estado: /<statusCode>(\d+)</.exec(r)?.[1],
+      codigo: leerCdr(Buffer.from(contenido, 'base64')).codigo,
+    };
+  }
+
+  test('resumen diario: registra la boleta adicionada y la anulada', async () => {
+    expect(await procesar(resumenBoletas())).toEqual({ estado: '0', codigo: '0' });
+    expect(await json(await fetch(`${s.base}/api/v1/estado/20000000001/03/B001/1`))).toMatchObject({
+      estado: 'aceptado',
+    });
+    expect(await json(await fetch(`${s.base}/api/v1/estado/20000000001/03/B001/2`))).toMatchObject({
+      estado: 'anulado',
+    });
+  });
+
+  test('baja de un comprobante no registrado → 99 con 2105', async () => {
+    expect(await procesar(baja('F001', 77))).toEqual({ estado: '99', codigo: '2105' });
+  });
+
+  test('baja repetida → 2323', async () => {
+    const f = emitir(factura());
+    await s.enviarRest(f.nombreZip, f.zip);
+    expect(await procesar(baja('F001', 1, '2026-11-03', 1))).toEqual({ estado: '0', codigo: '0' });
+    expect(await procesar(baja('F001', 1, '2026-11-03', 2))).toEqual({
+      estado: '99',
+      codigo: '2323',
+    });
+  });
+
+  test('baja fuera de plazo → 2958', async () => {
+    const f = emitir(factura());
+    await s.enviarRest(f.nombreZip, f.zip);
+    s.avanzar(8 * 86_400_000);
+    expect(await procesar(baja('F001', 1, '2026-11-11'))).toEqual({ estado: '99', codigo: '2958' });
+  });
+
+  test('regla XSL oficial en la baja: IssueDate distinta a la del nombre → 99 con 2346', async () => {
+    const { empaquetar, firmar, generarBaja, nombreBaja } = await import('@chasqui/ubl-core');
+    const b = {
+      emisor: factura().emisor,
+      correlativo: 1,
+      fechaComunicacion: '2026-11-03',
+      fechaReferencia: '2026-11-03',
+      lineas: [{ tipo: '01' as const, serie: 'F001', numero: 1, motivo: 'Error en la operación' }],
+    };
+    const nombre = nombreBaja(b);
+    const xml = firmar(
+      generarBaja(b).replace('<cbc:IssueDate>2026-11-03', '<cbc:IssueDate>2026-11-02'),
+    );
+    expect(await procesar({ nombreZip: `${nombre}.zip`, zip: empaquetar(nombre, xml) })).toEqual({
+      estado: '99',
+      codigo: '2346',
+    });
   });
 });
 

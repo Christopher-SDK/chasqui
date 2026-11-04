@@ -3,8 +3,13 @@ import {
   emitir,
   empaquetar,
   firmar,
+  generarBaja,
+  generarResumen,
   generarXml,
+  lineaResumen,
   nombreArchivo,
+  nombreBaja,
+  nombreResumen,
   type Factura,
 } from '@chasqui/ubl-core';
 import { abrirDb } from '../src/db.js';
@@ -95,11 +100,43 @@ export function sobre(cuerpo: string, usuario: string | null, clave = 'moddatos'
 export const sendBill = (nombre: string, zip: Uint8Array) =>
   `<ser:sendBill><fileName>${nombre}</fileName><contentFile>${Buffer.from(zip).toString('base64')}</contentFile></ser:sendBill>`;
 
-/** Comunicación de baja mínima (VoidedDocuments) firmada; en la fase 2 pasa a ubl-core. */
-export function baja(serie: string, numero: number, fecha = '2026-11-03') {
-  const nombre = `20000000001-RA-${fecha.replaceAll('-', '')}-1`;
-  const xml = firmar(
-    `<?xml version="1.0" encoding="UTF-8"?><VoidedDocuments xmlns="urn:sunat:names:specification:ubl:peru:schema:xsd:VoidedDocuments-1" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateComponents-1"><ext:UBLExtensions><ext:UBLExtension><ext:ExtensionContent/></ext:UBLExtension></ext:UBLExtensions><cbc:UBLVersionID>2.0</cbc:UBLVersionID><cbc:CustomizationID>1.0</cbc:CustomizationID><cbc:ID>RA-${fecha.replaceAll('-', '')}-1</cbc:ID><cbc:ReferenceDate>${fecha}</cbc:ReferenceDate><cbc:IssueDate>${fecha}</cbc:IssueDate><sac:VoidedDocumentsLine><cbc:LineID>1</cbc:LineID><cbc:DocumentTypeCode>01</cbc:DocumentTypeCode><sac:DocumentSerialID>${serie}</sac:DocumentSerialID><sac:DocumentNumberID>${String(numero)}</sac:DocumentNumberID><sac:VoidReasonDescription>Error en la operación</sac:VoidReasonDescription></sac:VoidedDocumentsLine></VoidedDocuments>`,
-  );
-  return { nombreZip: `${nombre}.zip`, zip: empaquetar(nombre, xml) };
+/** Comunicación de baja firmada (generador de ubl-core). */
+export function baja(serie: string, numero: number, fecha = '2026-11-03', correlativo = 1) {
+  const b = {
+    emisor: factura().emisor,
+    correlativo,
+    fechaComunicacion: fecha,
+    fechaReferencia: fecha,
+    lineas: [{ tipo: '01' as const, serie, numero, motivo: 'Error en la operación' }],
+  };
+  const nombre = nombreBaja(b);
+  return { nombreZip: `${nombre}.zip`, zip: empaquetar(nombre, firmar(generarBaja(b))) };
 }
+
+/** Resumen diario de boletas firmado: la primera se adiciona y la segunda se anula. */
+export function resumenBoletas(fecha = '2026-11-03') {
+  const boleta = (n: number) =>
+    calcular({
+      ...factura(n, fecha),
+      tipo: '03' as const,
+      serie: 'B001',
+      cliente: {
+        tipoDocumento: '1' as const,
+        numeroDocumento: '00000001',
+        nombre: 'CLIENTE FICTICIO',
+      },
+    });
+  const r = {
+    emisor: factura().emisor,
+    correlativo: 1,
+    fechaResumen: fecha,
+    fechaReferencia: fecha,
+    moneda: 'PEN' as const,
+    lineas: [lineaResumen(boleta(1), '1'), lineaResumen(boleta(2), '3')],
+  };
+  const nombre = nombreResumen(r);
+  return { nombreZip: `${nombre}.zip`, zip: empaquetar(nombre, firmar(generarResumen(r))) };
+}
+
+export const sendSummary = (nombre: string, zip: Uint8Array) =>
+  `<ser:sendSummary><fileName>${nombre}</fileName><contentFile>${Buffer.from(zip).toString('base64')}</contentFile></ser:sendSummary>`;

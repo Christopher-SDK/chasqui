@@ -25,9 +25,15 @@ export interface Config {
   plazoEnvioDias: number;
   /** Días hacia adelante que se tolera la fecha de emisión (2329, «mayor a dos días»). */
   toleranciaFuturoDias: number;
+  /** Días desde la recepción para dar de baja un comprobante (2958). TODO verificar. */
+  plazoBajaDias: number;
 }
 
-export const CONFIG_POR_DEFECTO: Config = { plazoEnvioDias: 3, toleranciaFuturoDias: 2 };
+export const CONFIG_POR_DEFECTO: Config = {
+  plazoEnvioDias: 3,
+  toleranciaFuturoDias: 2,
+  plazoBajaDias: 7,
+};
 
 export interface Dependencias {
   db: Db;
