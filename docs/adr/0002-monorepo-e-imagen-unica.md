@@ -18,3 +18,12 @@ Chasqui tiene 6 apps y 5 paquetes que comparten tooling. Hay que poder levantarl
 
 - Un solo `pnpm fetch` cacheado sirve para todas las imágenes.
 - Hay que volver a evaluar TypeScript 7 cuando `typescript-eslint` lo soporte.
+
+## Enmienda (2026-11-04)
+
+`pnpm deploy --legacy` resolvía otra vez los rangos de versión contra el registro y, con una red
+inestable, el build se colgaba o fallaba a medias. Ahora, tras `pnpm -r build`, se ejecuta
+`pnpm install --prod --offline` (desde el store ya descargado) y la imagen copia el workspace
+podado; cada target arranca `apps/$APP/dist/index.js`. La etapa de build es la misma para todas las
+apps, así que se construye una sola vez. Costo: cada imagen lleva las dependencias de producción de
+todo el workspace.
