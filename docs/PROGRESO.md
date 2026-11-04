@@ -1,13 +1,20 @@
 # Progreso de Chasqui
 
-## Fase 0 — base del monorepo
+## Fase 0 — base del monorepo ✅
 
-- [x] pnpm workspaces · TypeScript 6 strict · ESLint (strictTypeChecked) · Prettier · Vitest
-- [x] Husky + lint-staged + commitlint (Conventional Commits; ya rechazó un mensaje mal formado)
-- [x] Dockerfile multi-stage único + docker compose (sunat-sim sano en :7100)
-- [x] Repo privado github.com/Christopher-SDK/chasqui
-- [x] CI de GitHub Actions en verde (calidad + docker compose)
+- pnpm workspaces · TypeScript 6 strict · ESLint (strictTypeChecked) · Prettier · Vitest
+- Husky + lint-staged + commitlint · Dockerfile multi-stage único + docker compose · CI verde
 
-## Siguiente: Fase 1 — catalogos + ubl-core
+## Fase 1 — catalogos + ubl-core ✅
 
-Primero, investigar las fuentes oficiales de SUNAT (guías UBL 2.1, Anexo 8, listado de errores) y Greenter.
+- [x] Reglas oficiales de SUNAT (paquete SFS/OSE) descargadas con SHA-256 verificado
+- [x] Oráculo: el XSL oficial corre en pruebas (Python/lxml) con controles negativos
+- [x] `catalogos`: 12 catálogos del Anexo 8 + 1 998 códigos de error, generados del oficial
+- [x] `ubl-core`: decimal exacto, cálculo, XML UBL 2.1 (01/03/07/08), firma XML-DSig, ZIP
+- [x] Validador portado: 84 códigos en el orden oficial, por tipo de comprobante
+- [x] Prueba diferencial: 478 dirigidas + 512 aleatorias + 200 válidas → idénticas al XSL oficial
+- [x] Cobertura: 97.7 % sentencias · 90.6 % ramas (umbral 90 % en la CI)
+- [x] Mutation testing (Stryker): 84.34 % (umbral 80 %)
+- [ ] CI con oráculo + mutation en verde
+
+## Siguiente: Fase 2 — sunat-sim (SOAP + REST, CDR, tickets, GRE)
