@@ -15,6 +15,6 @@
 - [x] Prueba diferencial: 478 dirigidas + 512 aleatorias + 200 válidas → idénticas al XSL oficial
 - [x] Cobertura: 97.7 % sentencias · 90.6 % ramas (umbral 90 % en la CI)
 - [x] Mutation testing (Stryker): 84.34 % (umbral 80 %)
-- [ ] CI con oráculo + mutation en verde
+- [x] CI en verde: calidad + conformidad, docker compose y mutation (incremental)
 
 ## Siguiente: Fase 2 — sunat-sim (SOAP + REST, CDR, tickets, GRE)
