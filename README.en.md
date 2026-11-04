@@ -3,7 +3,7 @@
 [![CI](https://github.com/Christopher-SDK/chasqui/actions/workflows/ci.yml/badge.svg)](https://github.com/Christopher-SDK/chasqui/actions/workflows/ci.yml)
 ![Node 22](https://img.shields.io/badge/node-22-339933)
 ![TypeScript](https://img.shields.io/badge/TypeScript-6-3178c6)
-![Mutation](https://img.shields.io/badge/mutation-85%25-success)
+![Mutation](https://img.shields.io/badge/mutation-84%25-success)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue)
 
 > **Testing simulator. Not affiliated with SUNAT or any financial institution.**
@@ -57,7 +57,7 @@ Without Docker: `pnpm install && pnpm todo-en-uno` (all four services in one pro
   timestamp and retried with exponential backoff.
 - **Tests at every level.** Unit, property-based (fast-check), conformance, real-HTTP integration,
   Pact contracts between the SDK and each simulator, Playwright E2E on desktop and mobile,
-  Stryker mutation testing (85 %) and k6 load tests with thresholds.
+  Stryker mutation testing (84 %) and k6 load tests with thresholds.
 
 ## Integrating
 

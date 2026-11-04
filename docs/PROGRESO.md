@@ -56,4 +56,27 @@
 - [x] Modo todo en uno (`pnpm todo-en-uno`): los cuatro servicios en un proceso, sin Docker
 - [x] Revisión visual claro/oscuro/móvil: corregidos los valores por defecto del formulario (con regresión E2E) y el desborde de la tabla en móvil
 
-## Siguiente: Fase 7 — observabilidad (OTel, Jaeger, Prometheus, Grafana)
+## Fase 7 — observabilidad ✅
+
+- [x] @chasqui/telemetria: @fastify/otel (entrada) + undici (salida), W3C traceparent de punta a punta, sin loaders ESM
+- [x] Métricas: latencia HTTP, comprobantes por estado, eventos de pagos, fallas inyectadas
+- [x] Collector → Jaeger + Prometheus; Grafana con datasources y dashboard provisionados (perfil `observabilidad`)
+- [x] Panel: enlace «Ver traza en Jaeger» en comprobantes y acciones de pagos
+
+## Fase 8 — mcp-server ✅
+
+- [x] 11 herramientas MCP sobre el SDK (comprobantes, validación de XML, pagos, identidad, caos) con anotaciones de solo lectura
+- [x] Errores de la API como resultados `isError` con código; validación de argumentos por esquema
+- [x] Pruebas con cliente MCP en memoria contra el ecosistema + prueba de humo por stdio
+
+## Fase 9 — carga, CI completa, documentación y pulido ✅
+
+- [x] k6: tres escenarios con tasa constante, umbrales por escenario (incluido un mínimo de peticiones: k6 aprueba umbrales sin datos), reporte HTML y resumen JSON
+- [x] Job nocturno: carga con k6 y mutation testing completo; CI con calidad, mutation incremental, E2E e imágenes
+- [x] README en español e inglés, badges, demo de 5 minutos, colección Bruno
+- [x] Imágenes Docker sin red después del install (el deploy legacy se colgaba con redes inestables)
+- [x] Plazo de envío de facturas confirmado con la RS 000003-2023/SUNAT (TODO cerrado); boletas y baja siguen pendientes de fuente oficial
+- [x] Guías: prueba diferencial de 62 a 117 casos; el oráculo reveló 8 reglas sin portar (2554, 2555, 4375, 3616-3619, 2558), ya portadas
+- [x] Mutation de reglas-guia de 72 % a 88 % (global 84 % en la corrida completa de CI)
+- [x] Panel en Docker: nginx vuelve a resolver los servicios (antes daba 502 al recrearlos)
+- [x] Verificado: suite 189/189, CI verde (calidad, E2E, mutation, imágenes), k6 local p95 sunat 20 ms / pagos 6 ms / identidad 7 ms y k6 nocturno en GitHub aprobado
