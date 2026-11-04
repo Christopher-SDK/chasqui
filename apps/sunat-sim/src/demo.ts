@@ -17,7 +17,77 @@ import { enLima, type Dependencias } from './recepcion.js';
  * cada escenario ejercita un camino distinto de la recepción.
  */
 
-export const ESCENARIOS = ['valida', 'observada', 'rechazada', 'duplicada', 'excepcion'] as const;
+export const ESCENARIOS = [
+  'valida',
+  'credito',
+  'consumo',
+  'observada',
+  'rechazada',
+  'duplicada',
+  'excepcion',
+] as const;
+
+/** Operaciones especiales: cambian el comprobante, no el XML; todas pasan con código 0 (el
+ * crédito, con la observación 3249 que la hoja oficial emite siempre). */
+const OPERACION: Partial<Record<(typeof ESCENARIOS)[number], (c: Comprobante) => Comprobante>> = {
+  // 2 000 + IGV = 2 360; detracción del 10 % (código 020) = 236; pendiente 2 124 en dos cuotas.
+  credito: (c) => ({
+    ...c,
+    tipo: '01',
+    items: [
+      {
+        descripcion: 'Mantenimiento de equipos',
+        cantidad: 1,
+        unidad: 'ZZ',
+        valorUnitario: '2000.00',
+        afectacion: '10',
+      },
+    ],
+    tipoOperacion: '1001',
+    detraccion: { codigoBien: '020', cuentaBancoNacion: '00-000-000001' },
+    formaPago: {
+      tipo: 'Credito',
+      cuotas: [
+        { monto: '1062.00', fechaPago: sumarDias(c.fechaEmision, 30) },
+        { monto: '1062.00', fechaPago: sumarDias(c.fechaEmision, 60) },
+      ],
+    },
+  }),
+  // ISC al valor, bolsas con ICBPER, una muestra gratuita (13) y un descuento global.
+  consumo: (c) => ({
+    ...c,
+    items: [
+      {
+        descripcion: 'Licor de demostración',
+        cantidad: 2,
+        unidad: 'NIU',
+        valorUnitario: '40.00',
+        afectacion: '10',
+        isc: { sistema: '01', tasa: '0.25' },
+      },
+      {
+        descripcion: 'Bolsa de plástico',
+        cantidad: 2,
+        unidad: 'NIU',
+        valorUnitario: '0.10',
+        afectacion: '10',
+        icbper: {},
+      },
+      {
+        descripcion: 'Muestra gratuita',
+        cantidad: 1,
+        unidad: 'NIU',
+        valorUnitario: '5.00',
+        afectacion: '13',
+      },
+    ],
+    descuentoGlobal: { factor: '0.05' },
+  }),
+};
+
+function sumarDias(fecha: string, dias: number): string {
+  return new Date(Date.parse(fecha) + dias * 86_400_000).toISOString().slice(0, 10);
+}
 
 const ALTERACION: Partial<Record<(typeof ESCENARIOS)[number], (xml: string) => string>> = {
   // PayableAmount desfasado en 3: observación 4312, el comprobante igual se acepta.
@@ -102,7 +172,11 @@ export function rutasDemo(deps: Dependencias): FastifyPluginCallback {
           if (escenario === 'duplicada' && ultimoValido) {
             return { escenario, ...(await enviar(ultimoValido.nombreZip, ultimoValido.zip)) };
           }
-          const c = comprobanteDemo(await siguiente(deps.db, 'demo'), enLima(deps.ahora()).fecha);
+          const base = comprobanteDemo(
+            await siguiente(deps.db, 'demo'),
+            enLima(deps.ahora()).fecha,
+          );
+          const c = OPERACION[escenario]?.(base) ?? base;
           const nombre = nombreArchivo(c);
           const alterar = ALTERACION[escenario] ?? ((x: string) => x);
           const zip = empaquetar(nombre, firmar(alterar(generarXml(calcular(c)))));

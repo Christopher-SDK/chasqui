@@ -322,6 +322,9 @@ describe('demo', () => {
         }),
       );
     expect(await enviar('valida')).toMatchObject({ estado: 'aceptado', codigo: '0' });
+    // 3249: la hoja oficial observa toda factura al crédito.
+    expect(await enviar('credito')).toMatchObject({ estado: 'observado', codigo: '0' });
+    expect(await enviar('consumo')).toMatchObject({ estado: 'aceptado', codigo: '0' });
     expect(await enviar('observada')).toMatchObject({ estado: 'observado', codigo: '0' });
     expect(await enviar('rechazada')).toMatchObject({ estado: 'rechazado', codigo: '2074' });
     expect(await enviar('duplicada')).toMatchObject({ estado: 'excepcion', codigo: '1033' });

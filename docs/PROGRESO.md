@@ -94,12 +94,18 @@ Hecho (rama `fase-10`, sin fusionar a `main`):
 - [x] 18 operaciones especiales (`test/operaciones.ts`) pasan las reglas oficiales; ~2 180 casos de la prueba diferencial sin una sola diferencia con el oráculo
 - [x] Pruebas unitarias del intérprete (`test/xslt.test.ts`); ubl-core 85/85, lint y tipos limpios
 
+Reanudada el 2026-11-04 (tarde):
+
+- [x] `pnpm test` completo: 225/225 sin cambios (los demás paquetes ya usaban bien el modelo); lint y tipos limpios
+- [x] SDK: `.bolsas`, `.tasaIgv`, `.descuento`, `.descuentoNoAfecto`, `.cargo`, `.formaPago`, `.detraccion`, `.percepcion`, `.anticipo` e ítems con `descuento`/`isc`/`icbper`; las de factura fallan pronto en boletas
+- [x] MCP: `emitir_comprobante` acepta todas las operaciones especiales (catálogo 07 completo)
+- [x] Panel «Probar»: «Crédito con detracción» (código 0 + 3249) e «ISC, bolsas y gratuita»; E2E escritorio y móvil
+- [x] Hallazgo documentado: la regla 3249 de la hoja oficial observa TODA factura al crédito (ruta relativa que nunca encuentra nodos); se reproduce a propósito
+- [x] Docs: ADR 0011 (reemplaza a la 0004), `fuentes.md` §6 y §15, README ES/EN, `sdk.md`, `mcp.md`, `demo.md`
+
 Pendiente, en orden:
 
-1. Correr `pnpm test` completo (sunat-sim, sdk, tienda-demo, mcp-server usan el modelo y `calcular`) y arreglar lo que rompa
-2. Mutation testing: actualizar `stryker.config.json` (mutar `xslt.ts`, `calculos.ts`, `xml.ts`), regenerar el incremental con `--force`
-3. SDK: builders para las operaciones nuevas (`descuento`, `isc`, `icbper`, `formaPago`, `detraccion`, `percepcion`, `anticipo`, `tasaIgv`); exponerlas en MCP y en el panel («Probar»)
-4. Docs: ADR 0011 (intérprete; reemplaza a la decisión 0004), `docs/fuentes.md` §15 (tasas: IVAP Ley 28211, ICBPER Ley 30884, percepción Ley 29173, IGV 10 % Ley 31556; textos de leyendas del catálogo 52; regla 3249 que siempre se emite al crédito; `Veh�cular` literal en el XSL; cat_66 inexistente), README ES/EN (quitar esas operaciones de «Limitaciones», contar reglas completas)
-5. Revisar `Dockerfile` (ya copia `patches/`) construyendo una imagen; k6 de nuevo (el validador pasó de ~2 a ~16 ms)
-6. Commits, fusionar a `main`, CI en verde y nocturno
-7. Auditoría «probador minucioso» antes de publicar en LinkedIn (clonar limpio, seguir el README, probar XML reales); preguntar al usuario antes de hacer público el repo
+1. Mutation testing completo con `xml.ts` agregado (en curso; ~1 h en local por los timeouts del intérprete) y commit del incremental
+2. Revisar `Dockerfile` construyendo una imagen (en CI: Docker local lento por otro proyecto); k6 de nuevo (el validador pasó de ~2 a ~16 ms)
+3. Fusionar a `main`, CI en verde y nocturno
+4. Auditoría «probador minucioso» antes de publicar en LinkedIn (clonar limpio, seguir el README, probar XML reales); preguntar al usuario antes de hacer público el repo

@@ -63,6 +63,16 @@ const METRICA = {
 const ESCENARIOS = [
   { id: 'valida', etiqueta: 'Factura válida', ayuda: 'Pasa todas las reglas: CDR con código 0.' },
   {
+    id: 'credito',
+    etiqueta: 'Crédito con detracción',
+    ayuda: 'Dos cuotas y detracción del 10 %: código 0 con la observación 3249 oficial.',
+  },
+  {
+    id: 'consumo',
+    etiqueta: 'ISC, bolsas y gratuita',
+    ayuda: 'ISC al valor, ICBPER, muestra gratuita y descuento global: código 0.',
+  },
+  {
     id: 'observada',
     etiqueta: 'Con observación',
     ayuda: 'Importe total desfasado: aceptada con 4312.',

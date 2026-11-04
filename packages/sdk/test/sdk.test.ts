@@ -93,6 +93,60 @@ describe('builders', () => {
   });
 });
 
+describe('builders de operaciones especiales', () => {
+  const base = () =>
+    factura().serie('F001', 1).emisor(emisor).cliente(RUC_CLIENTE, 'CLIENTE S.A.C.');
+
+  test('mapean cada operación al modelo de ubl-core', () => {
+    const f = base()
+      .item('Licor', 2, '40', {
+        isc: { sistema: '01', tasa: '0.25' },
+        descuento: { factor: '0.10' },
+      })
+      .bolsas(3, '0.10')
+      .bolsas(1, '0.10', '0.50')
+      .tasaIgv('10')
+      .descuento({ monto: '5' })
+      .descuentoNoAfecto('1')
+      .cargo('2')
+      .formaPago({ monto: '50', fechaPago: '2026-12-01' }, { monto: '50', fechaPago: '2027-01-01' })
+      .anticipo({ tipoDocumento: '02', serieNumero: 'F001-10', monto: '118' })
+      .anticipo({ tipoDocumento: '03', serieNumero: 'B001-2', monto: '59' })
+      .construir();
+    expect(f).toMatchObject({
+      tasaIgv: '10',
+      descuentoGlobal: { monto: '5' },
+      descuentoNoAfecto: '1',
+      cargo: '2',
+      formaPago: { tipo: 'Credito', cuotas: [{ monto: '50' }, { monto: '50' }] },
+      anticipos: [{ serieNumero: 'F001-10' }, { serieNumero: 'B001-2' }],
+      items: [
+        { afectacion: '10', unidad: 'NIU', isc: { sistema: '01' }, descuento: { factor: '0.10' } },
+        { descripcion: 'Bolsa de plástico', cantidad: 3, icbper: {} },
+        { icbper: { tarifa: '0.50' } },
+      ],
+    });
+    expect(base().item('x', 1, 1).formaPago().construir()).toMatchObject({
+      formaPago: { tipo: 'Contado' },
+    });
+    expect(
+      base()
+        .item('x', 1, 1)
+        .detraccion({ codigoBien: '020', cuentaBancoNacion: '00-1' })
+        .construir(),
+    ).toMatchObject({ tipoOperacion: '1001', detraccion: { codigoBien: '020' } });
+    expect(base().item('x', 1, 1).percepcion('51').construir()).toMatchObject({
+      tipoOperacion: '2001',
+      percepcion: { regimen: '51' },
+    });
+  });
+
+  test('las operaciones solo de factura fallan pronto en una boleta', () => {
+    expect(() => boleta().percepcion('51')).toThrow(/Solo las facturas/);
+    expect(() => boleta().formaPago()).toThrow(/Solo las facturas/);
+  });
+});
+
 describe('sunat', () => {
   test('envía una factura construida con el builder y consulta su estado', async () => {
     const f = factura()
@@ -113,6 +167,32 @@ describe('sunat', () => {
       .modifica({ tipo: '01', serieNumero: 'F001-10' }, '07', 'Devolución')
       .construir();
     expect((await chasqui.sunat.enviar(nc)).estado).toBe('aceptado');
+  });
+
+  test('sunat-sim acepta las operaciones especiales armadas con el builder', async () => {
+    const base = (n: number) =>
+      factura().serie('F001', n).emisor(emisor).cliente(RUC_CLIENTE, 'CLIENTE S.A.C.');
+    // 2 000 + IGV = 2 360; detracción del 10 % (código 020) = 236; pendiente 2 124 en dos cuotas.
+    const credito = base(20)
+      .item('Mantenimiento de equipos', 1, '2000')
+      .detraccion({ codigoBien: '020', cuentaBancoNacion: '00-000-000001' })
+      .formaPago(
+        { monto: '1062', fechaPago: '2026-12-15' },
+        { monto: '1062', fechaPago: '2027-01-15' },
+      )
+      .construir();
+    const consumo = base(21)
+      .item('Licor ficticio', 2, '40', { isc: { sistema: '01', tasa: '0.25' } })
+      .item('Muestra', 1, '5', { afectacion: '13' })
+      .bolsas(2, '0.10')
+      .descuento({ factor: '0.05' })
+      .cargo('3')
+      .construir();
+    // La regla 3249 de la hoja oficial observa toda factura al crédito (docs/fuentes.md §15).
+    const r = await chasqui.sunat.enviar(credito);
+    expect(r).toMatchObject({ estado: 'observado', codigo: '0' });
+    expect(JSON.stringify(r.observaciones)).toContain('3249');
+    expect(await chasqui.sunat.enviar(consumo)).toMatchObject({ estado: 'aceptado', codigo: '0' });
   });
 
   test('un duplicado es una excepción (ErrorChasqui con el código 1033)', async () => {

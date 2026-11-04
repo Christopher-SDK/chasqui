@@ -42,6 +42,10 @@ Variables opcionales: `CHASQUI_SUNAT_URL`, `CHASQUI_PAGOS_URL`, `CHASQUI_IDENTID
 | `saldo`                                    | Saldo de una cuenta de prueba                             |
 | `caos_estado` / `_activar` / `_desactivar` | Fallas reproducibles con semilla                          |
 
+`emitir_comprobante` acepta además las operaciones especiales: afectaciones gratuitas, IVAP y
+exportación, ISC, ICBPER, descuentos, cargos, IGV del 10 %, cuotas, detracción, percepción y
+anticipos (las cuatro últimas, solo en facturas).
+
 Las lecturas llevan `readOnlyHint`. Los errores de la API vuelven como resultado con `isError` y
 su código (p. ej. `1033`, `LIMITE_DIARIO`), para que el agente razone sobre ellos.
 

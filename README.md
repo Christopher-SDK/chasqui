@@ -63,12 +63,16 @@ flowchart LR
 
 ## Lo que lo hace confiable
 
-- **Reglas oficiales como oráculo.** Las validaciones no se interpretan de la documentación: se
-  portan de los XSL ejecutables que publica SUNAT (paquete SFS/OSE). Una prueba diferencial
-  compara cada veredicto de Chasqui con el de la regla oficial: código, observaciones y orden.
-  Coinciden en 478 casos dirigidos, 512 aleatorios y 200 válidos de comprobantes, 118 de bajas y
-  resúmenes y 117 de guías de remisión ([ADR 0003](docs/adr/0003-oraculo-reglas-oficiales.md),
-  [fuentes](docs/fuentes.md)).
+- **Las reglas oficiales, completas.** Las validaciones no se interpretan de la documentación: un
+  intérprete XSLT en TypeScript ejecuta las hojas que publica SUNAT (paquete SFS/OSE) para
+  factura, boleta, notas, guía de remisión, resumen y baja: 2 131 validaciones, 597 códigos
+  ([ADR 0011](docs/adr/0011-interprete-xslt-de-las-hojas-oficiales.md)). Una prueba diferencial
+  compara cada veredicto con el del XSL oficial ejecutado por libxslt: código, observaciones y
+  orden coinciden en unos 2 180 casos, incluidas 18 operaciones especiales
+  ([ADR 0003](docs/adr/0003-oraculo-reglas-oficiales.md), [fuentes](docs/fuentes.md)).
+- **Operaciones especiales.** Gratuitas y retiros, ISC (sistemas 01, 02 y 03), ICBPER, IVAP,
+  exportación, descuentos por ítem y globales, cargos, detracción, percepción, anticipos, crédito
+  con cuotas e IGV del 10 % (Ley 31556), desde el SDK, el MCP y el panel.
 - **Caos determinista.** Cada decisión de falla sale de `sha256(semilla, regla, clave#intento)`:
   la misma semilla reproduce la misma secuencia en tu máquina y en CI, y un reintento con la
   misma Idempotency-Key puede recuperarse, como con una falla transitoria real
@@ -120,14 +124,19 @@ Reglas no confirmadas en una fuente oficial (`TODO verificar` en el código):
 - **Distribución de estados del RUC** y **límites de la billetera**: valores de Chasqui, no
   estadísticas ni límites oficiales.
 
+- **Vigencia del IGV del 10 %**: Chasqui no comprueba la fecha ni si el emisor está acogido al
+  régimen ([fuentes §15](docs/fuentes.md#15-operaciones-especiales-tasas-y-reglas-de-las-hojas)).
+
+Comportamientos oficiales que sorprenden y se reproducen a propósito: toda factura al crédito sale
+con la observación 3249, y la hoja de factura compara contra un literal mal codificado
+(`Configuracion Veh�cular`) ([fuentes §15](docs/fuentes.md#15-operaciones-especiales-tasas-y-reglas-de-las-hojas)).
+
 Fuera del alcance actual:
 
-- Operaciones gratuitas, IVAP, exportación, ISC, ICBPER, detracción, percepción, anticipos,
-  descuentos y cargos, pago a crédito con cuotas.
 - La firma no valida la cadena de confianza del certificado ni su pertenencia al RUC emisor.
-- La guía de remisión cubre transporte privado (modalidad 02). En transporte público (modalidad 01)
-  se valida hasta exigir el transportista (2558); el bloque de reglas del transportista, puertos y
-  contenedores no está portado.
+- El validador aplica la hoja completa de la guía de remisión (incluido el transportista en la
+  modalidad 01), pero el generador de guías solo arma transporte privado (modalidad 02). La guía
+  del transportista (GRE 31) no está incluida.
 
 ## Autor
 

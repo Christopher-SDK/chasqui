@@ -1,12 +1,17 @@
 import type {
-  AfectacionSoportada,
+  Ajuste,
+  Anticipo,
   Cliente,
   Comprobante,
+  Cuota,
+  Detraccion,
   DocumentoReferencia,
   Emisor,
+  Factura,
   Item,
   NotaCredito,
   NotaDebito,
+  Percepcion,
 } from '@chasqui/ubl-core';
 
 type Tipo = Comprobante['tipo'];
@@ -66,16 +71,76 @@ export class ConstructorComprobante {
     descripcion: string,
     cantidad: Item['cantidad'],
     valorUnitario: Item['valorUnitario'],
-    extra: { afectacion?: AfectacionSoportada; unidad?: Item['unidad']; codigo?: string } = {},
+    extra: Partial<
+      Pick<Item, 'afectacion' | 'unidad' | 'codigo' | 'descuento' | 'isc' | 'icbper'>
+    > = {},
   ): this {
-    this.c.items.push({
-      descripcion,
-      cantidad,
-      valorUnitario,
-      unidad: extra.unidad ?? 'NIU',
-      afectacion: extra.afectacion ?? '10',
-      ...(extra.codigo ? { codigo: extra.codigo } : {}),
+    const { unidad = 'NIU', afectacion = '10', ...resto } = extra;
+    this.c.items.push({ descripcion, cantidad, valorUnitario, unidad, afectacion, ...resto });
+    return this;
+  }
+
+  /** Bolsas de plástico (ICBPER, tributo 7152): `cantidad` bolsas a la tarifa vigente o la dada. */
+  bolsas(
+    cantidad: Item['cantidad'],
+    valorUnitario: Item['valorUnitario'],
+    tarifa?: Item['valorUnitario'],
+  ): this {
+    return this.item('Bolsa de plástico', cantidad, valorUnitario, {
+      icbper: tarifa === undefined ? {} : { tarifa },
     });
+  }
+
+  /** IGV del 18 % (por defecto) o del 10 % del régimen MYPE de la Ley 31556. */
+  tasaIgv(tasa: '18' | '10'): this {
+    this.c.tasaIgv = tasa;
+    return this;
+  }
+
+  /** Descuento global que reduce la base imponible (código 02): por monto o por factor. */
+  descuento(ajuste: Ajuste): this {
+    this.c.descuentoGlobal = ajuste;
+    return this;
+  }
+
+  /** Descuento global que NO reduce la base imponible (código 03). */
+  descuentoNoAfecto(monto: NonNullable<Ajuste['monto']>): this {
+    this.c.descuentoNoAfecto = monto;
+    return this;
+  }
+
+  /** Cargo global fuera de la base imponible (código 50). */
+  cargo(monto: NonNullable<Ajuste['monto']>): this {
+    this.c.cargo = monto;
+    return this;
+  }
+
+  /** Solo facturas: al contado (sin argumentos) o al crédito con sus cuotas. */
+  formaPago(...cuotas: Cuota[]): this {
+    return this.factura({
+      formaPago: cuotas.length ? { tipo: 'Credito', cuotas } : { tipo: 'Contado' },
+    });
+  }
+
+  /** Solo facturas: detracción (SPOT). Fija el tipo de operación 1001. */
+  detraccion(detraccion: Detraccion): this {
+    return this.factura({ detraccion, tipoOperacion: '1001' });
+  }
+
+  /** Solo facturas: percepción del IGV. Fija el tipo de operación 2001. */
+  percepcion(regimen: Percepcion['regimen']): this {
+    return this.factura({ percepcion: { regimen }, tipoOperacion: '2001' });
+  }
+
+  /** Solo facturas: deduce un anticipo ya facturado. Se puede llamar varias veces. */
+  anticipo(anticipo: Anticipo): this {
+    const previos = (this.c as Partial<Factura>).anticipos ?? [];
+    return this.factura({ anticipos: [...previos, anticipo] });
+  }
+
+  private factura(campos: Partial<Factura>): this {
+    if (this.c.tipo !== '01') throw new TypeError('Solo las facturas (01) admiten esta operación');
+    Object.assign(this.c, campos);
     return this;
   }
 

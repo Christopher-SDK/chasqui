@@ -1,6 +1,6 @@
 # 0004 · Validador portado por plantillas, en el orden oficial
 
-- Estado: aceptada · 2026-11-03
+- Estado: reemplazada por la [0011](0011-interprete-xslt-de-las-hojas-oficiales.md) · 2026-11-04 (aceptada el 2026-11-03)
 
 ## Contexto
 
