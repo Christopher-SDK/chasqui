@@ -37,7 +37,7 @@ jobs:
       - name: Pruebas con cobertura (falla si baja del umbral)
         run: pnpm test:cov
       - name: Resumen de cobertura
-        if: always()
+        if: always() && hashFiles('reports/coverage/coverage-summary.json') != ''
         run: |
           node -e "
             const s = require('./reports/coverage/coverage-summary.json').total;
@@ -73,7 +73,7 @@ jobs:
       - name: Stryker (falla por debajo de 80 %)
         run: pnpm mutation
       - name: Resumen de mutation score
-        if: always()
+        if: always() && hashFiles('reports/mutation/ubl-core/mutation.json') != ''
         run: |
           node -e "
             const r = require('./reports/mutation/ubl-core/mutation.json');
