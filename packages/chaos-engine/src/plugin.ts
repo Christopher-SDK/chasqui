@@ -144,7 +144,12 @@ export function registrarCaos(app: FastifyInstance, o: OpcionesCaos): void {
           return responder(
             reply,
             f.estado,
-            JSON.stringify({ error: 'Falla inyectada por Chasqui', estado: f.estado }),
+            // Misma forma que los errores de los simuladores: el SDK lee codigo y mensaje.
+            JSON.stringify({
+              codigo: 'FALLA_INYECTADA',
+              mensaje: `Falla inyectada por Chasqui (HTTP ${String(f.estado)})`,
+              estado: f.estado,
+            }),
             'application/json',
           );
         case 'soapFault':
