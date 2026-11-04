@@ -10,6 +10,7 @@ export default defineConfig({
       // Mínimo exigido al núcleo (README › Estrategia de pruebas). Bajar de aquí rompe la CI.
       thresholds: {
         'packages/ubl-core/src/**': { statements: 90, branches: 90, functions: 90, lines: 90 },
+        'packages/chaos-engine/src/**': { statements: 90, branches: 90, functions: 90, lines: 90 },
         'packages/catalogos/src/**': { statements: 90, branches: 90, functions: 90, lines: 90 },
       },
       reporter: ['text', 'json-summary', 'html'],
