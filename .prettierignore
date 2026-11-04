@@ -4,3 +4,4 @@ coverage/
 dist/
 packages/catalogos/src/generado.ts
 .cache/
+**/__snapshots__/

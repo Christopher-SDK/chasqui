@@ -1,0 +1,1289 @@
+{
+  "factura: RUC del nombre ≠ RUC del emisor": [
+    "1034 @ ValidaExprRegFactura-2.0.1.xsl:L48"
+  ],
+  "factura: serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegFactura-2.0.1.xsl:L54"
+  ],
+  "factura: número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegFactura-2.0.1.xsl:L60"
+  ],
+  "factura: UBLVersionID 2.0": [
+    "2074 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura: sin UBLVersionID": [
+    "2075 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura: CustomizationID 1.0": [
+    "2072 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura: sin CustomizationID": [
+    "2073 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura: InvoiceTypeCode distinto": [
+    "1003 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura: sin InvoiceTypeCode": [
+    "1004 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura: sin moneda": [
+    "2070 @ ValidaExprRegFactura-2.0.1.xsl:L135"
+  ],
+  "factura: moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegFactura-2.0.1.xsl:L139"
+  ],
+  "factura: currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegFactura-2.0.1.xsl:L146"
+  ],
+  "factura: schemeID del emisor ≠ 6": [
+    "1007 @ ValidaExprRegFactura-2.0.1.xsl:L746"
+  ],
+  "factura: sin razón social del emisor": [
+    "1037 @ ValidaExprRegFactura-2.0.1.xsl:L789"
+  ],
+  "factura: RUC del cliente con 10 dígitos": [
+    "2017 @ ValidaExprRegFactura-2.0.1.xsl:L1210"
+  ],
+  "factura: nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura: sin nombre del cliente": [
+    "2021 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura: factura a cliente con DNI": [
+    "2800 @ ValidaExprRegFactura-2.0.1.xsl:L1267"
+  ],
+  "factura: DNI del cliente con 7 dígitos": [
+    "2801 @ ValidaExprRegFactura-2.0.1.xsl:L1218"
+  ],
+  "factura: número de línea 0": [
+    "2023 @ ValidaExprRegFactura-2.0.1.xsl:L1508"
+  ],
+  "factura: número de línea duplicado": [
+    "2752 @ ValidaExprRegFactura-2.0.1.xsl:L1517"
+  ],
+  "factura: sin unitCode": [
+    "2883 @ ValidaExprRegFactura-2.0.1.xsl:L1526"
+  ],
+  "factura: cantidad 0": [
+    "2024 @ ValidaExprRegFactura-2.0.1.xsl:L1556"
+  ],
+  "factura: cantidad no numérica": [
+    "2025 @ ValidaExprRegFactura-2.0.1.xsl:L1549"
+  ],
+  "factura: sin descripción del ítem": [
+    "2026 @ ValidaExprRegFactura-2.0.1.xsl:L1693"
+  ],
+  "factura: valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura: sin valor unitario": [
+    "2068 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura: sin precio de referencia": [
+    "2028 @ ValidaExprRegFactura-2.0.1.xsl:L1885"
+  ],
+  "factura: línea sin TaxTotal": [
+    "3195 @ ValidaExprRegFactura-2.0.1.xsl:L1961"
+  ],
+  "factura: IGV de línea alterado": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura: IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegFactura-2.0.1.xsl:L2946"
+  ],
+  "factura: sin afectación del IGV": [
+    "2371 @ ValidaExprRegFactura-2.0.1.xsl:L3031"
+  ],
+  "factura: sin Percent": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura: Percent 15 en línea gravada": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura: sin código de tributo en línea": [
+    "2037 @ ValidaExprRegFactura-2.0.1.xsl:L2925"
+  ],
+  "factura: tributo de línea fuera del catálogo 05": [
+    "2036 @ ValidaExprRegFactura-2.0.1.xsl:L2930"
+  ],
+  "factura: valor de venta de línea con 3 decimales": [
+    "4294 @ ValidaExprRegFactura-2.0.1.xsl:L3227",
+    "2370 @ ValidaExprRegFactura-2.0.1.xsl:L1983"
+  ],
+  "factura: TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegFactura-2.0.1.xsl:L3173"
+  ],
+  "factura: sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegFactura-2.0.1.xsl:L276"
+  ],
+  "factura: TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegFactura-2.0.1.xsl:L4645"
+  ],
+  "factura: base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegFactura-2.0.1.xsl:L4559"
+  ],
+  "factura: tributo de cabecera fuera del catálogo": [
+    "3007 @ ValidaExprRegFactura-2.0.1.xsl:L4587"
+  ],
+  "factura: suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegFactura-2.0.1.xsl:L4802",
+    "3291 @ ValidaExprRegFactura-2.0.1.xsl:L462"
+  ],
+  "factura: TaxInclusiveAmount alterado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura: LineExtensionAmount total desfasado": [
+    "4309 @ ValidaExprRegFactura-2.0.1.xsl:L500",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura: PayableAmount desfasado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494"
+  ],
+  "factura: PayableAmount con formato inválido": [
+    "2062 @ ValidaExprRegFactura-2.0.1.xsl:L239"
+  ],
+  "factura: desfase dentro de la tolerancia (±1)": [],
+  "factura: correlativo de 8 dígitos": [],
+  "factura: correlativo de 9 dígitos": [
+    "1001 @ ValidaExprRegFactura-2.0.1.xsl:L95"
+  ],
+  "factura: serie numérica de contingencia": [],
+  "factura: serie con letra inicial ajena": [
+    "1001 @ ValidaExprRegFactura-2.0.1.xsl:L95"
+  ],
+  "factura: CustomizationID 2.0 con sufijo": [
+    "2072 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura: UBLVersionID 2.1 con prefijo": [
+    "2074 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura: InvoiceTypeCode 011": [
+    "1003 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura: nombre del cliente de 3 caracteres": [],
+  "factura: nombre del cliente con espacio inicial": [
+    "2022 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura: nombre del cliente de 1000 caracteres": [],
+  "factura: nombre del cliente de 1500 caracteres": [],
+  "factura: RUC del cliente con 12 dígitos": [
+    "2017 @ ValidaExprRegFactura-2.0.1.xsl:L1210"
+  ],
+  "factura: RUC del cliente con letras": [
+    "2017 @ ValidaExprRegFactura-2.0.1.xsl:L1210"
+  ],
+  "factura: DNI del cliente con 9 dígitos": [
+    "2801 @ ValidaExprRegFactura-2.0.1.xsl:L1218"
+  ],
+  "factura: carné de extranjería de 15 caracteres": [
+    "2800 @ ValidaExprRegFactura-2.0.1.xsl:L1267"
+  ],
+  "factura: carné de extranjería de 16 caracteres": [
+    "2802 @ ValidaExprRegFactura-2.0.1.xsl:L1226"
+  ],
+  "factura: cliente con guion": [
+    "2800 @ ValidaExprRegFactura-2.0.1.xsl:L1267"
+  ],
+  "factura: cliente sin schemeID": [
+    "2015 @ ValidaExprRegFactura-2.0.1.xsl:L1235"
+  ],
+  "factura: sin identificación del cliente": [
+    "2014 @ ValidaExprRegFactura-2.0.1.xsl:L1202"
+  ],
+  "factura: operación de exportación a cliente con RUC": [
+    "2800 @ ValidaExprRegFactura-2.0.1.xsl:L1244"
+  ],
+  "factura: operación 0112 a cliente con carné": [
+    "2800 @ ValidaExprRegFactura-2.0.1.xsl:L1251"
+  ],
+  "factura: operación 0401 con documento fuera de catálogo": [
+    "2800 @ ValidaExprRegFactura-2.0.1.xsl:L1259"
+  ],
+  "factura: número de línea 000": [
+    "2023 @ ValidaExprRegFactura-2.0.1.xsl:L1508"
+  ],
+  "factura: número de línea de 4 dígitos": [
+    "2023 @ ValidaExprRegFactura-2.0.1.xsl:L1508"
+  ],
+  "factura: número de línea 01": [],
+  "factura: cantidad con 10 decimales": [],
+  "factura: cantidad con 11 decimales": [
+    "2025 @ ValidaExprRegFactura-2.0.1.xsl:L1549"
+  ],
+  "factura: cantidad con 13 enteros": [
+    "2025 @ ValidaExprRegFactura-2.0.1.xsl:L1549"
+  ],
+  "factura: descripción de 501 caracteres": [
+    "2027 @ ValidaExprRegFactura-2.0.1.xsl:L1850"
+  ],
+  "factura: descripción vacía": [
+    "2026 @ ValidaExprRegFactura-2.0.1.xsl:L1693"
+  ],
+  "factura: valor unitario con 10 decimales": [],
+  "factura: valor unitario 0": [
+    "4288 @ ValidaExprRegFactura-2.0.1.xsl:L2026"
+  ],
+  "factura: precio de referencia +0.9": [],
+  "factura: precio de referencia +1.5": [
+    "4287 @ ValidaExprRegFactura-2.0.1.xsl:L2010"
+  ],
+  "factura: precio de referencia -1.5": [
+    "4287 @ ValidaExprRegFactura-2.0.1.xsl:L2010"
+  ],
+  "factura: IGV de línea +0.9 (tolerancia)": [],
+  "factura: IGV de línea -1.1": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura: IGV de línea 0 con base gravada": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura: TaxTotal de línea +2": [
+    "4293 @ ValidaExprRegFactura-2.0.1.xsl:L3197"
+  ],
+  "factura: TaxTotal de línea -2": [
+    "4293 @ ValidaExprRegFactura-2.0.1.xsl:L3197"
+  ],
+  "factura: TaxTotal de línea +0.5": [],
+  "factura: base IGV de línea +0.01": [
+    "4294 @ ValidaExprRegFactura-2.0.1.xsl:L3227"
+  ],
+  "factura: base IGV de línea -2": [
+    "4294 @ ValidaExprRegFactura-2.0.1.xsl:L3227"
+  ],
+  "factura: base IGV de cabecera +2": [
+    "4299 @ ValidaExprRegFactura-2.0.1.xsl:L4776"
+  ],
+  "factura: base IGV de cabecera -2": [
+    "4299 @ ValidaExprRegFactura-2.0.1.xsl:L4776"
+  ],
+  "factura: base exonerada de cabecera +2": [
+    "4297 @ ValidaExprRegFactura-2.0.1.xsl:L4727"
+  ],
+  "factura: base exonerada de cabecera -2": [
+    "4297 @ ValidaExprRegFactura-2.0.1.xsl:L4727"
+  ],
+  "factura: base exonerada de cabecera +0.5": [],
+  "factura: línea exonerada pasa a inafecta": [
+    "4297 @ ValidaExprRegFactura-2.0.1.xsl:L4727"
+  ],
+  "factura: TaxTotal de cabecera +2": [
+    "4301 @ ValidaExprRegFactura-2.0.1.xsl:L4802"
+  ],
+  "factura: TaxTotal de cabecera -2": [
+    "4301 @ ValidaExprRegFactura-2.0.1.xsl:L4802"
+  ],
+  "factura: TaxTotal de cabecera +0.5": [],
+  "factura: IGV de cabecera -7": [
+    "4301 @ ValidaExprRegFactura-2.0.1.xsl:L4802",
+    "3291 @ ValidaExprRegFactura-2.0.1.xsl:L467"
+  ],
+  "factura: IGV de cabecera +0.9": [],
+  "factura: TaxInclusiveAmount -9": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura: TaxInclusiveAmount +0.9": [],
+  "factura: LineExtensionAmount total -3": [
+    "4309 @ ValidaExprRegFactura-2.0.1.xsl:L500",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura: LineExtensionAmount total +0.9": [],
+  "factura: PayableAmount -4": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494"
+  ],
+  "factura: PayableAmount 0": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494"
+  ],
+  "factura: PayableAmount con cero inicial": [],
+  "factura: PayableAmount con 13 enteros": [
+    "2062 @ ValidaExprRegFactura-2.0.1.xsl:L239"
+  ],
+  "factura: sin TaxInclusiveAmount": [],
+  "factura: TaxInclusiveAmount inválido": [
+    "3019 @ ValidaExprRegFactura-2.0.1.xsl:L256"
+  ],
+  "factura: LineExtensionAmount total inválido": [
+    "2031 @ ValidaExprRegFactura-2.0.1.xsl:L251"
+  ],
+  "factura: sin PayableAmount": [
+    "2062 @ ValidaExprRegFactura-2.0.1.xsl:L239"
+  ],
+  "factura: sin base en subtotal de cabecera": [
+    "3003 @ ValidaExprRegFactura-2.0.1.xsl:L4559"
+  ],
+  "factura: sin monto en subtotal de cabecera": [
+    "2048 @ ValidaExprRegFactura-2.0.1.xsl:L4568"
+  ],
+  "factura: monto inválido en subtotal de cabecera": [
+    "2048 @ ValidaExprRegFactura-2.0.1.xsl:L4568"
+  ],
+  "factura: sin tributo en subtotal de cabecera": [
+    "3059 @ ValidaExprRegFactura-2.0.1.xsl:L4583"
+  ],
+  "factura: sin monto en TaxTotal de cabecera": [
+    "3020 @ ValidaExprRegFactura-2.0.1.xsl:L4645"
+  ],
+  "factura: sin monto en TaxTotal de línea": [
+    "3021 @ ValidaExprRegFactura-2.0.1.xsl:L3173"
+  ],
+  "factura: sin monto en subtotal de línea": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura: sin base en subtotal de línea": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura: sin valor de venta de línea": [
+    "4294 @ ValidaExprRegFactura-2.0.1.xsl:L3227",
+    "2370 @ ValidaExprRegFactura-2.0.1.xsl:L1983"
+  ],
+  "factura: línea gravada sin tributo válido": [
+    "3050 @ ValidaExprRegFactura-2.0.1.xsl:L3040"
+  ],
+  "factura: línea exonerada con IGV": [
+    "3110 @ ValidaExprRegFactura-2.0.1.xsl:L2954"
+  ],
+  "factura: Percent con 6 decimales": [
+    "3102 @ ValidaExprRegFactura-2.0.1.xsl:L2983"
+  ],
+  "factura: IGV al 10 % coherente": [
+    "4287 @ ValidaExprRegFactura-2.0.1.xsl:L2010"
+  ],
+  "factura: tasas mezcladas 10 % y 18 %": [
+    "4287 @ ValidaExprRegFactura-2.0.1.xsl:L2010"
+  ],
+  "factura: tasa 0 en línea gravada": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "boleta: RUC del nombre ≠ RUC del emisor": [],
+  "boleta: serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegBoleta-2.0.1.xsl:L85"
+  ],
+  "boleta: número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegBoleta-2.0.1.xsl:L92"
+  ],
+  "boleta: UBLVersionID 2.0": [],
+  "boleta: sin UBLVersionID": [],
+  "boleta: CustomizationID 1.0": [
+    "2072 @ ValidaExprRegBoleta-2.0.1.xsl:L135"
+  ],
+  "boleta: sin CustomizationID": [
+    "2073 @ ValidaExprRegBoleta-2.0.1.xsl:L135"
+  ],
+  "boleta: InvoiceTypeCode distinto": [
+    "1003 @ ValidaExprRegBoleta-2.0.1.xsl:L169"
+  ],
+  "boleta: sin InvoiceTypeCode": [
+    "1004 @ ValidaExprRegBoleta-2.0.1.xsl:L169"
+  ],
+  "boleta: sin moneda": [
+    "2070 @ ValidaExprRegBoleta-2.0.1.xsl:L200"
+  ],
+  "boleta: moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegBoleta-2.0.1.xsl:L206"
+  ],
+  "boleta: currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegBoleta-2.0.1.xsl:L213"
+  ],
+  "boleta: schemeID del emisor ≠ 6": [
+    "1007 @ ValidaExprRegBoleta-2.0.1.xsl:L1102"
+  ],
+  "boleta: sin razón social del emisor": [
+    "1037 @ ValidaExprRegBoleta-2.0.1.xsl:L1148"
+  ],
+  "boleta: nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegBoleta-2.0.1.xsl:L1609"
+  ],
+  "boleta: sin nombre del cliente": [
+    "2021 @ ValidaExprRegBoleta-2.0.1.xsl:L1609"
+  ],
+  "boleta: número de línea 0": [
+    "2023 @ ValidaExprRegBoleta-2.0.1.xsl:L1906"
+  ],
+  "boleta: número de línea duplicado": [
+    "2752 @ ValidaExprRegBoleta-2.0.1.xsl:L1917"
+  ],
+  "boleta: sin unitCode": [
+    "2883 @ ValidaExprRegBoleta-2.0.1.xsl:L1927"
+  ],
+  "boleta: cantidad 0": [
+    "2024 @ ValidaExprRegBoleta-2.0.1.xsl:L1960"
+  ],
+  "boleta: cantidad no numérica": [
+    "2025 @ ValidaExprRegBoleta-2.0.1.xsl:L1952"
+  ],
+  "boleta: sin descripción del ítem": [
+    "2026 @ ValidaExprRegBoleta-2.0.1.xsl:L2109"
+  ],
+  "boleta: valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegBoleta-2.0.1.xsl:L2146"
+  ],
+  "boleta: sin valor unitario": [
+    "2068 @ ValidaExprRegBoleta-2.0.1.xsl:L2146"
+  ],
+  "boleta: sin precio de referencia": [
+    "2028 @ ValidaExprRegBoleta-2.0.1.xsl:L2164"
+  ],
+  "boleta: línea sin TaxTotal": [
+    "3195 @ ValidaExprRegBoleta-2.0.1.xsl:L2267"
+  ],
+  "boleta: IGV de línea alterado": [
+    "3103 @ ValidaExprRegBoleta-2.0.1.xsl:L3468"
+  ],
+  "boleta: IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegBoleta-2.0.1.xsl:L3372"
+  ],
+  "boleta: sin afectación del IGV": [
+    "2371 @ ValidaExprRegBoleta-2.0.1.xsl:L3478"
+  ],
+  "boleta: sin Percent": [
+    "3103 @ ValidaExprRegBoleta-2.0.1.xsl:L3468"
+  ],
+  "boleta: Percent 15 en línea gravada": [
+    "3103 @ ValidaExprRegBoleta-2.0.1.xsl:L3468"
+  ],
+  "boleta: sin código de tributo en línea": [
+    "2037 @ ValidaExprRegBoleta-2.0.1.xsl:L3356"
+  ],
+  "boleta: tributo de línea fuera del catálogo 05": [
+    "2036 @ ValidaExprRegBoleta-2.0.1.xsl:L3363"
+  ],
+  "boleta: valor de venta de línea con 3 decimales": [
+    "4294 @ ValidaExprRegBoleta-2.0.1.xsl:L3799",
+    "2370 @ ValidaExprRegBoleta-2.0.1.xsl:L2292"
+  ],
+  "boleta: TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegBoleta-2.0.1.xsl:L3722"
+  ],
+  "boleta: sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegBoleta-2.0.1.xsl:L464"
+  ],
+  "boleta: TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegBoleta-2.0.1.xsl:L5195"
+  ],
+  "boleta: base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegBoleta-2.0.1.xsl:L5044"
+  ],
+  "boleta: tributo de cabecera fuera del catálogo": [
+    "3007 @ ValidaExprRegBoleta-2.0.1.xsl:L5089"
+  ],
+  "boleta: suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegBoleta-2.0.1.xsl:L5385",
+    "4290 @ ValidaExprRegBoleta-2.0.1.xsl:L700"
+  ],
+  "boleta: TaxInclusiveAmount alterado": [
+    "4312 @ ValidaExprRegBoleta-2.0.1.xsl:L746",
+    "4310 @ ValidaExprRegBoleta-2.0.1.xsl:L804"
+  ],
+  "boleta: LineExtensionAmount total desfasado": [
+    "4309 @ ValidaExprRegBoleta-2.0.1.xsl:L753",
+    "4310 @ ValidaExprRegBoleta-2.0.1.xsl:L804"
+  ],
+  "boleta: PayableAmount desfasado": [
+    "4312 @ ValidaExprRegBoleta-2.0.1.xsl:L746"
+  ],
+  "boleta: PayableAmount con formato inválido": [
+    "2062 @ ValidaExprRegBoleta-2.0.1.xsl:L417"
+  ],
+  "boleta: desfase dentro de la tolerancia (±1)": [],
+  "boleta: correlativo de 8 dígitos": [],
+  "boleta: correlativo de 9 dígitos": [
+    "1001 @ ValidaExprRegBoleta-2.0.1.xsl:L150"
+  ],
+  "boleta: serie numérica de contingencia": [],
+  "boleta: serie con letra inicial ajena": [
+    "1001 @ ValidaExprRegBoleta-2.0.1.xsl:L150"
+  ],
+  "boleta: CustomizationID 2.0 con sufijo": [
+    "2072 @ ValidaExprRegBoleta-2.0.1.xsl:L135"
+  ],
+  "boleta: UBLVersionID 2.1 con prefijo": [],
+  "boleta: InvoiceTypeCode 011": [
+    "1003 @ ValidaExprRegBoleta-2.0.1.xsl:L169"
+  ],
+  "boleta: nombre del cliente de 3 caracteres": [],
+  "boleta: nombre del cliente con espacio inicial": [
+    "2022 @ ValidaExprRegBoleta-2.0.1.xsl:L1609"
+  ],
+  "boleta: nombre del cliente de 1000 caracteres": [],
+  "boleta: nombre del cliente de 1500 caracteres": [],
+  "boleta: RUC del cliente con 12 dígitos": [
+    "4207 @ ValidaExprRegBoleta-2.0.1.xsl:L1528"
+  ],
+  "boleta: RUC del cliente con letras": [
+    "4207 @ ValidaExprRegBoleta-2.0.1.xsl:L1528"
+  ],
+  "boleta: DNI del cliente con 9 dígitos": [
+    "4207 @ ValidaExprRegBoleta-2.0.1.xsl:L1528"
+  ],
+  "boleta: carné de extranjería de 15 caracteres": [],
+  "boleta: carné de extranjería de 16 caracteres": [
+    "4208 @ ValidaExprRegBoleta-2.0.1.xsl:L1539"
+  ],
+  "boleta: cliente con guion": [],
+  "boleta: cliente sin schemeID": [
+    "2015 @ ValidaExprRegBoleta-2.0.1.xsl:L1552"
+  ],
+  "boleta: sin identificación del cliente": [
+    "2014 @ ValidaExprRegBoleta-2.0.1.xsl:L1509"
+  ],
+  "boleta: número de línea 000": [
+    "2023 @ ValidaExprRegBoleta-2.0.1.xsl:L1906"
+  ],
+  "boleta: número de línea de 4 dígitos": [
+    "2023 @ ValidaExprRegBoleta-2.0.1.xsl:L1906"
+  ],
+  "boleta: número de línea 01": [],
+  "boleta: cantidad con 10 decimales": [],
+  "boleta: cantidad con 11 decimales": [
+    "2025 @ ValidaExprRegBoleta-2.0.1.xsl:L1952"
+  ],
+  "boleta: cantidad con 13 enteros": [
+    "2025 @ ValidaExprRegBoleta-2.0.1.xsl:L1952"
+  ],
+  "boleta: descripción de 501 caracteres": [
+    "2027 @ ValidaExprRegBoleta-2.0.1.xsl:L2117"
+  ],
+  "boleta: descripción vacía": [
+    "2026 @ ValidaExprRegBoleta-2.0.1.xsl:L2109"
+  ],
+  "boleta: valor unitario con 10 decimales": [],
+  "boleta: valor unitario 0": [
+    "4288 @ ValidaExprRegBoleta-2.0.1.xsl:L2353"
+  ],
+  "boleta: precio de referencia +0.9": [],
+  "boleta: precio de referencia +1.5": [
+    "4287 @ ValidaExprRegBoleta-2.0.1.xsl:L2335"
+  ],
+  "boleta: precio de referencia -1.5": [
+    "4287 @ ValidaExprRegBoleta-2.0.1.xsl:L2335"
+  ],
+  "boleta: IGV de línea +0.9 (tolerancia)": [],
+  "boleta: IGV de línea -1.1": [
+    "3103 @ ValidaExprRegBoleta-2.0.1.xsl:L3468"
+  ],
+  "boleta: IGV de línea 0 con base gravada": [
+    "3111 @ ValidaExprRegBoleta-2.0.1.xsl:L3407"
+  ],
+  "boleta: TaxTotal de línea +2": [
+    "4293 @ ValidaExprRegBoleta-2.0.1.xsl:L3764"
+  ],
+  "boleta: TaxTotal de línea -2": [
+    "4293 @ ValidaExprRegBoleta-2.0.1.xsl:L3764"
+  ],
+  "boleta: TaxTotal de línea +0.5": [],
+  "boleta: base IGV de línea +0.01": [
+    "4294 @ ValidaExprRegBoleta-2.0.1.xsl:L3799"
+  ],
+  "boleta: base IGV de línea -2": [
+    "4294 @ ValidaExprRegBoleta-2.0.1.xsl:L3799"
+  ],
+  "boleta: base IGV de cabecera +2": [
+    "4299 @ ValidaExprRegBoleta-2.0.1.xsl:L5354"
+  ],
+  "boleta: base IGV de cabecera -2": [
+    "4299 @ ValidaExprRegBoleta-2.0.1.xsl:L5354"
+  ],
+  "boleta: base exonerada de cabecera +2": [
+    "4297 @ ValidaExprRegBoleta-2.0.1.xsl:L5295"
+  ],
+  "boleta: base exonerada de cabecera -2": [
+    "4297 @ ValidaExprRegBoleta-2.0.1.xsl:L5295"
+  ],
+  "boleta: base exonerada de cabecera +0.5": [],
+  "boleta: línea exonerada pasa a inafecta": [
+    "4297 @ ValidaExprRegBoleta-2.0.1.xsl:L5295"
+  ],
+  "boleta: TaxTotal de cabecera +2": [
+    "4301 @ ValidaExprRegBoleta-2.0.1.xsl:L5385"
+  ],
+  "boleta: TaxTotal de cabecera -2": [
+    "4301 @ ValidaExprRegBoleta-2.0.1.xsl:L5385"
+  ],
+  "boleta: TaxTotal de cabecera +0.5": [],
+  "boleta: IGV de cabecera -7": [
+    "4301 @ ValidaExprRegBoleta-2.0.1.xsl:L5385"
+  ],
+  "boleta: IGV de cabecera +0.9": [],
+  "boleta: TaxInclusiveAmount -9": [
+    "4312 @ ValidaExprRegBoleta-2.0.1.xsl:L746"
+  ],
+  "boleta: TaxInclusiveAmount +0.9": [],
+  "boleta: LineExtensionAmount total -3": [
+    "4309 @ ValidaExprRegBoleta-2.0.1.xsl:L753",
+    "4310 @ ValidaExprRegBoleta-2.0.1.xsl:L804"
+  ],
+  "boleta: LineExtensionAmount total +0.9": [],
+  "boleta: PayableAmount -4": [
+    "4312 @ ValidaExprRegBoleta-2.0.1.xsl:L746"
+  ],
+  "boleta: PayableAmount 0": [
+    "4312 @ ValidaExprRegBoleta-2.0.1.xsl:L746"
+  ],
+  "boleta: PayableAmount con cero inicial": [],
+  "boleta: PayableAmount con 13 enteros": [
+    "2062 @ ValidaExprRegBoleta-2.0.1.xsl:L417"
+  ],
+  "boleta: sin TaxInclusiveAmount": [],
+  "boleta: TaxInclusiveAmount inválido": [
+    "3019 @ ValidaExprRegBoleta-2.0.1.xsl:L437"
+  ],
+  "boleta: LineExtensionAmount total inválido": [
+    "2031 @ ValidaExprRegBoleta-2.0.1.xsl:L431"
+  ],
+  "boleta: sin PayableAmount": [
+    "2062 @ ValidaExprRegBoleta-2.0.1.xsl:L417"
+  ],
+  "boleta: sin base en subtotal de cabecera": [
+    "3003 @ ValidaExprRegBoleta-2.0.1.xsl:L5044"
+  ],
+  "boleta: sin monto en subtotal de cabecera": [
+    "2048 @ ValidaExprRegBoleta-2.0.1.xsl:L5055"
+  ],
+  "boleta: monto inválido en subtotal de cabecera": [
+    "2048 @ ValidaExprRegBoleta-2.0.1.xsl:L5055"
+  ],
+  "boleta: sin tributo en subtotal de cabecera": [
+    "3059 @ ValidaExprRegBoleta-2.0.1.xsl:L5084"
+  ],
+  "boleta: sin monto en TaxTotal de cabecera": [
+    "3020 @ ValidaExprRegBoleta-2.0.1.xsl:L5195"
+  ],
+  "boleta: sin monto en TaxTotal de línea": [
+    "3021 @ ValidaExprRegBoleta-2.0.1.xsl:L3722"
+  ],
+  "boleta: sin monto en subtotal de línea": [
+    "2033 @ ValidaExprRegBoleta-2.0.1.xsl:L3372"
+  ],
+  "boleta: sin base en subtotal de línea": [
+    "3103 @ ValidaExprRegBoleta-2.0.1.xsl:L3468"
+  ],
+  "boleta: sin valor de venta de línea": [
+    "4294 @ ValidaExprRegBoleta-2.0.1.xsl:L3799",
+    "2370 @ ValidaExprRegBoleta-2.0.1.xsl:L2292"
+  ],
+  "boleta: línea gravada sin tributo válido": [
+    "3050 @ ValidaExprRegBoleta-2.0.1.xsl:L3499"
+  ],
+  "boleta: línea exonerada con IGV": [
+    "3110 @ ValidaExprRegBoleta-2.0.1.xsl:L3382"
+  ],
+  "boleta: Percent con 6 decimales": [
+    "3102 @ ValidaExprRegBoleta-2.0.1.xsl:L3415"
+  ],
+  "boleta: IGV al 10 % coherente": [
+    "4287 @ ValidaExprRegBoleta-2.0.1.xsl:L2335"
+  ],
+  "boleta: tasas mezcladas 10 % y 18 %": [
+    "4287 @ ValidaExprRegBoleta-2.0.1.xsl:L2335"
+  ],
+  "boleta: tasa 0 en línea gravada": [
+    "2993 @ ValidaExprRegBoleta-2.0.1.xsl:L3441"
+  ],
+  "nota de crédito: RUC del nombre ≠ RUC del emisor": [
+    "1034 @ ValidaExprRegNC-2.0.1.xsl:L149"
+  ],
+  "nota de crédito: serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegNC-2.0.1.xsl:L156"
+  ],
+  "nota de crédito: número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegNC-2.0.1.xsl:L163"
+  ],
+  "nota de crédito: UBLVersionID 2.0": [
+    "2074 @ ValidaExprRegNC-2.0.1.xsl:L174"
+  ],
+  "nota de crédito: sin UBLVersionID": [
+    "2075 @ ValidaExprRegNC-2.0.1.xsl:L174"
+  ],
+  "nota de crédito: CustomizationID 1.0": [
+    "2072 @ ValidaExprRegNC-2.0.1.xsl:L186"
+  ],
+  "nota de crédito: sin CustomizationID": [
+    "2073 @ ValidaExprRegNC-2.0.1.xsl:L186"
+  ],
+  "nota de crédito: sin moneda": [
+    "2070 @ ValidaExprRegNC-2.0.1.xsl:L281"
+  ],
+  "nota de crédito: moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegNC-2.0.1.xsl:L288"
+  ],
+  "nota de crédito: currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegNC-2.0.1.xsl:L296"
+  ],
+  "nota de crédito: motivo de nota fuera de catálogo": [
+    "2172 @ ValidaExprRegNC-2.0.1.xsl:L230"
+  ],
+  "nota de crédito: sin motivo de nota": [
+    "2128 @ ValidaExprRegNC-2.0.1.xsl:L221"
+  ],
+  "nota de crédito: sustento de nota de 1 carácter": [
+    "2135 @ ValidaExprRegNC-2.0.1.xsl:L271"
+  ],
+  "nota de crédito: sin documento de referencia": [
+    "2524 @ ValidaExprRegNC-2.0.1.xsl:L1086"
+  ],
+  "nota de crédito: sin razón social del emisor": [
+    "1037 @ ValidaExprRegNC-2.0.1.xsl:L777"
+  ],
+  "nota de crédito: RUC del cliente con 10 dígitos": [
+    "2017 @ ValidaExprRegNC-2.0.1.xsl:L993"
+  ],
+  "nota de crédito: nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegNC-2.0.1.xsl:L1048"
+  ],
+  "nota de crédito: sin nombre del cliente": [
+    "2021 @ ValidaExprRegNC-2.0.1.xsl:L1048"
+  ],
+  "nota de crédito: número de línea duplicado": [
+    "2752 @ ValidaExprRegNC-2.0.1.xsl:L2493"
+  ],
+  "nota de crédito: valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegNC-2.0.1.xsl:L2742"
+  ],
+  "nota de crédito: sin valor unitario": [
+    "2369 @ ValidaExprRegNC-2.0.1.xsl:L2742"
+  ],
+  "nota de crédito: línea sin TaxTotal": [
+    "4299 @ ValidaExprRegNC-2.0.1.xsl:L1829",
+    "3291 @ ValidaExprRegNC-2.0.1.xsl:L558"
+  ],
+  "nota de crédito: IGV de línea alterado": [
+    "4293 @ ValidaExprRegNC-2.0.1.xsl:L3481",
+    "3103 @ ValidaExprRegNC-2.0.1.xsl:L4122"
+  ],
+  "nota de crédito: IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegNC-2.0.1.xsl:L3783"
+  ],
+  "nota de crédito: sin afectación del IGV": [
+    "2371 @ ValidaExprRegNC-2.0.1.xsl:L3794"
+  ],
+  "nota de crédito: sin Percent": [
+    "3462 @ ValidaExprRegNC-2.0.1.xsl:L441"
+  ],
+  "nota de crédito: Percent 15 en línea gravada": [
+    "3462 @ ValidaExprRegNC-2.0.1.xsl:L441"
+  ],
+  "nota de crédito: sin código de tributo en línea": [
+    "4299 @ ValidaExprRegNC-2.0.1.xsl:L1829",
+    "3291 @ ValidaExprRegNC-2.0.1.xsl:L558"
+  ],
+  "nota de crédito: tributo de línea fuera del catálogo 05": [
+    "4299 @ ValidaExprRegNC-2.0.1.xsl:L1829",
+    "3291 @ ValidaExprRegNC-2.0.1.xsl:L558"
+  ],
+  "nota de crédito: valor de venta de línea con 3 decimales": [
+    "2370 @ ValidaExprRegNC-2.0.1.xsl:L2923"
+  ],
+  "nota de crédito: TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegNC-2.0.1.xsl:L2861"
+  ],
+  "nota de crédito: sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegNC-2.0.1.xsl:L377"
+  ],
+  "nota de crédito: TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegNC-2.0.1.xsl:L1687"
+  ],
+  "nota de crédito: base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegNC-2.0.1.xsl:L2012"
+  ],
+  "nota de crédito: tributo de cabecera fuera del catálogo": [
+    "4301 @ ValidaExprRegNC-2.0.1.xsl:L1699",
+    "3007 @ ValidaExprRegNC-2.0.1.xsl:L2266"
+  ],
+  "nota de crédito: suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegNC-2.0.1.xsl:L1699",
+    "3291 @ ValidaExprRegNC-2.0.1.xsl:L558"
+  ],
+  "nota de crédito: TaxInclusiveAmount alterado": [],
+  "nota de crédito: LineExtensionAmount total desfasado": [],
+  "nota de crédito: PayableAmount desfasado": [
+    "4312 @ ValidaExprRegNC-2.0.1.xsl:L593"
+  ],
+  "nota de crédito: PayableAmount con formato inválido": [
+    "4312 @ ValidaExprRegNC-2.0.1.xsl:L593",
+    "2062 @ ValidaExprRegNC-2.0.1.xsl:L643"
+  ],
+  "nota de crédito: desfase dentro de la tolerancia (±1)": [],
+  "nota de crédito: correlativo de 8 dígitos": [],
+  "nota de crédito: correlativo de 9 dígitos": [
+    "1001 @ ValidaExprRegNC-2.0.1.xsl:L202"
+  ],
+  "nota de crédito: serie numérica de contingencia": [],
+  "nota de crédito: serie con letra inicial ajena": [
+    "1001 @ ValidaExprRegNC-2.0.1.xsl:L202"
+  ],
+  "nota de crédito: CustomizationID 2.0 con sufijo": [
+    "2072 @ ValidaExprRegNC-2.0.1.xsl:L186"
+  ],
+  "nota de crédito: UBLVersionID 2.1 con prefijo": [
+    "2074 @ ValidaExprRegNC-2.0.1.xsl:L174"
+  ],
+  "nota de crédito: nombre del cliente de 3 caracteres": [],
+  "nota de crédito: nombre del cliente con espacio inicial": [
+    "2022 @ ValidaExprRegNC-2.0.1.xsl:L1048"
+  ],
+  "nota de crédito: nombre del cliente de 1000 caracteres": [],
+  "nota de crédito: nombre del cliente de 1500 caracteres": [
+    "2022 @ ValidaExprRegNC-2.0.1.xsl:L1048"
+  ],
+  "nota de crédito: RUC del cliente con 12 dígitos": [
+    "2017 @ ValidaExprRegNC-2.0.1.xsl:L993"
+  ],
+  "nota de crédito: RUC del cliente con letras": [
+    "2017 @ ValidaExprRegNC-2.0.1.xsl:L993"
+  ],
+  "nota de crédito: carné de extranjería de 15 caracteres": [],
+  "nota de crédito: carné de extranjería de 16 caracteres": [],
+  "nota de crédito: cliente sin schemeID": [
+    "2679 @ ValidaExprRegNC-2.0.1.xsl:L1004"
+  ],
+  "nota de crédito: sin identificación del cliente": [
+    "2679 @ ValidaExprRegNC-2.0.1.xsl:L985"
+  ],
+  "nota de crédito: sustento de nota de 2 caracteres": [],
+  "nota de crédito: sustento de nota de 501 caracteres": [
+    "2135 @ ValidaExprRegNC-2.0.1.xsl:L271"
+  ],
+  "nota de crédito: motivo de nota en blanco": [
+    "2128 @ ValidaExprRegNC-2.0.1.xsl:L221"
+  ],
+  "nota de crédito: NC motivo 10 sin referencia": [],
+  "nota de crédito: nota sin BillingReference": [
+    "2524 @ ValidaExprRegNC-2.0.1.xsl:L306"
+  ],
+  "nota de crédito: nota sobre una boleta": [
+    "2117 @ ValidaExprRegNC-2.0.1.xsl:L1163"
+  ],
+  "nota de crédito: nota sobre una boleta con IGV alterado": [
+    "2117 @ ValidaExprRegNC-2.0.1.xsl:L1163"
+  ],
+  "nota de crédito: valor unitario con 10 decimales": [],
+  "nota de crédito: valor unitario 0": [
+    "4288 @ ValidaExprRegNC-2.0.1.xsl:L2958"
+  ],
+  "nota de crédito: IGV de línea +0.9 (tolerancia)": [],
+  "nota de crédito: IGV de línea -1.1": [
+    "4293 @ ValidaExprRegNC-2.0.1.xsl:L3481",
+    "3103 @ ValidaExprRegNC-2.0.1.xsl:L4122"
+  ],
+  "nota de crédito: IGV de línea 0 con base gravada": [
+    "4293 @ ValidaExprRegNC-2.0.1.xsl:L3481",
+    "3111 @ ValidaExprRegNC-2.0.1.xsl:L3849"
+  ],
+  "nota de crédito: TaxTotal de línea +2": [
+    "4293 @ ValidaExprRegNC-2.0.1.xsl:L3481"
+  ],
+  "nota de crédito: TaxTotal de línea -2": [
+    "4293 @ ValidaExprRegNC-2.0.1.xsl:L3481"
+  ],
+  "nota de crédito: TaxTotal de línea +0.5": [],
+  "nota de crédito: base IGV de línea +0.01": [],
+  "nota de crédito: base IGV de línea -2": [
+    "4294 @ ValidaExprRegNC-2.0.1.xsl:L3513"
+  ],
+  "nota de crédito: base IGV de cabecera +2": [
+    "4299 @ ValidaExprRegNC-2.0.1.xsl:L1829",
+    "4312 @ ValidaExprRegNC-2.0.1.xsl:L593"
+  ],
+  "nota de crédito: base IGV de cabecera -2": [
+    "4299 @ ValidaExprRegNC-2.0.1.xsl:L1829",
+    "4312 @ ValidaExprRegNC-2.0.1.xsl:L593"
+  ],
+  "nota de crédito: base exonerada de cabecera +2": [
+    "4297 @ ValidaExprRegNC-2.0.1.xsl:L1772",
+    "4312 @ ValidaExprRegNC-2.0.1.xsl:L593"
+  ],
+  "nota de crédito: base exonerada de cabecera -2": [
+    "4297 @ ValidaExprRegNC-2.0.1.xsl:L1772",
+    "4312 @ ValidaExprRegNC-2.0.1.xsl:L593"
+  ],
+  "nota de crédito: base exonerada de cabecera +0.5": [],
+  "nota de crédito: línea exonerada pasa a inafecta": [
+    "4297 @ ValidaExprRegNC-2.0.1.xsl:L1772"
+  ],
+  "nota de crédito: TaxTotal de cabecera +2": [
+    "4301 @ ValidaExprRegNC-2.0.1.xsl:L1699"
+  ],
+  "nota de crédito: TaxTotal de cabecera -2": [
+    "4301 @ ValidaExprRegNC-2.0.1.xsl:L1699"
+  ],
+  "nota de crédito: TaxTotal de cabecera +0.5": [],
+  "nota de crédito: IGV de cabecera -7": [
+    "4301 @ ValidaExprRegNC-2.0.1.xsl:L1699",
+    "3291 @ ValidaExprRegNC-2.0.1.xsl:L563"
+  ],
+  "nota de crédito: IGV de cabecera +0.9": [],
+  "nota de crédito: TaxInclusiveAmount -9": [],
+  "nota de crédito: TaxInclusiveAmount +0.9": [],
+  "nota de crédito: LineExtensionAmount total -3": [],
+  "nota de crédito: LineExtensionAmount total +0.9": [],
+  "nota de crédito: PayableAmount -4": [
+    "4312 @ ValidaExprRegNC-2.0.1.xsl:L593"
+  ],
+  "nota de crédito: PayableAmount 0": [
+    "4312 @ ValidaExprRegNC-2.0.1.xsl:L593"
+  ],
+  "nota de crédito: PayableAmount con cero inicial": [],
+  "nota de crédito: PayableAmount con 13 enteros": [
+    "4312 @ ValidaExprRegNC-2.0.1.xsl:L593",
+    "2062 @ ValidaExprRegNC-2.0.1.xsl:L643"
+  ],
+  "nota de crédito: sin TaxInclusiveAmount": [],
+  "nota de crédito: TaxInclusiveAmount inválido": [],
+  "nota de crédito: LineExtensionAmount total inválido": [],
+  "nota de crédito: sin PayableAmount": [
+    "4312 @ ValidaExprRegNC-2.0.1.xsl:L593",
+    "2062 @ ValidaExprRegNC-2.0.1.xsl:L643"
+  ],
+  "nota de crédito: sin base en subtotal de cabecera": [
+    "3003 @ ValidaExprRegNC-2.0.1.xsl:L2012"
+  ],
+  "nota de crédito: sin monto en subtotal de cabecera": [
+    "4301 @ ValidaExprRegNC-2.0.1.xsl:L1699",
+    "3291 @ ValidaExprRegNC-2.0.1.xsl:L558"
+  ],
+  "nota de crédito: monto inválido en subtotal de cabecera": [
+    "2048 @ ValidaExprRegNC-2.0.1.xsl:L2242"
+  ],
+  "nota de crédito: sin tributo en subtotal de cabecera": [
+    "4301 @ ValidaExprRegNC-2.0.1.xsl:L1699",
+    "3059 @ ValidaExprRegNC-2.0.1.xsl:L2259"
+  ],
+  "nota de crédito: sin monto en TaxTotal de cabecera": [],
+  "nota de crédito: sin monto en TaxTotal de línea": [
+    "3021 @ ValidaExprRegNC-2.0.1.xsl:L2861"
+  ],
+  "nota de crédito: sin monto en subtotal de línea": [
+    "4293 @ ValidaExprRegNC-2.0.1.xsl:L3481",
+    "2033 @ ValidaExprRegNC-2.0.1.xsl:L3783"
+  ],
+  "nota de crédito: sin base en subtotal de línea": [
+    "4299 @ ValidaExprRegNC-2.0.1.xsl:L1829",
+    "3291 @ ValidaExprRegNC-2.0.1.xsl:L558"
+  ],
+  "nota de crédito: sin valor de venta de línea": [
+    "4299 @ ValidaExprRegNC-2.0.1.xsl:L1829",
+    "2370 @ ValidaExprRegNC-2.0.1.xsl:L2923"
+  ],
+  "nota de crédito: línea gravada sin tributo válido": [
+    "4299 @ ValidaExprRegNC-2.0.1.xsl:L1829",
+    "3291 @ ValidaExprRegNC-2.0.1.xsl:L558"
+  ],
+  "nota de crédito: línea exonerada con IGV": [
+    "3110 @ ValidaExprRegNC-2.0.1.xsl:L4051"
+  ],
+  "nota de crédito: Percent con 6 decimales": [
+    "3462 @ ValidaExprRegNC-2.0.1.xsl:L441"
+  ],
+  "nota de crédito: IGV al 10 % coherente": [],
+  "nota de crédito: tasas mezcladas 10 % y 18 %": [],
+  "nota de crédito: tasa 0 en línea gravada": [
+    "3462 @ ValidaExprRegNC-2.0.1.xsl:L441"
+  ],
+  "nota de débito: RUC del nombre ≠ RUC del emisor": [
+    "1034 @ ValidaExprRegND-2.0.1.xsl:L54"
+  ],
+  "nota de débito: serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegND-2.0.1.xsl:L60"
+  ],
+  "nota de débito: número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegND-2.0.1.xsl:L66"
+  ],
+  "nota de débito: UBLVersionID 2.0": [
+    "2074 @ ValidaExprRegND-2.0.1.xsl:L73"
+  ],
+  "nota de débito: sin UBLVersionID": [
+    "2075 @ ValidaExprRegND-2.0.1.xsl:L73"
+  ],
+  "nota de débito: CustomizationID 1.0": [
+    "2072 @ ValidaExprRegND-2.0.1.xsl:L81"
+  ],
+  "nota de débito: sin CustomizationID": [
+    "2073 @ ValidaExprRegND-2.0.1.xsl:L81"
+  ],
+  "nota de débito: sin moneda": [
+    "2070 @ ValidaExprRegND-2.0.1.xsl:L151"
+  ],
+  "nota de débito: moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegND-2.0.1.xsl:L156"
+  ],
+  "nota de débito: currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegND-2.0.1.xsl:L162"
+  ],
+  "nota de débito: motivo de nota fuera de catálogo": [
+    "2172 @ ValidaExprRegND-2.0.1.xsl:L110"
+  ],
+  "nota de débito: sin motivo de nota": [
+    "2128 @ ValidaExprRegND-2.0.1.xsl:L103"
+  ],
+  "nota de débito: sustento de nota de 1 carácter": [
+    "2135 @ ValidaExprRegND-2.0.1.xsl:L143"
+  ],
+  "nota de débito: sin documento de referencia": [
+    "2524 @ ValidaExprRegND-2.0.1.xsl:L733"
+  ],
+  "nota de débito: sin razón social del emisor": [
+    "1037 @ ValidaExprRegND-2.0.1.xsl:L506"
+  ],
+  "nota de débito: RUC del cliente con 10 dígitos": [
+    "2017 @ ValidaExprRegND-2.0.1.xsl:L670"
+  ],
+  "nota de débito: nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegND-2.0.1.xsl:L710"
+  ],
+  "nota de débito: sin nombre del cliente": [
+    "2021 @ ValidaExprRegND-2.0.1.xsl:L710"
+  ],
+  "nota de débito: número de línea duplicado": [
+    "2752 @ ValidaExprRegND-2.0.1.xsl:L1487"
+  ],
+  "nota de débito: valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegND-2.0.1.xsl:L1694"
+  ],
+  "nota de débito: sin valor unitario": [
+    "2369 @ ValidaExprRegND-2.0.1.xsl:L1694"
+  ],
+  "nota de débito: línea sin TaxTotal": [
+    "4299 @ ValidaExprRegND-2.0.1.xsl:L1148",
+    "3291 @ ValidaExprRegND-2.0.1.xsl:L361"
+  ],
+  "nota de débito: IGV de línea alterado": [
+    "3103 @ ValidaExprRegND-2.0.1.xsl:L2198"
+  ],
+  "nota de débito: IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegND-2.0.1.xsl:L2106"
+  ],
+  "nota de débito: sin afectación del IGV": [
+    "2371 @ ValidaExprRegND-2.0.1.xsl:L2207"
+  ],
+  "nota de débito: sin Percent": [
+    "3462 @ ValidaExprRegND-2.0.1.xsl:L234"
+  ],
+  "nota de débito: Percent 15 en línea gravada": [
+    "3462 @ ValidaExprRegND-2.0.1.xsl:L234"
+  ],
+  "nota de débito: sin código de tributo en línea": [
+    "4299 @ ValidaExprRegND-2.0.1.xsl:L1148",
+    "3291 @ ValidaExprRegND-2.0.1.xsl:L361"
+  ],
+  "nota de débito: tributo de línea fuera del catálogo 05": [
+    "4299 @ ValidaExprRegND-2.0.1.xsl:L1148",
+    "3291 @ ValidaExprRegND-2.0.1.xsl:L361"
+  ],
+  "nota de débito: valor de venta de línea con 3 decimales": [
+    "2370 @ ValidaExprRegND-2.0.1.xsl:L1835"
+  ],
+  "nota de débito: TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegND-2.0.1.xsl:L1765"
+  ],
+  "nota de débito: sin TaxTotal de cabecera": [
+    "4312 @ ValidaExprRegND-2.0.1.xsl:L396",
+    "2956 @ ValidaExprRegND-2.0.1.xsl:L436"
+  ],
+  "nota de débito: TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegND-2.0.1.xsl:L1055"
+  ],
+  "nota de débito: base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegND-2.0.1.xsl:L1327"
+  ],
+  "nota de débito: tributo de cabecera fuera del catálogo": [
+    "4301 @ ValidaExprRegND-2.0.1.xsl:L1065",
+    "3007 @ ValidaExprRegND-2.0.1.xsl:L1377"
+  ],
+  "nota de débito: suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegND-2.0.1.xsl:L1065",
+    "3291 @ ValidaExprRegND-2.0.1.xsl:L361"
+  ],
+  "nota de débito: TaxInclusiveAmount alterado": [],
+  "nota de débito: LineExtensionAmount total desfasado": [],
+  "nota de débito: PayableAmount desfasado": [
+    "4312 @ ValidaExprRegND-2.0.1.xsl:L396"
+  ],
+  "nota de débito: PayableAmount con formato inválido": [
+    "4312 @ ValidaExprRegND-2.0.1.xsl:L396",
+    "2062 @ ValidaExprRegND-2.0.1.xsl:L411"
+  ],
+  "nota de débito: desfase dentro de la tolerancia (±1)": [],
+  "nota de débito: correlativo de 8 dígitos": [],
+  "nota de débito: correlativo de 9 dígitos": [
+    "1001 @ ValidaExprRegND-2.0.1.xsl:L94"
+  ],
+  "nota de débito: serie numérica de contingencia": [],
+  "nota de débito: serie con letra inicial ajena": [
+    "1001 @ ValidaExprRegND-2.0.1.xsl:L94"
+  ],
+  "nota de débito: CustomizationID 2.0 con sufijo": [
+    "2072 @ ValidaExprRegND-2.0.1.xsl:L81"
+  ],
+  "nota de débito: UBLVersionID 2.1 con prefijo": [
+    "2074 @ ValidaExprRegND-2.0.1.xsl:L73"
+  ],
+  "nota de débito: nombre del cliente de 3 caracteres": [],
+  "nota de débito: nombre del cliente con espacio inicial": [
+    "2022 @ ValidaExprRegND-2.0.1.xsl:L710"
+  ],
+  "nota de débito: nombre del cliente de 1000 caracteres": [],
+  "nota de débito: nombre del cliente de 1500 caracteres": [
+    "2022 @ ValidaExprRegND-2.0.1.xsl:L710"
+  ],
+  "nota de débito: RUC del cliente con 12 dígitos": [
+    "2017 @ ValidaExprRegND-2.0.1.xsl:L670"
+  ],
+  "nota de débito: RUC del cliente con letras": [
+    "2017 @ ValidaExprRegND-2.0.1.xsl:L670"
+  ],
+  "nota de débito: carné de extranjería de 15 caracteres": [],
+  "nota de débito: carné de extranjería de 16 caracteres": [],
+  "nota de débito: cliente sin schemeID": [
+    "2679 @ ValidaExprRegND-2.0.1.xsl:L678"
+  ],
+  "nota de débito: sin identificación del cliente": [
+    "2679 @ ValidaExprRegND-2.0.1.xsl:L664"
+  ],
+  "nota de débito: sustento de nota de 2 caracteres": [],
+  "nota de débito: sustento de nota de 501 caracteres": [
+    "2135 @ ValidaExprRegND-2.0.1.xsl:L143"
+  ],
+  "nota de débito: motivo de nota en blanco": [
+    "2128 @ ValidaExprRegND-2.0.1.xsl:L103"
+  ],
+  "nota de débito: ND motivo 03 sin referencia": [],
+  "nota de débito: nota sin BillingReference": [],
+  "nota de débito: nota sobre una boleta": [
+    "2205 @ ValidaExprRegND-2.0.1.xsl:L777"
+  ],
+  "nota de débito: nota sobre una boleta con IGV alterado": [
+    "2205 @ ValidaExprRegND-2.0.1.xsl:L777"
+  ],
+  "nota de débito: valor unitario con 10 decimales": [],
+  "nota de débito: valor unitario 0": [
+    "4288 @ ValidaExprRegND-2.0.1.xsl:L1825"
+  ],
+  "nota de débito: precio de referencia +0.9": [],
+  "nota de débito: precio de referencia +1.5": [
+    "4287 @ ValidaExprRegND-2.0.1.xsl:L1809"
+  ],
+  "nota de débito: precio de referencia -1.5": [
+    "4287 @ ValidaExprRegND-2.0.1.xsl:L1809"
+  ],
+  "nota de débito: IGV de línea +0.9 (tolerancia)": [],
+  "nota de débito: IGV de línea -1.1": [
+    "3103 @ ValidaExprRegND-2.0.1.xsl:L2198"
+  ],
+  "nota de débito: IGV de línea 0 con base gravada": [
+    "3111 @ ValidaExprRegND-2.0.1.xsl:L2136"
+  ],
+  "nota de débito: TaxTotal de línea +2": [
+    "4293 @ ValidaExprRegND-2.0.1.xsl:L2373"
+  ],
+  "nota de débito: TaxTotal de línea -2": [
+    "4293 @ ValidaExprRegND-2.0.1.xsl:L2373"
+  ],
+  "nota de débito: TaxTotal de línea +0.5": [],
+  "nota de débito: base IGV de línea +0.01": [],
+  "nota de débito: base IGV de línea -2": [
+    "4294 @ ValidaExprRegND-2.0.1.xsl:L2394"
+  ],
+  "nota de débito: base IGV de cabecera +2": [
+    "4299 @ ValidaExprRegND-2.0.1.xsl:L1148",
+    "4312 @ ValidaExprRegND-2.0.1.xsl:L396"
+  ],
+  "nota de débito: base IGV de cabecera -2": [
+    "4299 @ ValidaExprRegND-2.0.1.xsl:L1148",
+    "4312 @ ValidaExprRegND-2.0.1.xsl:L396"
+  ],
+  "nota de débito: base exonerada de cabecera +2": [
+    "4297 @ ValidaExprRegND-2.0.1.xsl:L1117",
+    "4312 @ ValidaExprRegND-2.0.1.xsl:L396"
+  ],
+  "nota de débito: base exonerada de cabecera -2": [
+    "4297 @ ValidaExprRegND-2.0.1.xsl:L1117",
+    "4312 @ ValidaExprRegND-2.0.1.xsl:L396"
+  ],
+  "nota de débito: base exonerada de cabecera +0.5": [],
+  "nota de débito: línea exonerada pasa a inafecta": [
+    "4297 @ ValidaExprRegND-2.0.1.xsl:L1117"
+  ],
+  "nota de débito: TaxTotal de cabecera +2": [
+    "4301 @ ValidaExprRegND-2.0.1.xsl:L1065"
+  ],
+  "nota de débito: TaxTotal de cabecera -2": [
+    "4301 @ ValidaExprRegND-2.0.1.xsl:L1065"
+  ],
+  "nota de débito: TaxTotal de cabecera +0.5": [],
+  "nota de débito: IGV de cabecera -7": [
+    "4301 @ ValidaExprRegND-2.0.1.xsl:L1065",
+    "3291 @ ValidaExprRegND-2.0.1.xsl:L367"
+  ],
+  "nota de débito: IGV de cabecera +0.9": [],
+  "nota de débito: TaxInclusiveAmount -9": [],
+  "nota de débito: TaxInclusiveAmount +0.9": [],
+  "nota de débito: LineExtensionAmount total -3": [],
+  "nota de débito: LineExtensionAmount total +0.9": [],
+  "nota de débito: PayableAmount -4": [
+    "4312 @ ValidaExprRegND-2.0.1.xsl:L396"
+  ],
+  "nota de débito: PayableAmount 0": [
+    "4312 @ ValidaExprRegND-2.0.1.xsl:L396",
+    "2062 @ ValidaExprRegND-2.0.1.xsl:L411"
+  ],
+  "nota de débito: PayableAmount con cero inicial": [
+    "2062 @ ValidaExprRegND-2.0.1.xsl:L411"
+  ],
+  "nota de débito: PayableAmount con 13 enteros": [
+    "4312 @ ValidaExprRegND-2.0.1.xsl:L396",
+    "2062 @ ValidaExprRegND-2.0.1.xsl:L411"
+  ],
+  "nota de débito: sin TaxInclusiveAmount": [],
+  "nota de débito: TaxInclusiveAmount inválido": [],
+  "nota de débito: LineExtensionAmount total inválido": [],
+  "nota de débito: sin PayableAmount": [
+    "4312 @ ValidaExprRegND-2.0.1.xsl:L396",
+    "2062 @ ValidaExprRegND-2.0.1.xsl:L411"
+  ],
+  "nota de débito: sin base en subtotal de cabecera": [
+    "3003 @ ValidaExprRegND-2.0.1.xsl:L1327"
+  ],
+  "nota de débito: sin monto en subtotal de cabecera": [
+    "4301 @ ValidaExprRegND-2.0.1.xsl:L1065",
+    "3291 @ ValidaExprRegND-2.0.1.xsl:L361"
+  ],
+  "nota de débito: monto inválido en subtotal de cabecera": [
+    "2048 @ ValidaExprRegND-2.0.1.xsl:L1359"
+  ],
+  "nota de débito: sin tributo en subtotal de cabecera": [
+    "4301 @ ValidaExprRegND-2.0.1.xsl:L1065",
+    "3059 @ ValidaExprRegND-2.0.1.xsl:L1372"
+  ],
+  "nota de débito: sin monto en TaxTotal de cabecera": [],
+  "nota de débito: sin monto en TaxTotal de línea": [
+    "3021 @ ValidaExprRegND-2.0.1.xsl:L1765"
+  ],
+  "nota de débito: sin monto en subtotal de línea": [
+    "2033 @ ValidaExprRegND-2.0.1.xsl:L2106"
+  ],
+  "nota de débito: sin base en subtotal de línea": [
+    "4299 @ ValidaExprRegND-2.0.1.xsl:L1148",
+    "3291 @ ValidaExprRegND-2.0.1.xsl:L361"
+  ],
+  "nota de débito: sin valor de venta de línea": [
+    "4299 @ ValidaExprRegND-2.0.1.xsl:L1148",
+    "2370 @ ValidaExprRegND-2.0.1.xsl:L1835"
+  ],
+  "nota de débito: línea exonerada con IGV": [
+    "3110 @ ValidaExprRegND-2.0.1.xsl:L2114"
+  ],
+  "nota de débito: Percent con 6 decimales": [
+    "3462 @ ValidaExprRegND-2.0.1.xsl:L234"
+  ],
+  "nota de débito: IGV al 10 % coherente": [
+    "4287 @ ValidaExprRegND-2.0.1.xsl:L1809"
+  ],
+  "nota de débito: tasas mezcladas 10 % y 18 %": [
+    "4287 @ ValidaExprRegND-2.0.1.xsl:L1809"
+  ],
+  "nota de débito: tasa 0 en línea gravada": [
+    "3462 @ ValidaExprRegND-2.0.1.xsl:L234"
+  ]
+}

@@ -18,7 +18,8 @@
     "test": "vitest run",
     "test:cov": "vitest run --coverage",
     "prepare": "husky",
-    "sunat:preparar": "node tools/sunat-oficial/descargar.mjs && python3 -m venv tools/sunat-oficial/.venv && tools/sunat-oficial/.venv/bin/pip install -q -r tools/sunat-oficial/requirements.txt"
+    "sunat:preparar": "node tools/sunat-oficial/descargar.mjs && python3 -m venv tools/sunat-oficial/.venv && tools/sunat-oficial/.venv/bin/pip install -q -r tools/sunat-oficial/requirements.txt",
+    "mutation": "pnpm --filter @chasqui/ubl-core mutation"
   },
   "lint-staged": {
     "*.{ts,tsx,js,mjs}": [

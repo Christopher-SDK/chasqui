@@ -1,6 +1,8 @@
 import { execFileSync } from 'node:child_process';
-import { existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import type { Veredicto } from '../src/validador/index.js';
 
 /** Oráculo de conformidad: reglas XSL oficiales de SUNAT (tools/sunat-oficial/oraculo.py). */
 export interface VeredictoOficial {
@@ -34,11 +36,40 @@ export const oraculoDisponible = (() => {
   }
 })();
 
+const CACHE = fileURLToPath(new URL('../../../.cache/oraculo/', import.meta.url));
+const LOCK = fileURLToPath(
+  new URL('../../../tools/sunat-oficial/activos.lock.tsv', import.meta.url),
+);
+
+/**
+ * Veredictos oficiales para `casos`. Son deterministas, así que se guardan en .cache/oraculo/
+ * con una clave que cubre los casos, el script del oráculo y el lock de las reglas: cambiar
+ * cualquiera de los tres invalida la caché. Así el mutation testing no relanza Python por mutante.
+ */
 export function consultarOraculo(casos: CasoOraculo[]): VeredictoOficial[] {
+  const entrada = JSON.stringify(casos);
+  const clave = createHash('sha256')
+    .update(entrada)
+    .update(readFileSync(SCRIPT))
+    .update(readFileSync(LOCK))
+    .digest('hex');
+  const archivo = `${CACHE}${clave}.json`;
+  if (existsSync(archivo)) return JSON.parse(readFileSync(archivo, 'utf8')) as VeredictoOficial[];
   const salida = execFileSync(PYTHON, ['-I', SCRIPT], {
-    input: JSON.stringify(casos),
+    input: entrada,
     maxBuffer: 256 * 1024 * 1024,
     env: { ...process.env, FECHA_ORACULO: '2026-11-03' },
-  });
-  return JSON.parse(salida.toString()) as VeredictoOficial[];
+  }).toString();
+  mkdirSync(CACHE, { recursive: true });
+  writeFileSync(archivo, salida);
+  return JSON.parse(salida) as VeredictoOficial[];
+}
+
+/** Veredicto de Chasqui en el formato del oráculo. */
+export function comoOficial(v: Veredicto): VeredictoOficial {
+  return {
+    estado: v.estado === 'rechazado' ? 'rechazo' : 'ok',
+    codigo: v.error?.codigo ?? null,
+    observaciones: v.observaciones.map((o) => o.codigo),
+  };
 }
