@@ -1,0 +1,22 @@
+{
+  "name": "@chasqui/catalogos",
+  "version": "0.1.0",
+  "description": "Catálogos SUNAT tipados (Anexo 8) y códigos de error oficiales, generados desde el paquete de validación SFS/OSE",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json",
+    "generar": "node scripts/generar.mjs"
+  }
+}
