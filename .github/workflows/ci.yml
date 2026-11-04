@@ -11,25 +11,82 @@ permissions:
 
 jobs:
   calidad:
-    name: lint · typecheck · test
+    name: lint · typecheck · unit + property + conformidad
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with: { node-version-file: .nvmrc, cache: pnpm }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.13' }
       - run: pnpm install --frozen-lockfile
+      - name: Caché de reglas oficiales y veredictos del oráculo
+        uses: actions/cache@v4
+        with:
+          path: |
+            .cache/sunat-oficial
+            .cache/oraculo
+          key: oraculo-${{ hashFiles('tools/sunat-oficial/**') }}-${{ github.sha }}
+          restore-keys: oraculo-${{ hashFiles('tools/sunat-oficial/**') }}-
+      - name: Reglas oficiales de SUNAT + oráculo (Python/lxml)
+        run: pnpm sunat:preparar
       - run: pnpm format:check
       - run: pnpm lint
       - run: pnpm typecheck
-      - run: pnpm test:cov
+      - name: Pruebas con cobertura (falla si baja del umbral)
+        run: pnpm test:cov
       - name: Resumen de cobertura
         if: always()
         run: |
-          node -e "const s=require('./reports/coverage/coverage-summary.json').total;console.log('## Cobertura\n| métrica | % |\n|---|---|\n'+['lines','statements','functions','branches'].map(k=>'| '+k+' | '+s[k].pct+' |').join('\n'))" >> "$GITHUB_STEP_SUMMARY"
+          node -e "
+            const s = require('./reports/coverage/coverage-summary.json').total;
+            const filas = ['lines','statements','functions','branches'].map(k => '| ' + k + ' | ' + s[k].pct + ' % |');
+            console.log(['## Cobertura', '| métrica | % |', '|---|---|', ...filas].join('\n'));
+          " >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: cobertura, path: reports/coverage }
+
+  mutation:
+    name: mutation testing (validador)
+    runs-on: ubuntu-latest
+    needs: calidad
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version-file: .nvmrc, cache: pnpm }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.13' }
+      - run: pnpm install --frozen-lockfile
+      - name: Cachés (oráculo y Stryker incremental)
+        uses: actions/cache@v4
+        with:
+          path: |
+            .cache/sunat-oficial
+            .cache/oraculo
+            .cache/stryker
+          key: mutation-${{ hashFiles('tools/sunat-oficial/**', 'packages/ubl-core/**') }}
+          restore-keys: mutation-
+      - run: pnpm sunat:preparar
+      - name: Stryker (falla por debajo de 80 %)
+        run: pnpm mutation
+      - name: Resumen de mutation score
+        if: always()
+        run: |
+          node -e "
+            const r = require('./reports/mutation/ubl-core/mutation.json');
+            let k = 0, t = 0;
+            for (const f of Object.values(r.files)) for (const m of f.mutants) {
+              if (['Killed','Timeout'].includes(m.status)) k++;
+              if (!['Ignored','CompileError','RuntimeError'].includes(m.status)) t++;
+            }
+            console.log('## Mutation score (validador)\n**' + (100 * k / t).toFixed(2) + ' %** (' + k + '/' + t + ' mutantes eliminados)');
+          " >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: mutation, path: reports/mutation }
 
   imagenes:
     name: docker compose
