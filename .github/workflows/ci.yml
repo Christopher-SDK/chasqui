@@ -97,5 +97,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: docker compose up -d --build --wait
       - run: curl -fsS localhost:7100/salud
+      - name: Panel y proxy hacia sunat-sim
+        run: curl -fsS localhost:7500/sunat/salud && curl -fsS localhost:7500/ | grep -q 'Chasqui'
       - if: failure()
         run: docker compose logs

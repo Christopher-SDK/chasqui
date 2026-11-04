@@ -12,6 +12,7 @@ export default tseslint.config(
       '**/.stryker-tmp/**',
       '**/.venv/**',
       '.cache/**',
+      '.data/**',
     ],
   },
   js.configs.recommended,

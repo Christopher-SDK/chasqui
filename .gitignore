@@ -12,3 +12,4 @@ playwright-report/
 .cache/
 .venv/
 stryker-setup-*.js
+.data/
