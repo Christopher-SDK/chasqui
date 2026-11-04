@@ -12,6 +12,7 @@ import { Eventos } from './eventos.js';
 import { CONFIG_POR_DEFECTO, type Config, type Dependencias } from './recepcion.js';
 import { rutasRest } from './rest.js';
 import { rutasSoap } from './soap.js';
+import { rutasDemo } from './demo.js';
 
 export const AVISO = 'Simulador para pruebas. No afiliado a SUNAT ni a ninguna entidad financiera.';
 
@@ -57,7 +58,11 @@ export async function construirServidor(
 
   app.addHook('onSend', async (_req, reply) => {
     reply.header('x-chasqui-aviso', 'simulador-no-oficial');
+    // Simulador local: el panel puede consumirlo desde cualquier origen.
+    reply.header('access-control-allow-origin', '*');
+    reply.header('access-control-allow-headers', 'content-type');
   });
+  app.options('/*', { schema: { hide: true } }, (_req, reply) => reply.code(204).send());
   app.get('/salud', { schema: { hide: true } }, () => ({
     estado: 'ok',
     servicio: 'sunat-sim',
@@ -94,6 +99,7 @@ export async function construirServidor(
 
   await app.register(rutasRest(deps));
   await app.register(rutasSoap(deps));
+  await app.register(rutasDemo(deps));
   app.addHook('onClose', async () => {
     await deps.db.destroy();
   });

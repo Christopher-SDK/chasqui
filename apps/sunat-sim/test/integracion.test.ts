@@ -233,3 +233,21 @@ describe('eventos en vivo (SSE)', () => {
     });
   });
 });
+
+describe('demo', () => {
+  test('cada escenario recorre su camino', async () => {
+    const enviar = async (escenario: string) =>
+      json(
+        await fetch(`${s.base}/_chasqui/demo`, {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ escenario }),
+        }),
+      );
+    expect(await enviar('valida')).toMatchObject({ estado: 'aceptado', codigo: '0' });
+    expect(await enviar('observada')).toMatchObject({ estado: 'observado', codigo: '0' });
+    expect(await enviar('rechazada')).toMatchObject({ estado: 'rechazado', codigo: '2074' });
+    expect(await enviar('duplicada')).toMatchObject({ estado: 'excepcion', codigo: '1033' });
+    expect(await enviar('excepcion')).toMatchObject({ estado: 'excepcion', codigo: '0161' });
+  });
+});
