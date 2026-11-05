@@ -6,3 +6,4 @@ packages/catalogos/src/generado.ts
 .cache/
 **/__snapshots__/
 packages/ubl-core/stryker-incremental.json
+packages/ubl-core/src/validador/oficial/

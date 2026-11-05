@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  xpath@0.0.36:
+    hash: b9f9edee0415af5b58f950711c13359eb2941707c7eea4b2a0a46764f9aef687
+    path: patches/xpath@0.0.36.patch
+
 importers:
 
   .:
@@ -430,7 +435,7 @@ importers:
         version: 6.4.0
       xpath:
         specifier: ^0.0.36
-        version: 0.0.36
+        version: 0.0.36(patch_hash=b9f9edee0415af5b58f950711c13359eb2941707c7eea4b2a0a46764f9aef687)
     devDependencies:
       '@stryker-mutator/core':
         specifier: ^10.1.1
@@ -6866,7 +6871,7 @@ snapshots:
 
   xpath@0.0.33: {}
 
-  xpath@0.0.36: {}
+  xpath@0.0.36(patch_hash=b9f9edee0415af5b58f950711c13359eb2941707c7eea4b2a0a46764f9aef687): {}
 
   xtend@4.0.2: {}
 

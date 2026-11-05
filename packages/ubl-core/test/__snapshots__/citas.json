@@ -1285,5 +1285,3628 @@
   ],
   "nota de débito: tasa 0 en línea gravada": [
     "3462 @ ValidaExprRegND-2.0.1.xsl:L234"
-  ]
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: sin leyenda 1002 de gratuitas": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: sin leyenda 2007 de IVAP": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: sin leyenda 2006 de detracción": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: gratuita con tipo de precio 01": [
+    "3234 @ ValidaExprRegFactura-2.0.1.xsl:L1954"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: gratuita con precio unitario > 0 en cac:Price": [
+    "2640 @ ValidaExprRegFactura-2.0.1.xsl:L1877"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: IGV gratuito de cabecera alterado": [
+    "4311 @ ValidaExprRegFactura-2.0.1.xsl:L4793"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: base gratuita de cabecera alterada": [
+    "4298 @ ValidaExprRegFactura-2.0.1.xsl:L4745"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: retiro gravado con tasa 0": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: ISC de línea alterado": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: ISC con sistema fuera del catálogo 08": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: ISC sin sistema de cálculo": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: ISC con tasa 0": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: ISC de cabecera alterado": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: ICBPER con tarifa 0": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: ICBPER sin cantidad de bolsas": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: ICBPER con unidad distinta de NIU": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: ICBPER de línea ≠ bolsas × tarifa": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: ICBPER de cabecera ≠ suma de líneas": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: IVAP con tasa del 18 %": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: IVAP de cabecera alterado": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: exportación con IGV": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: exportación a cliente con RUC": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: tipo de operación 0101 en una exportación": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: descuento de ítem con código fuera de catálogo": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: descuento de ítem ≠ factor × base": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: descuento de ítem sin base": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: descuento de ítem marcado como cargo": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: descuento global 02 alterado": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: AllowanceTotalAmount ≠ descuentos 03": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: ChargeTotalAmount ≠ cargos 50": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: detracción sin cuenta del Banco de la Nación": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: detracción con bien fuera del catálogo 54": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: detracción sin monto": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: detracción con monto en dólares": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: detracción con medio de pago fuera del catálogo 59": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: percepción sin cargo 51": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: percepción con tasa alterada": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: percepción con monto total alterado": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: anticipo con PrepaidAmount ≠ pagos": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: anticipo sin documento relacionado": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: anticipo con identificador de pago duplicado": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: descuento por anticipo 04 alterado": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: forma de pago fuera de formato": [
+    "3246 @ ValidaExprRegFactura-2.0.1.xsl:L5587"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: crédito sin monto pendiente": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: cuota sin fecha de pago": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: cuota con monto 0": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: cuota duplicada": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: tasa del 10 % mezclada con 18 %": [],
+  "factura con retiro gravado gratuito (11) y una venta gravada: RUC del nombre ≠ RUC del emisor": [
+    "1034 @ ValidaExprRegFactura-2.0.1.xsl:L48"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegFactura-2.0.1.xsl:L54"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegFactura-2.0.1.xsl:L60"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: UBLVersionID 2.0": [
+    "2074 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: sin UBLVersionID": [
+    "2075 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: CustomizationID 1.0": [
+    "2072 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: sin CustomizationID": [
+    "2073 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: InvoiceTypeCode distinto": [
+    "1003 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: sin InvoiceTypeCode": [
+    "1004 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: sin moneda": [
+    "2070 @ ValidaExprRegFactura-2.0.1.xsl:L135"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegFactura-2.0.1.xsl:L139"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegFactura-2.0.1.xsl:L146"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: schemeID del emisor ≠ 6": [
+    "1007 @ ValidaExprRegFactura-2.0.1.xsl:L746"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: sin razón social del emisor": [
+    "1037 @ ValidaExprRegFactura-2.0.1.xsl:L789"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: RUC del cliente con 10 dígitos": [
+    "2017 @ ValidaExprRegFactura-2.0.1.xsl:L1210"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: sin nombre del cliente": [
+    "2021 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: factura a cliente con DNI": [
+    "2800 @ ValidaExprRegFactura-2.0.1.xsl:L1267"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: DNI del cliente con 7 dígitos": [
+    "2801 @ ValidaExprRegFactura-2.0.1.xsl:L1218"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: número de línea 0": [
+    "2023 @ ValidaExprRegFactura-2.0.1.xsl:L1508"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: número de línea duplicado": [
+    "2752 @ ValidaExprRegFactura-2.0.1.xsl:L1517"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: sin unitCode": [
+    "2883 @ ValidaExprRegFactura-2.0.1.xsl:L1526"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: cantidad 0": [
+    "2024 @ ValidaExprRegFactura-2.0.1.xsl:L1556"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: cantidad no numérica": [
+    "2025 @ ValidaExprRegFactura-2.0.1.xsl:L1549"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: sin descripción del ítem": [
+    "2026 @ ValidaExprRegFactura-2.0.1.xsl:L1693"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: sin valor unitario": [
+    "2068 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: sin precio de referencia": [
+    "2028 @ ValidaExprRegFactura-2.0.1.xsl:L1885"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: línea sin TaxTotal": [
+    "3195 @ ValidaExprRegFactura-2.0.1.xsl:L1961"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: IGV de línea alterado": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegFactura-2.0.1.xsl:L2946"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: sin afectación del IGV": [
+    "2371 @ ValidaExprRegFactura-2.0.1.xsl:L3031"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: sin Percent": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: Percent 15 en línea gravada": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: sin código de tributo en línea": [
+    "2037 @ ValidaExprRegFactura-2.0.1.xsl:L2925"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: tributo de línea fuera del catálogo 05": [
+    "2036 @ ValidaExprRegFactura-2.0.1.xsl:L2930"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: valor de venta de línea con 3 decimales": [
+    "4294 @ ValidaExprRegFactura-2.0.1.xsl:L3227",
+    "2370 @ ValidaExprRegFactura-2.0.1.xsl:L1983"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegFactura-2.0.1.xsl:L3173"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegFactura-2.0.1.xsl:L276"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegFactura-2.0.1.xsl:L4645"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegFactura-2.0.1.xsl:L4559"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: tributo de cabecera fuera del catálogo": [
+    "3007 @ ValidaExprRegFactura-2.0.1.xsl:L4587"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegFactura-2.0.1.xsl:L4802",
+    "3291 @ ValidaExprRegFactura-2.0.1.xsl:L462"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: TaxInclusiveAmount alterado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: LineExtensionAmount total desfasado": [
+    "4309 @ ValidaExprRegFactura-2.0.1.xsl:L500",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: PayableAmount desfasado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: PayableAmount con formato inválido": [
+    "2062 @ ValidaExprRegFactura-2.0.1.xsl:L239"
+  ],
+  "factura con retiro gravado gratuito (11) y una venta gravada: desfase dentro de la tolerancia (±1)": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): sin leyenda 1002 de gratuitas": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): sin leyenda 2007 de IVAP": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): sin leyenda 2006 de detracción": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): gratuita con tipo de precio 01": [
+    "3234 @ ValidaExprRegBoleta-2.0.1.xsl:L2259"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): gratuita con precio unitario > 0 en cac:Price": [
+    "2640 @ ValidaExprRegBoleta-2.0.1.xsl:L2154"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): IGV gratuito de cabecera alterado": [
+    "4311 @ ValidaExprRegBoleta-2.0.1.xsl:L5374"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): base gratuita de cabecera alterada": [
+    "4298 @ ValidaExprRegBoleta-2.0.1.xsl:L5317"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): retiro gravado con tasa 0": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): ISC de línea alterado": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): ISC con sistema fuera del catálogo 08": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): ISC sin sistema de cálculo": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): ISC con tasa 0": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): ISC de cabecera alterado": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): ICBPER con tarifa 0": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): ICBPER sin cantidad de bolsas": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): ICBPER con unidad distinta de NIU": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): ICBPER de línea ≠ bolsas × tarifa": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): ICBPER de cabecera ≠ suma de líneas": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): IVAP con tasa del 18 %": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): IVAP de cabecera alterado": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): exportación con IGV": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): exportación a cliente con RUC": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): tipo de operación 0101 en una exportación": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): descuento de ítem con código fuera de catálogo": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): descuento de ítem ≠ factor × base": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): descuento de ítem sin base": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): descuento de ítem marcado como cargo": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): descuento global 02 alterado": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): AllowanceTotalAmount ≠ descuentos 03": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): ChargeTotalAmount ≠ cargos 50": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): detracción sin cuenta del Banco de la Nación": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): detracción con bien fuera del catálogo 54": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): detracción sin monto": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): detracción con monto en dólares": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): detracción con medio de pago fuera del catálogo 59": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): percepción sin cargo 51": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): percepción con tasa alterada": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): percepción con monto total alterado": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): anticipo con PrepaidAmount ≠ pagos": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): anticipo sin documento relacionado": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): anticipo con identificador de pago duplicado": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): descuento por anticipo 04 alterado": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): forma de pago fuera de formato": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): crédito sin monto pendiente": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): cuota sin fecha de pago": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): cuota con monto 0": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): cuota duplicada": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): tasa del 10 % mezclada con 18 %": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): RUC del nombre ≠ RUC del emisor": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegBoleta-2.0.1.xsl:L85"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegBoleta-2.0.1.xsl:L92"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): UBLVersionID 2.0": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): sin UBLVersionID": [],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): CustomizationID 1.0": [
+    "2072 @ ValidaExprRegBoleta-2.0.1.xsl:L135"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): sin CustomizationID": [
+    "2073 @ ValidaExprRegBoleta-2.0.1.xsl:L135"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): InvoiceTypeCode distinto": [
+    "1003 @ ValidaExprRegBoleta-2.0.1.xsl:L169"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): sin InvoiceTypeCode": [
+    "1004 @ ValidaExprRegBoleta-2.0.1.xsl:L169"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): sin moneda": [
+    "2070 @ ValidaExprRegBoleta-2.0.1.xsl:L200"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegBoleta-2.0.1.xsl:L206"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegBoleta-2.0.1.xsl:L213"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): schemeID del emisor ≠ 6": [
+    "1007 @ ValidaExprRegBoleta-2.0.1.xsl:L1102"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): sin razón social del emisor": [
+    "1037 @ ValidaExprRegBoleta-2.0.1.xsl:L1148"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegBoleta-2.0.1.xsl:L1609"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): sin nombre del cliente": [
+    "2021 @ ValidaExprRegBoleta-2.0.1.xsl:L1609"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): número de línea 0": [
+    "2023 @ ValidaExprRegBoleta-2.0.1.xsl:L1906"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): número de línea duplicado": [
+    "2752 @ ValidaExprRegBoleta-2.0.1.xsl:L1917"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): sin unitCode": [
+    "2883 @ ValidaExprRegBoleta-2.0.1.xsl:L1927"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): cantidad 0": [
+    "2024 @ ValidaExprRegBoleta-2.0.1.xsl:L1960"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): cantidad no numérica": [
+    "2025 @ ValidaExprRegBoleta-2.0.1.xsl:L1952"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): sin descripción del ítem": [
+    "2026 @ ValidaExprRegBoleta-2.0.1.xsl:L2109"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegBoleta-2.0.1.xsl:L2146"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): sin valor unitario": [
+    "2068 @ ValidaExprRegBoleta-2.0.1.xsl:L2146"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): sin precio de referencia": [
+    "2028 @ ValidaExprRegBoleta-2.0.1.xsl:L2164"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): línea sin TaxTotal": [
+    "3195 @ ValidaExprRegBoleta-2.0.1.xsl:L2267"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): IGV de línea alterado": [
+    "3103 @ ValidaExprRegBoleta-2.0.1.xsl:L3468"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegBoleta-2.0.1.xsl:L3372"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): sin afectación del IGV": [
+    "2371 @ ValidaExprRegBoleta-2.0.1.xsl:L3478"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): sin Percent": [
+    "3103 @ ValidaExprRegBoleta-2.0.1.xsl:L3468"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): Percent 15 en línea gravada": [
+    "3103 @ ValidaExprRegBoleta-2.0.1.xsl:L3468"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): sin código de tributo en línea": [
+    "2037 @ ValidaExprRegBoleta-2.0.1.xsl:L3356"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): tributo de línea fuera del catálogo 05": [
+    "2036 @ ValidaExprRegBoleta-2.0.1.xsl:L3363"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): valor de venta de línea con 3 decimales": [
+    "4294 @ ValidaExprRegBoleta-2.0.1.xsl:L3799",
+    "2370 @ ValidaExprRegBoleta-2.0.1.xsl:L2292"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegBoleta-2.0.1.xsl:L3722"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegBoleta-2.0.1.xsl:L464"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegBoleta-2.0.1.xsl:L5195"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegBoleta-2.0.1.xsl:L5044"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): tributo de cabecera fuera del catálogo": [
+    "3007 @ ValidaExprRegBoleta-2.0.1.xsl:L5089"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegBoleta-2.0.1.xsl:L5385",
+    "4290 @ ValidaExprRegBoleta-2.0.1.xsl:L700"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): TaxInclusiveAmount alterado": [
+    "4312 @ ValidaExprRegBoleta-2.0.1.xsl:L746",
+    "4310 @ ValidaExprRegBoleta-2.0.1.xsl:L804"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): LineExtensionAmount total desfasado": [
+    "4309 @ ValidaExprRegBoleta-2.0.1.xsl:L753"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): PayableAmount desfasado": [
+    "4312 @ ValidaExprRegBoleta-2.0.1.xsl:L746"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): PayableAmount con formato inválido": [
+    "2062 @ ValidaExprRegBoleta-2.0.1.xsl:L417"
+  ],
+  "boleta con transferencias gratuitas exonerada (21) e inafecta (31): desfase dentro de la tolerancia (±1)": [],
+  "factura con ISC al valor (01): sin leyenda 1002 de gratuitas": [],
+  "factura con ISC al valor (01): sin leyenda 2007 de IVAP": [],
+  "factura con ISC al valor (01): sin leyenda 2006 de detracción": [],
+  "factura con ISC al valor (01): gratuita con tipo de precio 01": [],
+  "factura con ISC al valor (01): gratuita con precio unitario > 0 en cac:Price": [],
+  "factura con ISC al valor (01): IGV gratuito de cabecera alterado": [],
+  "factura con ISC al valor (01): base gratuita de cabecera alterada": [],
+  "factura con ISC al valor (01): retiro gravado con tasa 0": [],
+  "factura con ISC al valor (01): ISC de línea alterado": [
+    "3108 @ ValidaExprRegFactura-2.0.1.xsl:L3014"
+  ],
+  "factura con ISC al valor (01): ISC con sistema fuera del catálogo 08": [
+    "2041 @ ValidaExprRegFactura-2.0.1.xsl:L3084"
+  ],
+  "factura con ISC al valor (01): ISC sin sistema de cálculo": [
+    "2373 @ ValidaExprRegFactura-2.0.1.xsl:L3079"
+  ],
+  "factura con ISC al valor (01): ISC con tasa 0": [
+    "3104 @ ValidaExprRegFactura-2.0.1.xsl:L2998"
+  ],
+  "factura con ISC al valor (01): ISC de cabecera alterado": [
+    "4301 @ ValidaExprRegFactura-2.0.1.xsl:L4802",
+    "4305 @ ValidaExprRegFactura-2.0.1.xsl:L4810",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con ISC al valor (01): ICBPER con tarifa 0": [],
+  "factura con ISC al valor (01): ICBPER sin cantidad de bolsas": [],
+  "factura con ISC al valor (01): ICBPER con unidad distinta de NIU": [],
+  "factura con ISC al valor (01): ICBPER de línea ≠ bolsas × tarifa": [],
+  "factura con ISC al valor (01): ICBPER de cabecera ≠ suma de líneas": [],
+  "factura con ISC al valor (01): IVAP con tasa del 18 %": [],
+  "factura con ISC al valor (01): IVAP de cabecera alterado": [],
+  "factura con ISC al valor (01): exportación con IGV": [],
+  "factura con ISC al valor (01): exportación a cliente con RUC": [],
+  "factura con ISC al valor (01): tipo de operación 0101 en una exportación": [],
+  "factura con ISC al valor (01): descuento de ítem con código fuera de catálogo": [],
+  "factura con ISC al valor (01): descuento de ítem ≠ factor × base": [],
+  "factura con ISC al valor (01): descuento de ítem sin base": [],
+  "factura con ISC al valor (01): descuento de ítem marcado como cargo": [],
+  "factura con ISC al valor (01): descuento global 02 alterado": [],
+  "factura con ISC al valor (01): AllowanceTotalAmount ≠ descuentos 03": [],
+  "factura con ISC al valor (01): ChargeTotalAmount ≠ cargos 50": [],
+  "factura con ISC al valor (01): detracción sin cuenta del Banco de la Nación": [],
+  "factura con ISC al valor (01): detracción con bien fuera del catálogo 54": [],
+  "factura con ISC al valor (01): detracción sin monto": [],
+  "factura con ISC al valor (01): detracción con monto en dólares": [],
+  "factura con ISC al valor (01): detracción con medio de pago fuera del catálogo 59": [],
+  "factura con ISC al valor (01): percepción sin cargo 51": [],
+  "factura con ISC al valor (01): percepción con tasa alterada": [],
+  "factura con ISC al valor (01): percepción con monto total alterado": [],
+  "factura con ISC al valor (01): anticipo con PrepaidAmount ≠ pagos": [],
+  "factura con ISC al valor (01): anticipo sin documento relacionado": [],
+  "factura con ISC al valor (01): anticipo con identificador de pago duplicado": [],
+  "factura con ISC al valor (01): descuento por anticipo 04 alterado": [],
+  "factura con ISC al valor (01): forma de pago fuera de formato": [
+    "3246 @ ValidaExprRegFactura-2.0.1.xsl:L5587"
+  ],
+  "factura con ISC al valor (01): crédito sin monto pendiente": [],
+  "factura con ISC al valor (01): cuota sin fecha de pago": [],
+  "factura con ISC al valor (01): cuota con monto 0": [],
+  "factura con ISC al valor (01): cuota duplicada": [],
+  "factura con ISC al valor (01): tasa del 10 % mezclada con 18 %": [],
+  "factura con ISC al valor (01): RUC del nombre ≠ RUC del emisor": [
+    "1034 @ ValidaExprRegFactura-2.0.1.xsl:L48"
+  ],
+  "factura con ISC al valor (01): serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegFactura-2.0.1.xsl:L54"
+  ],
+  "factura con ISC al valor (01): número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegFactura-2.0.1.xsl:L60"
+  ],
+  "factura con ISC al valor (01): UBLVersionID 2.0": [
+    "2074 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con ISC al valor (01): sin UBLVersionID": [
+    "2075 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con ISC al valor (01): CustomizationID 1.0": [
+    "2072 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con ISC al valor (01): sin CustomizationID": [
+    "2073 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con ISC al valor (01): InvoiceTypeCode distinto": [
+    "1003 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con ISC al valor (01): sin InvoiceTypeCode": [
+    "1004 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con ISC al valor (01): sin moneda": [
+    "2070 @ ValidaExprRegFactura-2.0.1.xsl:L135"
+  ],
+  "factura con ISC al valor (01): moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegFactura-2.0.1.xsl:L139"
+  ],
+  "factura con ISC al valor (01): currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegFactura-2.0.1.xsl:L146"
+  ],
+  "factura con ISC al valor (01): schemeID del emisor ≠ 6": [
+    "1007 @ ValidaExprRegFactura-2.0.1.xsl:L746"
+  ],
+  "factura con ISC al valor (01): sin razón social del emisor": [
+    "1037 @ ValidaExprRegFactura-2.0.1.xsl:L789"
+  ],
+  "factura con ISC al valor (01): RUC del cliente con 10 dígitos": [
+    "2017 @ ValidaExprRegFactura-2.0.1.xsl:L1210"
+  ],
+  "factura con ISC al valor (01): nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con ISC al valor (01): sin nombre del cliente": [
+    "2021 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con ISC al valor (01): factura a cliente con DNI": [
+    "2800 @ ValidaExprRegFactura-2.0.1.xsl:L1267"
+  ],
+  "factura con ISC al valor (01): DNI del cliente con 7 dígitos": [
+    "2801 @ ValidaExprRegFactura-2.0.1.xsl:L1218"
+  ],
+  "factura con ISC al valor (01): número de línea 0": [
+    "2023 @ ValidaExprRegFactura-2.0.1.xsl:L1508"
+  ],
+  "factura con ISC al valor (01): número de línea duplicado": [],
+  "factura con ISC al valor (01): sin unitCode": [
+    "2883 @ ValidaExprRegFactura-2.0.1.xsl:L1526"
+  ],
+  "factura con ISC al valor (01): cantidad 0": [
+    "2024 @ ValidaExprRegFactura-2.0.1.xsl:L1556"
+  ],
+  "factura con ISC al valor (01): cantidad no numérica": [
+    "2025 @ ValidaExprRegFactura-2.0.1.xsl:L1549"
+  ],
+  "factura con ISC al valor (01): sin descripción del ítem": [
+    "2026 @ ValidaExprRegFactura-2.0.1.xsl:L1693"
+  ],
+  "factura con ISC al valor (01): valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con ISC al valor (01): sin valor unitario": [
+    "2068 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con ISC al valor (01): sin precio de referencia": [
+    "2028 @ ValidaExprRegFactura-2.0.1.xsl:L1885"
+  ],
+  "factura con ISC al valor (01): línea sin TaxTotal": [
+    "3195 @ ValidaExprRegFactura-2.0.1.xsl:L1961"
+  ],
+  "factura con ISC al valor (01): IGV de línea alterado": [
+    "3108 @ ValidaExprRegFactura-2.0.1.xsl:L3014"
+  ],
+  "factura con ISC al valor (01): IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegFactura-2.0.1.xsl:L2946"
+  ],
+  "factura con ISC al valor (01): sin afectación del IGV": [],
+  "factura con ISC al valor (01): sin Percent": [
+    "3108 @ ValidaExprRegFactura-2.0.1.xsl:L3014"
+  ],
+  "factura con ISC al valor (01): Percent 15 en línea gravada": [],
+  "factura con ISC al valor (01): sin código de tributo en línea": [
+    "2037 @ ValidaExprRegFactura-2.0.1.xsl:L2925"
+  ],
+  "factura con ISC al valor (01): tributo de línea fuera del catálogo 05": [
+    "2036 @ ValidaExprRegFactura-2.0.1.xsl:L2930"
+  ],
+  "factura con ISC al valor (01): valor de venta de línea con 3 decimales": [
+    "2370 @ ValidaExprRegFactura-2.0.1.xsl:L1983"
+  ],
+  "factura con ISC al valor (01): TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegFactura-2.0.1.xsl:L3173"
+  ],
+  "factura con ISC al valor (01): sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegFactura-2.0.1.xsl:L276"
+  ],
+  "factura con ISC al valor (01): TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegFactura-2.0.1.xsl:L4645"
+  ],
+  "factura con ISC al valor (01): base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegFactura-2.0.1.xsl:L4559"
+  ],
+  "factura con ISC al valor (01): tributo de cabecera fuera del catálogo": [
+    "3007 @ ValidaExprRegFactura-2.0.1.xsl:L4587"
+  ],
+  "factura con ISC al valor (01): suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegFactura-2.0.1.xsl:L4802",
+    "3291 @ ValidaExprRegFactura-2.0.1.xsl:L462"
+  ],
+  "factura con ISC al valor (01): TaxInclusiveAmount alterado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con ISC al valor (01): LineExtensionAmount total desfasado": [
+    "4309 @ ValidaExprRegFactura-2.0.1.xsl:L500",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con ISC al valor (01): PayableAmount desfasado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494"
+  ],
+  "factura con ISC al valor (01): PayableAmount con formato inválido": [
+    "2062 @ ValidaExprRegFactura-2.0.1.xsl:L239"
+  ],
+  "factura con ISC al valor (01): desfase dentro de la tolerancia (±1)": [],
+  "factura con ISC específico (02): sin leyenda 1002 de gratuitas": [],
+  "factura con ISC específico (02): sin leyenda 2007 de IVAP": [],
+  "factura con ISC específico (02): sin leyenda 2006 de detracción": [],
+  "factura con ISC específico (02): gratuita con tipo de precio 01": [],
+  "factura con ISC específico (02): gratuita con precio unitario > 0 en cac:Price": [],
+  "factura con ISC específico (02): IGV gratuito de cabecera alterado": [],
+  "factura con ISC específico (02): base gratuita de cabecera alterada": [],
+  "factura con ISC específico (02): retiro gravado con tasa 0": [],
+  "factura con ISC específico (02): ISC de línea alterado": [
+    "3108 @ ValidaExprRegFactura-2.0.1.xsl:L3014"
+  ],
+  "factura con ISC específico (02): ISC con sistema fuera del catálogo 08": [
+    "2041 @ ValidaExprRegFactura-2.0.1.xsl:L3084"
+  ],
+  "factura con ISC específico (02): ISC sin sistema de cálculo": [
+    "2373 @ ValidaExprRegFactura-2.0.1.xsl:L3079"
+  ],
+  "factura con ISC específico (02): ISC con tasa 0": [
+    "3104 @ ValidaExprRegFactura-2.0.1.xsl:L2998"
+  ],
+  "factura con ISC específico (02): ISC de cabecera alterado": [
+    "4301 @ ValidaExprRegFactura-2.0.1.xsl:L4802",
+    "4305 @ ValidaExprRegFactura-2.0.1.xsl:L4810",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con ISC específico (02): ICBPER con tarifa 0": [],
+  "factura con ISC específico (02): ICBPER sin cantidad de bolsas": [],
+  "factura con ISC específico (02): ICBPER con unidad distinta de NIU": [],
+  "factura con ISC específico (02): ICBPER de línea ≠ bolsas × tarifa": [],
+  "factura con ISC específico (02): ICBPER de cabecera ≠ suma de líneas": [],
+  "factura con ISC específico (02): IVAP con tasa del 18 %": [],
+  "factura con ISC específico (02): IVAP de cabecera alterado": [],
+  "factura con ISC específico (02): exportación con IGV": [],
+  "factura con ISC específico (02): exportación a cliente con RUC": [],
+  "factura con ISC específico (02): tipo de operación 0101 en una exportación": [],
+  "factura con ISC específico (02): descuento de ítem con código fuera de catálogo": [],
+  "factura con ISC específico (02): descuento de ítem ≠ factor × base": [],
+  "factura con ISC específico (02): descuento de ítem sin base": [],
+  "factura con ISC específico (02): descuento de ítem marcado como cargo": [],
+  "factura con ISC específico (02): descuento global 02 alterado": [],
+  "factura con ISC específico (02): AllowanceTotalAmount ≠ descuentos 03": [],
+  "factura con ISC específico (02): ChargeTotalAmount ≠ cargos 50": [],
+  "factura con ISC específico (02): detracción sin cuenta del Banco de la Nación": [],
+  "factura con ISC específico (02): detracción con bien fuera del catálogo 54": [],
+  "factura con ISC específico (02): detracción sin monto": [],
+  "factura con ISC específico (02): detracción con monto en dólares": [],
+  "factura con ISC específico (02): detracción con medio de pago fuera del catálogo 59": [],
+  "factura con ISC específico (02): percepción sin cargo 51": [],
+  "factura con ISC específico (02): percepción con tasa alterada": [],
+  "factura con ISC específico (02): percepción con monto total alterado": [],
+  "factura con ISC específico (02): anticipo con PrepaidAmount ≠ pagos": [],
+  "factura con ISC específico (02): anticipo sin documento relacionado": [],
+  "factura con ISC específico (02): anticipo con identificador de pago duplicado": [],
+  "factura con ISC específico (02): descuento por anticipo 04 alterado": [],
+  "factura con ISC específico (02): forma de pago fuera de formato": [
+    "3246 @ ValidaExprRegFactura-2.0.1.xsl:L5587"
+  ],
+  "factura con ISC específico (02): crédito sin monto pendiente": [],
+  "factura con ISC específico (02): cuota sin fecha de pago": [],
+  "factura con ISC específico (02): cuota con monto 0": [],
+  "factura con ISC específico (02): cuota duplicada": [],
+  "factura con ISC específico (02): tasa del 10 % mezclada con 18 %": [],
+  "factura con ISC específico (02): RUC del nombre ≠ RUC del emisor": [
+    "1034 @ ValidaExprRegFactura-2.0.1.xsl:L48"
+  ],
+  "factura con ISC específico (02): serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegFactura-2.0.1.xsl:L54"
+  ],
+  "factura con ISC específico (02): número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegFactura-2.0.1.xsl:L60"
+  ],
+  "factura con ISC específico (02): UBLVersionID 2.0": [
+    "2074 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con ISC específico (02): sin UBLVersionID": [
+    "2075 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con ISC específico (02): CustomizationID 1.0": [
+    "2072 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con ISC específico (02): sin CustomizationID": [
+    "2073 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con ISC específico (02): InvoiceTypeCode distinto": [
+    "1003 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con ISC específico (02): sin InvoiceTypeCode": [
+    "1004 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con ISC específico (02): sin moneda": [
+    "2070 @ ValidaExprRegFactura-2.0.1.xsl:L135"
+  ],
+  "factura con ISC específico (02): moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegFactura-2.0.1.xsl:L139"
+  ],
+  "factura con ISC específico (02): currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegFactura-2.0.1.xsl:L146"
+  ],
+  "factura con ISC específico (02): schemeID del emisor ≠ 6": [
+    "1007 @ ValidaExprRegFactura-2.0.1.xsl:L746"
+  ],
+  "factura con ISC específico (02): sin razón social del emisor": [
+    "1037 @ ValidaExprRegFactura-2.0.1.xsl:L789"
+  ],
+  "factura con ISC específico (02): RUC del cliente con 10 dígitos": [
+    "2017 @ ValidaExprRegFactura-2.0.1.xsl:L1210"
+  ],
+  "factura con ISC específico (02): nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con ISC específico (02): sin nombre del cliente": [
+    "2021 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con ISC específico (02): factura a cliente con DNI": [
+    "2800 @ ValidaExprRegFactura-2.0.1.xsl:L1267"
+  ],
+  "factura con ISC específico (02): DNI del cliente con 7 dígitos": [
+    "2801 @ ValidaExprRegFactura-2.0.1.xsl:L1218"
+  ],
+  "factura con ISC específico (02): número de línea 0": [
+    "2023 @ ValidaExprRegFactura-2.0.1.xsl:L1508"
+  ],
+  "factura con ISC específico (02): número de línea duplicado": [],
+  "factura con ISC específico (02): sin unitCode": [
+    "2883 @ ValidaExprRegFactura-2.0.1.xsl:L1526"
+  ],
+  "factura con ISC específico (02): cantidad 0": [
+    "2024 @ ValidaExprRegFactura-2.0.1.xsl:L1556"
+  ],
+  "factura con ISC específico (02): cantidad no numérica": [
+    "2025 @ ValidaExprRegFactura-2.0.1.xsl:L1549"
+  ],
+  "factura con ISC específico (02): sin descripción del ítem": [
+    "2026 @ ValidaExprRegFactura-2.0.1.xsl:L1693"
+  ],
+  "factura con ISC específico (02): valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con ISC específico (02): sin valor unitario": [
+    "2068 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con ISC específico (02): sin precio de referencia": [
+    "2028 @ ValidaExprRegFactura-2.0.1.xsl:L1885"
+  ],
+  "factura con ISC específico (02): línea sin TaxTotal": [
+    "3195 @ ValidaExprRegFactura-2.0.1.xsl:L1961"
+  ],
+  "factura con ISC específico (02): IGV de línea alterado": [
+    "3108 @ ValidaExprRegFactura-2.0.1.xsl:L3014"
+  ],
+  "factura con ISC específico (02): IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegFactura-2.0.1.xsl:L2946"
+  ],
+  "factura con ISC específico (02): sin afectación del IGV": [],
+  "factura con ISC específico (02): sin Percent": [
+    "3108 @ ValidaExprRegFactura-2.0.1.xsl:L3014"
+  ],
+  "factura con ISC específico (02): Percent 15 en línea gravada": [],
+  "factura con ISC específico (02): sin código de tributo en línea": [
+    "2037 @ ValidaExprRegFactura-2.0.1.xsl:L2925"
+  ],
+  "factura con ISC específico (02): tributo de línea fuera del catálogo 05": [
+    "2036 @ ValidaExprRegFactura-2.0.1.xsl:L2930"
+  ],
+  "factura con ISC específico (02): valor de venta de línea con 3 decimales": [
+    "2370 @ ValidaExprRegFactura-2.0.1.xsl:L1983"
+  ],
+  "factura con ISC específico (02): TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegFactura-2.0.1.xsl:L3173"
+  ],
+  "factura con ISC específico (02): sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegFactura-2.0.1.xsl:L276"
+  ],
+  "factura con ISC específico (02): TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegFactura-2.0.1.xsl:L4645"
+  ],
+  "factura con ISC específico (02): base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegFactura-2.0.1.xsl:L4559"
+  ],
+  "factura con ISC específico (02): tributo de cabecera fuera del catálogo": [
+    "3007 @ ValidaExprRegFactura-2.0.1.xsl:L4587"
+  ],
+  "factura con ISC específico (02): suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegFactura-2.0.1.xsl:L4802",
+    "3291 @ ValidaExprRegFactura-2.0.1.xsl:L462"
+  ],
+  "factura con ISC específico (02): TaxInclusiveAmount alterado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con ISC específico (02): LineExtensionAmount total desfasado": [
+    "4309 @ ValidaExprRegFactura-2.0.1.xsl:L500",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con ISC específico (02): PayableAmount desfasado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494"
+  ],
+  "factura con ISC específico (02): PayableAmount con formato inválido": [
+    "2062 @ ValidaExprRegFactura-2.0.1.xsl:L239"
+  ],
+  "factura con ISC específico (02): desfase dentro de la tolerancia (±1)": [],
+  "factura con ISC por precio de venta al público (03): sin leyenda 1002 de gratuitas": [],
+  "factura con ISC por precio de venta al público (03): sin leyenda 2007 de IVAP": [],
+  "factura con ISC por precio de venta al público (03): sin leyenda 2006 de detracción": [],
+  "factura con ISC por precio de venta al público (03): gratuita con tipo de precio 01": [],
+  "factura con ISC por precio de venta al público (03): gratuita con precio unitario > 0 en cac:Price": [],
+  "factura con ISC por precio de venta al público (03): IGV gratuito de cabecera alterado": [],
+  "factura con ISC por precio de venta al público (03): base gratuita de cabecera alterada": [],
+  "factura con ISC por precio de venta al público (03): retiro gravado con tasa 0": [],
+  "factura con ISC por precio de venta al público (03): ISC de línea alterado": [
+    "3108 @ ValidaExprRegFactura-2.0.1.xsl:L3014"
+  ],
+  "factura con ISC por precio de venta al público (03): ISC con sistema fuera del catálogo 08": [
+    "2041 @ ValidaExprRegFactura-2.0.1.xsl:L3084"
+  ],
+  "factura con ISC por precio de venta al público (03): ISC sin sistema de cálculo": [
+    "2373 @ ValidaExprRegFactura-2.0.1.xsl:L3079"
+  ],
+  "factura con ISC por precio de venta al público (03): ISC con tasa 0": [
+    "3104 @ ValidaExprRegFactura-2.0.1.xsl:L2998"
+  ],
+  "factura con ISC por precio de venta al público (03): ISC de cabecera alterado": [
+    "4301 @ ValidaExprRegFactura-2.0.1.xsl:L4802",
+    "4305 @ ValidaExprRegFactura-2.0.1.xsl:L4810",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con ISC por precio de venta al público (03): ICBPER con tarifa 0": [],
+  "factura con ISC por precio de venta al público (03): ICBPER sin cantidad de bolsas": [],
+  "factura con ISC por precio de venta al público (03): ICBPER con unidad distinta de NIU": [],
+  "factura con ISC por precio de venta al público (03): ICBPER de línea ≠ bolsas × tarifa": [],
+  "factura con ISC por precio de venta al público (03): ICBPER de cabecera ≠ suma de líneas": [],
+  "factura con ISC por precio de venta al público (03): IVAP con tasa del 18 %": [],
+  "factura con ISC por precio de venta al público (03): IVAP de cabecera alterado": [],
+  "factura con ISC por precio de venta al público (03): exportación con IGV": [],
+  "factura con ISC por precio de venta al público (03): exportación a cliente con RUC": [],
+  "factura con ISC por precio de venta al público (03): tipo de operación 0101 en una exportación": [],
+  "factura con ISC por precio de venta al público (03): descuento de ítem con código fuera de catálogo": [],
+  "factura con ISC por precio de venta al público (03): descuento de ítem ≠ factor × base": [],
+  "factura con ISC por precio de venta al público (03): descuento de ítem sin base": [],
+  "factura con ISC por precio de venta al público (03): descuento de ítem marcado como cargo": [],
+  "factura con ISC por precio de venta al público (03): descuento global 02 alterado": [],
+  "factura con ISC por precio de venta al público (03): AllowanceTotalAmount ≠ descuentos 03": [],
+  "factura con ISC por precio de venta al público (03): ChargeTotalAmount ≠ cargos 50": [],
+  "factura con ISC por precio de venta al público (03): detracción sin cuenta del Banco de la Nación": [],
+  "factura con ISC por precio de venta al público (03): detracción con bien fuera del catálogo 54": [],
+  "factura con ISC por precio de venta al público (03): detracción sin monto": [],
+  "factura con ISC por precio de venta al público (03): detracción con monto en dólares": [],
+  "factura con ISC por precio de venta al público (03): detracción con medio de pago fuera del catálogo 59": [],
+  "factura con ISC por precio de venta al público (03): percepción sin cargo 51": [],
+  "factura con ISC por precio de venta al público (03): percepción con tasa alterada": [],
+  "factura con ISC por precio de venta al público (03): percepción con monto total alterado": [],
+  "factura con ISC por precio de venta al público (03): anticipo con PrepaidAmount ≠ pagos": [],
+  "factura con ISC por precio de venta al público (03): anticipo sin documento relacionado": [],
+  "factura con ISC por precio de venta al público (03): anticipo con identificador de pago duplicado": [],
+  "factura con ISC por precio de venta al público (03): descuento por anticipo 04 alterado": [],
+  "factura con ISC por precio de venta al público (03): forma de pago fuera de formato": [
+    "3246 @ ValidaExprRegFactura-2.0.1.xsl:L5587"
+  ],
+  "factura con ISC por precio de venta al público (03): crédito sin monto pendiente": [],
+  "factura con ISC por precio de venta al público (03): cuota sin fecha de pago": [],
+  "factura con ISC por precio de venta al público (03): cuota con monto 0": [],
+  "factura con ISC por precio de venta al público (03): cuota duplicada": [],
+  "factura con ISC por precio de venta al público (03): tasa del 10 % mezclada con 18 %": [],
+  "factura con ISC por precio de venta al público (03): RUC del nombre ≠ RUC del emisor": [
+    "1034 @ ValidaExprRegFactura-2.0.1.xsl:L48"
+  ],
+  "factura con ISC por precio de venta al público (03): serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegFactura-2.0.1.xsl:L54"
+  ],
+  "factura con ISC por precio de venta al público (03): número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegFactura-2.0.1.xsl:L60"
+  ],
+  "factura con ISC por precio de venta al público (03): UBLVersionID 2.0": [
+    "2074 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con ISC por precio de venta al público (03): sin UBLVersionID": [
+    "2075 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con ISC por precio de venta al público (03): CustomizationID 1.0": [
+    "2072 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con ISC por precio de venta al público (03): sin CustomizationID": [
+    "2073 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con ISC por precio de venta al público (03): InvoiceTypeCode distinto": [
+    "1003 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con ISC por precio de venta al público (03): sin InvoiceTypeCode": [
+    "1004 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con ISC por precio de venta al público (03): sin moneda": [
+    "2070 @ ValidaExprRegFactura-2.0.1.xsl:L135"
+  ],
+  "factura con ISC por precio de venta al público (03): moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegFactura-2.0.1.xsl:L139"
+  ],
+  "factura con ISC por precio de venta al público (03): currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegFactura-2.0.1.xsl:L146"
+  ],
+  "factura con ISC por precio de venta al público (03): schemeID del emisor ≠ 6": [
+    "1007 @ ValidaExprRegFactura-2.0.1.xsl:L746"
+  ],
+  "factura con ISC por precio de venta al público (03): sin razón social del emisor": [
+    "1037 @ ValidaExprRegFactura-2.0.1.xsl:L789"
+  ],
+  "factura con ISC por precio de venta al público (03): RUC del cliente con 10 dígitos": [
+    "2017 @ ValidaExprRegFactura-2.0.1.xsl:L1210"
+  ],
+  "factura con ISC por precio de venta al público (03): nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con ISC por precio de venta al público (03): sin nombre del cliente": [
+    "2021 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con ISC por precio de venta al público (03): factura a cliente con DNI": [
+    "2800 @ ValidaExprRegFactura-2.0.1.xsl:L1267"
+  ],
+  "factura con ISC por precio de venta al público (03): DNI del cliente con 7 dígitos": [
+    "2801 @ ValidaExprRegFactura-2.0.1.xsl:L1218"
+  ],
+  "factura con ISC por precio de venta al público (03): número de línea 0": [
+    "2023 @ ValidaExprRegFactura-2.0.1.xsl:L1508"
+  ],
+  "factura con ISC por precio de venta al público (03): número de línea duplicado": [],
+  "factura con ISC por precio de venta al público (03): sin unitCode": [
+    "2883 @ ValidaExprRegFactura-2.0.1.xsl:L1526"
+  ],
+  "factura con ISC por precio de venta al público (03): cantidad 0": [
+    "2024 @ ValidaExprRegFactura-2.0.1.xsl:L1556"
+  ],
+  "factura con ISC por precio de venta al público (03): cantidad no numérica": [
+    "2025 @ ValidaExprRegFactura-2.0.1.xsl:L1549"
+  ],
+  "factura con ISC por precio de venta al público (03): sin descripción del ítem": [
+    "2026 @ ValidaExprRegFactura-2.0.1.xsl:L1693"
+  ],
+  "factura con ISC por precio de venta al público (03): valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con ISC por precio de venta al público (03): sin valor unitario": [
+    "2068 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con ISC por precio de venta al público (03): sin precio de referencia": [
+    "2028 @ ValidaExprRegFactura-2.0.1.xsl:L1885"
+  ],
+  "factura con ISC por precio de venta al público (03): línea sin TaxTotal": [
+    "3195 @ ValidaExprRegFactura-2.0.1.xsl:L1961"
+  ],
+  "factura con ISC por precio de venta al público (03): IGV de línea alterado": [
+    "3108 @ ValidaExprRegFactura-2.0.1.xsl:L3014"
+  ],
+  "factura con ISC por precio de venta al público (03): IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegFactura-2.0.1.xsl:L2946"
+  ],
+  "factura con ISC por precio de venta al público (03): sin afectación del IGV": [],
+  "factura con ISC por precio de venta al público (03): sin Percent": [
+    "3108 @ ValidaExprRegFactura-2.0.1.xsl:L3014"
+  ],
+  "factura con ISC por precio de venta al público (03): Percent 15 en línea gravada": [],
+  "factura con ISC por precio de venta al público (03): sin código de tributo en línea": [
+    "2037 @ ValidaExprRegFactura-2.0.1.xsl:L2925"
+  ],
+  "factura con ISC por precio de venta al público (03): tributo de línea fuera del catálogo 05": [
+    "2036 @ ValidaExprRegFactura-2.0.1.xsl:L2930"
+  ],
+  "factura con ISC por precio de venta al público (03): valor de venta de línea con 3 decimales": [
+    "2370 @ ValidaExprRegFactura-2.0.1.xsl:L1983"
+  ],
+  "factura con ISC por precio de venta al público (03): TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegFactura-2.0.1.xsl:L3173"
+  ],
+  "factura con ISC por precio de venta al público (03): sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegFactura-2.0.1.xsl:L276"
+  ],
+  "factura con ISC por precio de venta al público (03): TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegFactura-2.0.1.xsl:L4645"
+  ],
+  "factura con ISC por precio de venta al público (03): base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegFactura-2.0.1.xsl:L4559"
+  ],
+  "factura con ISC por precio de venta al público (03): tributo de cabecera fuera del catálogo": [
+    "3007 @ ValidaExprRegFactura-2.0.1.xsl:L4587"
+  ],
+  "factura con ISC por precio de venta al público (03): suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegFactura-2.0.1.xsl:L4802",
+    "3291 @ ValidaExprRegFactura-2.0.1.xsl:L462"
+  ],
+  "factura con ISC por precio de venta al público (03): TaxInclusiveAmount alterado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con ISC por precio de venta al público (03): LineExtensionAmount total desfasado": [
+    "4309 @ ValidaExprRegFactura-2.0.1.xsl:L500",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con ISC por precio de venta al público (03): PayableAmount desfasado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494"
+  ],
+  "factura con ISC por precio de venta al público (03): PayableAmount con formato inválido": [
+    "2062 @ ValidaExprRegFactura-2.0.1.xsl:L239"
+  ],
+  "factura con ISC por precio de venta al público (03): desfase dentro de la tolerancia (±1)": [],
+  "boleta con ICBPER (bolsas de plástico): sin leyenda 1002 de gratuitas": [],
+  "boleta con ICBPER (bolsas de plástico): sin leyenda 2007 de IVAP": [],
+  "boleta con ICBPER (bolsas de plástico): sin leyenda 2006 de detracción": [],
+  "boleta con ICBPER (bolsas de plástico): gratuita con tipo de precio 01": [],
+  "boleta con ICBPER (bolsas de plástico): gratuita con precio unitario > 0 en cac:Price": [],
+  "boleta con ICBPER (bolsas de plástico): IGV gratuito de cabecera alterado": [],
+  "boleta con ICBPER (bolsas de plástico): base gratuita de cabecera alterada": [],
+  "boleta con ICBPER (bolsas de plástico): retiro gravado con tasa 0": [],
+  "boleta con ICBPER (bolsas de plástico): ISC de línea alterado": [],
+  "boleta con ICBPER (bolsas de plástico): ISC con sistema fuera del catálogo 08": [],
+  "boleta con ICBPER (bolsas de plástico): ISC sin sistema de cálculo": [],
+  "boleta con ICBPER (bolsas de plástico): ISC con tasa 0": [],
+  "boleta con ICBPER (bolsas de plástico): ISC de cabecera alterado": [],
+  "boleta con ICBPER (bolsas de plástico): ICBPER con tarifa 0": [
+    "4318 @ ValidaExprRegBoleta-2.0.1.xsl:L3263",
+    "3238 @ ValidaExprRegBoleta-2.0.1.xsl:L3333"
+  ],
+  "boleta con ICBPER (bolsas de plástico): ICBPER sin cantidad de bolsas": [
+    "3237 @ ValidaExprRegBoleta-2.0.1.xsl:L3275"
+  ],
+  "boleta con ICBPER (bolsas de plástico): ICBPER con unidad distinta de NIU": [
+    "4320 @ ValidaExprRegBoleta-2.0.1.xsl:L3296"
+  ],
+  "boleta con ICBPER (bolsas de plástico): ICBPER de línea ≠ bolsas × tarifa": [
+    "4318 @ ValidaExprRegBoleta-2.0.1.xsl:L3263",
+    "4293 @ ValidaExprRegBoleta-2.0.1.xsl:L3764",
+    "4321 @ ValidaExprRegBoleta-2.0.1.xsl:L675"
+  ],
+  "boleta con ICBPER (bolsas de plástico): ICBPER de cabecera ≠ suma de líneas": [
+    "4301 @ ValidaExprRegBoleta-2.0.1.xsl:L5385",
+    "4321 @ ValidaExprRegBoleta-2.0.1.xsl:L675",
+    "4310 @ ValidaExprRegBoleta-2.0.1.xsl:L804"
+  ],
+  "boleta con ICBPER (bolsas de plástico): IVAP con tasa del 18 %": [],
+  "boleta con ICBPER (bolsas de plástico): IVAP de cabecera alterado": [],
+  "boleta con ICBPER (bolsas de plástico): exportación con IGV": [],
+  "boleta con ICBPER (bolsas de plástico): exportación a cliente con RUC": [],
+  "boleta con ICBPER (bolsas de plástico): tipo de operación 0101 en una exportación": [],
+  "boleta con ICBPER (bolsas de plástico): descuento de ítem con código fuera de catálogo": [],
+  "boleta con ICBPER (bolsas de plástico): descuento de ítem ≠ factor × base": [],
+  "boleta con ICBPER (bolsas de plástico): descuento de ítem sin base": [],
+  "boleta con ICBPER (bolsas de plástico): descuento de ítem marcado como cargo": [],
+  "boleta con ICBPER (bolsas de plástico): descuento global 02 alterado": [],
+  "boleta con ICBPER (bolsas de plástico): AllowanceTotalAmount ≠ descuentos 03": [],
+  "boleta con ICBPER (bolsas de plástico): ChargeTotalAmount ≠ cargos 50": [],
+  "boleta con ICBPER (bolsas de plástico): detracción sin cuenta del Banco de la Nación": [],
+  "boleta con ICBPER (bolsas de plástico): detracción con bien fuera del catálogo 54": [],
+  "boleta con ICBPER (bolsas de plástico): detracción sin monto": [],
+  "boleta con ICBPER (bolsas de plástico): detracción con monto en dólares": [],
+  "boleta con ICBPER (bolsas de plástico): detracción con medio de pago fuera del catálogo 59": [],
+  "boleta con ICBPER (bolsas de plástico): percepción sin cargo 51": [],
+  "boleta con ICBPER (bolsas de plástico): percepción con tasa alterada": [],
+  "boleta con ICBPER (bolsas de plástico): percepción con monto total alterado": [],
+  "boleta con ICBPER (bolsas de plástico): anticipo con PrepaidAmount ≠ pagos": [],
+  "boleta con ICBPER (bolsas de plástico): anticipo sin documento relacionado": [],
+  "boleta con ICBPER (bolsas de plástico): anticipo con identificador de pago duplicado": [],
+  "boleta con ICBPER (bolsas de plástico): descuento por anticipo 04 alterado": [],
+  "boleta con ICBPER (bolsas de plástico): forma de pago fuera de formato": [],
+  "boleta con ICBPER (bolsas de plástico): crédito sin monto pendiente": [],
+  "boleta con ICBPER (bolsas de plástico): cuota sin fecha de pago": [],
+  "boleta con ICBPER (bolsas de plástico): cuota con monto 0": [],
+  "boleta con ICBPER (bolsas de plástico): cuota duplicada": [],
+  "boleta con ICBPER (bolsas de plástico): tasa del 10 % mezclada con 18 %": [],
+  "boleta con ICBPER (bolsas de plástico): RUC del nombre ≠ RUC del emisor": [],
+  "boleta con ICBPER (bolsas de plástico): serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegBoleta-2.0.1.xsl:L85"
+  ],
+  "boleta con ICBPER (bolsas de plástico): número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegBoleta-2.0.1.xsl:L92"
+  ],
+  "boleta con ICBPER (bolsas de plástico): UBLVersionID 2.0": [],
+  "boleta con ICBPER (bolsas de plástico): sin UBLVersionID": [],
+  "boleta con ICBPER (bolsas de plástico): CustomizationID 1.0": [
+    "2072 @ ValidaExprRegBoleta-2.0.1.xsl:L135"
+  ],
+  "boleta con ICBPER (bolsas de plástico): sin CustomizationID": [
+    "2073 @ ValidaExprRegBoleta-2.0.1.xsl:L135"
+  ],
+  "boleta con ICBPER (bolsas de plástico): InvoiceTypeCode distinto": [
+    "1003 @ ValidaExprRegBoleta-2.0.1.xsl:L169"
+  ],
+  "boleta con ICBPER (bolsas de plástico): sin InvoiceTypeCode": [
+    "1004 @ ValidaExprRegBoleta-2.0.1.xsl:L169"
+  ],
+  "boleta con ICBPER (bolsas de plástico): sin moneda": [
+    "2070 @ ValidaExprRegBoleta-2.0.1.xsl:L200"
+  ],
+  "boleta con ICBPER (bolsas de plástico): moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegBoleta-2.0.1.xsl:L206"
+  ],
+  "boleta con ICBPER (bolsas de plástico): currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegBoleta-2.0.1.xsl:L213"
+  ],
+  "boleta con ICBPER (bolsas de plástico): schemeID del emisor ≠ 6": [
+    "1007 @ ValidaExprRegBoleta-2.0.1.xsl:L1102"
+  ],
+  "boleta con ICBPER (bolsas de plástico): sin razón social del emisor": [
+    "1037 @ ValidaExprRegBoleta-2.0.1.xsl:L1148"
+  ],
+  "boleta con ICBPER (bolsas de plástico): nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegBoleta-2.0.1.xsl:L1609"
+  ],
+  "boleta con ICBPER (bolsas de plástico): sin nombre del cliente": [
+    "2021 @ ValidaExprRegBoleta-2.0.1.xsl:L1609"
+  ],
+  "boleta con ICBPER (bolsas de plástico): número de línea 0": [
+    "2023 @ ValidaExprRegBoleta-2.0.1.xsl:L1906"
+  ],
+  "boleta con ICBPER (bolsas de plástico): número de línea duplicado": [
+    "2752 @ ValidaExprRegBoleta-2.0.1.xsl:L1917"
+  ],
+  "boleta con ICBPER (bolsas de plástico): sin unitCode": [
+    "2883 @ ValidaExprRegBoleta-2.0.1.xsl:L1927"
+  ],
+  "boleta con ICBPER (bolsas de plástico): cantidad 0": [
+    "2024 @ ValidaExprRegBoleta-2.0.1.xsl:L1960"
+  ],
+  "boleta con ICBPER (bolsas de plástico): cantidad no numérica": [
+    "2025 @ ValidaExprRegBoleta-2.0.1.xsl:L1952"
+  ],
+  "boleta con ICBPER (bolsas de plástico): sin descripción del ítem": [
+    "2026 @ ValidaExprRegBoleta-2.0.1.xsl:L2109"
+  ],
+  "boleta con ICBPER (bolsas de plástico): valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegBoleta-2.0.1.xsl:L2146"
+  ],
+  "boleta con ICBPER (bolsas de plástico): sin valor unitario": [
+    "2068 @ ValidaExprRegBoleta-2.0.1.xsl:L2146"
+  ],
+  "boleta con ICBPER (bolsas de plástico): sin precio de referencia": [
+    "2028 @ ValidaExprRegBoleta-2.0.1.xsl:L2164"
+  ],
+  "boleta con ICBPER (bolsas de plástico): línea sin TaxTotal": [
+    "3195 @ ValidaExprRegBoleta-2.0.1.xsl:L2267"
+  ],
+  "boleta con ICBPER (bolsas de plástico): IGV de línea alterado": [
+    "3103 @ ValidaExprRegBoleta-2.0.1.xsl:L3468"
+  ],
+  "boleta con ICBPER (bolsas de plástico): IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegBoleta-2.0.1.xsl:L3372"
+  ],
+  "boleta con ICBPER (bolsas de plástico): sin afectación del IGV": [
+    "2371 @ ValidaExprRegBoleta-2.0.1.xsl:L3478"
+  ],
+  "boleta con ICBPER (bolsas de plástico): sin Percent": [
+    "3103 @ ValidaExprRegBoleta-2.0.1.xsl:L3468"
+  ],
+  "boleta con ICBPER (bolsas de plástico): Percent 15 en línea gravada": [
+    "3462 @ ValidaExprRegBoleta-2.0.1.xsl:L523"
+  ],
+  "boleta con ICBPER (bolsas de plástico): sin código de tributo en línea": [
+    "2037 @ ValidaExprRegBoleta-2.0.1.xsl:L3356"
+  ],
+  "boleta con ICBPER (bolsas de plástico): tributo de línea fuera del catálogo 05": [
+    "2036 @ ValidaExprRegBoleta-2.0.1.xsl:L3363"
+  ],
+  "boleta con ICBPER (bolsas de plástico): valor de venta de línea con 3 decimales": [
+    "4294 @ ValidaExprRegBoleta-2.0.1.xsl:L3799",
+    "2370 @ ValidaExprRegBoleta-2.0.1.xsl:L2292"
+  ],
+  "boleta con ICBPER (bolsas de plástico): TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegBoleta-2.0.1.xsl:L3722"
+  ],
+  "boleta con ICBPER (bolsas de plástico): sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegBoleta-2.0.1.xsl:L464"
+  ],
+  "boleta con ICBPER (bolsas de plástico): TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegBoleta-2.0.1.xsl:L5195"
+  ],
+  "boleta con ICBPER (bolsas de plástico): base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegBoleta-2.0.1.xsl:L5044"
+  ],
+  "boleta con ICBPER (bolsas de plástico): tributo de cabecera fuera del catálogo": [
+    "3007 @ ValidaExprRegBoleta-2.0.1.xsl:L5089"
+  ],
+  "boleta con ICBPER (bolsas de plástico): suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegBoleta-2.0.1.xsl:L5385",
+    "4290 @ ValidaExprRegBoleta-2.0.1.xsl:L700"
+  ],
+  "boleta con ICBPER (bolsas de plástico): TaxInclusiveAmount alterado": [
+    "4312 @ ValidaExprRegBoleta-2.0.1.xsl:L746",
+    "4310 @ ValidaExprRegBoleta-2.0.1.xsl:L804"
+  ],
+  "boleta con ICBPER (bolsas de plástico): LineExtensionAmount total desfasado": [
+    "4309 @ ValidaExprRegBoleta-2.0.1.xsl:L753"
+  ],
+  "boleta con ICBPER (bolsas de plástico): PayableAmount desfasado": [
+    "4312 @ ValidaExprRegBoleta-2.0.1.xsl:L746"
+  ],
+  "boleta con ICBPER (bolsas de plástico): PayableAmount con formato inválido": [
+    "2062 @ ValidaExprRegBoleta-2.0.1.xsl:L417"
+  ],
+  "boleta con ICBPER (bolsas de plástico): desfase dentro de la tolerancia (±1)": [],
+  "factura de exportación (0200): sin leyenda 1002 de gratuitas": [],
+  "factura de exportación (0200): sin leyenda 2007 de IVAP": [],
+  "factura de exportación (0200): sin leyenda 2006 de detracción": [],
+  "factura de exportación (0200): gratuita con tipo de precio 01": [],
+  "factura de exportación (0200): gratuita con precio unitario > 0 en cac:Price": [],
+  "factura de exportación (0200): IGV gratuito de cabecera alterado": [],
+  "factura de exportación (0200): base gratuita de cabecera alterada": [],
+  "factura de exportación (0200): retiro gravado con tasa 0": [],
+  "factura de exportación (0200): ISC de línea alterado": [],
+  "factura de exportación (0200): ISC con sistema fuera del catálogo 08": [],
+  "factura de exportación (0200): ISC sin sistema de cálculo": [],
+  "factura de exportación (0200): ISC con tasa 0": [],
+  "factura de exportación (0200): ISC de cabecera alterado": [],
+  "factura de exportación (0200): ICBPER con tarifa 0": [],
+  "factura de exportación (0200): ICBPER sin cantidad de bolsas": [],
+  "factura de exportación (0200): ICBPER con unidad distinta de NIU": [],
+  "factura de exportación (0200): ICBPER de línea ≠ bolsas × tarifa": [],
+  "factura de exportación (0200): ICBPER de cabecera ≠ suma de líneas": [],
+  "factura de exportación (0200): IVAP con tasa del 18 %": [],
+  "factura de exportación (0200): IVAP de cabecera alterado": [],
+  "factura de exportación (0200): exportación con IGV": [
+    "2642 @ ValidaExprRegFactura-2.0.1.xsl:L3050"
+  ],
+  "factura de exportación (0200): exportación a cliente con RUC": [
+    "2017 @ ValidaExprRegFactura-2.0.1.xsl:L1210"
+  ],
+  "factura de exportación (0200): tipo de operación 0101 en una exportación": [
+    "2800 @ ValidaExprRegFactura-2.0.1.xsl:L1267"
+  ],
+  "factura de exportación (0200): descuento de ítem con código fuera de catálogo": [],
+  "factura de exportación (0200): descuento de ítem ≠ factor × base": [],
+  "factura de exportación (0200): descuento de ítem sin base": [],
+  "factura de exportación (0200): descuento de ítem marcado como cargo": [],
+  "factura de exportación (0200): descuento global 02 alterado": [],
+  "factura de exportación (0200): AllowanceTotalAmount ≠ descuentos 03": [],
+  "factura de exportación (0200): ChargeTotalAmount ≠ cargos 50": [],
+  "factura de exportación (0200): detracción sin cuenta del Banco de la Nación": [],
+  "factura de exportación (0200): detracción con bien fuera del catálogo 54": [],
+  "factura de exportación (0200): detracción sin monto": [],
+  "factura de exportación (0200): detracción con monto en dólares": [],
+  "factura de exportación (0200): detracción con medio de pago fuera del catálogo 59": [],
+  "factura de exportación (0200): percepción sin cargo 51": [],
+  "factura de exportación (0200): percepción con tasa alterada": [],
+  "factura de exportación (0200): percepción con monto total alterado": [],
+  "factura de exportación (0200): anticipo con PrepaidAmount ≠ pagos": [],
+  "factura de exportación (0200): anticipo sin documento relacionado": [],
+  "factura de exportación (0200): anticipo con identificador de pago duplicado": [],
+  "factura de exportación (0200): descuento por anticipo 04 alterado": [],
+  "factura de exportación (0200): forma de pago fuera de formato": [
+    "3246 @ ValidaExprRegFactura-2.0.1.xsl:L5587"
+  ],
+  "factura de exportación (0200): crédito sin monto pendiente": [],
+  "factura de exportación (0200): cuota sin fecha de pago": [],
+  "factura de exportación (0200): cuota con monto 0": [],
+  "factura de exportación (0200): cuota duplicada": [],
+  "factura de exportación (0200): tasa del 10 % mezclada con 18 %": [],
+  "factura de exportación (0200): RUC del nombre ≠ RUC del emisor": [
+    "1034 @ ValidaExprRegFactura-2.0.1.xsl:L48"
+  ],
+  "factura de exportación (0200): serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegFactura-2.0.1.xsl:L54"
+  ],
+  "factura de exportación (0200): número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegFactura-2.0.1.xsl:L60"
+  ],
+  "factura de exportación (0200): UBLVersionID 2.0": [
+    "2074 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura de exportación (0200): sin UBLVersionID": [
+    "2075 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura de exportación (0200): CustomizationID 1.0": [
+    "2072 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura de exportación (0200): sin CustomizationID": [
+    "2073 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura de exportación (0200): InvoiceTypeCode distinto": [
+    "1003 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura de exportación (0200): sin InvoiceTypeCode": [
+    "1004 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura de exportación (0200): sin moneda": [
+    "2070 @ ValidaExprRegFactura-2.0.1.xsl:L135"
+  ],
+  "factura de exportación (0200): moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegFactura-2.0.1.xsl:L139"
+  ],
+  "factura de exportación (0200): currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegFactura-2.0.1.xsl:L146"
+  ],
+  "factura de exportación (0200): schemeID del emisor ≠ 6": [
+    "1007 @ ValidaExprRegFactura-2.0.1.xsl:L746"
+  ],
+  "factura de exportación (0200): sin razón social del emisor": [
+    "1037 @ ValidaExprRegFactura-2.0.1.xsl:L789"
+  ],
+  "factura de exportación (0200): RUC del cliente con 10 dígitos": [],
+  "factura de exportación (0200): nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura de exportación (0200): sin nombre del cliente": [
+    "2021 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura de exportación (0200): factura a cliente con DNI": [],
+  "factura de exportación (0200): DNI del cliente con 7 dígitos": [
+    "2801 @ ValidaExprRegFactura-2.0.1.xsl:L1218"
+  ],
+  "factura de exportación (0200): número de línea 0": [
+    "2023 @ ValidaExprRegFactura-2.0.1.xsl:L1508"
+  ],
+  "factura de exportación (0200): número de línea duplicado": [],
+  "factura de exportación (0200): sin unitCode": [
+    "2883 @ ValidaExprRegFactura-2.0.1.xsl:L1526"
+  ],
+  "factura de exportación (0200): cantidad 0": [
+    "2024 @ ValidaExprRegFactura-2.0.1.xsl:L1556"
+  ],
+  "factura de exportación (0200): cantidad no numérica": [
+    "2025 @ ValidaExprRegFactura-2.0.1.xsl:L1549"
+  ],
+  "factura de exportación (0200): sin descripción del ítem": [
+    "2026 @ ValidaExprRegFactura-2.0.1.xsl:L1693"
+  ],
+  "factura de exportación (0200): valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura de exportación (0200): sin valor unitario": [
+    "2068 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura de exportación (0200): sin precio de referencia": [
+    "2028 @ ValidaExprRegFactura-2.0.1.xsl:L1885"
+  ],
+  "factura de exportación (0200): línea sin TaxTotal": [
+    "3195 @ ValidaExprRegFactura-2.0.1.xsl:L1961"
+  ],
+  "factura de exportación (0200): IGV de línea alterado": [
+    "3110 @ ValidaExprRegFactura-2.0.1.xsl:L2954"
+  ],
+  "factura de exportación (0200): IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegFactura-2.0.1.xsl:L2946"
+  ],
+  "factura de exportación (0200): sin afectación del IGV": [
+    "2371 @ ValidaExprRegFactura-2.0.1.xsl:L3031"
+  ],
+  "factura de exportación (0200): sin Percent": [
+    "2992 @ ValidaExprRegFactura-2.0.1.xsl:L3101"
+  ],
+  "factura de exportación (0200): Percent 15 en línea gravada": [],
+  "factura de exportación (0200): sin código de tributo en línea": [
+    "2037 @ ValidaExprRegFactura-2.0.1.xsl:L2925"
+  ],
+  "factura de exportación (0200): tributo de línea fuera del catálogo 05": [
+    "2036 @ ValidaExprRegFactura-2.0.1.xsl:L2930"
+  ],
+  "factura de exportación (0200): valor de venta de línea con 3 decimales": [
+    "2370 @ ValidaExprRegFactura-2.0.1.xsl:L1983"
+  ],
+  "factura de exportación (0200): TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegFactura-2.0.1.xsl:L3173"
+  ],
+  "factura de exportación (0200): sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegFactura-2.0.1.xsl:L276"
+  ],
+  "factura de exportación (0200): TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegFactura-2.0.1.xsl:L4645"
+  ],
+  "factura de exportación (0200): base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegFactura-2.0.1.xsl:L4559"
+  ],
+  "factura de exportación (0200): tributo de cabecera fuera del catálogo": [
+    "3007 @ ValidaExprRegFactura-2.0.1.xsl:L4587"
+  ],
+  "factura de exportación (0200): suma del IGV de cabecera alterada": [],
+  "factura de exportación (0200): TaxInclusiveAmount alterado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura de exportación (0200): LineExtensionAmount total desfasado": [
+    "4309 @ ValidaExprRegFactura-2.0.1.xsl:L500",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura de exportación (0200): PayableAmount desfasado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494"
+  ],
+  "factura de exportación (0200): PayableAmount con formato inválido": [
+    "2062 @ ValidaExprRegFactura-2.0.1.xsl:L239"
+  ],
+  "factura de exportación (0200): desfase dentro de la tolerancia (±1)": [],
+  "factura con IVAP (17): sin leyenda 1002 de gratuitas": [],
+  "factura con IVAP (17): sin leyenda 2007 de IVAP": [
+    "4264 @ ValidaExprRegFactura-2.0.1.xsl:L577"
+  ],
+  "factura con IVAP (17): sin leyenda 2006 de detracción": [],
+  "factura con IVAP (17): gratuita con tipo de precio 01": [],
+  "factura con IVAP (17): gratuita con precio unitario > 0 en cac:Price": [],
+  "factura con IVAP (17): IGV gratuito de cabecera alterado": [],
+  "factura con IVAP (17): base gratuita de cabecera alterada": [],
+  "factura con IVAP (17): retiro gravado con tasa 0": [],
+  "factura con IVAP (17): ISC de línea alterado": [],
+  "factura con IVAP (17): ISC con sistema fuera del catálogo 08": [],
+  "factura con IVAP (17): ISC sin sistema de cálculo": [],
+  "factura con IVAP (17): ISC con tasa 0": [],
+  "factura con IVAP (17): ISC de cabecera alterado": [],
+  "factura con IVAP (17): ICBPER con tarifa 0": [],
+  "factura con IVAP (17): ICBPER sin cantidad de bolsas": [],
+  "factura con IVAP (17): ICBPER con unidad distinta de NIU": [],
+  "factura con IVAP (17): ICBPER de línea ≠ bolsas × tarifa": [],
+  "factura con IVAP (17): ICBPER de cabecera ≠ suma de líneas": [],
+  "factura con IVAP (17): IVAP con tasa del 18 %": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con IVAP (17): IVAP de cabecera alterado": [
+    "4301 @ ValidaExprRegFactura-2.0.1.xsl:L4802",
+    "4302 @ ValidaExprRegFactura-2.0.1.xsl:L475"
+  ],
+  "factura con IVAP (17): exportación con IGV": [],
+  "factura con IVAP (17): exportación a cliente con RUC": [],
+  "factura con IVAP (17): tipo de operación 0101 en una exportación": [],
+  "factura con IVAP (17): descuento de ítem con código fuera de catálogo": [],
+  "factura con IVAP (17): descuento de ítem ≠ factor × base": [],
+  "factura con IVAP (17): descuento de ítem sin base": [],
+  "factura con IVAP (17): descuento de ítem marcado como cargo": [],
+  "factura con IVAP (17): descuento global 02 alterado": [],
+  "factura con IVAP (17): AllowanceTotalAmount ≠ descuentos 03": [],
+  "factura con IVAP (17): ChargeTotalAmount ≠ cargos 50": [],
+  "factura con IVAP (17): detracción sin cuenta del Banco de la Nación": [],
+  "factura con IVAP (17): detracción con bien fuera del catálogo 54": [],
+  "factura con IVAP (17): detracción sin monto": [],
+  "factura con IVAP (17): detracción con monto en dólares": [],
+  "factura con IVAP (17): detracción con medio de pago fuera del catálogo 59": [],
+  "factura con IVAP (17): percepción sin cargo 51": [],
+  "factura con IVAP (17): percepción con tasa alterada": [],
+  "factura con IVAP (17): percepción con monto total alterado": [],
+  "factura con IVAP (17): anticipo con PrepaidAmount ≠ pagos": [],
+  "factura con IVAP (17): anticipo sin documento relacionado": [],
+  "factura con IVAP (17): anticipo con identificador de pago duplicado": [],
+  "factura con IVAP (17): descuento por anticipo 04 alterado": [],
+  "factura con IVAP (17): forma de pago fuera de formato": [
+    "3246 @ ValidaExprRegFactura-2.0.1.xsl:L5587"
+  ],
+  "factura con IVAP (17): crédito sin monto pendiente": [],
+  "factura con IVAP (17): cuota sin fecha de pago": [],
+  "factura con IVAP (17): cuota con monto 0": [],
+  "factura con IVAP (17): cuota duplicada": [],
+  "factura con IVAP (17): tasa del 10 % mezclada con 18 %": [],
+  "factura con IVAP (17): RUC del nombre ≠ RUC del emisor": [
+    "1034 @ ValidaExprRegFactura-2.0.1.xsl:L48"
+  ],
+  "factura con IVAP (17): serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegFactura-2.0.1.xsl:L54"
+  ],
+  "factura con IVAP (17): número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegFactura-2.0.1.xsl:L60"
+  ],
+  "factura con IVAP (17): UBLVersionID 2.0": [
+    "2074 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con IVAP (17): sin UBLVersionID": [
+    "2075 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con IVAP (17): CustomizationID 1.0": [
+    "2072 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con IVAP (17): sin CustomizationID": [
+    "2073 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con IVAP (17): InvoiceTypeCode distinto": [
+    "1003 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con IVAP (17): sin InvoiceTypeCode": [
+    "1004 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con IVAP (17): sin moneda": [
+    "2070 @ ValidaExprRegFactura-2.0.1.xsl:L135"
+  ],
+  "factura con IVAP (17): moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegFactura-2.0.1.xsl:L139"
+  ],
+  "factura con IVAP (17): currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegFactura-2.0.1.xsl:L146"
+  ],
+  "factura con IVAP (17): schemeID del emisor ≠ 6": [
+    "1007 @ ValidaExprRegFactura-2.0.1.xsl:L746"
+  ],
+  "factura con IVAP (17): sin razón social del emisor": [
+    "1037 @ ValidaExprRegFactura-2.0.1.xsl:L789"
+  ],
+  "factura con IVAP (17): RUC del cliente con 10 dígitos": [
+    "2017 @ ValidaExprRegFactura-2.0.1.xsl:L1210"
+  ],
+  "factura con IVAP (17): nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con IVAP (17): sin nombre del cliente": [
+    "2021 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con IVAP (17): factura a cliente con DNI": [
+    "2800 @ ValidaExprRegFactura-2.0.1.xsl:L1267"
+  ],
+  "factura con IVAP (17): DNI del cliente con 7 dígitos": [
+    "2801 @ ValidaExprRegFactura-2.0.1.xsl:L1218"
+  ],
+  "factura con IVAP (17): número de línea 0": [
+    "2023 @ ValidaExprRegFactura-2.0.1.xsl:L1508"
+  ],
+  "factura con IVAP (17): número de línea duplicado": [],
+  "factura con IVAP (17): sin unitCode": [
+    "2883 @ ValidaExprRegFactura-2.0.1.xsl:L1526"
+  ],
+  "factura con IVAP (17): cantidad 0": [
+    "2024 @ ValidaExprRegFactura-2.0.1.xsl:L1556"
+  ],
+  "factura con IVAP (17): cantidad no numérica": [
+    "2025 @ ValidaExprRegFactura-2.0.1.xsl:L1549"
+  ],
+  "factura con IVAP (17): sin descripción del ítem": [
+    "2026 @ ValidaExprRegFactura-2.0.1.xsl:L1693"
+  ],
+  "factura con IVAP (17): valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con IVAP (17): sin valor unitario": [
+    "2068 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con IVAP (17): sin precio de referencia": [
+    "2028 @ ValidaExprRegFactura-2.0.1.xsl:L1885"
+  ],
+  "factura con IVAP (17): línea sin TaxTotal": [
+    "3195 @ ValidaExprRegFactura-2.0.1.xsl:L1961"
+  ],
+  "factura con IVAP (17): IGV de línea alterado": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con IVAP (17): IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegFactura-2.0.1.xsl:L2946"
+  ],
+  "factura con IVAP (17): sin afectación del IGV": [
+    "2371 @ ValidaExprRegFactura-2.0.1.xsl:L3031"
+  ],
+  "factura con IVAP (17): sin Percent": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con IVAP (17): Percent 15 en línea gravada": [],
+  "factura con IVAP (17): sin código de tributo en línea": [
+    "2037 @ ValidaExprRegFactura-2.0.1.xsl:L2925"
+  ],
+  "factura con IVAP (17): tributo de línea fuera del catálogo 05": [
+    "2036 @ ValidaExprRegFactura-2.0.1.xsl:L2930"
+  ],
+  "factura con IVAP (17): valor de venta de línea con 3 decimales": [
+    "4294 @ ValidaExprRegFactura-2.0.1.xsl:L3227",
+    "2370 @ ValidaExprRegFactura-2.0.1.xsl:L1983"
+  ],
+  "factura con IVAP (17): TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegFactura-2.0.1.xsl:L3173"
+  ],
+  "factura con IVAP (17): sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegFactura-2.0.1.xsl:L276"
+  ],
+  "factura con IVAP (17): TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegFactura-2.0.1.xsl:L4645"
+  ],
+  "factura con IVAP (17): base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegFactura-2.0.1.xsl:L4559"
+  ],
+  "factura con IVAP (17): tributo de cabecera fuera del catálogo": [
+    "3007 @ ValidaExprRegFactura-2.0.1.xsl:L4587"
+  ],
+  "factura con IVAP (17): suma del IGV de cabecera alterada": [],
+  "factura con IVAP (17): TaxInclusiveAmount alterado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L543"
+  ],
+  "factura con IVAP (17): LineExtensionAmount total desfasado": [
+    "4309 @ ValidaExprRegFactura-2.0.1.xsl:L500",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L543"
+  ],
+  "factura con IVAP (17): PayableAmount desfasado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494"
+  ],
+  "factura con IVAP (17): PayableAmount con formato inválido": [
+    "2062 @ ValidaExprRegFactura-2.0.1.xsl:L239"
+  ],
+  "factura con IVAP (17): desfase dentro de la tolerancia (±1)": [],
+  "factura con descuento por ítem (00): sin leyenda 1002 de gratuitas": [],
+  "factura con descuento por ítem (00): sin leyenda 2007 de IVAP": [],
+  "factura con descuento por ítem (00): sin leyenda 2006 de detracción": [],
+  "factura con descuento por ítem (00): gratuita con tipo de precio 01": [],
+  "factura con descuento por ítem (00): gratuita con precio unitario > 0 en cac:Price": [],
+  "factura con descuento por ítem (00): IGV gratuito de cabecera alterado": [],
+  "factura con descuento por ítem (00): base gratuita de cabecera alterada": [],
+  "factura con descuento por ítem (00): retiro gravado con tasa 0": [],
+  "factura con descuento por ítem (00): ISC de línea alterado": [],
+  "factura con descuento por ítem (00): ISC con sistema fuera del catálogo 08": [],
+  "factura con descuento por ítem (00): ISC sin sistema de cálculo": [],
+  "factura con descuento por ítem (00): ISC con tasa 0": [],
+  "factura con descuento por ítem (00): ISC de cabecera alterado": [],
+  "factura con descuento por ítem (00): ICBPER con tarifa 0": [],
+  "factura con descuento por ítem (00): ICBPER sin cantidad de bolsas": [],
+  "factura con descuento por ítem (00): ICBPER con unidad distinta de NIU": [],
+  "factura con descuento por ítem (00): ICBPER de línea ≠ bolsas × tarifa": [],
+  "factura con descuento por ítem (00): ICBPER de cabecera ≠ suma de líneas": [],
+  "factura con descuento por ítem (00): IVAP con tasa del 18 %": [],
+  "factura con descuento por ítem (00): IVAP de cabecera alterado": [],
+  "factura con descuento por ítem (00): exportación con IGV": [],
+  "factura con descuento por ítem (00): exportación a cliente con RUC": [],
+  "factura con descuento por ítem (00): tipo de operación 0101 en una exportación": [],
+  "factura con descuento por ítem (00): descuento de ítem con código fuera de catálogo": [
+    "2954 @ ValidaExprRegFactura-2.0.1.xsl:L3281"
+  ],
+  "factura con descuento por ítem (00): descuento de ítem ≠ factor × base": [
+    "4289 @ ValidaExprRegFactura-2.0.1.xsl:L3330",
+    "4288 @ ValidaExprRegFactura-2.0.1.xsl:L2026",
+    "4289 @ ValidaExprRegFactura-2.0.1.xsl:L3330",
+    "4288 @ ValidaExprRegFactura-2.0.1.xsl:L2026"
+  ],
+  "factura con descuento por ítem (00): descuento de ítem sin base": [
+    "4289 @ ValidaExprRegFactura-2.0.1.xsl:L3330",
+    "4289 @ ValidaExprRegFactura-2.0.1.xsl:L3330"
+  ],
+  "factura con descuento por ítem (00): descuento de ítem marcado como cargo": [
+    "3114 @ ValidaExprRegFactura-2.0.1.xsl:L3267"
+  ],
+  "factura con descuento por ítem (00): descuento global 02 alterado": [],
+  "factura con descuento por ítem (00): AllowanceTotalAmount ≠ descuentos 03": [],
+  "factura con descuento por ítem (00): ChargeTotalAmount ≠ cargos 50": [],
+  "factura con descuento por ítem (00): detracción sin cuenta del Banco de la Nación": [],
+  "factura con descuento por ítem (00): detracción con bien fuera del catálogo 54": [],
+  "factura con descuento por ítem (00): detracción sin monto": [],
+  "factura con descuento por ítem (00): detracción con monto en dólares": [],
+  "factura con descuento por ítem (00): detracción con medio de pago fuera del catálogo 59": [],
+  "factura con descuento por ítem (00): percepción sin cargo 51": [],
+  "factura con descuento por ítem (00): percepción con tasa alterada": [],
+  "factura con descuento por ítem (00): percepción con monto total alterado": [],
+  "factura con descuento por ítem (00): anticipo con PrepaidAmount ≠ pagos": [],
+  "factura con descuento por ítem (00): anticipo sin documento relacionado": [],
+  "factura con descuento por ítem (00): anticipo con identificador de pago duplicado": [],
+  "factura con descuento por ítem (00): descuento por anticipo 04 alterado": [],
+  "factura con descuento por ítem (00): forma de pago fuera de formato": [
+    "3246 @ ValidaExprRegFactura-2.0.1.xsl:L5587"
+  ],
+  "factura con descuento por ítem (00): crédito sin monto pendiente": [],
+  "factura con descuento por ítem (00): cuota sin fecha de pago": [],
+  "factura con descuento por ítem (00): cuota con monto 0": [],
+  "factura con descuento por ítem (00): cuota duplicada": [],
+  "factura con descuento por ítem (00): tasa del 10 % mezclada con 18 %": [],
+  "factura con descuento por ítem (00): RUC del nombre ≠ RUC del emisor": [
+    "1034 @ ValidaExprRegFactura-2.0.1.xsl:L48"
+  ],
+  "factura con descuento por ítem (00): serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegFactura-2.0.1.xsl:L54"
+  ],
+  "factura con descuento por ítem (00): número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegFactura-2.0.1.xsl:L60"
+  ],
+  "factura con descuento por ítem (00): UBLVersionID 2.0": [
+    "2074 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con descuento por ítem (00): sin UBLVersionID": [
+    "2075 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con descuento por ítem (00): CustomizationID 1.0": [
+    "2072 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con descuento por ítem (00): sin CustomizationID": [
+    "2073 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con descuento por ítem (00): InvoiceTypeCode distinto": [
+    "1003 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con descuento por ítem (00): sin InvoiceTypeCode": [
+    "1004 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con descuento por ítem (00): sin moneda": [
+    "2070 @ ValidaExprRegFactura-2.0.1.xsl:L135"
+  ],
+  "factura con descuento por ítem (00): moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegFactura-2.0.1.xsl:L139"
+  ],
+  "factura con descuento por ítem (00): currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegFactura-2.0.1.xsl:L146"
+  ],
+  "factura con descuento por ítem (00): schemeID del emisor ≠ 6": [
+    "1007 @ ValidaExprRegFactura-2.0.1.xsl:L746"
+  ],
+  "factura con descuento por ítem (00): sin razón social del emisor": [
+    "1037 @ ValidaExprRegFactura-2.0.1.xsl:L789"
+  ],
+  "factura con descuento por ítem (00): RUC del cliente con 10 dígitos": [
+    "2017 @ ValidaExprRegFactura-2.0.1.xsl:L1210"
+  ],
+  "factura con descuento por ítem (00): nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con descuento por ítem (00): sin nombre del cliente": [
+    "2021 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con descuento por ítem (00): factura a cliente con DNI": [
+    "2800 @ ValidaExprRegFactura-2.0.1.xsl:L1267"
+  ],
+  "factura con descuento por ítem (00): DNI del cliente con 7 dígitos": [
+    "2801 @ ValidaExprRegFactura-2.0.1.xsl:L1218"
+  ],
+  "factura con descuento por ítem (00): número de línea 0": [
+    "2023 @ ValidaExprRegFactura-2.0.1.xsl:L1508"
+  ],
+  "factura con descuento por ítem (00): número de línea duplicado": [
+    "2752 @ ValidaExprRegFactura-2.0.1.xsl:L1517"
+  ],
+  "factura con descuento por ítem (00): sin unitCode": [
+    "2883 @ ValidaExprRegFactura-2.0.1.xsl:L1526"
+  ],
+  "factura con descuento por ítem (00): cantidad 0": [
+    "2024 @ ValidaExprRegFactura-2.0.1.xsl:L1556"
+  ],
+  "factura con descuento por ítem (00): cantidad no numérica": [
+    "2025 @ ValidaExprRegFactura-2.0.1.xsl:L1549"
+  ],
+  "factura con descuento por ítem (00): sin descripción del ítem": [
+    "2026 @ ValidaExprRegFactura-2.0.1.xsl:L1693"
+  ],
+  "factura con descuento por ítem (00): valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con descuento por ítem (00): sin valor unitario": [
+    "2068 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con descuento por ítem (00): sin precio de referencia": [
+    "2028 @ ValidaExprRegFactura-2.0.1.xsl:L1885"
+  ],
+  "factura con descuento por ítem (00): línea sin TaxTotal": [
+    "3195 @ ValidaExprRegFactura-2.0.1.xsl:L1961"
+  ],
+  "factura con descuento por ítem (00): IGV de línea alterado": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con descuento por ítem (00): IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegFactura-2.0.1.xsl:L2946"
+  ],
+  "factura con descuento por ítem (00): sin afectación del IGV": [
+    "2371 @ ValidaExprRegFactura-2.0.1.xsl:L3031"
+  ],
+  "factura con descuento por ítem (00): sin Percent": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con descuento por ítem (00): Percent 15 en línea gravada": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con descuento por ítem (00): sin código de tributo en línea": [
+    "2037 @ ValidaExprRegFactura-2.0.1.xsl:L2925"
+  ],
+  "factura con descuento por ítem (00): tributo de línea fuera del catálogo 05": [
+    "2036 @ ValidaExprRegFactura-2.0.1.xsl:L2930"
+  ],
+  "factura con descuento por ítem (00): valor de venta de línea con 3 decimales": [
+    "4294 @ ValidaExprRegFactura-2.0.1.xsl:L3227",
+    "2370 @ ValidaExprRegFactura-2.0.1.xsl:L1983"
+  ],
+  "factura con descuento por ítem (00): TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegFactura-2.0.1.xsl:L3173"
+  ],
+  "factura con descuento por ítem (00): sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegFactura-2.0.1.xsl:L276"
+  ],
+  "factura con descuento por ítem (00): TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegFactura-2.0.1.xsl:L4645"
+  ],
+  "factura con descuento por ítem (00): base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegFactura-2.0.1.xsl:L4559"
+  ],
+  "factura con descuento por ítem (00): tributo de cabecera fuera del catálogo": [
+    "3007 @ ValidaExprRegFactura-2.0.1.xsl:L4587"
+  ],
+  "factura con descuento por ítem (00): suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegFactura-2.0.1.xsl:L4802",
+    "3291 @ ValidaExprRegFactura-2.0.1.xsl:L462"
+  ],
+  "factura con descuento por ítem (00): TaxInclusiveAmount alterado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con descuento por ítem (00): LineExtensionAmount total desfasado": [
+    "4309 @ ValidaExprRegFactura-2.0.1.xsl:L500",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con descuento por ítem (00): PayableAmount desfasado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494"
+  ],
+  "factura con descuento por ítem (00): PayableAmount con formato inválido": [
+    "2062 @ ValidaExprRegFactura-2.0.1.xsl:L239"
+  ],
+  "factura con descuento por ítem (00): desfase dentro de la tolerancia (±1)": [],
+  "factura con descuento global que afecta la base (02): sin leyenda 1002 de gratuitas": [],
+  "factura con descuento global que afecta la base (02): sin leyenda 2007 de IVAP": [],
+  "factura con descuento global que afecta la base (02): sin leyenda 2006 de detracción": [],
+  "factura con descuento global que afecta la base (02): gratuita con tipo de precio 01": [],
+  "factura con descuento global que afecta la base (02): gratuita con precio unitario > 0 en cac:Price": [],
+  "factura con descuento global que afecta la base (02): IGV gratuito de cabecera alterado": [],
+  "factura con descuento global que afecta la base (02): base gratuita de cabecera alterada": [],
+  "factura con descuento global que afecta la base (02): retiro gravado con tasa 0": [],
+  "factura con descuento global que afecta la base (02): ISC de línea alterado": [],
+  "factura con descuento global que afecta la base (02): ISC con sistema fuera del catálogo 08": [],
+  "factura con descuento global que afecta la base (02): ISC sin sistema de cálculo": [],
+  "factura con descuento global que afecta la base (02): ISC con tasa 0": [],
+  "factura con descuento global que afecta la base (02): ISC de cabecera alterado": [],
+  "factura con descuento global que afecta la base (02): ICBPER con tarifa 0": [],
+  "factura con descuento global que afecta la base (02): ICBPER sin cantidad de bolsas": [],
+  "factura con descuento global que afecta la base (02): ICBPER con unidad distinta de NIU": [],
+  "factura con descuento global que afecta la base (02): ICBPER de línea ≠ bolsas × tarifa": [],
+  "factura con descuento global que afecta la base (02): ICBPER de cabecera ≠ suma de líneas": [],
+  "factura con descuento global que afecta la base (02): IVAP con tasa del 18 %": [],
+  "factura con descuento global que afecta la base (02): IVAP de cabecera alterado": [],
+  "factura con descuento global que afecta la base (02): exportación con IGV": [],
+  "factura con descuento global que afecta la base (02): exportación a cliente con RUC": [],
+  "factura con descuento global que afecta la base (02): tipo de operación 0101 en una exportación": [],
+  "factura con descuento global que afecta la base (02): descuento de ítem con código fuera de catálogo": [],
+  "factura con descuento global que afecta la base (02): descuento de ítem ≠ factor × base": [],
+  "factura con descuento global que afecta la base (02): descuento de ítem sin base": [],
+  "factura con descuento global que afecta la base (02): descuento de ítem marcado como cargo": [],
+  "factura con descuento global que afecta la base (02): descuento global 02 alterado": [
+    "4299 @ ValidaExprRegFactura-2.0.1.xsl:L4776",
+    "4322 @ ValidaExprRegFactura-2.0.1.xsl:L4957",
+    "3291 @ ValidaExprRegFactura-2.0.1.xsl:L462"
+  ],
+  "factura con descuento global que afecta la base (02): AllowanceTotalAmount ≠ descuentos 03": [],
+  "factura con descuento global que afecta la base (02): ChargeTotalAmount ≠ cargos 50": [],
+  "factura con descuento global que afecta la base (02): detracción sin cuenta del Banco de la Nación": [],
+  "factura con descuento global que afecta la base (02): detracción con bien fuera del catálogo 54": [],
+  "factura con descuento global que afecta la base (02): detracción sin monto": [],
+  "factura con descuento global que afecta la base (02): detracción con monto en dólares": [],
+  "factura con descuento global que afecta la base (02): detracción con medio de pago fuera del catálogo 59": [],
+  "factura con descuento global que afecta la base (02): percepción sin cargo 51": [],
+  "factura con descuento global que afecta la base (02): percepción con tasa alterada": [],
+  "factura con descuento global que afecta la base (02): percepción con monto total alterado": [],
+  "factura con descuento global que afecta la base (02): anticipo con PrepaidAmount ≠ pagos": [],
+  "factura con descuento global que afecta la base (02): anticipo sin documento relacionado": [],
+  "factura con descuento global que afecta la base (02): anticipo con identificador de pago duplicado": [],
+  "factura con descuento global que afecta la base (02): descuento por anticipo 04 alterado": [],
+  "factura con descuento global que afecta la base (02): forma de pago fuera de formato": [
+    "3246 @ ValidaExprRegFactura-2.0.1.xsl:L5587"
+  ],
+  "factura con descuento global que afecta la base (02): crédito sin monto pendiente": [],
+  "factura con descuento global que afecta la base (02): cuota sin fecha de pago": [],
+  "factura con descuento global que afecta la base (02): cuota con monto 0": [],
+  "factura con descuento global que afecta la base (02): cuota duplicada": [],
+  "factura con descuento global que afecta la base (02): tasa del 10 % mezclada con 18 %": [],
+  "factura con descuento global que afecta la base (02): RUC del nombre ≠ RUC del emisor": [
+    "1034 @ ValidaExprRegFactura-2.0.1.xsl:L48"
+  ],
+  "factura con descuento global que afecta la base (02): serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegFactura-2.0.1.xsl:L54"
+  ],
+  "factura con descuento global que afecta la base (02): número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegFactura-2.0.1.xsl:L60"
+  ],
+  "factura con descuento global que afecta la base (02): UBLVersionID 2.0": [
+    "2074 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con descuento global que afecta la base (02): sin UBLVersionID": [
+    "2075 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con descuento global que afecta la base (02): CustomizationID 1.0": [
+    "2072 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con descuento global que afecta la base (02): sin CustomizationID": [
+    "2073 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con descuento global que afecta la base (02): InvoiceTypeCode distinto": [
+    "1003 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con descuento global que afecta la base (02): sin InvoiceTypeCode": [
+    "1004 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con descuento global que afecta la base (02): sin moneda": [
+    "2070 @ ValidaExprRegFactura-2.0.1.xsl:L135"
+  ],
+  "factura con descuento global que afecta la base (02): moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegFactura-2.0.1.xsl:L139"
+  ],
+  "factura con descuento global que afecta la base (02): currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegFactura-2.0.1.xsl:L146"
+  ],
+  "factura con descuento global que afecta la base (02): schemeID del emisor ≠ 6": [
+    "1007 @ ValidaExprRegFactura-2.0.1.xsl:L746"
+  ],
+  "factura con descuento global que afecta la base (02): sin razón social del emisor": [
+    "1037 @ ValidaExprRegFactura-2.0.1.xsl:L789"
+  ],
+  "factura con descuento global que afecta la base (02): RUC del cliente con 10 dígitos": [
+    "2017 @ ValidaExprRegFactura-2.0.1.xsl:L1210"
+  ],
+  "factura con descuento global que afecta la base (02): nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con descuento global que afecta la base (02): sin nombre del cliente": [
+    "2021 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con descuento global que afecta la base (02): factura a cliente con DNI": [
+    "2800 @ ValidaExprRegFactura-2.0.1.xsl:L1267"
+  ],
+  "factura con descuento global que afecta la base (02): DNI del cliente con 7 dígitos": [
+    "2801 @ ValidaExprRegFactura-2.0.1.xsl:L1218"
+  ],
+  "factura con descuento global que afecta la base (02): número de línea 0": [
+    "2023 @ ValidaExprRegFactura-2.0.1.xsl:L1508"
+  ],
+  "factura con descuento global que afecta la base (02): número de línea duplicado": [],
+  "factura con descuento global que afecta la base (02): sin unitCode": [
+    "2883 @ ValidaExprRegFactura-2.0.1.xsl:L1526"
+  ],
+  "factura con descuento global que afecta la base (02): cantidad 0": [
+    "2024 @ ValidaExprRegFactura-2.0.1.xsl:L1556"
+  ],
+  "factura con descuento global que afecta la base (02): cantidad no numérica": [
+    "2025 @ ValidaExprRegFactura-2.0.1.xsl:L1549"
+  ],
+  "factura con descuento global que afecta la base (02): sin descripción del ítem": [
+    "2026 @ ValidaExprRegFactura-2.0.1.xsl:L1693"
+  ],
+  "factura con descuento global que afecta la base (02): valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con descuento global que afecta la base (02): sin valor unitario": [
+    "2068 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con descuento global que afecta la base (02): sin precio de referencia": [
+    "2028 @ ValidaExprRegFactura-2.0.1.xsl:L1885"
+  ],
+  "factura con descuento global que afecta la base (02): línea sin TaxTotal": [
+    "3195 @ ValidaExprRegFactura-2.0.1.xsl:L1961"
+  ],
+  "factura con descuento global que afecta la base (02): IGV de línea alterado": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con descuento global que afecta la base (02): IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegFactura-2.0.1.xsl:L2946"
+  ],
+  "factura con descuento global que afecta la base (02): sin afectación del IGV": [
+    "2371 @ ValidaExprRegFactura-2.0.1.xsl:L3031"
+  ],
+  "factura con descuento global que afecta la base (02): sin Percent": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con descuento global que afecta la base (02): Percent 15 en línea gravada": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con descuento global que afecta la base (02): sin código de tributo en línea": [
+    "2037 @ ValidaExprRegFactura-2.0.1.xsl:L2925"
+  ],
+  "factura con descuento global que afecta la base (02): tributo de línea fuera del catálogo 05": [
+    "2036 @ ValidaExprRegFactura-2.0.1.xsl:L2930"
+  ],
+  "factura con descuento global que afecta la base (02): valor de venta de línea con 3 decimales": [
+    "4294 @ ValidaExprRegFactura-2.0.1.xsl:L3227",
+    "2370 @ ValidaExprRegFactura-2.0.1.xsl:L1983"
+  ],
+  "factura con descuento global que afecta la base (02): TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegFactura-2.0.1.xsl:L3173"
+  ],
+  "factura con descuento global que afecta la base (02): sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegFactura-2.0.1.xsl:L276"
+  ],
+  "factura con descuento global que afecta la base (02): TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegFactura-2.0.1.xsl:L4645"
+  ],
+  "factura con descuento global que afecta la base (02): base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegFactura-2.0.1.xsl:L4559"
+  ],
+  "factura con descuento global que afecta la base (02): tributo de cabecera fuera del catálogo": [
+    "3007 @ ValidaExprRegFactura-2.0.1.xsl:L4587"
+  ],
+  "factura con descuento global que afecta la base (02): suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegFactura-2.0.1.xsl:L4802",
+    "3291 @ ValidaExprRegFactura-2.0.1.xsl:L462"
+  ],
+  "factura con descuento global que afecta la base (02): TaxInclusiveAmount alterado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con descuento global que afecta la base (02): LineExtensionAmount total desfasado": [
+    "4309 @ ValidaExprRegFactura-2.0.1.xsl:L500",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con descuento global que afecta la base (02): PayableAmount desfasado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494"
+  ],
+  "factura con descuento global que afecta la base (02): PayableAmount con formato inválido": [
+    "2062 @ ValidaExprRegFactura-2.0.1.xsl:L239"
+  ],
+  "factura con descuento global que afecta la base (02): desfase dentro de la tolerancia (±1)": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): sin leyenda 1002 de gratuitas": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): sin leyenda 2007 de IVAP": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): sin leyenda 2006 de detracción": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): gratuita con tipo de precio 01": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): gratuita con precio unitario > 0 en cac:Price": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): IGV gratuito de cabecera alterado": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): base gratuita de cabecera alterada": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): retiro gravado con tasa 0": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): ISC de línea alterado": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): ISC con sistema fuera del catálogo 08": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): ISC sin sistema de cálculo": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): ISC con tasa 0": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): ISC de cabecera alterado": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): ICBPER con tarifa 0": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): ICBPER sin cantidad de bolsas": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): ICBPER con unidad distinta de NIU": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): ICBPER de línea ≠ bolsas × tarifa": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): ICBPER de cabecera ≠ suma de líneas": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): IVAP con tasa del 18 %": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): IVAP de cabecera alterado": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): exportación con IGV": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): exportación a cliente con RUC": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): tipo de operación 0101 en una exportación": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): descuento de ítem con código fuera de catálogo": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): descuento de ítem ≠ factor × base": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): descuento de ítem sin base": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): descuento de ítem marcado como cargo": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): descuento global 02 alterado": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): AllowanceTotalAmount ≠ descuentos 03": [
+    "4307 @ ValidaExprRegBoleta-2.0.1.xsl:L732",
+    "4312 @ ValidaExprRegBoleta-2.0.1.xsl:L746"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): ChargeTotalAmount ≠ cargos 50": [
+    "4308 @ ValidaExprRegBoleta-2.0.1.xsl:L739",
+    "4312 @ ValidaExprRegBoleta-2.0.1.xsl:L746"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): detracción sin cuenta del Banco de la Nación": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): detracción con bien fuera del catálogo 54": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): detracción sin monto": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): detracción con monto en dólares": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): detracción con medio de pago fuera del catálogo 59": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): percepción sin cargo 51": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): percepción con tasa alterada": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): percepción con monto total alterado": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): anticipo con PrepaidAmount ≠ pagos": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): anticipo sin documento relacionado": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): anticipo con identificador de pago duplicado": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): descuento por anticipo 04 alterado": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): forma de pago fuera de formato": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): crédito sin monto pendiente": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): cuota sin fecha de pago": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): cuota con monto 0": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): cuota duplicada": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): tasa del 10 % mezclada con 18 %": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): RUC del nombre ≠ RUC del emisor": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegBoleta-2.0.1.xsl:L85"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegBoleta-2.0.1.xsl:L92"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): UBLVersionID 2.0": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): sin UBLVersionID": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): CustomizationID 1.0": [
+    "2072 @ ValidaExprRegBoleta-2.0.1.xsl:L135"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): sin CustomizationID": [
+    "2073 @ ValidaExprRegBoleta-2.0.1.xsl:L135"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): InvoiceTypeCode distinto": [
+    "1003 @ ValidaExprRegBoleta-2.0.1.xsl:L169"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): sin InvoiceTypeCode": [
+    "1004 @ ValidaExprRegBoleta-2.0.1.xsl:L169"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): sin moneda": [
+    "2070 @ ValidaExprRegBoleta-2.0.1.xsl:L200"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegBoleta-2.0.1.xsl:L206"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegBoleta-2.0.1.xsl:L213"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): schemeID del emisor ≠ 6": [
+    "1007 @ ValidaExprRegBoleta-2.0.1.xsl:L1102"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): sin razón social del emisor": [
+    "1037 @ ValidaExprRegBoleta-2.0.1.xsl:L1148"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegBoleta-2.0.1.xsl:L1609"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): sin nombre del cliente": [
+    "2021 @ ValidaExprRegBoleta-2.0.1.xsl:L1609"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): número de línea 0": [
+    "2023 @ ValidaExprRegBoleta-2.0.1.xsl:L1906"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): número de línea duplicado": [],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): sin unitCode": [
+    "2883 @ ValidaExprRegBoleta-2.0.1.xsl:L1927"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): cantidad 0": [
+    "2024 @ ValidaExprRegBoleta-2.0.1.xsl:L1960"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): cantidad no numérica": [
+    "2025 @ ValidaExprRegBoleta-2.0.1.xsl:L1952"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): sin descripción del ítem": [
+    "2026 @ ValidaExprRegBoleta-2.0.1.xsl:L2109"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegBoleta-2.0.1.xsl:L2146"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): sin valor unitario": [
+    "2068 @ ValidaExprRegBoleta-2.0.1.xsl:L2146"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): sin precio de referencia": [
+    "2028 @ ValidaExprRegBoleta-2.0.1.xsl:L2164"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): línea sin TaxTotal": [
+    "3195 @ ValidaExprRegBoleta-2.0.1.xsl:L2267"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): IGV de línea alterado": [
+    "3103 @ ValidaExprRegBoleta-2.0.1.xsl:L3468"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegBoleta-2.0.1.xsl:L3372"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): sin afectación del IGV": [
+    "2371 @ ValidaExprRegBoleta-2.0.1.xsl:L3478"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): sin Percent": [
+    "3103 @ ValidaExprRegBoleta-2.0.1.xsl:L3468"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): Percent 15 en línea gravada": [
+    "3103 @ ValidaExprRegBoleta-2.0.1.xsl:L3468"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): sin código de tributo en línea": [
+    "2037 @ ValidaExprRegBoleta-2.0.1.xsl:L3356"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): tributo de línea fuera del catálogo 05": [
+    "2036 @ ValidaExprRegBoleta-2.0.1.xsl:L3363"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): valor de venta de línea con 3 decimales": [
+    "4294 @ ValidaExprRegBoleta-2.0.1.xsl:L3799",
+    "2370 @ ValidaExprRegBoleta-2.0.1.xsl:L2292"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegBoleta-2.0.1.xsl:L3722"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegBoleta-2.0.1.xsl:L464"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegBoleta-2.0.1.xsl:L5195"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegBoleta-2.0.1.xsl:L5044"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): tributo de cabecera fuera del catálogo": [
+    "3007 @ ValidaExprRegBoleta-2.0.1.xsl:L5089"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegBoleta-2.0.1.xsl:L5385",
+    "4290 @ ValidaExprRegBoleta-2.0.1.xsl:L700"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): TaxInclusiveAmount alterado": [
+    "4312 @ ValidaExprRegBoleta-2.0.1.xsl:L746",
+    "4310 @ ValidaExprRegBoleta-2.0.1.xsl:L804"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): LineExtensionAmount total desfasado": [
+    "4309 @ ValidaExprRegBoleta-2.0.1.xsl:L753",
+    "4310 @ ValidaExprRegBoleta-2.0.1.xsl:L804"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): PayableAmount desfasado": [
+    "4312 @ ValidaExprRegBoleta-2.0.1.xsl:L746"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): PayableAmount con formato inválido": [
+    "2062 @ ValidaExprRegBoleta-2.0.1.xsl:L417"
+  ],
+  "boleta con descuento que no afecta la base (03) y otros cargos (50): desfase dentro de la tolerancia (±1)": [],
+  "factura con detracción (1001): sin leyenda 1002 de gratuitas": [],
+  "factura con detracción (1001): sin leyenda 2007 de IVAP": [],
+  "factura con detracción (1001): sin leyenda 2006 de detracción": [
+    "4265 @ ValidaExprRegFactura-2.0.1.xsl:L590"
+  ],
+  "factura con detracción (1001): gratuita con tipo de precio 01": [],
+  "factura con detracción (1001): gratuita con precio unitario > 0 en cac:Price": [],
+  "factura con detracción (1001): IGV gratuito de cabecera alterado": [],
+  "factura con detracción (1001): base gratuita de cabecera alterada": [],
+  "factura con detracción (1001): retiro gravado con tasa 0": [],
+  "factura con detracción (1001): ISC de línea alterado": [],
+  "factura con detracción (1001): ISC con sistema fuera del catálogo 08": [],
+  "factura con detracción (1001): ISC sin sistema de cálculo": [],
+  "factura con detracción (1001): ISC con tasa 0": [],
+  "factura con detracción (1001): ISC de cabecera alterado": [],
+  "factura con detracción (1001): ICBPER con tarifa 0": [],
+  "factura con detracción (1001): ICBPER sin cantidad de bolsas": [],
+  "factura con detracción (1001): ICBPER con unidad distinta de NIU": [],
+  "factura con detracción (1001): ICBPER de línea ≠ bolsas × tarifa": [],
+  "factura con detracción (1001): ICBPER de cabecera ≠ suma de líneas": [],
+  "factura con detracción (1001): IVAP con tasa del 18 %": [],
+  "factura con detracción (1001): IVAP de cabecera alterado": [],
+  "factura con detracción (1001): exportación con IGV": [],
+  "factura con detracción (1001): exportación a cliente con RUC": [],
+  "factura con detracción (1001): tipo de operación 0101 en una exportación": [],
+  "factura con detracción (1001): descuento de ítem con código fuera de catálogo": [],
+  "factura con detracción (1001): descuento de ítem ≠ factor × base": [],
+  "factura con detracción (1001): descuento de ítem sin base": [],
+  "factura con detracción (1001): descuento de ítem marcado como cargo": [],
+  "factura con detracción (1001): descuento global 02 alterado": [],
+  "factura con detracción (1001): AllowanceTotalAmount ≠ descuentos 03": [],
+  "factura con detracción (1001): ChargeTotalAmount ≠ cargos 50": [],
+  "factura con detracción (1001): detracción sin cuenta del Banco de la Nación": [
+    "3034 @ ValidaExprRegFactura-2.0.1.xsl:L5741"
+  ],
+  "factura con detracción (1001): detracción con bien fuera del catálogo 54": [],
+  "factura con detracción (1001): detracción sin monto": [],
+  "factura con detracción (1001): detracción con monto en dólares": [],
+  "factura con detracción (1001): detracción con medio de pago fuera del catálogo 59": [],
+  "factura con detracción (1001): percepción sin cargo 51": [],
+  "factura con detracción (1001): percepción con tasa alterada": [],
+  "factura con detracción (1001): percepción con monto total alterado": [],
+  "factura con detracción (1001): anticipo con PrepaidAmount ≠ pagos": [],
+  "factura con detracción (1001): anticipo sin documento relacionado": [],
+  "factura con detracción (1001): anticipo con identificador de pago duplicado": [],
+  "factura con detracción (1001): descuento por anticipo 04 alterado": [],
+  "factura con detracción (1001): forma de pago fuera de formato": [
+    "3246 @ ValidaExprRegFactura-2.0.1.xsl:L5587"
+  ],
+  "factura con detracción (1001): crédito sin monto pendiente": [],
+  "factura con detracción (1001): cuota sin fecha de pago": [],
+  "factura con detracción (1001): cuota con monto 0": [],
+  "factura con detracción (1001): cuota duplicada": [],
+  "factura con detracción (1001): tasa del 10 % mezclada con 18 %": [],
+  "factura con detracción (1001): RUC del nombre ≠ RUC del emisor": [
+    "1034 @ ValidaExprRegFactura-2.0.1.xsl:L48"
+  ],
+  "factura con detracción (1001): serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegFactura-2.0.1.xsl:L54"
+  ],
+  "factura con detracción (1001): número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegFactura-2.0.1.xsl:L60"
+  ],
+  "factura con detracción (1001): UBLVersionID 2.0": [
+    "2074 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con detracción (1001): sin UBLVersionID": [
+    "2075 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con detracción (1001): CustomizationID 1.0": [
+    "2072 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con detracción (1001): sin CustomizationID": [
+    "2073 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con detracción (1001): InvoiceTypeCode distinto": [
+    "1003 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con detracción (1001): sin InvoiceTypeCode": [
+    "1004 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con detracción (1001): sin moneda": [
+    "2070 @ ValidaExprRegFactura-2.0.1.xsl:L135"
+  ],
+  "factura con detracción (1001): moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegFactura-2.0.1.xsl:L139"
+  ],
+  "factura con detracción (1001): currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegFactura-2.0.1.xsl:L146"
+  ],
+  "factura con detracción (1001): schemeID del emisor ≠ 6": [
+    "1007 @ ValidaExprRegFactura-2.0.1.xsl:L746"
+  ],
+  "factura con detracción (1001): sin razón social del emisor": [
+    "1037 @ ValidaExprRegFactura-2.0.1.xsl:L789"
+  ],
+  "factura con detracción (1001): RUC del cliente con 10 dígitos": [
+    "2017 @ ValidaExprRegFactura-2.0.1.xsl:L1210"
+  ],
+  "factura con detracción (1001): nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con detracción (1001): sin nombre del cliente": [
+    "2021 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con detracción (1001): factura a cliente con DNI": [
+    "2800 @ ValidaExprRegFactura-2.0.1.xsl:L1267"
+  ],
+  "factura con detracción (1001): DNI del cliente con 7 dígitos": [
+    "2801 @ ValidaExprRegFactura-2.0.1.xsl:L1218"
+  ],
+  "factura con detracción (1001): número de línea 0": [
+    "2023 @ ValidaExprRegFactura-2.0.1.xsl:L1508"
+  ],
+  "factura con detracción (1001): número de línea duplicado": [],
+  "factura con detracción (1001): sin unitCode": [
+    "2883 @ ValidaExprRegFactura-2.0.1.xsl:L1526"
+  ],
+  "factura con detracción (1001): cantidad 0": [
+    "2024 @ ValidaExprRegFactura-2.0.1.xsl:L1556"
+  ],
+  "factura con detracción (1001): cantidad no numérica": [
+    "2025 @ ValidaExprRegFactura-2.0.1.xsl:L1549"
+  ],
+  "factura con detracción (1001): sin descripción del ítem": [
+    "2026 @ ValidaExprRegFactura-2.0.1.xsl:L1693"
+  ],
+  "factura con detracción (1001): valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con detracción (1001): sin valor unitario": [
+    "2068 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con detracción (1001): sin precio de referencia": [
+    "2028 @ ValidaExprRegFactura-2.0.1.xsl:L1885"
+  ],
+  "factura con detracción (1001): línea sin TaxTotal": [
+    "3195 @ ValidaExprRegFactura-2.0.1.xsl:L1961"
+  ],
+  "factura con detracción (1001): IGV de línea alterado": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con detracción (1001): IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegFactura-2.0.1.xsl:L2946"
+  ],
+  "factura con detracción (1001): sin afectación del IGV": [
+    "2371 @ ValidaExprRegFactura-2.0.1.xsl:L3031"
+  ],
+  "factura con detracción (1001): sin Percent": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con detracción (1001): Percent 15 en línea gravada": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con detracción (1001): sin código de tributo en línea": [
+    "2037 @ ValidaExprRegFactura-2.0.1.xsl:L2925"
+  ],
+  "factura con detracción (1001): tributo de línea fuera del catálogo 05": [
+    "2036 @ ValidaExprRegFactura-2.0.1.xsl:L2930"
+  ],
+  "factura con detracción (1001): valor de venta de línea con 3 decimales": [
+    "4294 @ ValidaExprRegFactura-2.0.1.xsl:L3227",
+    "2370 @ ValidaExprRegFactura-2.0.1.xsl:L1983"
+  ],
+  "factura con detracción (1001): TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegFactura-2.0.1.xsl:L3173"
+  ],
+  "factura con detracción (1001): sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegFactura-2.0.1.xsl:L276"
+  ],
+  "factura con detracción (1001): TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegFactura-2.0.1.xsl:L4645"
+  ],
+  "factura con detracción (1001): base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegFactura-2.0.1.xsl:L4559"
+  ],
+  "factura con detracción (1001): tributo de cabecera fuera del catálogo": [
+    "3007 @ ValidaExprRegFactura-2.0.1.xsl:L4587"
+  ],
+  "factura con detracción (1001): suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegFactura-2.0.1.xsl:L4802",
+    "3291 @ ValidaExprRegFactura-2.0.1.xsl:L462"
+  ],
+  "factura con detracción (1001): TaxInclusiveAmount alterado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con detracción (1001): LineExtensionAmount total desfasado": [
+    "4309 @ ValidaExprRegFactura-2.0.1.xsl:L500",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con detracción (1001): PayableAmount desfasado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494"
+  ],
+  "factura con detracción (1001): PayableAmount con formato inválido": [
+    "2062 @ ValidaExprRegFactura-2.0.1.xsl:L239"
+  ],
+  "factura con detracción (1001): desfase dentro de la tolerancia (±1)": [],
+  "factura con percepción (2001): sin leyenda 1002 de gratuitas": [],
+  "factura con percepción (2001): sin leyenda 2007 de IVAP": [],
+  "factura con percepción (2001): sin leyenda 2006 de detracción": [],
+  "factura con percepción (2001): gratuita con tipo de precio 01": [],
+  "factura con percepción (2001): gratuita con precio unitario > 0 en cac:Price": [],
+  "factura con percepción (2001): IGV gratuito de cabecera alterado": [],
+  "factura con percepción (2001): base gratuita de cabecera alterada": [],
+  "factura con percepción (2001): retiro gravado con tasa 0": [],
+  "factura con percepción (2001): ISC de línea alterado": [],
+  "factura con percepción (2001): ISC con sistema fuera del catálogo 08": [],
+  "factura con percepción (2001): ISC sin sistema de cálculo": [],
+  "factura con percepción (2001): ISC con tasa 0": [],
+  "factura con percepción (2001): ISC de cabecera alterado": [],
+  "factura con percepción (2001): ICBPER con tarifa 0": [],
+  "factura con percepción (2001): ICBPER sin cantidad de bolsas": [],
+  "factura con percepción (2001): ICBPER con unidad distinta de NIU": [],
+  "factura con percepción (2001): ICBPER de línea ≠ bolsas × tarifa": [],
+  "factura con percepción (2001): ICBPER de cabecera ≠ suma de líneas": [],
+  "factura con percepción (2001): IVAP con tasa del 18 %": [],
+  "factura con percepción (2001): IVAP de cabecera alterado": [],
+  "factura con percepción (2001): exportación con IGV": [],
+  "factura con percepción (2001): exportación a cliente con RUC": [],
+  "factura con percepción (2001): tipo de operación 0101 en una exportación": [],
+  "factura con percepción (2001): descuento de ítem con código fuera de catálogo": [],
+  "factura con percepción (2001): descuento de ítem ≠ factor × base": [],
+  "factura con percepción (2001): descuento de ítem sin base": [],
+  "factura con percepción (2001): descuento de ítem marcado como cargo": [],
+  "factura con percepción (2001): descuento global 02 alterado": [],
+  "factura con percepción (2001): AllowanceTotalAmount ≠ descuentos 03": [],
+  "factura con percepción (2001): ChargeTotalAmount ≠ cargos 50": [],
+  "factura con percepción (2001): detracción sin cuenta del Banco de la Nación": [],
+  "factura con percepción (2001): detracción con bien fuera del catálogo 54": [],
+  "factura con percepción (2001): detracción sin monto": [],
+  "factura con percepción (2001): detracción con monto en dólares": [],
+  "factura con percepción (2001): detracción con medio de pago fuera del catálogo 59": [],
+  "factura con percepción (2001): percepción sin cargo 51": [
+    "3093 @ ValidaExprRegFactura-2.0.1.xsl:L295"
+  ],
+  "factura con percepción (2001): percepción con tasa alterada": [
+    "2798 @ ValidaExprRegFactura-2.0.1.xsl:L5052"
+  ],
+  "factura con percepción (2001): percepción con monto total alterado": [],
+  "factura con percepción (2001): anticipo con PrepaidAmount ≠ pagos": [],
+  "factura con percepción (2001): anticipo sin documento relacionado": [],
+  "factura con percepción (2001): anticipo con identificador de pago duplicado": [],
+  "factura con percepción (2001): descuento por anticipo 04 alterado": [],
+  "factura con percepción (2001): forma de pago fuera de formato": [
+    "3246 @ ValidaExprRegFactura-2.0.1.xsl:L5587"
+  ],
+  "factura con percepción (2001): crédito sin monto pendiente": [],
+  "factura con percepción (2001): cuota sin fecha de pago": [],
+  "factura con percepción (2001): cuota con monto 0": [],
+  "factura con percepción (2001): cuota duplicada": [],
+  "factura con percepción (2001): tasa del 10 % mezclada con 18 %": [],
+  "factura con percepción (2001): RUC del nombre ≠ RUC del emisor": [
+    "1034 @ ValidaExprRegFactura-2.0.1.xsl:L48"
+  ],
+  "factura con percepción (2001): serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegFactura-2.0.1.xsl:L54"
+  ],
+  "factura con percepción (2001): número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegFactura-2.0.1.xsl:L60"
+  ],
+  "factura con percepción (2001): UBLVersionID 2.0": [
+    "2074 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con percepción (2001): sin UBLVersionID": [
+    "2075 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con percepción (2001): CustomizationID 1.0": [
+    "2072 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con percepción (2001): sin CustomizationID": [
+    "2073 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con percepción (2001): InvoiceTypeCode distinto": [
+    "1003 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con percepción (2001): sin InvoiceTypeCode": [
+    "1004 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con percepción (2001): sin moneda": [
+    "2070 @ ValidaExprRegFactura-2.0.1.xsl:L135"
+  ],
+  "factura con percepción (2001): moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegFactura-2.0.1.xsl:L139"
+  ],
+  "factura con percepción (2001): currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegFactura-2.0.1.xsl:L146"
+  ],
+  "factura con percepción (2001): schemeID del emisor ≠ 6": [
+    "1007 @ ValidaExprRegFactura-2.0.1.xsl:L746"
+  ],
+  "factura con percepción (2001): sin razón social del emisor": [
+    "1037 @ ValidaExprRegFactura-2.0.1.xsl:L789"
+  ],
+  "factura con percepción (2001): RUC del cliente con 10 dígitos": [
+    "2017 @ ValidaExprRegFactura-2.0.1.xsl:L1210"
+  ],
+  "factura con percepción (2001): nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con percepción (2001): sin nombre del cliente": [
+    "2021 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con percepción (2001): factura a cliente con DNI": [
+    "2800 @ ValidaExprRegFactura-2.0.1.xsl:L1267"
+  ],
+  "factura con percepción (2001): DNI del cliente con 7 dígitos": [
+    "2801 @ ValidaExprRegFactura-2.0.1.xsl:L1218"
+  ],
+  "factura con percepción (2001): número de línea 0": [
+    "2023 @ ValidaExprRegFactura-2.0.1.xsl:L1508"
+  ],
+  "factura con percepción (2001): número de línea duplicado": [],
+  "factura con percepción (2001): sin unitCode": [
+    "2883 @ ValidaExprRegFactura-2.0.1.xsl:L1526"
+  ],
+  "factura con percepción (2001): cantidad 0": [
+    "2024 @ ValidaExprRegFactura-2.0.1.xsl:L1556"
+  ],
+  "factura con percepción (2001): cantidad no numérica": [
+    "2025 @ ValidaExprRegFactura-2.0.1.xsl:L1549"
+  ],
+  "factura con percepción (2001): sin descripción del ítem": [
+    "2026 @ ValidaExprRegFactura-2.0.1.xsl:L1693"
+  ],
+  "factura con percepción (2001): valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con percepción (2001): sin valor unitario": [
+    "2068 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con percepción (2001): sin precio de referencia": [
+    "2028 @ ValidaExprRegFactura-2.0.1.xsl:L1885"
+  ],
+  "factura con percepción (2001): línea sin TaxTotal": [
+    "3195 @ ValidaExprRegFactura-2.0.1.xsl:L1961"
+  ],
+  "factura con percepción (2001): IGV de línea alterado": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con percepción (2001): IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegFactura-2.0.1.xsl:L2946"
+  ],
+  "factura con percepción (2001): sin afectación del IGV": [
+    "2371 @ ValidaExprRegFactura-2.0.1.xsl:L3031"
+  ],
+  "factura con percepción (2001): sin Percent": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con percepción (2001): Percent 15 en línea gravada": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con percepción (2001): sin código de tributo en línea": [
+    "2037 @ ValidaExprRegFactura-2.0.1.xsl:L2925"
+  ],
+  "factura con percepción (2001): tributo de línea fuera del catálogo 05": [
+    "2036 @ ValidaExprRegFactura-2.0.1.xsl:L2930"
+  ],
+  "factura con percepción (2001): valor de venta de línea con 3 decimales": [
+    "4294 @ ValidaExprRegFactura-2.0.1.xsl:L3227",
+    "2370 @ ValidaExprRegFactura-2.0.1.xsl:L1983"
+  ],
+  "factura con percepción (2001): TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegFactura-2.0.1.xsl:L3173"
+  ],
+  "factura con percepción (2001): sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegFactura-2.0.1.xsl:L276"
+  ],
+  "factura con percepción (2001): TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegFactura-2.0.1.xsl:L4645"
+  ],
+  "factura con percepción (2001): base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegFactura-2.0.1.xsl:L4559"
+  ],
+  "factura con percepción (2001): tributo de cabecera fuera del catálogo": [
+    "3007 @ ValidaExprRegFactura-2.0.1.xsl:L4587"
+  ],
+  "factura con percepción (2001): suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegFactura-2.0.1.xsl:L4802",
+    "3291 @ ValidaExprRegFactura-2.0.1.xsl:L462"
+  ],
+  "factura con percepción (2001): TaxInclusiveAmount alterado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con percepción (2001): LineExtensionAmount total desfasado": [
+    "4309 @ ValidaExprRegFactura-2.0.1.xsl:L500",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con percepción (2001): PayableAmount desfasado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494"
+  ],
+  "factura con percepción (2001): PayableAmount con formato inválido": [
+    "2062 @ ValidaExprRegFactura-2.0.1.xsl:L239"
+  ],
+  "factura con percepción (2001): desfase dentro de la tolerancia (±1)": [],
+  "factura con deducción de anticipo: sin leyenda 1002 de gratuitas": [],
+  "factura con deducción de anticipo: sin leyenda 2007 de IVAP": [],
+  "factura con deducción de anticipo: sin leyenda 2006 de detracción": [],
+  "factura con deducción de anticipo: gratuita con tipo de precio 01": [],
+  "factura con deducción de anticipo: gratuita con precio unitario > 0 en cac:Price": [],
+  "factura con deducción de anticipo: IGV gratuito de cabecera alterado": [],
+  "factura con deducción de anticipo: base gratuita de cabecera alterada": [],
+  "factura con deducción de anticipo: retiro gravado con tasa 0": [],
+  "factura con deducción de anticipo: ISC de línea alterado": [],
+  "factura con deducción de anticipo: ISC con sistema fuera del catálogo 08": [],
+  "factura con deducción de anticipo: ISC sin sistema de cálculo": [],
+  "factura con deducción de anticipo: ISC con tasa 0": [],
+  "factura con deducción de anticipo: ISC de cabecera alterado": [],
+  "factura con deducción de anticipo: ICBPER con tarifa 0": [],
+  "factura con deducción de anticipo: ICBPER sin cantidad de bolsas": [],
+  "factura con deducción de anticipo: ICBPER con unidad distinta de NIU": [],
+  "factura con deducción de anticipo: ICBPER de línea ≠ bolsas × tarifa": [],
+  "factura con deducción de anticipo: ICBPER de cabecera ≠ suma de líneas": [],
+  "factura con deducción de anticipo: IVAP con tasa del 18 %": [],
+  "factura con deducción de anticipo: IVAP de cabecera alterado": [],
+  "factura con deducción de anticipo: exportación con IGV": [],
+  "factura con deducción de anticipo: exportación a cliente con RUC": [],
+  "factura con deducción de anticipo: tipo de operación 0101 en una exportación": [],
+  "factura con deducción de anticipo: descuento de ítem con código fuera de catálogo": [],
+  "factura con deducción de anticipo: descuento de ítem ≠ factor × base": [],
+  "factura con deducción de anticipo: descuento de ítem sin base": [],
+  "factura con deducción de anticipo: descuento de ítem marcado como cargo": [],
+  "factura con deducción de anticipo: descuento global 02 alterado": [],
+  "factura con deducción de anticipo: AllowanceTotalAmount ≠ descuentos 03": [],
+  "factura con deducción de anticipo: ChargeTotalAmount ≠ cargos 50": [],
+  "factura con deducción de anticipo: detracción sin cuenta del Banco de la Nación": [],
+  "factura con deducción de anticipo: detracción con bien fuera del catálogo 54": [],
+  "factura con deducción de anticipo: detracción sin monto": [],
+  "factura con deducción de anticipo: detracción con monto en dólares": [],
+  "factura con deducción de anticipo: detracción con medio de pago fuera del catálogo 59": [],
+  "factura con deducción de anticipo: percepción sin cargo 51": [],
+  "factura con deducción de anticipo: percepción con tasa alterada": [],
+  "factura con deducción de anticipo: percepción con monto total alterado": [],
+  "factura con deducción de anticipo: anticipo con PrepaidAmount ≠ pagos": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494",
+    "2509 @ ValidaExprRegFactura-2.0.1.xsl:L568"
+  ],
+  "factura con deducción de anticipo: anticipo sin documento relacionado": [
+    "3213 @ ValidaExprRegFactura-2.0.1.xsl:L5506"
+  ],
+  "factura con deducción de anticipo: anticipo con identificador de pago duplicado": [
+    "3214 @ ValidaExprRegFactura-2.0.1.xsl:L1361"
+  ],
+  "factura con deducción de anticipo: descuento por anticipo 04 alterado": [
+    "4299 @ ValidaExprRegFactura-2.0.1.xsl:L4776",
+    "4322 @ ValidaExprRegFactura-2.0.1.xsl:L4957",
+    "3291 @ ValidaExprRegFactura-2.0.1.xsl:L462"
+  ],
+  "factura con deducción de anticipo: forma de pago fuera de formato": [
+    "3246 @ ValidaExprRegFactura-2.0.1.xsl:L5587"
+  ],
+  "factura con deducción de anticipo: crédito sin monto pendiente": [],
+  "factura con deducción de anticipo: cuota sin fecha de pago": [],
+  "factura con deducción de anticipo: cuota con monto 0": [],
+  "factura con deducción de anticipo: cuota duplicada": [],
+  "factura con deducción de anticipo: tasa del 10 % mezclada con 18 %": [],
+  "factura con deducción de anticipo: RUC del nombre ≠ RUC del emisor": [
+    "1034 @ ValidaExprRegFactura-2.0.1.xsl:L48"
+  ],
+  "factura con deducción de anticipo: serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegFactura-2.0.1.xsl:L54"
+  ],
+  "factura con deducción de anticipo: número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegFactura-2.0.1.xsl:L60"
+  ],
+  "factura con deducción de anticipo: UBLVersionID 2.0": [
+    "2074 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con deducción de anticipo: sin UBLVersionID": [
+    "2075 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura con deducción de anticipo: CustomizationID 1.0": [
+    "2072 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con deducción de anticipo: sin CustomizationID": [
+    "2073 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura con deducción de anticipo: InvoiceTypeCode distinto": [
+    "1003 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con deducción de anticipo: sin InvoiceTypeCode": [
+    "1004 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura con deducción de anticipo: sin moneda": [
+    "2070 @ ValidaExprRegFactura-2.0.1.xsl:L135"
+  ],
+  "factura con deducción de anticipo: moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegFactura-2.0.1.xsl:L139"
+  ],
+  "factura con deducción de anticipo: currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegFactura-2.0.1.xsl:L146"
+  ],
+  "factura con deducción de anticipo: schemeID del emisor ≠ 6": [
+    "1007 @ ValidaExprRegFactura-2.0.1.xsl:L746"
+  ],
+  "factura con deducción de anticipo: sin razón social del emisor": [
+    "1037 @ ValidaExprRegFactura-2.0.1.xsl:L789"
+  ],
+  "factura con deducción de anticipo: RUC del cliente con 10 dígitos": [
+    "2017 @ ValidaExprRegFactura-2.0.1.xsl:L1210"
+  ],
+  "factura con deducción de anticipo: nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con deducción de anticipo: sin nombre del cliente": [
+    "2021 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura con deducción de anticipo: factura a cliente con DNI": [
+    "2800 @ ValidaExprRegFactura-2.0.1.xsl:L1267"
+  ],
+  "factura con deducción de anticipo: DNI del cliente con 7 dígitos": [
+    "2801 @ ValidaExprRegFactura-2.0.1.xsl:L1218"
+  ],
+  "factura con deducción de anticipo: número de línea 0": [
+    "2023 @ ValidaExprRegFactura-2.0.1.xsl:L1508"
+  ],
+  "factura con deducción de anticipo: número de línea duplicado": [],
+  "factura con deducción de anticipo: sin unitCode": [
+    "2883 @ ValidaExprRegFactura-2.0.1.xsl:L1526"
+  ],
+  "factura con deducción de anticipo: cantidad 0": [
+    "2024 @ ValidaExprRegFactura-2.0.1.xsl:L1556"
+  ],
+  "factura con deducción de anticipo: cantidad no numérica": [
+    "2025 @ ValidaExprRegFactura-2.0.1.xsl:L1549"
+  ],
+  "factura con deducción de anticipo: sin descripción del ítem": [
+    "2026 @ ValidaExprRegFactura-2.0.1.xsl:L1693"
+  ],
+  "factura con deducción de anticipo: valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con deducción de anticipo: sin valor unitario": [
+    "2068 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura con deducción de anticipo: sin precio de referencia": [
+    "2028 @ ValidaExprRegFactura-2.0.1.xsl:L1885"
+  ],
+  "factura con deducción de anticipo: línea sin TaxTotal": [
+    "3195 @ ValidaExprRegFactura-2.0.1.xsl:L1961"
+  ],
+  "factura con deducción de anticipo: IGV de línea alterado": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con deducción de anticipo: IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegFactura-2.0.1.xsl:L2946"
+  ],
+  "factura con deducción de anticipo: sin afectación del IGV": [
+    "2371 @ ValidaExprRegFactura-2.0.1.xsl:L3031"
+  ],
+  "factura con deducción de anticipo: sin Percent": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con deducción de anticipo: Percent 15 en línea gravada": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura con deducción de anticipo: sin código de tributo en línea": [
+    "2037 @ ValidaExprRegFactura-2.0.1.xsl:L2925"
+  ],
+  "factura con deducción de anticipo: tributo de línea fuera del catálogo 05": [
+    "2036 @ ValidaExprRegFactura-2.0.1.xsl:L2930"
+  ],
+  "factura con deducción de anticipo: valor de venta de línea con 3 decimales": [
+    "4294 @ ValidaExprRegFactura-2.0.1.xsl:L3227",
+    "2370 @ ValidaExprRegFactura-2.0.1.xsl:L1983"
+  ],
+  "factura con deducción de anticipo: TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegFactura-2.0.1.xsl:L3173"
+  ],
+  "factura con deducción de anticipo: sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegFactura-2.0.1.xsl:L276"
+  ],
+  "factura con deducción de anticipo: TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegFactura-2.0.1.xsl:L4645"
+  ],
+  "factura con deducción de anticipo: base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegFactura-2.0.1.xsl:L4559"
+  ],
+  "factura con deducción de anticipo: tributo de cabecera fuera del catálogo": [
+    "3007 @ ValidaExprRegFactura-2.0.1.xsl:L4587"
+  ],
+  "factura con deducción de anticipo: suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegFactura-2.0.1.xsl:L4802",
+    "3291 @ ValidaExprRegFactura-2.0.1.xsl:L462"
+  ],
+  "factura con deducción de anticipo: TaxInclusiveAmount alterado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con deducción de anticipo: LineExtensionAmount total desfasado": [
+    "4309 @ ValidaExprRegFactura-2.0.1.xsl:L500",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura con deducción de anticipo: PayableAmount desfasado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494"
+  ],
+  "factura con deducción de anticipo: PayableAmount con formato inválido": [
+    "2062 @ ValidaExprRegFactura-2.0.1.xsl:L239"
+  ],
+  "factura con deducción de anticipo: desfase dentro de la tolerancia (±1)": [],
+  "factura al crédito en dos cuotas: sin leyenda 1002 de gratuitas": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: sin leyenda 2007 de IVAP": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: sin leyenda 2006 de detracción": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: gratuita con tipo de precio 01": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: gratuita con precio unitario > 0 en cac:Price": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: IGV gratuito de cabecera alterado": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: base gratuita de cabecera alterada": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: retiro gravado con tasa 0": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: ISC de línea alterado": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: ISC con sistema fuera del catálogo 08": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: ISC sin sistema de cálculo": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: ISC con tasa 0": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: ISC de cabecera alterado": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: ICBPER con tarifa 0": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: ICBPER sin cantidad de bolsas": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: ICBPER con unidad distinta de NIU": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: ICBPER de línea ≠ bolsas × tarifa": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: ICBPER de cabecera ≠ suma de líneas": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: IVAP con tasa del 18 %": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: IVAP de cabecera alterado": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: exportación con IGV": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: exportación a cliente con RUC": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: tipo de operación 0101 en una exportación": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: descuento de ítem con código fuera de catálogo": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: descuento de ítem ≠ factor × base": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: descuento de ítem sin base": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: descuento de ítem marcado como cargo": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: descuento global 02 alterado": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: AllowanceTotalAmount ≠ descuentos 03": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: ChargeTotalAmount ≠ cargos 50": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: detracción sin cuenta del Banco de la Nación": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: detracción con bien fuera del catálogo 54": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: detracción sin monto": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: detracción con monto en dólares": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: detracción con medio de pago fuera del catálogo 59": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: percepción sin cargo 51": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: percepción con tasa alterada": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: percepción con monto total alterado": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: anticipo con PrepaidAmount ≠ pagos": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: anticipo sin documento relacionado": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: anticipo con identificador de pago duplicado": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: descuento por anticipo 04 alterado": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: forma de pago fuera de formato": [
+    "3246 @ ValidaExprRegFactura-2.0.1.xsl:L5587"
+  ],
+  "factura al crédito en dos cuotas: crédito sin monto pendiente": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594",
+    "3251 @ ValidaExprRegFactura-2.0.1.xsl:L5600"
+  ],
+  "factura al crédito en dos cuotas: cuota sin fecha de pago": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594",
+    "3256 @ ValidaExprRegFactura-2.0.1.xsl:L5660",
+    "3256 @ ValidaExprRegFactura-2.0.1.xsl:L5660"
+  ],
+  "factura al crédito en dos cuotas: cuota con monto 0": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594",
+    "3253 @ ValidaExprRegFactura-2.0.1.xsl:L5638",
+    "3253 @ ValidaExprRegFactura-2.0.1.xsl:L5638"
+  ],
+  "factura al crédito en dos cuotas: cuota duplicada": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594",
+    "3248 @ ValidaExprRegFactura-2.0.1.xsl:L5573",
+    "3248 @ ValidaExprRegFactura-2.0.1.xsl:L5573"
+  ],
+  "factura al crédito en dos cuotas: tasa del 10 % mezclada con 18 %": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: RUC del nombre ≠ RUC del emisor": [
+    "1034 @ ValidaExprRegFactura-2.0.1.xsl:L48"
+  ],
+  "factura al crédito en dos cuotas: serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegFactura-2.0.1.xsl:L54"
+  ],
+  "factura al crédito en dos cuotas: número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegFactura-2.0.1.xsl:L60"
+  ],
+  "factura al crédito en dos cuotas: UBLVersionID 2.0": [
+    "2074 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura al crédito en dos cuotas: sin UBLVersionID": [
+    "2075 @ ValidaExprRegFactura-2.0.1.xsl:L73"
+  ],
+  "factura al crédito en dos cuotas: CustomizationID 1.0": [
+    "2072 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura al crédito en dos cuotas: sin CustomizationID": [
+    "2073 @ ValidaExprRegFactura-2.0.1.xsl:L82"
+  ],
+  "factura al crédito en dos cuotas: InvoiceTypeCode distinto": [
+    "1003 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura al crédito en dos cuotas: sin InvoiceTypeCode": [
+    "1004 @ ValidaExprRegFactura-2.0.1.xsl:L109"
+  ],
+  "factura al crédito en dos cuotas: sin moneda": [
+    "2070 @ ValidaExprRegFactura-2.0.1.xsl:L135"
+  ],
+  "factura al crédito en dos cuotas: moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegFactura-2.0.1.xsl:L139"
+  ],
+  "factura al crédito en dos cuotas: currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegFactura-2.0.1.xsl:L146"
+  ],
+  "factura al crédito en dos cuotas: schemeID del emisor ≠ 6": [
+    "1007 @ ValidaExprRegFactura-2.0.1.xsl:L746"
+  ],
+  "factura al crédito en dos cuotas: sin razón social del emisor": [
+    "1037 @ ValidaExprRegFactura-2.0.1.xsl:L789"
+  ],
+  "factura al crédito en dos cuotas: RUC del cliente con 10 dígitos": [
+    "2017 @ ValidaExprRegFactura-2.0.1.xsl:L1210"
+  ],
+  "factura al crédito en dos cuotas: nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura al crédito en dos cuotas: sin nombre del cliente": [
+    "2021 @ ValidaExprRegFactura-2.0.1.xsl:L1294"
+  ],
+  "factura al crédito en dos cuotas: factura a cliente con DNI": [
+    "2800 @ ValidaExprRegFactura-2.0.1.xsl:L1267"
+  ],
+  "factura al crédito en dos cuotas: DNI del cliente con 7 dígitos": [
+    "2801 @ ValidaExprRegFactura-2.0.1.xsl:L1218"
+  ],
+  "factura al crédito en dos cuotas: número de línea 0": [
+    "2023 @ ValidaExprRegFactura-2.0.1.xsl:L1508"
+  ],
+  "factura al crédito en dos cuotas: número de línea duplicado": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: sin unitCode": [
+    "2883 @ ValidaExprRegFactura-2.0.1.xsl:L1526"
+  ],
+  "factura al crédito en dos cuotas: cantidad 0": [
+    "2024 @ ValidaExprRegFactura-2.0.1.xsl:L1556"
+  ],
+  "factura al crédito en dos cuotas: cantidad no numérica": [
+    "2025 @ ValidaExprRegFactura-2.0.1.xsl:L1549"
+  ],
+  "factura al crédito en dos cuotas: sin descripción del ítem": [
+    "2026 @ ValidaExprRegFactura-2.0.1.xsl:L1693"
+  ],
+  "factura al crédito en dos cuotas: valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura al crédito en dos cuotas: sin valor unitario": [
+    "2068 @ ValidaExprRegFactura-2.0.1.xsl:L1870"
+  ],
+  "factura al crédito en dos cuotas: sin precio de referencia": [
+    "2028 @ ValidaExprRegFactura-2.0.1.xsl:L1885"
+  ],
+  "factura al crédito en dos cuotas: línea sin TaxTotal": [
+    "3195 @ ValidaExprRegFactura-2.0.1.xsl:L1961"
+  ],
+  "factura al crédito en dos cuotas: IGV de línea alterado": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura al crédito en dos cuotas: IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegFactura-2.0.1.xsl:L2946"
+  ],
+  "factura al crédito en dos cuotas: sin afectación del IGV": [
+    "2371 @ ValidaExprRegFactura-2.0.1.xsl:L3031"
+  ],
+  "factura al crédito en dos cuotas: sin Percent": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura al crédito en dos cuotas: Percent 15 en línea gravada": [
+    "3103 @ ValidaExprRegFactura-2.0.1.xsl:L2937"
+  ],
+  "factura al crédito en dos cuotas: sin código de tributo en línea": [
+    "2037 @ ValidaExprRegFactura-2.0.1.xsl:L2925"
+  ],
+  "factura al crédito en dos cuotas: tributo de línea fuera del catálogo 05": [
+    "2036 @ ValidaExprRegFactura-2.0.1.xsl:L2930"
+  ],
+  "factura al crédito en dos cuotas: valor de venta de línea con 3 decimales": [
+    "4294 @ ValidaExprRegFactura-2.0.1.xsl:L3227",
+    "2370 @ ValidaExprRegFactura-2.0.1.xsl:L1983"
+  ],
+  "factura al crédito en dos cuotas: TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegFactura-2.0.1.xsl:L3173"
+  ],
+  "factura al crédito en dos cuotas: sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegFactura-2.0.1.xsl:L276"
+  ],
+  "factura al crédito en dos cuotas: TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegFactura-2.0.1.xsl:L4645"
+  ],
+  "factura al crédito en dos cuotas: base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegFactura-2.0.1.xsl:L4559"
+  ],
+  "factura al crédito en dos cuotas: tributo de cabecera fuera del catálogo": [
+    "3007 @ ValidaExprRegFactura-2.0.1.xsl:L4587"
+  ],
+  "factura al crédito en dos cuotas: suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegFactura-2.0.1.xsl:L4802",
+    "3291 @ ValidaExprRegFactura-2.0.1.xsl:L462"
+  ],
+  "factura al crédito en dos cuotas: TaxInclusiveAmount alterado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura al crédito en dos cuotas: LineExtensionAmount total desfasado": [
+    "4309 @ ValidaExprRegFactura-2.0.1.xsl:L500",
+    "3279 @ ValidaExprRegFactura-2.0.1.xsl:L550"
+  ],
+  "factura al crédito en dos cuotas: PayableAmount desfasado": [
+    "4312 @ ValidaExprRegFactura-2.0.1.xsl:L494",
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "factura al crédito en dos cuotas: PayableAmount con formato inválido": [
+    "2062 @ ValidaExprRegFactura-2.0.1.xsl:L239"
+  ],
+  "factura al crédito en dos cuotas: desfase dentro de la tolerancia (±1)": [
+    "3249 @ ValidaExprRegFactura-2.0.1.xsl:L5594"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): sin leyenda 1002 de gratuitas": [],
+  "boleta con IGV del 10 % (Ley 31556): sin leyenda 2007 de IVAP": [],
+  "boleta con IGV del 10 % (Ley 31556): sin leyenda 2006 de detracción": [],
+  "boleta con IGV del 10 % (Ley 31556): gratuita con tipo de precio 01": [],
+  "boleta con IGV del 10 % (Ley 31556): gratuita con precio unitario > 0 en cac:Price": [],
+  "boleta con IGV del 10 % (Ley 31556): IGV gratuito de cabecera alterado": [],
+  "boleta con IGV del 10 % (Ley 31556): base gratuita de cabecera alterada": [],
+  "boleta con IGV del 10 % (Ley 31556): retiro gravado con tasa 0": [],
+  "boleta con IGV del 10 % (Ley 31556): ISC de línea alterado": [],
+  "boleta con IGV del 10 % (Ley 31556): ISC con sistema fuera del catálogo 08": [],
+  "boleta con IGV del 10 % (Ley 31556): ISC sin sistema de cálculo": [],
+  "boleta con IGV del 10 % (Ley 31556): ISC con tasa 0": [],
+  "boleta con IGV del 10 % (Ley 31556): ISC de cabecera alterado": [],
+  "boleta con IGV del 10 % (Ley 31556): ICBPER con tarifa 0": [],
+  "boleta con IGV del 10 % (Ley 31556): ICBPER sin cantidad de bolsas": [],
+  "boleta con IGV del 10 % (Ley 31556): ICBPER con unidad distinta de NIU": [],
+  "boleta con IGV del 10 % (Ley 31556): ICBPER de línea ≠ bolsas × tarifa": [],
+  "boleta con IGV del 10 % (Ley 31556): ICBPER de cabecera ≠ suma de líneas": [],
+  "boleta con IGV del 10 % (Ley 31556): IVAP con tasa del 18 %": [],
+  "boleta con IGV del 10 % (Ley 31556): IVAP de cabecera alterado": [],
+  "boleta con IGV del 10 % (Ley 31556): exportación con IGV": [],
+  "boleta con IGV del 10 % (Ley 31556): exportación a cliente con RUC": [],
+  "boleta con IGV del 10 % (Ley 31556): tipo de operación 0101 en una exportación": [],
+  "boleta con IGV del 10 % (Ley 31556): descuento de ítem con código fuera de catálogo": [],
+  "boleta con IGV del 10 % (Ley 31556): descuento de ítem ≠ factor × base": [],
+  "boleta con IGV del 10 % (Ley 31556): descuento de ítem sin base": [],
+  "boleta con IGV del 10 % (Ley 31556): descuento de ítem marcado como cargo": [],
+  "boleta con IGV del 10 % (Ley 31556): descuento global 02 alterado": [],
+  "boleta con IGV del 10 % (Ley 31556): AllowanceTotalAmount ≠ descuentos 03": [],
+  "boleta con IGV del 10 % (Ley 31556): ChargeTotalAmount ≠ cargos 50": [],
+  "boleta con IGV del 10 % (Ley 31556): detracción sin cuenta del Banco de la Nación": [],
+  "boleta con IGV del 10 % (Ley 31556): detracción con bien fuera del catálogo 54": [],
+  "boleta con IGV del 10 % (Ley 31556): detracción sin monto": [],
+  "boleta con IGV del 10 % (Ley 31556): detracción con monto en dólares": [],
+  "boleta con IGV del 10 % (Ley 31556): detracción con medio de pago fuera del catálogo 59": [],
+  "boleta con IGV del 10 % (Ley 31556): percepción sin cargo 51": [],
+  "boleta con IGV del 10 % (Ley 31556): percepción con tasa alterada": [],
+  "boleta con IGV del 10 % (Ley 31556): percepción con monto total alterado": [],
+  "boleta con IGV del 10 % (Ley 31556): anticipo con PrepaidAmount ≠ pagos": [],
+  "boleta con IGV del 10 % (Ley 31556): anticipo sin documento relacionado": [],
+  "boleta con IGV del 10 % (Ley 31556): anticipo con identificador de pago duplicado": [],
+  "boleta con IGV del 10 % (Ley 31556): descuento por anticipo 04 alterado": [],
+  "boleta con IGV del 10 % (Ley 31556): forma de pago fuera de formato": [],
+  "boleta con IGV del 10 % (Ley 31556): crédito sin monto pendiente": [],
+  "boleta con IGV del 10 % (Ley 31556): cuota sin fecha de pago": [],
+  "boleta con IGV del 10 % (Ley 31556): cuota con monto 0": [],
+  "boleta con IGV del 10 % (Ley 31556): cuota duplicada": [],
+  "boleta con IGV del 10 % (Ley 31556): tasa del 10 % mezclada con 18 %": [
+    "3103 @ ValidaExprRegBoleta-2.0.1.xsl:L3468"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): RUC del nombre ≠ RUC del emisor": [],
+  "boleta con IGV del 10 % (Ley 31556): serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegBoleta-2.0.1.xsl:L85"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegBoleta-2.0.1.xsl:L92"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): UBLVersionID 2.0": [],
+  "boleta con IGV del 10 % (Ley 31556): sin UBLVersionID": [],
+  "boleta con IGV del 10 % (Ley 31556): CustomizationID 1.0": [
+    "2072 @ ValidaExprRegBoleta-2.0.1.xsl:L135"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): sin CustomizationID": [
+    "2073 @ ValidaExprRegBoleta-2.0.1.xsl:L135"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): InvoiceTypeCode distinto": [
+    "1003 @ ValidaExprRegBoleta-2.0.1.xsl:L169"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): sin InvoiceTypeCode": [
+    "1004 @ ValidaExprRegBoleta-2.0.1.xsl:L169"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): sin moneda": [
+    "2070 @ ValidaExprRegBoleta-2.0.1.xsl:L200"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegBoleta-2.0.1.xsl:L206"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegBoleta-2.0.1.xsl:L213"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): schemeID del emisor ≠ 6": [
+    "1007 @ ValidaExprRegBoleta-2.0.1.xsl:L1102"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): sin razón social del emisor": [
+    "1037 @ ValidaExprRegBoleta-2.0.1.xsl:L1148"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegBoleta-2.0.1.xsl:L1609"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): sin nombre del cliente": [
+    "2021 @ ValidaExprRegBoleta-2.0.1.xsl:L1609"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): número de línea 0": [
+    "2023 @ ValidaExprRegBoleta-2.0.1.xsl:L1906"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): número de línea duplicado": [],
+  "boleta con IGV del 10 % (Ley 31556): sin unitCode": [
+    "2883 @ ValidaExprRegBoleta-2.0.1.xsl:L1927"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): cantidad 0": [
+    "2024 @ ValidaExprRegBoleta-2.0.1.xsl:L1960"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): cantidad no numérica": [
+    "2025 @ ValidaExprRegBoleta-2.0.1.xsl:L1952"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): sin descripción del ítem": [
+    "2026 @ ValidaExprRegBoleta-2.0.1.xsl:L2109"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegBoleta-2.0.1.xsl:L2146"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): sin valor unitario": [
+    "2068 @ ValidaExprRegBoleta-2.0.1.xsl:L2146"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): sin precio de referencia": [
+    "2028 @ ValidaExprRegBoleta-2.0.1.xsl:L2164"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): línea sin TaxTotal": [
+    "3195 @ ValidaExprRegBoleta-2.0.1.xsl:L2267"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): IGV de línea alterado": [
+    "3103 @ ValidaExprRegBoleta-2.0.1.xsl:L3468"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegBoleta-2.0.1.xsl:L3372"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): sin afectación del IGV": [
+    "2371 @ ValidaExprRegBoleta-2.0.1.xsl:L3478"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): sin Percent": [
+    "3103 @ ValidaExprRegBoleta-2.0.1.xsl:L3468"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): Percent 15 en línea gravada": [
+    "3103 @ ValidaExprRegBoleta-2.0.1.xsl:L3468"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): sin código de tributo en línea": [
+    "2037 @ ValidaExprRegBoleta-2.0.1.xsl:L3356"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): tributo de línea fuera del catálogo 05": [
+    "2036 @ ValidaExprRegBoleta-2.0.1.xsl:L3363"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): valor de venta de línea con 3 decimales": [
+    "4294 @ ValidaExprRegBoleta-2.0.1.xsl:L3799",
+    "2370 @ ValidaExprRegBoleta-2.0.1.xsl:L2292"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegBoleta-2.0.1.xsl:L3722"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegBoleta-2.0.1.xsl:L464"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegBoleta-2.0.1.xsl:L5195"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegBoleta-2.0.1.xsl:L5044"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): tributo de cabecera fuera del catálogo": [
+    "3007 @ ValidaExprRegBoleta-2.0.1.xsl:L5089"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegBoleta-2.0.1.xsl:L5385",
+    "4290 @ ValidaExprRegBoleta-2.0.1.xsl:L700"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): TaxInclusiveAmount alterado": [
+    "4312 @ ValidaExprRegBoleta-2.0.1.xsl:L746",
+    "4310 @ ValidaExprRegBoleta-2.0.1.xsl:L804"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): LineExtensionAmount total desfasado": [
+    "4309 @ ValidaExprRegBoleta-2.0.1.xsl:L753",
+    "4310 @ ValidaExprRegBoleta-2.0.1.xsl:L804"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): PayableAmount desfasado": [
+    "4312 @ ValidaExprRegBoleta-2.0.1.xsl:L746"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): PayableAmount con formato inválido": [
+    "2062 @ ValidaExprRegBoleta-2.0.1.xsl:L417"
+  ],
+  "boleta con IGV del 10 % (Ley 31556): desfase dentro de la tolerancia (±1)": [],
+  "nota de crédito con ISC e ICBPER: sin leyenda 1002 de gratuitas": [],
+  "nota de crédito con ISC e ICBPER: sin leyenda 2007 de IVAP": [],
+  "nota de crédito con ISC e ICBPER: sin leyenda 2006 de detracción": [],
+  "nota de crédito con ISC e ICBPER: gratuita con tipo de precio 01": [],
+  "nota de crédito con ISC e ICBPER: gratuita con precio unitario > 0 en cac:Price": [],
+  "nota de crédito con ISC e ICBPER: IGV gratuito de cabecera alterado": [],
+  "nota de crédito con ISC e ICBPER: base gratuita de cabecera alterada": [],
+  "nota de crédito con ISC e ICBPER: retiro gravado con tasa 0": [],
+  "nota de crédito con ISC e ICBPER: ISC de línea alterado": [
+    "4305 @ ValidaExprRegNC-2.0.1.xsl:L1719",
+    "4293 @ ValidaExprRegNC-2.0.1.xsl:L3481",
+    "3108 @ ValidaExprRegNC-2.0.1.xsl:L3996"
+  ],
+  "nota de crédito con ISC e ICBPER: ISC con sistema fuera del catálogo 08": [
+    "2199 @ ValidaExprRegNC-2.0.1.xsl:L3977"
+  ],
+  "nota de crédito con ISC e ICBPER: ISC sin sistema de cálculo": [
+    "2373 @ ValidaExprRegNC-2.0.1.xsl:L3969"
+  ],
+  "nota de crédito con ISC e ICBPER: ISC con tasa 0": [
+    "3104 @ ValidaExprRegNC-2.0.1.xsl:L3953"
+  ],
+  "nota de crédito con ISC e ICBPER: ISC de cabecera alterado": [
+    "4301 @ ValidaExprRegNC-2.0.1.xsl:L1699",
+    "4305 @ ValidaExprRegNC-2.0.1.xsl:L1719",
+    "4312 @ ValidaExprRegNC-2.0.1.xsl:L593"
+  ],
+  "nota de crédito con ISC e ICBPER: ICBPER con tarifa 0": [
+    "4318 @ ValidaExprRegNC-2.0.1.xsl:L3664",
+    "3238 @ ValidaExprRegNC-2.0.1.xsl:L3733"
+  ],
+  "nota de crédito con ISC e ICBPER: ICBPER sin cantidad de bolsas": [
+    "3237 @ ValidaExprRegNC-2.0.1.xsl:L3676"
+  ],
+  "nota de crédito con ISC e ICBPER: ICBPER con unidad distinta de NIU": [
+    "4320 @ ValidaExprRegNC-2.0.1.xsl:L3697"
+  ],
+  "nota de crédito con ISC e ICBPER: ICBPER de línea ≠ bolsas × tarifa": [
+    "4321 @ ValidaExprRegNC-2.0.1.xsl:L544",
+    "4293 @ ValidaExprRegNC-2.0.1.xsl:L3481",
+    "4318 @ ValidaExprRegNC-2.0.1.xsl:L3664"
+  ],
+  "nota de crédito con ISC e ICBPER: ICBPER de cabecera ≠ suma de líneas": [
+    "4301 @ ValidaExprRegNC-2.0.1.xsl:L1699",
+    "4321 @ ValidaExprRegNC-2.0.1.xsl:L544",
+    "4312 @ ValidaExprRegNC-2.0.1.xsl:L593"
+  ],
+  "nota de crédito con ISC e ICBPER: IVAP con tasa del 18 %": [],
+  "nota de crédito con ISC e ICBPER: IVAP de cabecera alterado": [],
+  "nota de crédito con ISC e ICBPER: exportación con IGV": [],
+  "nota de crédito con ISC e ICBPER: exportación a cliente con RUC": [],
+  "nota de crédito con ISC e ICBPER: tipo de operación 0101 en una exportación": [],
+  "nota de crédito con ISC e ICBPER: descuento de ítem con código fuera de catálogo": [],
+  "nota de crédito con ISC e ICBPER: descuento de ítem ≠ factor × base": [],
+  "nota de crédito con ISC e ICBPER: descuento de ítem sin base": [],
+  "nota de crédito con ISC e ICBPER: descuento de ítem marcado como cargo": [],
+  "nota de crédito con ISC e ICBPER: descuento global 02 alterado": [],
+  "nota de crédito con ISC e ICBPER: AllowanceTotalAmount ≠ descuentos 03": [],
+  "nota de crédito con ISC e ICBPER: ChargeTotalAmount ≠ cargos 50": [],
+  "nota de crédito con ISC e ICBPER: detracción sin cuenta del Banco de la Nación": [],
+  "nota de crédito con ISC e ICBPER: detracción con bien fuera del catálogo 54": [],
+  "nota de crédito con ISC e ICBPER: detracción sin monto": [],
+  "nota de crédito con ISC e ICBPER: detracción con monto en dólares": [],
+  "nota de crédito con ISC e ICBPER: detracción con medio de pago fuera del catálogo 59": [],
+  "nota de crédito con ISC e ICBPER: percepción sin cargo 51": [],
+  "nota de crédito con ISC e ICBPER: percepción con tasa alterada": [],
+  "nota de crédito con ISC e ICBPER: percepción con monto total alterado": [],
+  "nota de crédito con ISC e ICBPER: anticipo con PrepaidAmount ≠ pagos": [],
+  "nota de crédito con ISC e ICBPER: anticipo sin documento relacionado": [],
+  "nota de crédito con ISC e ICBPER: anticipo con identificador de pago duplicado": [],
+  "nota de crédito con ISC e ICBPER: descuento por anticipo 04 alterado": [],
+  "nota de crédito con ISC e ICBPER: forma de pago fuera de formato": [],
+  "nota de crédito con ISC e ICBPER: crédito sin monto pendiente": [],
+  "nota de crédito con ISC e ICBPER: cuota sin fecha de pago": [],
+  "nota de crédito con ISC e ICBPER: cuota con monto 0": [],
+  "nota de crédito con ISC e ICBPER: cuota duplicada": [],
+  "nota de crédito con ISC e ICBPER: tasa del 10 % mezclada con 18 %": [],
+  "nota de crédito con ISC e ICBPER: RUC del nombre ≠ RUC del emisor": [
+    "1034 @ ValidaExprRegNC-2.0.1.xsl:L149"
+  ],
+  "nota de crédito con ISC e ICBPER: serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegNC-2.0.1.xsl:L156"
+  ],
+  "nota de crédito con ISC e ICBPER: número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegNC-2.0.1.xsl:L163"
+  ],
+  "nota de crédito con ISC e ICBPER: UBLVersionID 2.0": [
+    "2074 @ ValidaExprRegNC-2.0.1.xsl:L174"
+  ],
+  "nota de crédito con ISC e ICBPER: sin UBLVersionID": [
+    "2075 @ ValidaExprRegNC-2.0.1.xsl:L174"
+  ],
+  "nota de crédito con ISC e ICBPER: CustomizationID 1.0": [
+    "2072 @ ValidaExprRegNC-2.0.1.xsl:L186"
+  ],
+  "nota de crédito con ISC e ICBPER: sin CustomizationID": [
+    "2073 @ ValidaExprRegNC-2.0.1.xsl:L186"
+  ],
+  "nota de crédito con ISC e ICBPER: sin moneda": [
+    "2070 @ ValidaExprRegNC-2.0.1.xsl:L281"
+  ],
+  "nota de crédito con ISC e ICBPER: moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegNC-2.0.1.xsl:L288"
+  ],
+  "nota de crédito con ISC e ICBPER: currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegNC-2.0.1.xsl:L296"
+  ],
+  "nota de crédito con ISC e ICBPER: motivo de nota fuera de catálogo": [
+    "2172 @ ValidaExprRegNC-2.0.1.xsl:L230"
+  ],
+  "nota de crédito con ISC e ICBPER: sin motivo de nota": [
+    "2128 @ ValidaExprRegNC-2.0.1.xsl:L221"
+  ],
+  "nota de crédito con ISC e ICBPER: sustento de nota de 1 carácter": [
+    "2135 @ ValidaExprRegNC-2.0.1.xsl:L271"
+  ],
+  "nota de crédito con ISC e ICBPER: sin documento de referencia": [
+    "2524 @ ValidaExprRegNC-2.0.1.xsl:L1086"
+  ],
+  "nota de crédito con ISC e ICBPER: sin razón social del emisor": [
+    "1037 @ ValidaExprRegNC-2.0.1.xsl:L777"
+  ],
+  "nota de crédito con ISC e ICBPER: RUC del cliente con 10 dígitos": [
+    "2017 @ ValidaExprRegNC-2.0.1.xsl:L993"
+  ],
+  "nota de crédito con ISC e ICBPER: nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegNC-2.0.1.xsl:L1048"
+  ],
+  "nota de crédito con ISC e ICBPER: sin nombre del cliente": [
+    "2021 @ ValidaExprRegNC-2.0.1.xsl:L1048"
+  ],
+  "nota de crédito con ISC e ICBPER: número de línea duplicado": [
+    "2752 @ ValidaExprRegNC-2.0.1.xsl:L2493"
+  ],
+  "nota de crédito con ISC e ICBPER: valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegNC-2.0.1.xsl:L2742"
+  ],
+  "nota de crédito con ISC e ICBPER: sin valor unitario": [
+    "2369 @ ValidaExprRegNC-2.0.1.xsl:L2742"
+  ],
+  "nota de crédito con ISC e ICBPER: línea sin TaxTotal": [
+    "4305 @ ValidaExprRegNC-2.0.1.xsl:L1719",
+    "4303 @ ValidaExprRegNC-2.0.1.xsl:L1740",
+    "4299 @ ValidaExprRegNC-2.0.1.xsl:L1829",
+    "3291 @ ValidaExprRegNC-2.0.1.xsl:L558"
+  ],
+  "nota de crédito con ISC e ICBPER: IGV de línea alterado": [
+    "4305 @ ValidaExprRegNC-2.0.1.xsl:L1719",
+    "4293 @ ValidaExprRegNC-2.0.1.xsl:L3481",
+    "3108 @ ValidaExprRegNC-2.0.1.xsl:L3996"
+  ],
+  "nota de crédito con ISC e ICBPER: IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegNC-2.0.1.xsl:L3783"
+  ],
+  "nota de crédito con ISC e ICBPER: sin afectación del IGV": [],
+  "nota de crédito con ISC e ICBPER: sin Percent": [
+    "3108 @ ValidaExprRegNC-2.0.1.xsl:L3996"
+  ],
+  "nota de crédito con ISC e ICBPER: Percent 15 en línea gravada": [],
+  "nota de crédito con ISC e ICBPER: sin código de tributo en línea": [
+    "4305 @ ValidaExprRegNC-2.0.1.xsl:L1719",
+    "4303 @ ValidaExprRegNC-2.0.1.xsl:L1740",
+    "4293 @ ValidaExprRegNC-2.0.1.xsl:L3481",
+    "2037 @ ValidaExprRegNC-2.0.1.xsl:L3757"
+  ],
+  "nota de crédito con ISC e ICBPER: tributo de línea fuera del catálogo 05": [
+    "4305 @ ValidaExprRegNC-2.0.1.xsl:L1719",
+    "4303 @ ValidaExprRegNC-2.0.1.xsl:L1740",
+    "4293 @ ValidaExprRegNC-2.0.1.xsl:L3481",
+    "2036 @ ValidaExprRegNC-2.0.1.xsl:L3763"
+  ],
+  "nota de crédito con ISC e ICBPER: valor de venta de línea con 3 decimales": [
+    "2370 @ ValidaExprRegNC-2.0.1.xsl:L2923"
+  ],
+  "nota de crédito con ISC e ICBPER: TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegNC-2.0.1.xsl:L2861"
+  ],
+  "nota de crédito con ISC e ICBPER: sin TaxTotal de cabecera": [
+    "2956 @ ValidaExprRegNC-2.0.1.xsl:L377"
+  ],
+  "nota de crédito con ISC e ICBPER: TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegNC-2.0.1.xsl:L1687"
+  ],
+  "nota de crédito con ISC e ICBPER: base de subtotal de cabecera inválida": [
+    "4303 @ ValidaExprRegNC-2.0.1.xsl:L1740",
+    "2999 @ ValidaExprRegNC-2.0.1.xsl:L2012"
+  ],
+  "nota de crédito con ISC e ICBPER: tributo de cabecera fuera del catálogo": [
+    "4301 @ ValidaExprRegNC-2.0.1.xsl:L1699",
+    "4305 @ ValidaExprRegNC-2.0.1.xsl:L1719",
+    "3007 @ ValidaExprRegNC-2.0.1.xsl:L2266"
+  ],
+  "nota de crédito con ISC e ICBPER: suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegNC-2.0.1.xsl:L1699",
+    "3291 @ ValidaExprRegNC-2.0.1.xsl:L558"
+  ],
+  "nota de crédito con ISC e ICBPER: TaxInclusiveAmount alterado": [],
+  "nota de crédito con ISC e ICBPER: LineExtensionAmount total desfasado": [],
+  "nota de crédito con ISC e ICBPER: PayableAmount desfasado": [
+    "4312 @ ValidaExprRegNC-2.0.1.xsl:L593"
+  ],
+  "nota de crédito con ISC e ICBPER: PayableAmount con formato inválido": [
+    "4312 @ ValidaExprRegNC-2.0.1.xsl:L593",
+    "2062 @ ValidaExprRegNC-2.0.1.xsl:L643"
+  ],
+  "nota de crédito con ISC e ICBPER: desfase dentro de la tolerancia (±1)": [],
+  "nota de débito con descuento por ítem: sin leyenda 1002 de gratuitas": [],
+  "nota de débito con descuento por ítem: sin leyenda 2007 de IVAP": [],
+  "nota de débito con descuento por ítem: sin leyenda 2006 de detracción": [],
+  "nota de débito con descuento por ítem: gratuita con tipo de precio 01": [],
+  "nota de débito con descuento por ítem: gratuita con precio unitario > 0 en cac:Price": [],
+  "nota de débito con descuento por ítem: IGV gratuito de cabecera alterado": [],
+  "nota de débito con descuento por ítem: base gratuita de cabecera alterada": [],
+  "nota de débito con descuento por ítem: retiro gravado con tasa 0": [],
+  "nota de débito con descuento por ítem: ISC de línea alterado": [],
+  "nota de débito con descuento por ítem: ISC con sistema fuera del catálogo 08": [],
+  "nota de débito con descuento por ítem: ISC sin sistema de cálculo": [],
+  "nota de débito con descuento por ítem: ISC con tasa 0": [],
+  "nota de débito con descuento por ítem: ISC de cabecera alterado": [],
+  "nota de débito con descuento por ítem: ICBPER con tarifa 0": [],
+  "nota de débito con descuento por ítem: ICBPER sin cantidad de bolsas": [],
+  "nota de débito con descuento por ítem: ICBPER con unidad distinta de NIU": [],
+  "nota de débito con descuento por ítem: ICBPER de línea ≠ bolsas × tarifa": [],
+  "nota de débito con descuento por ítem: ICBPER de cabecera ≠ suma de líneas": [],
+  "nota de débito con descuento por ítem: IVAP con tasa del 18 %": [],
+  "nota de débito con descuento por ítem: IVAP de cabecera alterado": [],
+  "nota de débito con descuento por ítem: exportación con IGV": [],
+  "nota de débito con descuento por ítem: exportación a cliente con RUC": [],
+  "nota de débito con descuento por ítem: tipo de operación 0101 en una exportación": [],
+  "nota de débito con descuento por ítem: descuento de ítem con código fuera de catálogo": [
+    "4288 @ ValidaExprRegND-2.0.1.xsl:L1825"
+  ],
+  "nota de débito con descuento por ítem: descuento de ítem ≠ factor × base": [
+    "4288 @ ValidaExprRegND-2.0.1.xsl:L1825"
+  ],
+  "nota de débito con descuento por ítem: descuento de ítem sin base": [],
+  "nota de débito con descuento por ítem: descuento de ítem marcado como cargo": [],
+  "nota de débito con descuento por ítem: descuento global 02 alterado": [],
+  "nota de débito con descuento por ítem: AllowanceTotalAmount ≠ descuentos 03": [],
+  "nota de débito con descuento por ítem: ChargeTotalAmount ≠ cargos 50": [],
+  "nota de débito con descuento por ítem: detracción sin cuenta del Banco de la Nación": [],
+  "nota de débito con descuento por ítem: detracción con bien fuera del catálogo 54": [],
+  "nota de débito con descuento por ítem: detracción sin monto": [],
+  "nota de débito con descuento por ítem: detracción con monto en dólares": [],
+  "nota de débito con descuento por ítem: detracción con medio de pago fuera del catálogo 59": [],
+  "nota de débito con descuento por ítem: percepción sin cargo 51": [],
+  "nota de débito con descuento por ítem: percepción con tasa alterada": [],
+  "nota de débito con descuento por ítem: percepción con monto total alterado": [],
+  "nota de débito con descuento por ítem: anticipo con PrepaidAmount ≠ pagos": [],
+  "nota de débito con descuento por ítem: anticipo sin documento relacionado": [],
+  "nota de débito con descuento por ítem: anticipo con identificador de pago duplicado": [],
+  "nota de débito con descuento por ítem: descuento por anticipo 04 alterado": [],
+  "nota de débito con descuento por ítem: forma de pago fuera de formato": [],
+  "nota de débito con descuento por ítem: crédito sin monto pendiente": [],
+  "nota de débito con descuento por ítem: cuota sin fecha de pago": [],
+  "nota de débito con descuento por ítem: cuota con monto 0": [],
+  "nota de débito con descuento por ítem: cuota duplicada": [],
+  "nota de débito con descuento por ítem: tasa del 10 % mezclada con 18 %": [],
+  "nota de débito con descuento por ítem: RUC del nombre ≠ RUC del emisor": [
+    "1034 @ ValidaExprRegND-2.0.1.xsl:L54"
+  ],
+  "nota de débito con descuento por ítem: serie del nombre ≠ serie del XML": [
+    "1035 @ ValidaExprRegND-2.0.1.xsl:L60"
+  ],
+  "nota de débito con descuento por ítem: número del nombre ≠ número del XML": [
+    "1036 @ ValidaExprRegND-2.0.1.xsl:L66"
+  ],
+  "nota de débito con descuento por ítem: UBLVersionID 2.0": [
+    "2074 @ ValidaExprRegND-2.0.1.xsl:L73"
+  ],
+  "nota de débito con descuento por ítem: sin UBLVersionID": [
+    "2075 @ ValidaExprRegND-2.0.1.xsl:L73"
+  ],
+  "nota de débito con descuento por ítem: CustomizationID 1.0": [
+    "2072 @ ValidaExprRegND-2.0.1.xsl:L81"
+  ],
+  "nota de débito con descuento por ítem: sin CustomizationID": [
+    "2073 @ ValidaExprRegND-2.0.1.xsl:L81"
+  ],
+  "nota de débito con descuento por ítem: sin moneda": [
+    "2070 @ ValidaExprRegND-2.0.1.xsl:L151"
+  ],
+  "nota de débito con descuento por ítem: moneda fuera del catálogo 02": [
+    "3088 @ ValidaExprRegND-2.0.1.xsl:L156"
+  ],
+  "nota de débito con descuento por ítem: currencyID distinto en una línea": [
+    "2071 @ ValidaExprRegND-2.0.1.xsl:L162"
+  ],
+  "nota de débito con descuento por ítem: motivo de nota fuera de catálogo": [
+    "2172 @ ValidaExprRegND-2.0.1.xsl:L110"
+  ],
+  "nota de débito con descuento por ítem: sin motivo de nota": [
+    "2128 @ ValidaExprRegND-2.0.1.xsl:L103"
+  ],
+  "nota de débito con descuento por ítem: sustento de nota de 1 carácter": [
+    "2135 @ ValidaExprRegND-2.0.1.xsl:L143"
+  ],
+  "nota de débito con descuento por ítem: sin documento de referencia": [
+    "2524 @ ValidaExprRegND-2.0.1.xsl:L733"
+  ],
+  "nota de débito con descuento por ítem: sin razón social del emisor": [
+    "1037 @ ValidaExprRegND-2.0.1.xsl:L506"
+  ],
+  "nota de débito con descuento por ítem: RUC del cliente con 10 dígitos": [
+    "2017 @ ValidaExprRegND-2.0.1.xsl:L670"
+  ],
+  "nota de débito con descuento por ítem: nombre del cliente de 2 caracteres": [
+    "2022 @ ValidaExprRegND-2.0.1.xsl:L710"
+  ],
+  "nota de débito con descuento por ítem: sin nombre del cliente": [
+    "2021 @ ValidaExprRegND-2.0.1.xsl:L710"
+  ],
+  "nota de débito con descuento por ítem: número de línea duplicado": [],
+  "nota de débito con descuento por ítem: valor unitario con 11 decimales": [
+    "2369 @ ValidaExprRegND-2.0.1.xsl:L1694"
+  ],
+  "nota de débito con descuento por ítem: sin valor unitario": [
+    "2369 @ ValidaExprRegND-2.0.1.xsl:L1694"
+  ],
+  "nota de débito con descuento por ítem: línea sin TaxTotal": [
+    "4299 @ ValidaExprRegND-2.0.1.xsl:L1148",
+    "3291 @ ValidaExprRegND-2.0.1.xsl:L361"
+  ],
+  "nota de débito con descuento por ítem: IGV de línea alterado": [
+    "3103 @ ValidaExprRegND-2.0.1.xsl:L2198"
+  ],
+  "nota de débito con descuento por ítem: IGV de línea con 3 decimales": [
+    "2033 @ ValidaExprRegND-2.0.1.xsl:L2106"
+  ],
+  "nota de débito con descuento por ítem: sin afectación del IGV": [
+    "2371 @ ValidaExprRegND-2.0.1.xsl:L2207"
+  ],
+  "nota de débito con descuento por ítem: sin Percent": [
+    "3462 @ ValidaExprRegND-2.0.1.xsl:L234"
+  ],
+  "nota de débito con descuento por ítem: Percent 15 en línea gravada": [
+    "3462 @ ValidaExprRegND-2.0.1.xsl:L234"
+  ],
+  "nota de débito con descuento por ítem: sin código de tributo en línea": [
+    "4299 @ ValidaExprRegND-2.0.1.xsl:L1148",
+    "3291 @ ValidaExprRegND-2.0.1.xsl:L361"
+  ],
+  "nota de débito con descuento por ítem: tributo de línea fuera del catálogo 05": [
+    "4299 @ ValidaExprRegND-2.0.1.xsl:L1148",
+    "3291 @ ValidaExprRegND-2.0.1.xsl:L361"
+  ],
+  "nota de débito con descuento por ítem: valor de venta de línea con 3 decimales": [
+    "2370 @ ValidaExprRegND-2.0.1.xsl:L1835"
+  ],
+  "nota de débito con descuento por ítem: TaxTotal de línea con formato inválido": [
+    "3021 @ ValidaExprRegND-2.0.1.xsl:L1765"
+  ],
+  "nota de débito con descuento por ítem: sin TaxTotal de cabecera": [
+    "4312 @ ValidaExprRegND-2.0.1.xsl:L396",
+    "2956 @ ValidaExprRegND-2.0.1.xsl:L436"
+  ],
+  "nota de débito con descuento por ítem: TaxTotal de cabecera con formato inválido": [
+    "3020 @ ValidaExprRegND-2.0.1.xsl:L1055"
+  ],
+  "nota de débito con descuento por ítem: base de subtotal de cabecera inválida": [
+    "2999 @ ValidaExprRegND-2.0.1.xsl:L1327"
+  ],
+  "nota de débito con descuento por ítem: tributo de cabecera fuera del catálogo": [
+    "4301 @ ValidaExprRegND-2.0.1.xsl:L1065",
+    "3007 @ ValidaExprRegND-2.0.1.xsl:L1377"
+  ],
+  "nota de débito con descuento por ítem: suma del IGV de cabecera alterada": [
+    "4301 @ ValidaExprRegND-2.0.1.xsl:L1065",
+    "3291 @ ValidaExprRegND-2.0.1.xsl:L361"
+  ],
+  "nota de débito con descuento por ítem: TaxInclusiveAmount alterado": [],
+  "nota de débito con descuento por ítem: LineExtensionAmount total desfasado": [],
+  "nota de débito con descuento por ítem: PayableAmount desfasado": [
+    "4312 @ ValidaExprRegND-2.0.1.xsl:L396"
+  ],
+  "nota de débito con descuento por ítem: PayableAmount con formato inválido": [
+    "4312 @ ValidaExprRegND-2.0.1.xsl:L396",
+    "2062 @ ValidaExprRegND-2.0.1.xsl:L411"
+  ],
+  "nota de débito con descuento por ítem: desfase dentro de la tolerancia (±1)": []
 }

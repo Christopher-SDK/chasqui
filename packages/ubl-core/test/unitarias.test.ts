@@ -4,8 +4,9 @@ import { calcular, calcularLinea } from '../src/calculos.js';
 import { Decimal } from '../src/decimal.js';
 import { firmar, verificarFirma } from '../src/firma.js';
 import { emitir } from '../src/index.js';
-import { validarXml } from '../src/validador/index.js';
-import { numeroXPath } from '../src/validador/motor.js';
+import { validarComoOraculo as validarXml } from './oraculo.js';
+import { DOMParser } from '@xmldom/xmldom';
+import xpath from 'xpath';
 import { generarXml, nombreArchivo } from '../src/xml.js';
 import { desempaquetar, empaquetar } from '../src/zip.js';
 import { zipSync, strToU8 } from 'fflate';
@@ -193,6 +194,13 @@ describe('validador: bordes', () => {
     expect(validarXml(xml, 'factura.xml').error?.codigo).toBe('0159');
   });
 
+  test('un BOM UTF-8 al inicio (XML de .NET) no lo vuelve ilegible', () => {
+    expect(validarXml(`\uFEFF${xml}`, nombre)).toEqual(validarXml(xml, nombre));
+    const zip = empaquetar(nombre.replace('.xml', ''), `\uFEFF${firmar(xml)}`);
+    const r = desempaquetar(`${nombre.replace('.xml', '')}.zip`, zip);
+    expect(r.ok && r.xml.startsWith('<?xml') && verificarFirma(r.xml).valida).toBe(true);
+  });
+
   test('XML ilegible → 0306', () => {
     expect(validarXml('<Invoice><sin cerrar>', nombre).error?.codigo).toBe('0306');
     expect(validarXml('', nombre).error?.codigo).toBe('0306');
@@ -219,11 +227,20 @@ describe('validador: bordes', () => {
     expect(v.observaciones.map((o) => o.codigo)).toEqual(['4312']);
   });
 
-  test('numeroXPath sigue XPath 1.0', () => {
-    expect(numeroXPath(' 12.50 ')).toBe(12.5);
-    expect(numeroXPath('.5')).toBe(0.5);
-    expect(numeroXPath('')).toBeNaN();
-    expect(numeroXPath('1e3')).toBeNaN();
-    expect(numeroXPath('+1')).toBeNaN();
+  // patches/xpath@0.0.36.patch: sin el parche, number() de un conjunto de nodos daba 0 para el
+  // texto vacío y aceptaba '1e3', y la regla 4296 se disparaba en facturas sin inafectas.
+  test('number() de un conjunto de nodos sigue XPath 1.0 (parche de la librería xpath)', () => {
+    const doc = new DOMParser().parseFromString(
+      '<r><a> 12.50 </a><b>.5</b><c></c><d>1e3</d><e>+1</e></r>',
+      'text/xml',
+    ) as unknown as Node;
+    const n = (e: string) => xpath.parse(e).evaluateNumber({ node: doc });
+    expect(n('number(/r/a)')).toBe(12.5);
+    expect(n('/r/b + 0')).toBe(0.5);
+    expect(n('/r/c + 1')).toBeNaN();
+    expect(n('/r/nada + 1')).toBeNaN();
+    expect(n('number(/r/d)')).toBeNaN();
+    expect(n('number(/r/e)')).toBeNaN();
+    expect(xpath.parse('(/r/nada + 1) < 5').evaluateBoolean({ node: doc })).toBe(false);
   });
 });

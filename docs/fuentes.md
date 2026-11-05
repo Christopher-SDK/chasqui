@@ -71,12 +71,14 @@ Cada fila del catálogo 07 (`cat_07.xml`) marca con `igv`, `iva`, `exo`, `ina`, 
 tributos del catálogo 05 que admite. El XSL oficial la consulta con `findElementInCatalogProperty`
 (regla 2040). `tributosDeAfectacion()` se deriva de esos datos y no de una tabla escrita a mano.
 
-## 6. Reglas implementadas en el validador
+## 6. Reglas del validador
 
-`packages/ubl-core/src/validador/reglas.ts` porta 84 códigos de los XSL oficiales, en el
-**mismo orden de ejecución** que cada hoja (factura, boleta, NC, ND), con su línea de origen en el
-campo `fuente` de cada hallazgo (p. ej. `ValidaExprRegFactura-2.0.1.xsl:L1508`). Las expresiones
-XPath están copiadas sin cambios. Mensajes: `CatalogoErrores.xml`.
+Desde la fase 10, `packages/ubl-core/src/validador/xslt.ts` ejecuta las hojas oficiales completas
+(2 131 validaciones, 597 códigos; [ADR 0011](adr/0011-interprete-xslt-de-las-hojas-oficiales.md)),
+con la línea de origen en el campo `fuente` de cada hallazgo (p. ej.
+`ValidaExprRegFactura-2.0.1.xsl:L1508`). Mensajes: `CatalogoErrores.xml`. La tabla siguiente es la
+de los 84 códigos del primer port manual (fases 1 a 9), que se conserva como referencia rápida de
+los más frecuentes.
 
 | Código | Mensaje oficial                                                                                                                                          |
 | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -281,3 +283,35 @@ reveló reglas que el port no tenía. Se portaron desde `ValidaExprRegGreRemiten
 | 2558   | 1423      | Modalidad 01 sin M1L: transportista obligatorio                               |
 
 El resto del bloque del transportista (2561, 2485, 2560, 2563…) no está portado; ver README.
+
+## 15. Operaciones especiales: tasas y reglas de las hojas
+
+Tasas que usa `packages/ubl-core/src/calculos.ts` (revisadas el 2026-11-04):
+
+| Concepto              | Valor en Chasqui                                          | Fuente                                |
+| --------------------- | --------------------------------------------------------- | ------------------------------------- |
+| IVAP (afectación 17)  | 4 % sobre la venta de arroz pilado                        | Ley 28211, art. 4                     |
+| ICBPER (tributo 7152) | S/ 0.50 por bolsa (tarifa del año 2023 en adelante)       | Ley 30884, art. 12                    |
+| Percepción del IGV    | 2 % (51), 1 % combustibles (52), 0.5 % tasa especial (53) | Ley 29173, arts. 17 y 18; catálogo 53 |
+| Detracción (SPOT)     | Tasa por código del catálogo 54 (p. ej. 020: 10 %)        | Catálogo 54 del paquete oficial       |
+| IGV del régimen MYPE  | 10 % (8 % IGV + 2 % IPM) con `tasaIgv: '10'`              | Ley 31556                             |
+
+- `TODO verificar`: **vigencia del IGV del 10 %**. La Ley 31556 lo fijó para un periodo limitado y
+  hubo prórrogas; Chasqui acepta `tasaIgv: '10'` en cualquier fecha y no comprueba si el emisor está
+  acogido al régimen. La hoja oficial solo exige que la tasa declarada cuadre con los montos.
+- **ICBPER**: la tarifa es configurable por ítem (`icbper.tarifa`) para probar años anteriores.
+- **Leyendas** (catálogo 52): Chasqui emite los textos del catálogo para 2006 (detracción),
+  2000 (percepción), 2007 (IVAP) y 1002 (transferencia gratuita).
+
+Comportamientos de las hojas oficiales que Chasqui reproduce a propósito:
+
+- **3249 siempre se emite en ventas al crédito.** `ValidaExprRegFactura-2.0.1.xsl`, línea 5595:
+  dentro de cada `cac:PaymentTerms` con `PaymentMeansID = 'Credito'` evalúa
+  `count(cac:PaymentTerms[...Cuota...]) = 0` con una ruta relativa que nunca encuentra nodos
+  (no hay `PaymentTerms` anidados), así que la observación sale aunque las cuotas estén bien. Una
+  factura al crédito correcta queda **aceptada con la observación 3249**.
+- **`Configuracion Veh�cular`**: en `ValidaExprRegFactura-2.0.1.xsl` (línea 2679) el literal tiene
+  un byte mal codificado en lugar de la «í»; la hoja de boleta (línea 3034) lo trae bien. Chasqui
+  compila el literal tal cual, de modo que la factura solo acepta ese byte, como el validador oficial.
+- **`cat_66.xml`**: las hojas lo citan con `document()`, pero no viene en el paquete. Se trata como
+  un conjunto vacío, que es lo que devuelve libxslt cuando el archivo no existe.

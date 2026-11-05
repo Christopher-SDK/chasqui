@@ -20,6 +20,9 @@ export const catalogos = {
   '19': g.catalogo19,
   '20': g.catalogo20,
   '51': g.catalogo51,
+  '53': g.catalogo53,
+  '54': g.catalogo54,
+  '59': g.catalogo59,
 } as const;
 
 export type NumeroCatalogo = keyof typeof catalogos;

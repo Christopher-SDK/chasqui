@@ -4,7 +4,7 @@
   "vitest": {
     "configFile": "vitest.config.ts"
   },
-  "mutate": ["src/validador/**/*.ts", "src/calculos.ts", "src/decimal.ts"],
+  "mutate": ["src/validador/**/*.ts", "src/calculos.ts", "src/decimal.ts", "src/xml.ts"],
   "coverageAnalysis": "perTest",
   "incremental": true,
   "incrementalFile": "stryker-incremental.json",

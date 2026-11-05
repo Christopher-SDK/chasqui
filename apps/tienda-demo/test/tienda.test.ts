@@ -113,7 +113,9 @@ describe('tienda-demo', () => {
       pago: { estado: 'completada' },
       comprobante: null,
     });
-    expect(r.json<{ error: string }>().error).toMatch(/Comprobante pendiente/);
+    expect(r.json<{ error: string }>().error).toBe(
+      'Comprobante pendiente: 503 FALLA_INYECTADA: Falla inyectada por Chasqui (HTTP 503)',
+    );
 
     await fetch(`${eco.urls.caos}/api/v1/caos`, { method: 'DELETE' });
     for (let i = 0; i < 100 && !(await fetch(`${eco.urls.sunat}/api/v1/comprobantes`)).ok; i++)

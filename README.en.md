@@ -3,7 +3,7 @@
 [![CI](https://github.com/Christopher-SDK/chasqui/actions/workflows/ci.yml/badge.svg)](https://github.com/Christopher-SDK/chasqui/actions/workflows/ci.yml)
 ![Node 22](https://img.shields.io/badge/node-22-339933)
 ![TypeScript](https://img.shields.io/badge/TypeScript-6-3178c6)
-![Mutation](https://img.shields.io/badge/mutation-84%25-success)
+![Mutation](https://img.shields.io/badge/mutation-88%25-success)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue)
 
 > **Testing simulator. Not affiliated with SUNAT or any financial institution.**
@@ -45,10 +45,10 @@ Without Docker: `pnpm install && pnpm todo-en-uno` (all four services in one pro
 ## Why it can be trusted
 
 - **Official rules as the oracle.** Validation rules are not interpreted from documentation: they
-  are ported from the executable XSL rules SUNAT publishes, and a differential test checks that
-  Chasqui returns the same verdict (code, observations and order) as the official rule: 478
-  targeted, 512 random and 200 valid invoices, 118 voided/summary documents and 117 dispatch
-  guides.
+  a TypeScript XSLT interpreter runs the official sheets SUNAT publishes, and a differential test
+  checks that Chasqui returns the same verdict (code, observations and order) as those sheets run
+  by libxslt, across about 2,180 cases including 18 special operations, plus 41 real-world UBL 2.1
+  invoices from public third-party projects (same verdict on all 41).
 - **Deterministic chaos.** Every fault decision is `sha256(seed, rule, key#attempt)`: the same
   seed replays the same sequence locally and in CI, and a retry with the same Idempotency-Key can
   recover, just like a real transient failure.
@@ -57,7 +57,7 @@ Without Docker: `pnpm install && pnpm todo-en-uno` (all four services in one pro
   timestamp and retried with exponential backoff.
 - **Tests at every level.** Unit, property-based (fast-check), conformance, real-HTTP integration,
   Pact contracts between the SDK and each simulator, Playwright E2E on desktop and mobile,
-  Stryker mutation testing (84 %) and k6 load tests with thresholds.
+  Stryker mutation testing (88 %) and k6 load tests with thresholds.
 
 ## Integrating
 
@@ -74,9 +74,13 @@ recorded as ADRs in [docs/adr/](docs/adr/).
 
 ## Known limitations
 
-Not yet covered: free-of-charge operations, IVAP, exports, excise (ISC), plastic-bag tax (ICBPER),
-withholdings and perceptions, advance payments, discounts and charges, and credit installments. The
-signature check does not validate the certificate chain. A few server-side rules are not confirmed
+Validation runs SUNAT's official XSLT rule sheets in full (2,131 checks, 597 codes) through a
+TypeScript XSLT interpreter, including free-of-charge operations, IVAP, exports, excise (ISC),
+plastic-bag tax (ICBPER), SPOT withholdings, perceptions, advance payments, discounts and charges,
+credit installments and the 10 % VAT regime. Official quirks are reproduced on purpose: every credit
+invoice gets observation 3249. The signature check does not validate the certificate chain, and the
+dispatch-guide generator only builds private transport (mode 02); the carrier guide (GRE 31) is not
+included. A few server-side rules are not confirmed
 by an official source; each one is marked `TODO verificar` and listed in the Spanish README.
 
 ## Author

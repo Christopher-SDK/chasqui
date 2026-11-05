@@ -6625,6 +6625,332 @@ export const catalogo51 = {
   }
 } as const;
 
+/** Catálogo N.° 53: Códigos de cargos o descuentos. Fuente: cat_53.xml (sha256 be15f19501599a61cd99bd8a70b2ac1f4b413b124d381bfc096b1927f0877275). */
+export const catalogo53 = {
+  "20": {
+    "nombre": "Anticipos de ISC",
+    "item": "no",
+    "global": "si"
+  },
+  "45": {
+    "nombre": "FISE",
+    "item": "no",
+    "global": "si"
+  },
+  "46": {
+    "nombre": "Recargo al consumo y/o propinas",
+    "item": "no",
+    "global": "si"
+  },
+  "47": {
+    "nombre": "Cargos que afectan la base imponible del IGV",
+    "item": "si",
+    "global": "no"
+  },
+  "48": {
+    "nombre": "Cargos que no afectan la base imponible del IGV",
+    "item": "si",
+    "global": "no"
+  },
+  "49": {
+    "nombre": "Cargos globales que afectan la base imponible del IGV",
+    "item": "no",
+    "global": "si"
+  },
+  "50": {
+    "nombre": "Cargos globales que no afectan la base imponible del IGV",
+    "item": "no",
+    "global": "si"
+  },
+  "51": {
+    "nombre": "Percepción venta interna",
+    "item": "no",
+    "global": "si"
+  },
+  "52": {
+    "nombre": "Percepción a la adquisición de combustible",
+    "item": "no",
+    "global": "si"
+  },
+  "53": {
+    "nombre": "Percepción realizada al agente de percepción con tasa especial",
+    "item": "no",
+    "global": "si"
+  },
+  "61": {
+    "nombre": "Deducción de Retención de renta por anticipos",
+    "item": "no",
+    "global": "si"
+  },
+  "62": {
+    "nombre": "Retencion del IGV",
+    "item": "no",
+    "global": "si"
+  },
+  "63": {
+    "nombre": "Retención de renta de segunda categoría",
+    "item": "no",
+    "global": "si"
+  },
+  "00": {
+    "nombre": "Descuentos que afectan la base imponible del IGV/IVAP",
+    "item": "si",
+    "global": "no"
+  },
+  "01": {
+    "nombre": "Descuentos que no afectan la base imponible del IGV/IVAP",
+    "item": "si",
+    "global": "no"
+  },
+  "02": {
+    "nombre": "Descuentos globales que afectan la base imponible del IGV/IVAP",
+    "item": "no",
+    "global": "si"
+  },
+  "03": {
+    "nombre": "Descuentos globales que no afectan la base imponible del IGV/IVAP",
+    "item": "no",
+    "global": "si"
+  },
+  "04": {
+    "nombre": "Descuentos globales por anticipos que afectan la base imponible del IGV/IVAP",
+    "item": "no",
+    "global": "si"
+  },
+  "05": {
+    "nombre": "Descuentos globales por anticipos exonerados",
+    "item": "no",
+    "global": "si"
+  },
+  "06": {
+    "nombre": "Descuentos globales por anticipos inafectos",
+    "item": "no",
+    "global": "si"
+  }
+} as const;
+
+/** Catálogo N.° 54: Bienes y servicios sujetos a detracción. Fuente: cat_54.xml (sha256 ba78020825d2e683cb0a0a6b86b83044d039faaa242694cb69849b5a878d2ea6). */
+export const catalogo54 = {
+  "001": {
+    "nombre": "Azúcar y melaza de caña",
+    "tasa": "10"
+  },
+  "002": {
+    "nombre": "Arroz",
+    "tasa": "10"
+  },
+  "003": {
+    "nombre": "Alcohol etílico",
+    "tasa": "10"
+  },
+  "004": {
+    "nombre": "Recursos hidrobiológicos",
+    "tasa": "4"
+  },
+  "005": {
+    "nombre": "Maíz amarillo duro",
+    "tasa": "4"
+  },
+  "007": {
+    "nombre": "Caña de azúcar",
+    "tasa": "10"
+  },
+  "008": {
+    "nombre": "Madera",
+    "tasa": "4"
+  },
+  "009": {
+    "nombre": "Arena y piedra.",
+    "tasa": "10"
+  },
+  "010": {
+    "nombre": "Residuos, subproductos, desechos, recortes y desperdicios",
+    "tasa": "15"
+  },
+  "011": {
+    "nombre": "Bienes gravados con el IGV, o renuncia a la exoneración",
+    "tasa": "15"
+  },
+  "012": {
+    "nombre": "Intermediación laboral y tercerización",
+    "tasa": "10"
+  },
+  "013": {
+    "nombre": "Animales vivos",
+    "tasa": "10"
+  },
+  "014": {
+    "nombre": "Carnes y despojos comestibles",
+    "tasa": "4"
+  },
+  "015": {
+    "nombre": "Abonos, cueros y pieles de origen animal",
+    "tasa": "10"
+  },
+  "016": {
+    "nombre": "Aceite de pescado",
+    "tasa": "4"
+  },
+  "017": {
+    "nombre": "Harina, polvo y “pellets” de pescado, crustáceos, moluscos y demás invertebrados acuáticos",
+    "tasa": "4"
+  },
+  "019": {
+    "nombre": "Arrendamiento de bienes muebles",
+    "tasa": "10"
+  },
+  "020": {
+    "nombre": "Mantenimiento y reparación de bienes muebles",
+    "tasa": "10"
+  },
+  "021": {
+    "nombre": "Movimiento de carga",
+    "tasa": "10"
+  },
+  "022": {
+    "nombre": "Otros servicios empresariales",
+    "tasa": "10"
+  },
+  "023": {
+    "nombre": "Leche",
+    "tasa": "10"
+  },
+  "024": {
+    "nombre": "Comisión mercantil",
+    "tasa": "10"
+  },
+  "025": {
+    "nombre": "Fabricación de bienes por encargo",
+    "tasa": "10"
+  },
+  "026": {
+    "nombre": "Servicio de transporte de personas",
+    "tasa": "10"
+  },
+  "027": {
+    "nombre": "Servicio de transporte de carga",
+    "tasa": "4"
+  },
+  "028": {
+    "nombre": "Transporte de pasajeros",
+    "tasa": "4"
+  },
+  "030": {
+    "nombre": "Contratos de construcción",
+    "tasa": "4"
+  },
+  "031": {
+    "nombre": "Oro gravado con el IGV",
+    "tasa": "10"
+  },
+  "032": {
+    "nombre": "Paprika y otros frutos de los generos capsicum o pimienta",
+    "tasa": "10"
+  },
+  "034": {
+    "nombre": "Minerales metálicos no auríferos",
+    "tasa": "10"
+  },
+  "035": {
+    "nombre": "Bienes exonerados del IGV",
+    "tasa": "1.5"
+  },
+  "036": {
+    "nombre": "Oro y demás minerales metálicos exonerados del IGV",
+    "tasa": "1.5"
+  },
+  "037": {
+    "nombre": "Demás servicios gravados con el IGV",
+    "tasa": "10"
+  },
+  "039": {
+    "nombre": "Minerales no metálicos",
+    "tasa": "10"
+  },
+  "040": {
+    "nombre": "Bien inmueble gravado con IGV",
+    "tasa": "4"
+  },
+  "041": {
+    "nombre": "Plomo",
+    "tasa": "15"
+  },
+  "099": {
+    "nombre": "Ley 30737",
+    "tasa": "8"
+  }
+} as const;
+
+/** Catálogo N.° 59: Medios de pago. Fuente: cat_59.xml (sha256 ac4f51f7c695cf60f591e00db7780ed09370504fc2fffa09e770a25debd1ecef). */
+export const catalogo59 = {
+  "101": {
+    "nombre": "Transferencias – Comercio exterior"
+  },
+  "102": {
+    "nombre": "Cheques bancarios - Comercio exterior"
+  },
+  "103": {
+    "nombre": "Orden de pago simple - Comercio exterior"
+  },
+  "104": {
+    "nombre": "Orden de pago documentario - Comercio exterior"
+  },
+  "105": {
+    "nombre": "Remesa simple - Comercio exterior"
+  },
+  "106": {
+    "nombre": "Remesa documentaria - Comercio exterior"
+  },
+  "107": {
+    "nombre": "Carta de crédito simple - Comercio exterior"
+  },
+  "108": {
+    "nombre": "Carta de crédito documentario - Comercio exterior"
+  },
+  "999": {
+    "nombre": "Otros medios de pago"
+  },
+  "001": {
+    "nombre": "Depósito en cuenta"
+  },
+  "002": {
+    "nombre": "Giro"
+  },
+  "003": {
+    "nombre": "Transferencia de fondos"
+  },
+  "004": {
+    "nombre": "Orden de pago"
+  },
+  "005": {
+    "nombre": "Tarjeta de débito"
+  },
+  "006": {
+    "nombre": "Tarjeta de crédito emitida en el país por una empresa del sistema financiero"
+  },
+  "007": {
+    "nombre": "Cheques con la cláusula de \"NO NEGOCIABLE\", \"INTRANSFERIBLES\", \"NO A LA ORDEN\" u otra equivalente, a que se refiere el inciso g) del artículo 5° de la ley"
+  },
+  "008": {
+    "nombre": "Efectivo, por operaciones en las que no existe obligación de utilizar medio de pago"
+  },
+  "009": {
+    "nombre": "Efectivo, en los demás casos"
+  },
+  "010": {
+    "nombre": "Medios de pago usados en comercio exterior"
+  },
+  "011": {
+    "nombre": "Documentos emitidos por las EDPYMES y las cooperativas de ahorro y crédito no autorizadas a captar depósitos del público"
+  },
+  "012": {
+    "nombre": "Tarjeta de crédito emitida en el país o en el exterior por una empresa no perteneciente al sistema financiero, cuyo objeto principal sea la emisión y administración de tarjetas de crédito"
+  },
+  "013": {
+    "nombre": "Tarjetas de crédito emitidas en el exterior por empresas bancarias o financieras no domiciliadas"
+  }
+} as const;
+
 /** Catálogo N.° 01: Tipo de documento. Fuente: cat_01.xml (sha256 cab862f87c881a2bed42304912ea99064ad318699997d4bbed1384b894159c59). */
 export const catalogo01 = {
   "11": {

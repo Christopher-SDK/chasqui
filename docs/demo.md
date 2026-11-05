@@ -12,7 +12,9 @@ docker compose up -d && docker compose --profile observabilidad up -d
 2. En «Probar», pulsa **Factura válida**: aparece en vivo con código 0. Ábrela y mira el XML
    firmado y el CDR.
 3. Pulsa **Rechazada**: CDR con el código 2074, el mismo que daría la regla oficial (el validador
-   está portado de los XSL de SUNAT y se compara contra ellos en cada CI).
+   ejecuta los XSL de SUNAT y se compara contra ellos en cada CI).
+   Pulsa también **Crédito con detracción**: pasa con código 0 y la observación 3249, que la hoja
+   oficial emite en toda venta al crédito.
 
 ## 2 · Una compra real que cruza todos los servicios (1 min)
 

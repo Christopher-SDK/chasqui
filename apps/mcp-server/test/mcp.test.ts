@@ -67,6 +67,51 @@ describe('mcp-server', () => {
     ).toBe('aceptado');
   });
 
+  test('emite operaciones especiales: crédito con detracción, ISC, bolsas y gratuitas', async () => {
+    const cliente = { documento: '20000000001', nombre: 'CLIENTE S.A.C.' };
+    const credito = await llamar('emitir_comprobante', {
+      tipo: 'factura',
+      serie: 'F001',
+      numero: 30,
+      cliente,
+      items: [{ descripcion: 'Mantenimiento', cantidad: 1, valorUnitario: '2000' }],
+      detraccion: { codigoBien: '020', cuentaBancoNacion: '00-000-000001' },
+      cuotas: [{ monto: '2124', fechaPago: '2026-12-15' }],
+    });
+    expect(credito).toMatchObject({ error: false, datos: { estado: 'observado', codigo: '0' } });
+    const consumo = await llamar('emitir_comprobante', {
+      tipo: 'boleta',
+      serie: 'B001',
+      numero: 30,
+      cliente: { documento: '12345678', nombre: 'ANA' },
+      items: [
+        {
+          descripcion: 'Licor',
+          cantidad: 1,
+          valorUnitario: '40',
+          isc: { sistema: '01', tasa: '0.25' },
+        },
+        { descripcion: 'Bolsa', cantidad: 2, valorUnitario: '0.10', icbper: true },
+        { descripcion: 'Muestra', cantidad: 1, valorUnitario: '5', afectacion: '13' },
+      ],
+      tasaIgv: '10',
+    });
+    expect(consumo).toMatchObject({ error: false, datos: { estado: 'aceptado' } });
+    expect(
+      await llamar('emitir_comprobante', {
+        tipo: 'boleta',
+        serie: 'B001',
+        numero: 31,
+        cliente: { documento: '12345678', nombre: 'ANA' },
+        items: [{ descripcion: 'x', cantidad: 1, valorUnitario: '10' }],
+        percepcion: '51',
+      }),
+    ).toMatchObject({
+      error: true,
+      datos: { error: { mensaje: 'Solo las facturas (01) admiten esta operación' } },
+    });
+  });
+
   test('un duplicado vuelve como error de herramienta con su código, no como excepción', async () => {
     const args = {
       tipo: 'boleta',

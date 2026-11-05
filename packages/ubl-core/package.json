@@ -15,9 +15,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "tsc -p tsconfig.build.json && node -e \"require('node:fs').cpSync('src/validador/oficial','dist/validador/oficial',{recursive:true})\"",
     "typecheck": "tsc -p tsconfig.json",
-    "mutation": "stryker run"
+    "mutation": "stryker run",
+    "reglas": "node scripts/compilar-reglas.mjs"
   },
   "dependencies": {
     "@chasqui/catalogos": "workspace:*",

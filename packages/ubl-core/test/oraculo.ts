@@ -2,7 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import type { Veredicto } from '../src/validador/index.js';
+import { validarXml, type Veredicto } from '../src/validador/index.js';
 
 /** Oráculo de conformidad: reglas XSL oficiales de SUNAT (tools/sunat-oficial/oraculo.py). */
 export interface VeredictoOficial {
@@ -58,7 +58,7 @@ export function consultarOraculo(casos: CasoOraculo[]): VeredictoOficial[] {
   const salida = execFileSync(PYTHON, ['-I', SCRIPT], {
     input: entrada,
     maxBuffer: 256 * 1024 * 1024,
-    env: { ...process.env, FECHA_ORACULO: '2026-11-03' },
+    env: { ...process.env, FECHA_ORACULO },
   }).toString();
   mkdirSync(CACHE, { recursive: true });
   writeFileSync(archivo, salida);
@@ -72,4 +72,12 @@ export function comoOficial(v: Veredicto): VeredictoOficial {
     codigo: v.error?.codigo ?? null,
     observaciones: v.observaciones.map((o) => o.codigo),
   };
+}
+
+/** Fecha de «hoy» del oráculo: current-date() de las reglas oficiales en todas las pruebas. */
+export const FECHA_ORACULO = '2026-11-03';
+
+/** El validador de Chasqui con la misma fecha que ve el oráculo. */
+export function validarComoOraculo(xml: string, nombre: string): Veredicto {
+  return validarXml(xml, nombre, { hoy: FECHA_ORACULO });
 }

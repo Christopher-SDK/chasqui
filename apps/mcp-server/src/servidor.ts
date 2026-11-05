@@ -1,6 +1,13 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { boleta, Chasqui, ErrorChasqui, factura, type OpcionesCliente } from '@chasqui/sdk';
-import { validarXml, type Emisor } from '@chasqui/ubl-core';
+import {
+  boleta,
+  Chasqui,
+  ErrorChasqui,
+  factura,
+  type ConstructorComprobante,
+  type OpcionesCliente,
+} from '@chasqui/sdk';
+import { validarXml, type Ajuste, type Emisor } from '@chasqui/ubl-core';
 import { z } from 'zod';
 
 export const AVISO =
@@ -46,6 +53,42 @@ const Monto = z
   .regex(/^\d{1,7}(\.\d{1,2})?$/)
   .describe('Soles con hasta 2 decimales, p. ej. "12.50"');
 
+/** Zod tipa los opcionales como `T | undefined` y el modelo (exactOptionalPropertyTypes) no los
+ * admite: los argumentos ya validados son JSON, así que el ida y vuelta solo quita esas claves. */
+type Extra = Parameters<ConstructorComprobante['item']>[3];
+const sinIndefinidos = (x: unknown): unknown => JSON.parse(JSON.stringify(x));
+
+const Fecha = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
+const Tasa = z
+  .string()
+  .regex(/^0(\.\d{1,4})?$|^1$/)
+  .describe('Tanto por uno, p. ej. "0.25"');
+const AjusteZ = z
+  .object({ monto: Monto.optional(), factor: Tasa.optional() })
+  .refine((x) => (x.monto === undefined) !== (x.factor === undefined), 'monto o factor, no ambos');
+const AFECTACIONES = [
+  '10',
+  '11',
+  '12',
+  '13',
+  '14',
+  '15',
+  '16',
+  '17',
+  '20',
+  '21',
+  '22',
+  '30',
+  '31',
+  '32',
+  '33',
+  '34',
+  '35',
+  '36',
+  '37',
+  '40',
+] as const;
+
 export function construirServidorMcp(opciones: OpcionesCliente = {}): McpServer {
   const chasqui = new Chasqui(opciones);
   const mcp = new McpServer(
@@ -83,17 +126,69 @@ export function construirServidorMcp(opciones: OpcionesCliente = {}): McpServer 
               cantidad: z.number().positive(),
               valorUnitario: Monto,
               afectacion: z
-                .enum(['10', '20', '30'])
+                .enum(AFECTACIONES)
                 .default('10')
-                .describe('10 gravado, 20 exonerado, 30 inafecto (catálogo 07)'),
+                .describe(
+                  'Catálogo 07: 10 gravado, 17 IVAP, 20 exonerado, 30 inafecto, 40 exportación; 11-16, 21, 22 y 31-37 gratuitas (valorUnitario = valor referencial)',
+                ),
+              descuento: AjusteZ.optional().describe(
+                'Descuento del ítem que reduce la base (código 00)',
+              ),
+              isc: z
+                .object({
+                  sistema: z
+                    .enum(['01', '02', '03'])
+                    .describe('01 al valor, 02 específico, 03 al precio de venta al público'),
+                  tasa: Tasa.optional().describe('Sistemas 01 y 03'),
+                  montoFijo: Monto.optional().describe('Sistema 02, por unidad'),
+                  precioSugerido: Monto.optional().describe('Sistema 03, por unidad con impuestos'),
+                })
+                .optional()
+                .describe('Impuesto Selectivo al Consumo'),
+              icbper: z
+                .boolean()
+                .optional()
+                .describe(
+                  'Bolsas de plástico: la cantidad es el número de bolsas (tarifa vigente)',
+                ),
             }),
           )
           .min(1),
-        fecha: z
-          .string()
-          .regex(/^\d{4}-\d{2}-\d{2}$/)
+        tasaIgv: z.enum(['18', '10']).optional().describe('10 = régimen MYPE de la Ley 31556'),
+        descuentoGlobal: AjusteZ.optional().describe('Reduce la base imponible (código 02)'),
+        descuentoNoAfecto: Monto.optional().describe('No reduce la base imponible (código 03)'),
+        cargo: Monto.optional().describe('Otros cargos fuera de la base (código 50)'),
+        cuotas: z
+          .array(z.object({ monto: Monto, fechaPago: Fecha }))
           .optional()
-          .describe('AAAA-MM-DD; por defecto, hoy en Lima'),
+          .describe(
+            'Solo factura: venta al crédito; con detracción, las cuotas suman el total menos la detracción',
+          ),
+        detraccion: z
+          .object({
+            codigoBien: z
+              .string()
+              .regex(/^\d{3}$/)
+              .describe('Catálogo 54, p. ej. 020'),
+            cuentaBancoNacion: z.string().min(1),
+          })
+          .optional()
+          .describe('Solo factura: detracción (operación 1001)'),
+        percepcion: z
+          .enum(['51', '52', '53'])
+          .optional()
+          .describe('Solo factura: régimen de percepción del catálogo 53 (operación 2001)'),
+        anticipos: z
+          .array(
+            z.object({
+              tipoDocumento: z.enum(['02', '03']).describe('02 factura, 03 boleta de anticipo'),
+              serieNumero: z.string().regex(/^[FB][A-Z0-9]{3}-\d{1,8}$/),
+              monto: Monto.describe('Importe pagado con IGV'),
+            }),
+          )
+          .optional()
+          .describe('Solo factura: anticipos deducidos'),
+        fecha: Fecha.optional().describe('AAAA-MM-DD; por defecto, hoy en Lima'),
       },
       annotations: escritura,
     },
@@ -104,8 +199,21 @@ export function construirServidorMcp(opciones: OpcionesCliente = {}): McpServer 
           .emisor(EMISOR_DEMO)
           .cliente(a.cliente.documento, a.cliente.nombre);
         if (a.fecha) b.fecha(a.fecha);
-        for (const i of a.items)
-          b.item(i.descripcion, i.cantidad, i.valorUnitario, { afectacion: i.afectacion });
+        for (const { descripcion, cantidad, valorUnitario, icbper, ...extra } of a.items)
+          b.item(
+            descripcion,
+            cantidad,
+            valorUnitario,
+            sinIndefinidos({ ...extra, ...(icbper ? { icbper: {} } : {}) }) as Extra,
+          );
+        if (a.tasaIgv) b.tasaIgv(a.tasaIgv);
+        if (a.descuentoGlobal) b.descuento(sinIndefinidos(a.descuentoGlobal) as Ajuste);
+        if (a.descuentoNoAfecto) b.descuentoNoAfecto(a.descuentoNoAfecto);
+        if (a.cargo) b.cargo(a.cargo);
+        if (a.cuotas?.length) b.formaPago(...a.cuotas);
+        if (a.detraccion) b.detraccion(a.detraccion);
+        if (a.percepcion) b.percepcion(a.percepcion);
+        for (const anticipo of a.anticipos ?? []) b.anticipo(anticipo);
         // El CDR (ZIP en base64) no le sirve al agente y llenaría su contexto.
         return { ...(await chasqui.sunat.enviar(b.construir())), cdr: undefined };
       }),

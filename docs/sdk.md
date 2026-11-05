@@ -28,6 +28,36 @@ await chasqui.chaos.con('cierre-de-mes', async () => {
 });
 ```
 
+Operaciones especiales (todas pasan las reglas oficiales; ver [fuentes §15](fuentes.md#15-operaciones-especiales-tasas-y-reglas-de-las-hojas)):
+
+```ts
+// Consumo: ISC al valor, bolsas con ICBPER, una muestra gratuita y descuento global → código 0
+factura()
+  .serie('F001', 2)
+  .emisor(miEmpresa)
+  .cliente('20123456786', 'CLIENTE S.A.C.')
+  .item('Licor', 2, '40', { isc: { sistema: '01', tasa: '0.25' } })
+  .item('Muestra', 1, '5', { afectacion: '13' }) // gratuita: valorUnitario es el referencial
+  .bolsas(2, '0.10') // ICBPER a la tarifa vigente (S/ 0.50)
+  .descuento({ factor: '0.05' }) // global, reduce la base (02)
+  .cargo('3') // fuera de la base (50)
+  .construir();
+
+// Crédito con detracción: 2 000 + IGV = 2 360; detracción 10 % = 236; pendiente 2 124
+factura()
+  .serie('F001', 3)
+  .emisor(miEmpresa)
+  .cliente('20123456786', 'CLIENTE S.A.C.')
+  .item('Mantenimiento de equipos', 1, '2000')
+  .detraccion({ codigoBien: '020', cuentaBancoNacion: '00-000-000001' })
+  .formaPago({ monto: '1062', fechaPago: '2026-12-15' }, { monto: '1062', fechaPago: '2027-01-15' }) // sin cuotas = contado; observación 3249 siempre (fuentes §15)
+  .construir();
+```
+
+Además: `.item(..., { descuento })` (por ítem, 00), `.descuentoNoAfecto(monto)` (03),
+`.tasaIgv('10')` (Ley 31556), `.percepcion('51' | '52' | '53')` y `.anticipo({...})`. Solo en
+facturas: `.detraccion`, `.percepcion`, `.anticipo` y `.formaPago`.
+
 | Módulo      | Métodos                                                                                            |
 | ----------- | -------------------------------------------------------------------------------------------------- |
 | `sunat`     | `enviar`, `estado`                                                                                 |

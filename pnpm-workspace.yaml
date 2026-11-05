@@ -2,3 +2,5 @@ packages:
   - apps/*
   - packages/*
   - examples/*
+patchedDependencies:
+  xpath@0.0.36: patches/xpath@0.0.36.patch

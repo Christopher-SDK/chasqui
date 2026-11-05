@@ -80,3 +80,43 @@
 - [x] Mutation de reglas-guia de 72 % a 88 % (global 84 % en la corrida completa de CI)
 - [x] Panel en Docker: nginx vuelve a resolver los servicios (antes daba 502 al recrearlos)
 - [x] Verificado: suite 189/189, CI verde (calidad, E2E, mutation, imágenes), k6 local p95 sunat 20 ms / pagos 6 ms / identidad 7 ms y k6 nocturno en GitHub aprobado
+
+## Fase 10 — reglas oficiales completas y operaciones especiales (EN CURSO, pausada 2026-11-04)
+
+Hecho (rama `fase-10`, sin fusionar a `main`):
+
+- [x] Intérprete XSLT 1.0 en TypeScript (`packages/ubl-core/src/validador/xslt.ts`) que ejecuta las hojas oficiales completas: factura, boleta, NC, ND, GRE remitente, resumen y baja. Reemplaza al port manual (`reglas*.ts` y `motor.ts`, borrados)
+- [x] Compilador XSL → JSON (`packages/ubl-core/scripts/compilar-reglas.mjs`, `pnpm --filter @chasqui/ubl-core reglas`); salida versionada en `src/validador/oficial/`; la CI comprueba que regenerarla no cambia nada
+- [x] Parche de la librería `xpath` (`patches/xpath@0.0.36.patch`): number() de un conjunto vacío daba 0 en vez de NaN
+- [x] Orden de documento precalculado: de ~900 ms a ~16 ms por comprobante
+- [x] Modelo, cálculo y XML de: gratuitas (11-16, 21, 22, 31-37), ISC (sistemas 01, 02 y 03), ICBPER, IVAP, exportación, descuento por ítem (00), descuento global (02 y 03), cargos (50), detracción, percepción, anticipos, crédito con cuotas e IGV del 10 % (Ley 31556)
+- [x] Catálogos 53, 54 y 59 agregados a `@chasqui/catalogos`
+- [x] 18 operaciones especiales (`test/operaciones.ts`) pasan las reglas oficiales; ~2 180 casos de la prueba diferencial sin una sola diferencia con el oráculo
+- [x] Pruebas unitarias del intérprete (`test/xslt.test.ts`); ubl-core 85/85, lint y tipos limpios
+
+Reanudada el 2026-11-04 (tarde):
+
+- [x] `pnpm test` completo: 225/225 sin cambios (los demás paquetes ya usaban bien el modelo); lint y tipos limpios
+- [x] SDK: `.bolsas`, `.tasaIgv`, `.descuento`, `.descuentoNoAfecto`, `.cargo`, `.formaPago`, `.detraccion`, `.percepcion`, `.anticipo` e ítems con `descuento`/`isc`/`icbper`; las de factura fallan pronto en boletas
+- [x] MCP: `emitir_comprobante` acepta todas las operaciones especiales (catálogo 07 completo)
+- [x] Panel «Probar»: «Crédito con detracción» (código 0 + 3249) e «ISC, bolsas y gratuita»; E2E escritorio y móvil
+- [x] Hallazgo documentado: la regla 3249 de la hoja oficial observa TODA factura al crédito (ruta relativa que nunca encuentra nodos); se reproduce a propósito
+- [x] Docs: ADR 0011 (reemplaza a la 0004), `fuentes.md` §6 y §15, README ES/EN, `sdk.md`, `mcp.md`, `demo.md`
+- [x] Mutation completo con `xml.ts`: 88.76 % (antes 84 %); incremental regenerado
+- [x] CI: timeout de conformidad a 300 s (con cobertura tarda ~125 s); pruebas de guardas de `calcular` (ramas de ubl-core 95.8 %); imágenes Docker construidas en CI
+
+- [x] k6 local: umbrales aprobados, 0 % de errores; p95 sunat 19.8 ms, pagos 2.3 ms, identidad 7.6 ms
+
+Auditoría «probador minucioso» (clon limpio de GitHub, Node 22, siguiendo el README):
+
+- [x] `pnpm install`, `pnpm sunat:preparar` y `pnpm test` en limpio: 245/245
+- [x] Demo de 5 minutos de punta a punta por HTTP (todo en uno + tienda): escenarios, compra, caos, reintento sin doble cobro
+- [x] Hallazgo: con Node 22.12 o 23 el install fallaba con un error de `@eslint/js`; `engines` pasa a `^22.13.0 || >=24`
+- [x] Hallazgo: la falla 5xx inyectada daba `503 Falla inyectada por Chasqui: ` (sin código ni mensaje); ahora `{ codigo, mensaje }`
+- [x] Hallazgo: un BOM UTF-8 (XML de .NET) daba 0306; se quita al desempaquetar y al parsear (regresión validada contra la versión rota)
+- [x] XML reales de terceros (no versionados): 15 UBL 2.0 de Greenter (14/14 iguales al oráculo; el otro, lxml no lo lee) y 41 UBL 2.1 de proyectos públicos con nombre válido: 41/41 iguales
+
+Pendiente, en orden:
+
+1. Fusionar a `main`, CI en verde y nocturno
+2. Preguntar al usuario antes de hacer público el repo

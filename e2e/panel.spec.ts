@@ -32,6 +32,21 @@ test('comprobantes: una factura válida y una rechazada llegan en vivo con su de
   await expect(detalle).toBeHidden();
 });
 
+test('operaciones especiales: crédito con detracción pasa con 3249 y su XML lleva cuotas y SPOT', async ({
+  page,
+}) => {
+  const panel = new Panel(page);
+  await panel.abrir();
+  await panel.probar('Crédito con detracción');
+  const fila = panel.fila('Con observaciones');
+  await expect(fila).toBeVisible();
+  await fila.click();
+  const detalle = page.getByRole('dialog');
+  await detalle.getByRole('tab', { name: 'XML recibido' }).click();
+  await expect(detalle).toContainText('Cuota002');
+  await expect(detalle).toContainText('Detraccion');
+});
+
 test('caos: activar «sunat-caida» desde el panel hace fallar el envío y apagarlo lo recupera', async ({
   page,
 }) => {

@@ -4,7 +4,7 @@ import { calcular } from '../src/calculos.js';
 import { Decimal } from '../src/decimal.js';
 import { firmar, verificarFirma } from '../src/firma.js';
 import { emitir } from '../src/index.js';
-import { validarXml } from '../src/validador/index.js';
+import { validarComoOraculo as validarXml } from './oraculo.js';
 import { generarXml, nombreArchivo } from '../src/xml.js';
 import { desempaquetar } from '../src/zip.js';
 import { SEMILLA, arbComprobante, arbItem } from './arbitrarios.js';
