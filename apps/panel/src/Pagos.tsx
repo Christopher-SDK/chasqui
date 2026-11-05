@@ -13,11 +13,11 @@ import {
 
 const CLASE_ESTADO: Record<Transferencia['estado'], string> = {
   pendiente:
-    'bg-sky-50 text-sky-700 ring-sky-600/20 dark:bg-sky-500/10 dark:text-sky-300 dark:ring-sky-400/30',
+    'bg-sky-50 text-sky-700 ring-sky-600/20 dark:bg-[#191915] dark:text-sky-300 dark:ring-sky-400/30',
   completada:
-    'bg-emerald-50 text-emerald-700 ring-emerald-600/20 dark:bg-emerald-500/10 dark:text-emerald-300 dark:ring-emerald-400/30',
+    'bg-emerald-50 text-emerald-700 ring-emerald-600/20 dark:bg-[#191915] dark:text-emerald-300 dark:ring-emerald-400/30',
   rechazada:
-    'bg-rose-50 text-rose-700 ring-rose-600/20 dark:bg-rose-500/10 dark:text-rose-300 dark:ring-rose-400/30',
+    'bg-rose-50 text-rose-700 ring-rose-600/20 dark:bg-[#191915] dark:text-rose-300 dark:ring-rose-400/30',
   revertida:
     'bg-stone-100 text-stone-600 ring-stone-500/20 dark:bg-stone-500/10 dark:text-stone-300 dark:ring-stone-400/30',
 };
@@ -100,7 +100,7 @@ export function Pagos() {
   return (
     <div className="space-y-6">
       {error && (
-        <p className="rounded-lg bg-rose-50 px-4 py-3 text-sm text-rose-700 dark:bg-rose-500/10 dark:text-rose-300">
+        <p className="rounded-lg bg-rose-50 px-4 py-3 text-sm text-rose-700 dark:bg-[#191915] dark:text-rose-300">
           No se pudo leer pagos-sim: {error}. ¿Está corriendo en :7200?
         </p>
       )}

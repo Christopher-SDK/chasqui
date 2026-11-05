@@ -7,19 +7,17 @@
       name="description"
       content="Panel de Chasqui: simulador para pruebas. No afiliado a SUNAT ni a ninguna entidad financiera."
     />
-    <title>Chasqui · Panel</title>
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f766e'/><path d='M9 21l7-10 7 10' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>"
-    />
-    <script>
-      // Tema antes del primer pintado: evita el destello claro en modo oscuro.
-      try {
-        const t = localStorage.getItem('chasqui-tema');
-        if (t === 'oscuro' || (!t && matchMedia('(prefers-color-scheme: dark)').matches))
-          document.documentElement.classList.add('dark');
-      } catch {}
-    </script>
+    <title>Panel en vivo · Chasqui</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <meta name="theme-color" content="#0d0d0b" />
+    <style>
+      html,
+      body {
+        background: #0d0d0b;
+        color: #ece8df;
+      }
+    </style>
   </head>
   <body>
     <div id="raiz"></div>

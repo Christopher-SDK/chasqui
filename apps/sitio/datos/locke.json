@@ -1,0 +1,12 @@
+{
+  "_fuente": "L. Leland Locke, «The Ancient Quipu, a Peruvian Knot Record», American Anthropologist 14 (1912), p. 331, «Table of Knot Readings and Colors» (quipu AMNH B8713). Dominio público (JSTOR Early Journal Content). Transcripción de los cordones colgantes y principales; entre paréntesis en el original, la lectura alternativa de Locke, aquí en «alt».",
+  "nota_b": "Fragmentary subsidiary cord, attached (?); discrepancy of 100 in count.",
+  "grupos": [
+    { "id": "a", "colgantes": [0, 10, 6, 1], "cordon": 17 },
+    { "id": "b", "colgantes": [150, 641, 636, 90], "cordon": 1417, "nota": true },
+    { "id": "c", "colgantes": [134, 365, 250, 65], "alt": [134, 366, 250, 55], "cordon": 805 },
+    { "id": "d", "colgantes": [86, 319, 168, 36], "alt": [87, 319, 169, 37], "cordon": 612 },
+    { "id": "e", "colgantes": [17, 60, null, 11], "cordon": 135 },
+    { "id": "f", "colgantes": [89, 258, 273, 38], "cordon": 658 }
+  ]
+}

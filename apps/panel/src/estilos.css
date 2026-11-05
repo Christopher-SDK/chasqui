@@ -1,39 +1,114 @@
 @import 'tailwindcss';
+@import '@fontsource-variable/archivo/wdth.css';
+@import '@fontsource-variable/martian-mono/wdth.css';
 
-@custom-variant dark (&:where(.dark, .dark *));
+/* El panel vive siempre en oscuro, como el sitio: «dark» aplica a todo el documento. */
+@custom-variant dark (&:where(html, html *));
 
+/*
+ * Identidad de Chasqui (la misma del sitio): negro de lámina, algodón como tinta, carmín de
+ * cochinilla como único acento, Archivo y Martian Mono, radio 0. Se remapea la paleta de Tailwind
+ * para que los componentes existentes hereden la marca sin reescribir cada clase.
+ */
 @theme {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
-  --color-marca: #0f766e;
-  --color-marca-suave: #ccfbf1;
+  --font-sans: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
+  --font-mono: 'Martian Mono Variable', 'Martian Mono', ui-monospace, monospace;
+  --color-marca: #e94964;
+  --color-marca-suave: #191915;
+
+  --color-stone-50: #ece8df;
+  --color-stone-100: #ece8df;
+  --color-stone-200: #a29d90;
+  --color-stone-300: #a29d90;
+  --color-stone-400: #a29d90;
+  --color-stone-500: #a29d90;
+  --color-stone-600: #3a3830;
+  --color-stone-700: #3a3830;
+  --color-stone-800: #3a3830;
+  --color-stone-900: #191915;
+  --color-stone-950: #0d0d0b;
+
+  --color-teal-50: #191915;
+  --color-teal-200: #e94964;
+  --color-teal-500: #e94964;
+  --color-teal-800: #e94964;
+  --color-emerald-300: #5fc28b;
+  --color-emerald-500: #5fc28b;
+  --color-emerald-600: #5fc28b;
+  --color-emerald-700: #5fc28b;
+  --color-amber-200: #e8b54a;
+  --color-amber-300: #e8b54a;
+  --color-amber-400: #e8b54a;
+  --color-amber-600: #e8b54a;
+  --color-amber-800: #e8b54a;
+  --color-amber-900: #e8b54a;
+  --color-rose-300: #e94964;
+  --color-rose-400: #e94964;
+  --color-rose-600: #e94964;
+  --color-rose-700: #e94964;
+  --color-violet-300: #ece8df;
+  --color-violet-400: #ece8df;
+  --color-orange-300: #e94964;
+  --color-orange-500: #e94964;
+  --color-orange-700: #e94964;
+  --color-sky-300: #ece8df;
+  --color-sky-400: #ece8df;
+  --color-sky-600: #ece8df;
+  --color-sky-700: #ece8df;
+  --color-emerald-400: #5fc28b;
+  --color-rose-500: #e94964;
+  --color-orange-400: #e94964;
+
+  --radius-xs: 0;
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-2xl: 0;
 }
 
 @layer base {
   html {
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    background: #0d0d0b;
+    color-scheme: dark;
   }
   body {
-    @apply bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100;
+    background: #0d0d0b;
+    color: #ece8df;
   }
   ::selection {
-    @apply bg-teal-200 dark:bg-teal-800;
+    background: #e94964;
+    color: #0d0d0b;
   }
+  :focus-visible {
+    outline: 2px solid #ece8df;
+    outline-offset: 3px;
+  }
+}
+
+/* Estados: borde y tinta del estado, sin fondos con transparencia (regla de la marca). */
+.insignia {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid currentColor;
+  padding: 3px 8px;
+  font: 600 12px/1 var(--font-mono);
+  white-space: nowrap;
 }
 
 @keyframes entrar {
   from {
     opacity: 0;
-    transform: translateY(-4px);
-    background-color: rgb(20 184 166 / 0.12);
+    transform: translateY(-6px);
+    box-shadow: inset 3px 0 0 #e94964;
   }
 }
-
 .fila-nueva {
-  animation: entrar 600ms ease-out;
+  animation: entrar 600ms cubic-bezier(0.19, 1, 0.22, 1);
 }
-
 @media (prefers-reduced-motion: reduce) {
   .fila-nueva {
     animation: none;

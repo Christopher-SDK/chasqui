@@ -18,39 +18,20 @@ import {
 import { Identidad } from './Identidad';
 import { Pagos } from './Pagos';
 
+/** Sitio público de Chasqui (la landing); el logo del panel vuelve a él. */
+const SITIO: string =
+  (import.meta.env.VITE_SITIO_URL as string | undefined) ?? 'https://chasqui-lab.netlify.app/';
+
 const AVISO = 'Simulador para pruebas. No afiliado a SUNAT ni a ninguna entidad financiera.';
 
+// Estados con borde y tinta (sin fondos con transparencia): la marca reserva el color para el estado.
 const ESTILO_ESTADO: Record<Estado, { etiqueta: string; clase: string }> = {
-  aceptado: {
-    etiqueta: 'Aceptado',
-    clase:
-      'bg-emerald-50 text-emerald-700 ring-emerald-600/20 dark:bg-emerald-500/10 dark:text-emerald-300 dark:ring-emerald-400/30',
-  },
-  observado: {
-    etiqueta: 'Con observaciones',
-    clase:
-      'bg-amber-50 text-amber-800 ring-amber-600/20 dark:bg-amber-500/10 dark:text-amber-300 dark:ring-amber-400/30',
-  },
-  rechazado: {
-    etiqueta: 'Rechazado',
-    clase:
-      'bg-rose-50 text-rose-700 ring-rose-600/20 dark:bg-rose-500/10 dark:text-rose-300 dark:ring-rose-400/30',
-  },
-  anulado: {
-    etiqueta: 'Anulado',
-    clase:
-      'bg-stone-100 text-stone-600 ring-stone-500/20 dark:bg-stone-500/10 dark:text-stone-300 dark:ring-stone-400/30',
-  },
-  excepcion: {
-    etiqueta: 'Excepción',
-    clase:
-      'bg-violet-50 text-violet-700 ring-violet-600/20 dark:bg-violet-500/10 dark:text-violet-300 dark:ring-violet-400/30',
-  },
-  falla: {
-    etiqueta: 'Falla inyectada',
-    clase:
-      'bg-orange-50 text-orange-800 ring-orange-600/20 dark:bg-orange-500/10 dark:text-orange-300 dark:ring-orange-400/30',
-  },
+  aceptado: { etiqueta: 'Aceptado', clase: 'text-[#5fc28b]' },
+  observado: { etiqueta: 'Observado', clase: 'text-[#e8b54a]' },
+  rechazado: { etiqueta: 'Rechazado', clase: 'text-[#e94964]' },
+  anulado: { etiqueta: 'Anulado', clase: 'text-[#a29d90]' },
+  excepcion: { etiqueta: 'Excepción', clase: 'text-[#ece8df]' },
+  falla: { etiqueta: 'Falla inyectada', clase: 'text-[#e94964]' },
 };
 
 const METRICA = {
@@ -88,26 +69,7 @@ const ESCENARIOS = [
 
 function Insignia({ estado }: { estado: Estado }) {
   const e = ESTILO_ESTADO[estado];
-  return (
-    <span
-      className={`inline-flex items-center rounded-md px-2 py-0.5 text-xs font-medium whitespace-nowrap ring-1 ring-inset ${e.clase}`}
-    >
-      {e.etiqueta}
-    </span>
-  );
-}
-
-function useTema() {
-  const [oscuro, setOscuro] = useState(() => document.documentElement.classList.contains('dark'));
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', oscuro);
-    try {
-      localStorage.setItem('chasqui-tema', oscuro ? 'oscuro' : 'claro');
-    } catch {
-      /* almacenamiento no disponible: el tema no se recuerda */
-    }
-  }, [oscuro]);
-  return [oscuro, setOscuro] as const;
+  return <span className={`insignia ${e.clase}`}>{e.etiqueta}</span>;
 }
 
 const VISTAS = [
@@ -141,7 +103,6 @@ export function App() {
   const [error, setError] = useState<string | null>(null);
   const [seleccion, setSeleccion] = useState<Transaccion | null>(null);
   const [filtro, setFiltro] = useState<Estado | 'todos'>('todos');
-  const [oscuro, setOscuro] = useTema();
   const [listaPerfiles, setListaPerfiles] = useState<Perfil[]>([]);
   const [caos, setCaos] = useState<EstadoCaos | null>(null);
   const vista = useVista();
@@ -198,50 +159,34 @@ export function App() {
 
   return (
     <div className="min-h-dvh">
-      <header className="sticky top-0 z-20 border-b border-stone-200 bg-stone-50/85 backdrop-blur dark:border-stone-800 dark:bg-stone-950/85">
+      <header className="sticky top-0 z-20 border-b border-[#3a3830] bg-[#0d0d0b]">
         <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3 sm:px-6">
-          <span
-            className="grid size-8 place-items-center rounded-lg bg-[var(--color-marca)] text-white"
-            aria-hidden
+          <a
+            href={SITIO}
+            className="flex min-w-0 items-center gap-3 no-underline"
+            title="Volver al sitio de Chasqui"
           >
-            <svg viewBox="0 0 32 32" className="size-5">
-              <path
-                d="M9 21l7-10 7 10"
-                stroke="currentColor"
-                strokeWidth="3"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
-          <div className="min-w-0">
-            <h1 className="text-sm font-semibold tracking-tight">Chasqui</h1>
-            <p className="truncate text-xs text-stone-500 dark:text-stone-400">
-              Laboratorio de integraciones
-            </p>
-          </div>
+            <img src="/nudo.webp" alt="" width="105" height="54" className="h-7 w-auto" />
+            <span className="min-w-0">
+              <span className="block text-xl font-extrabold tracking-tight [font-variation-settings:'wdth'_125]">
+                Chasqui
+              </span>
+              <span className="block truncate text-xs text-stone-500">
+                Panel en vivo · ← volver al sitio
+              </span>
+            </span>
+          </a>
           <span
-            className={`ml-auto inline-flex shrink-0 items-center gap-1.5 rounded-full whitespace-nowrap px-2.5 py-1 text-xs font-medium ${conectado ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300' : 'bg-stone-200 text-stone-600 dark:bg-stone-800 dark:text-stone-300'}`}
+            className={`insignia ml-auto shrink-0 ${conectado ? 'text-[#5fc28b]' : 'text-[#a29d90]'}`}
             role="status"
           >
             <span
-              className={`size-1.5 rounded-full ${conectado ? 'animate-pulse bg-emerald-500' : 'bg-stone-400'}`}
+              className={`size-1.5 ${conectado ? 'animate-pulse bg-[#5fc28b]' : 'bg-[#a29d90]'}`}
             />
             {conectado ? 'En vivo' : 'Reconectando…'}
           </span>
-          <button
-            type="button"
-            onClick={() => {
-              setOscuro(!oscuro);
-            }}
-            className="rounded-lg p-2 text-stone-500 hover:bg-stone-200/70 hover:text-stone-900 focus-visible:outline-2 focus-visible:outline-[var(--color-marca)] dark:hover:bg-stone-800 dark:hover:text-stone-100"
-            aria-label={oscuro ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
-          >
-            {oscuro ? '☀︎' : '☾'}
-          </button>
         </div>
-        <p className="border-t border-amber-200/70 bg-amber-50 px-4 py-1.5 text-center text-xs font-medium text-amber-900 dark:border-amber-900/50 dark:bg-amber-950/40 dark:text-amber-200">
+        <p className="border-t border-[#3a3830] bg-[#191915] px-4 py-1.5 text-center text-xs text-[#a29d90]">
           {AVISO}
         </p>
         <nav
@@ -269,7 +214,7 @@ export function App() {
             <Identidad />
           ) : (
             <>
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              <div className="grid grid-cols-2 border-t-2 border-[#ece8df] sm:grid-cols-4">
                 {(['aceptado', 'observado', 'rechazado', 'excepcion'] as const).map((e) => (
                   <button
                     key={e}
@@ -278,15 +223,17 @@ export function App() {
                       setFiltro(filtro === e ? 'todos' : e);
                     }}
                     aria-pressed={filtro === e}
-                    className={`rounded-xl border bg-white p-4 text-left transition hover:border-stone-300 focus-visible:outline-2 focus-visible:outline-[var(--color-marca)] dark:bg-stone-900 dark:hover:border-stone-700 ${filtro === e ? 'border-[var(--color-marca)] ring-1 ring-[var(--color-marca)]' : 'border-stone-200 dark:border-stone-800'}`}
+                    className={`border-r border-[#3a3830] px-4 pt-4 pb-3 text-left transition-colors last:border-r-0 hover:bg-[#191915] ${filtro === e ? 'bg-[#191915] shadow-[inset_0_3px_0_#e94964]' : ''}`}
                   >
                     <p className="text-xs text-stone-500 dark:text-stone-400">{METRICA[e]}</p>
-                    <p className="mt-1 text-2xl font-semibold tabular-nums">{conteo[e]}</p>
+                    <p className="mt-1 font-mono text-4xl font-semibold tracking-tighter tabular-nums">
+                      {conteo[e]}
+                    </p>
                   </button>
                 ))}
               </div>
 
-              <div className="overflow-hidden rounded-xl border border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+              <div className="border-t border-[#3a3830]">
                 <div className="flex items-center justify-between border-b border-stone-200 px-4 py-3 dark:border-stone-800">
                   <h2 className="text-sm font-semibold">Transacciones</h2>
                   <span className="text-xs text-stone-500 dark:text-stone-400">
@@ -316,7 +263,7 @@ export function App() {
                           onClick={() => {
                             setSeleccion(f);
                           }}
-                          className="grid w-full grid-cols-[1fr_auto] items-center gap-3 px-4 py-3 text-left hover:bg-stone-50 focus-visible:bg-stone-50 focus-visible:outline-none sm:grid-cols-[4.5rem_1fr_9rem_3.5rem] dark:hover:bg-stone-800/60 dark:focus-visible:bg-stone-800/60"
+                          className="grid w-full grid-cols-[1fr_auto] items-center gap-3 px-4 py-3 text-left hover:bg-stone-50 focus-visible:bg-stone-50 focus-visible:outline-none sm:grid-cols-[4.5rem_1fr_8rem_4rem] dark:hover:bg-stone-800/60 dark:focus-visible:bg-stone-800/60"
                         >
                           <time className="hidden font-mono text-xs text-stone-500 tabular-nums sm:block dark:text-stone-400">
                             {hora(f.en)}
@@ -332,7 +279,7 @@ export function App() {
                             <Insignia estado={f.estado} />
                           </span>
                           <span className="hidden font-mono text-xs text-stone-500 sm:block dark:text-stone-400">
-                            {f.codigo}
+                            {f.observaciones[0] ?? f.codigo}
                           </span>
                         </button>
                       </li>
@@ -373,7 +320,7 @@ export function App() {
                       aria-checked={activo}
                       disabled={!caos}
                       onClick={() => void activarPerfil(activo ? null : p.nombre).then(setCaos)}
-                      className={`flex w-full items-start gap-3 rounded-lg border px-3 py-2 text-left focus-visible:outline-2 focus-visible:outline-[var(--color-marca)] disabled:opacity-50 ${activo ? 'border-orange-400 bg-orange-50/70 dark:border-orange-500/60 dark:bg-orange-500/10' : 'border-stone-200 hover:border-stone-300 dark:border-stone-700'}`}
+                      className={`flex w-full items-start gap-3 rounded-lg border px-3 py-2 text-left focus-visible:outline-2 focus-visible:outline-[var(--color-marca)] disabled:opacity-50 ${activo ? 'border-orange-400 bg-[#191915] dark:border-orange-500/60 dark:bg-[#191915]' : 'border-stone-200 hover:border-stone-300 dark:border-stone-700'}`}
                     >
                       <span
                         className={`mt-0.5 flex h-5 w-9 shrink-0 items-center rounded-full p-0.5 transition ${activo ? 'bg-orange-500' : 'bg-stone-300 dark:bg-stone-700'}`}
@@ -411,7 +358,7 @@ export function App() {
                   key={e.id}
                   type="button"
                   onClick={() => void emitirDemo(e.id)}
-                  className="w-full rounded-lg border border-stone-200 px-3 py-2 text-left hover:border-[var(--color-marca)] hover:bg-teal-50/60 focus-visible:outline-2 focus-visible:outline-[var(--color-marca)] active:scale-[0.99] dark:border-stone-700 dark:hover:bg-teal-500/10"
+                  className="w-full rounded-lg border border-stone-200 px-3 py-2 text-left hover:border-[var(--color-marca)] hover:bg-[#191915] focus-visible:outline-2 focus-visible:outline-[var(--color-marca)] active:scale-[0.99] dark:border-stone-700 dark:hover:bg-[#191915]"
                 >
                   <span className="block text-sm font-medium">{e.etiqueta}</span>
                   <span className="block text-xs text-stone-500 dark:text-stone-400">
@@ -441,6 +388,46 @@ export function App() {
         />
       )}
     </div>
+  );
+}
+
+/** Datos del comprobante leídos del XML recibido (lo que SUNAT revisó). */
+function FichaXml({ xml }: { xml: string }) {
+  const datos = useMemo(() => {
+    const doc = new DOMParser().parseFromString(xml, 'text/xml');
+    const cbc = 'urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2';
+    const cac = 'urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2';
+    const uno = (ns: string, n: string) => doc.getElementsByTagNameNS(ns, n)[0]?.textContent ?? '';
+    const total = doc.getElementsByTagNameNS(cbc, 'PayableAmount')[0];
+    const lineas =
+      doc.getElementsByTagNameNS(cac, 'InvoiceLine').length +
+      doc.getElementsByTagNameNS(cac, 'CreditNoteLine').length +
+      doc.getElementsByTagNameNS(cac, 'DebitNoteLine').length;
+    const cliente = doc.getElementsByTagNameNS(cac, 'AccountingCustomerParty')[0];
+    return [
+      ['Emisión', `${uno(cbc, 'IssueDate')} ${uno(cbc, 'IssueTime')}`.trim()],
+      ['Cliente', cliente?.getElementsByTagNameNS(cbc, 'RegistrationName')[0]?.textContent ?? '—'],
+      ['Líneas', String(lineas)],
+      ['IGV', uno(cbc, 'TaxAmount')],
+      ['Total', total ? `${total.getAttribute('currencyID') ?? ''} ${total.textContent}` : '—'],
+      [
+        'Firma',
+        doc.getElementsByTagNameNS('http://www.w3.org/2000/09/xmldsig#', 'SignatureValue').length
+          ? 'XML-DSig'
+          : 'sin firma',
+      ],
+      ['Tamaño', `${(xml.length / 1024).toFixed(1)} KB`],
+    ] as const;
+  }, [xml]);
+  return (
+    <dl className="grid grid-cols-2 border-t-2 border-[#ece8df] sm:grid-cols-4">
+      {datos.map(([k, v]) => (
+        <div key={k} className="border-b border-[#3a3830] py-3 pr-3">
+          <dt className="text-xs text-stone-500">{k}</dt>
+          <dd className="mt-1 font-mono text-sm break-words">{v}</dd>
+        </div>
+      ))}
+    </dl>
   );
 }
 
@@ -541,8 +528,17 @@ function PanelDetalle({ t, alCerrar }: { t: Transaccion; alCerrar: () => void })
 
         <div className="min-h-0 flex-1 overflow-auto p-4">
           {pestana === 'resumen' || t.estado === 'excepcion' ? (
-            <div className="space-y-4 text-sm">
-              <p>{t.mensaje}</p>
+            <div className="space-y-5 text-sm">
+              <p className="text-base">{t.mensaje}</p>
+              {d && <FichaXml xml={d.xml} />}
+              {d && (
+                <div>
+                  <h3 className="text-xs text-stone-500">XML recibido · primeras líneas</h3>
+                  <pre className="mt-2 max-h-80 overflow-hidden bg-[#191915] p-4 font-mono text-xs leading-relaxed text-stone-100 [mask-image:linear-gradient(#000_70%,transparent)]">
+                    <code>{formatearXml(d.xml).split('\n').slice(0, 28).join('\n')}</code>
+                  </pre>
+                </div>
+              )}
               {t.estado === 'excepcion' && (
                 <p className="text-stone-500 dark:text-stone-400">
                   Excepción (códigos 0100-1999): no se emite CDR ni se registra el comprobante.
@@ -557,7 +553,7 @@ function PanelDetalle({ t, alCerrar }: { t: Transaccion; alCerrar: () => void })
                     {d.observaciones.map((o) => (
                       <li
                         key={o.codigo + o.fuente}
-                        className="rounded-lg border border-amber-200 bg-amber-50/60 p-3 dark:border-amber-900/60 dark:bg-amber-950/30"
+                        className="border-l-2 border-[#e8b54a] bg-[#191915] py-2 pr-3 pl-4"
                       >
                         <p className="font-mono text-xs font-semibold">{o.codigo}</p>
                         <p className="mt-0.5">{o.mensaje}</p>

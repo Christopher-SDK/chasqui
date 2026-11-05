@@ -38,7 +38,7 @@ test('operaciones especiales: crédito con detracción pasa con 3249 y su XML ll
   const panel = new Panel(page);
   await panel.abrir();
   await panel.probar('Crédito con detracción');
-  const fila = panel.fila('Con observaciones');
+  const fila = panel.fila('Observado');
   await expect(fila).toBeVisible();
   await fila.click();
   const detalle = page.getByRole('dialog');

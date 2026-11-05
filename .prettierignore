@@ -7,3 +7,15 @@ packages/catalogos/src/generado.ts
 **/__snapshots__/
 packages/ubl-core/stryker-incremental.json
 packages/ubl-core/src/validador/oficial/
+
+# Páginas generadas por apps/sitio/scripts/generar.mjs
+apps/sitio/index.html
+apps/sitio/404.html
+apps/sitio/probar/
+apps/sitio/como-funciona/
+apps/sitio/caos/
+apps/sitio/calidad/
+apps/sitio/empezar/
+apps/sitio/en/
+apps/sitio/datos/
+apps/sitio/dist/

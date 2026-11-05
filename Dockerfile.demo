@@ -1,0 +1,18 @@
+# Demo pública en un solo contenedor: los cuatro simuladores en un proceso (ecosistema) y nginx
+# sirviendo el panel y haciendo de proxy, en el puerto que asigne la plataforma ($PORT).
+# Sin --mount=type=cache: algunas plataformas (Railway) no lo admiten sin su propio id.
+FROM node:22-alpine
+ENV PNPM_HOME=/pnpm PATH=/pnpm:$PATH CI=true NODE_NO_WARNINGS=1
+RUN corepack enable && apk add --no-cache nginx gettext
+WORKDIR /repo
+COPY pnpm-lock.yaml pnpm-workspace.yaml package.json .npmrc ./
+COPY patches ./patches
+RUN pnpm fetch
+COPY . .
+RUN pnpm install --offline --frozen-lockfile --ignore-scripts && pnpm --filter @chasqui/panel build
+COPY docker/demo.conf.template /etc/nginx/demo.conf.template
+COPY docker/demo.sh /usr/local/bin/demo.sh
+RUN chmod +x /usr/local/bin/demo.sh && mkdir -p /data /run/nginx
+ENV PORT=8080
+EXPOSE 8080
+CMD ["/usr/local/bin/demo.sh"]
