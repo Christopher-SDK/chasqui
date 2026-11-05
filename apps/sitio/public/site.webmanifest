@@ -1,0 +1,10 @@
+{
+  "name": "Chasqui",
+  "short_name": "Chasqui",
+  "description": "Laboratorio local para probar integraciones peruanas: SUNAT, billetera y DNI/RUC.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0d0d0b",
+  "theme_color": "#0d0d0b",
+  "icons": [{ "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }]
+}

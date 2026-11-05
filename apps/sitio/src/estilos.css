@@ -373,8 +373,8 @@ a {
   margin: 0 auto;
   padding: 0 var(--g);
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-  gap: var(--g);
+  grid-template-columns: minmax(0, 1.85fr) minmax(0, 1fr);
+  gap: calc(var(--g) * 0.6);
   min-height: inherit;
 }
 .heroe-texto {
@@ -1089,9 +1089,25 @@ a {
   container-type: inline-size;
 }
 .apertura .t1,
-.heroe .t1,
 .cierre .t1 {
   font-size: min(var(--t1), calc(100cqi / (var(--w, 12) * 0.6)));
+}
+.heroe .t1 {
+  font-size: min(var(--t1), calc(100cqi / (var(--w, 12) * 0.53)));
+  letter-spacing: -0.05em;
+}
+/* El titular entra apretándose, como un nudo que se cierra: el eje de ancho de Archivo. */
+@keyframes aprieta {
+  from {
+    font-variation-settings: 'wdth' 116;
+  }
+  to {
+    font-variation-settings: 'wdth' 100;
+  }
+}
+.js .heroe .mascara.dentro > .linea-in {
+  animation: aprieta 900ms var(--e-linea) both;
+  animation-delay: calc(var(--i, 0) * 80ms);
 }
 .apertura-in {
   display: grid;
@@ -1213,6 +1229,20 @@ table.tabla {
   display: grid;
   grid-template-columns: repeat(var(--n, 12), minmax(0, 1fr));
 }
+.cortina {
+  --n: 12;
+}
+@media (max-width: 700px) {
+  .cortina {
+    --n: 6;
+  }
+  .cortina i:nth-child(n + 7) {
+    display: none;
+  }
+}
+html.llega .cortina i {
+  transform: scaleY(1);
+}
 .cortina i {
   background: var(--noche);
   transform: scaleY(0);
@@ -1229,31 +1259,6 @@ table.tabla {
   height: 26px;
   transform: translateX(-50%);
   background: url('/nudos/cuerpo-s.webp') center / contain no-repeat;
-}
-
-@view-transition {
-  navigation: auto;
-}
-::view-transition {
-  background: var(--noche);
-}
-::view-transition-old(root) {
-  animation: 300ms var(--e-io) both vt-sale;
-}
-::view-transition-new(root) {
-  animation: 420ms var(--e-linea) 80ms both vt-entra;
-}
-@keyframes vt-sale {
-  to {
-    opacity: 0;
-    transform: translateY(-24px);
-  }
-}
-@keyframes vt-entra {
-  from {
-    opacity: 0;
-    transform: translateY(32px);
-  }
 }
 
 /* ── Entradas (capa de movimiento total) ─────────────────────────────────────────────────── */
@@ -1330,6 +1335,27 @@ table.tabla {
   }
 }
 @media (max-width: 900px) {
+  .heroe-lamina {
+    order: -1;
+    padding: 0;
+    margin: 0 calc(-1 * var(--g));
+  }
+  .heroe-lamina picture {
+    height: min(34svh, 300px);
+    width: 100%;
+    max-width: none;
+    aspect-ratio: auto;
+  }
+  .heroe-lamina img {
+    object-fit: cover;
+    object-position: 50% 0;
+  }
+  .heroe-lamina .pie-lamina {
+    padding-inline: var(--g);
+  }
+  .heroe .t1 {
+    font-size: min(var(--t1), calc(100cqi / (var(--w, 12) * 0.56)));
+  }
   .nav {
     display: none;
   }
@@ -1378,7 +1404,8 @@ table.tabla {
   }
   .heroe-texto {
     padding: 32px 0 24px;
-    min-height: calc(100svh - 64px - 56px);
+    min-height: 0;
+    justify-content: flex-start;
   }
   .heroe-lamina picture {
     max-height: 78svh;
@@ -1472,5 +1499,475 @@ table.tabla {
   }
   .pet:nth-child(n + 21) {
     display: none;
+  }
+}
+
+/* ── Ajustes de la revisión del director de arte (C1) ───────────────────────────────────── */
+.franja {
+  margin: 0;
+}
+/* M1: capítulos por superficie; el huaico y las cifras suben como una capa que tapa (P4). */
+.seccion[data-huaico],
+.seccion:has(#titulo-cifras) {
+  background: var(--superficie);
+}
+.seccion:has(#titulo-cifras) {
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 -1px 0 var(--cordon);
+}
+/* M2: los cordones nacen del cordón principal. */
+.quipu-cordones {
+  margin-top: 0;
+}
+.cordon::before {
+  top: 0;
+}
+/* M3: en móvil cada paso lleva su pantalla debajo, sin escena fija. */
+@media (max-width: 900px) {
+  .pasos-fijo .terminal {
+    display: none;
+  }
+  .paso .pantalla-movil {
+    display: block;
+    margin: 12px 0 0;
+    padding: 12px;
+    background: var(--superficie);
+    border: 1px solid var(--cordon);
+    font: 400 12px / 1.6 var(--mono);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    color: var(--algodon);
+  }
+  .paso {
+    color: var(--algodon);
+  }
+  .paso .marca-paso img {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (min-width: 901px) {
+  .paso .pantalla-movil {
+    display: none;
+  }
+}
+.pantalla-movil .p {
+  color: var(--algodon-2);
+}
+.pantalla-movil .ok {
+  color: var(--ok);
+}
+.pantalla-movil .mal {
+  color: var(--carmin);
+}
+.pantalla-movil .obs {
+  color: var(--obs);
+}
+.terminal {
+  min-height: 0;
+}
+.terminal-cuerpo {
+  min-height: 330px;
+}
+/* M5: tablas y comandos en móvil. */
+@media (max-width: 600px) {
+  .tabla thead {
+    display: none;
+  }
+  .tabla tr {
+    display: grid;
+    gap: 4px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--cordon);
+  }
+  .tabla th,
+  .tabla td {
+    border: 0;
+    padding: 0;
+  }
+  .tabla td.mono {
+    white-space: nowrap;
+  }
+  .comando {
+    flex-wrap: wrap;
+  }
+  .comando code {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-x: auto;
+    padding: 13px 12px;
+    font-size: 14px;
+  }
+  .copiar {
+    flex: 0 0 auto;
+    min-width: 74px;
+  }
+}
+/* M6: la banda de nudos muestra los diez (desplazable en móvil) y su pie con margen. */
+.banda-nudos .pie-lamina {
+  padding-inline: var(--g);
+}
+@media (max-width: 900px) {
+  .banda-in {
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+  }
+  .banda-in img,
+  .banda-in img:nth-child(n + 7) {
+    display: block;
+    scroll-snap-align: center;
+    flex: none;
+    height: 300px;
+  }
+}
+/* M7: texto funcional ≥ 12 px (13–14 px en móvil). */
+.ejemplo .mono {
+  font-size: 12px;
+}
+@media (max-width: 600px) {
+  .franja,
+  .copiar {
+    font-size: 14px;
+  }
+  .pie-lamina {
+    font-size: 13px;
+  }
+}
+/* B6: el corte del huaico se ve: el cordón cae más corto y el corte es más largo. */
+.pet.falla::before {
+  height: 30%;
+}
+.pet.falla::after {
+  width: 14px;
+  height: 3px;
+  left: calc(50% - 7px);
+  top: 30%;
+}
+/* Video real del panel, a sangre. */
+.video-panel {
+  position: relative;
+  margin: 0;
+  border-top: 1px solid var(--cordon);
+  background: var(--noche);
+}
+.video-panel video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1440 / 860;
+}
+.video-panel figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding: 16px var(--g);
+  font-size: 14px;
+  color: var(--algodon-2);
+}
+.video-panel .pausa {
+  background: none;
+  border: 1px solid var(--cordon);
+  color: var(--algodon);
+  font: 600 13px / 1 var(--display);
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.figura-sangre {
+  margin-top: clamp(48px, 7vw, 96px);
+}
+.figura-sangre .pie-lamina {
+  padding-inline: var(--g);
+}
+.figura-captura {
+  padding: clamp(40px, 6vw, 80px) 0 0;
+}
+.figura-captura img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--cordon);
+}
+.cordon-cortado {
+  height: clamp(220px, 40vh, 420px);
+  width: auto;
+  margin-top: 32px;
+  transform: rotate(-8deg);
+}
+@media (max-width: 900px) {
+  .heroe-lamina picture {
+    height: min(28svh, 250px);
+  }
+  .heroe-lamina .pie-lamina {
+    margin-top: 6px;
+  }
+  .heroe-lamina .pie-lamina span {
+    display: none;
+  }
+  .heroe .antetitulo {
+    margin-bottom: 14px;
+  }
+  .heroe .bajada {
+    margin-top: 18px;
+  }
+  .heroe-acciones {
+    margin-top: 22px;
+  }
+}
+
+/* Primer pantallazo (QA B3): la apertura de cada página llena la pantalla; lo siguiente empieza abajo. */
+.apertura {
+  min-height: calc(100svh - 64px - 34px);
+  display: flex;
+  align-items: center;
+}
+.apertura > .contenedor {
+  width: 100%;
+}
+.apertura-lamina .figura picture {
+  max-height: calc(100svh - 64px - 34px - 120px);
+}
+.apertura-lamina .figura img {
+  max-height: calc(100svh - 64px - 34px - 120px);
+  width: auto;
+  margin-inline: auto;
+}
+@media (max-width: 900px) {
+  .apertura {
+    min-height: calc(100svh - 64px - 56px);
+  }
+}
+/* Titulares de apertura: también los acota el alto, para que la bajada quepa en pantallas bajas. */
+.apertura .t1 {
+  font-size: min(var(--t1), calc(100cqi / (var(--w, 12) * 0.6)), 19svh);
+}
+.heroe .t1 {
+  font-size: min(var(--t1), calc(100cqi / (var(--w, 12) * 0.53)), 21svh);
+}
+@media (max-width: 900px) {
+  /* El héroe llena el primer pantallazo; lo que no cabe empieza debajo, entero. */
+  .heroe-texto {
+    min-height: calc(100svh - 64px - 56px - min(28svh, 250px) - 30px);
+    justify-content: center;
+  }
+  .apertura-lamina {
+    display: block;
+    min-height: 0;
+  }
+  .apertura-lamina .apertura-in > div:first-child {
+    min-height: calc(100svh - 64px - 56px - 96px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+@media (max-width: 900px) and (max-height: 700px) {
+  .heroe-lamina picture {
+    height: 20svh;
+  }
+  .heroe-lamina .pie-lamina {
+    display: none;
+  }
+  .heroe-texto {
+    min-height: calc(100svh - 64px - 56px - 20svh);
+    padding: 12px 0;
+  }
+  .heroe .bajada {
+    font-size: 16px;
+  }
+}
+/* Teléfono en horizontal: solo el texto en el primer pantallazo; la lámina sigue debajo, entera. */
+@media (max-height: 500px) and (min-width: 700px) {
+  .heroe-in {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .heroe-lamina {
+    order: 1;
+    margin: 0;
+    padding: 0 0 24px;
+  }
+  .heroe-lamina picture {
+    height: 80svh;
+    width: auto;
+    aspect-ratio: 2630 / 3495;
+  }
+  .heroe-lamina img {
+    object-fit: contain;
+  }
+  .heroe-texto {
+    min-height: calc(100svh - 64px - 34px);
+    padding: 12px 0;
+  }
+  .heroe .t1 {
+    font-size: min(var(--t1), calc(100cqi / (var(--w, 12) * 0.56)), 16svh);
+  }
+  .heroe .antetitulo {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  .heroe .bajada {
+    font-size: 15px;
+    margin-top: 8px;
+  }
+  .heroe-acciones {
+    margin-top: 12px;
+    flex-wrap: nowrap;
+  }
+  .heroe-acciones .comando {
+    font-size: 13px;
+  }
+  .apertura {
+    min-height: calc(100svh - 64px);
+  }
+  .apertura .t1 {
+    font-size: min(var(--t1), calc(100cqi / (var(--w, 12) * 0.6)), 15svh);
+  }
+  .apertura .bajada {
+    font-size: 15px;
+    margin-top: 12px;
+  }
+  .apertura-lamina .apertura-in {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .apertura-lamina .apertura-in > div:first-child {
+    min-height: calc(100svh - 64px - 40px);
+  }
+}
+
+/* Ronda 2 del director de arte */
+.apertura-lamina .figura img {
+  height: min(calc(100svh - 218px), 900px);
+  width: auto;
+  max-width: 100%;
+  aspect-ratio: 2575 / 3223;
+  object-fit: contain;
+}
+@media (max-width: 900px) {
+  /* M3: la banda de la lámina se funde abajo, sin corte duro. */
+  .heroe-lamina picture {
+    -webkit-mask-image: linear-gradient(#000 72%, transparent);
+    mask-image: linear-gradient(#000 72%, transparent);
+  }
+  .apertura-lamina .figura img {
+    height: auto;
+    max-height: 70svh;
+  }
+  /* B3 */
+  .pie-lamina,
+  .video-panel .pausa {
+    font-size: 14px;
+  }
+}
+/* M5: la cabecera queda por encima de la cortina (elemento compartido); nudos de la cortina legibles. */
+.cabecera {
+  z-index: 95;
+}
+.franja {
+  position: relative;
+  z-index: 95;
+}
+.cortina i::after {
+  width: 28px;
+  height: 56px;
+  bottom: 14px;
+}
+/* M8: la lámina del héroe sangra por la derecha en escritorio. */
+@media (min-width: 901px) {
+  .heroe-lamina {
+    margin-right: calc(-1 * var(--g));
+  }
+}
+/* B1: la 404 cuelga su cordón cortado a la derecha. */
+.pagina-no-encontrada .apertura .contenedor {
+  position: relative;
+}
+.cordon-cortado {
+  position: absolute;
+  right: var(--g);
+  top: -40px;
+  margin: 0;
+}
+
+/* Pasada 4 del primer pantallazo */
+.apertura-lamina {
+  padding-block: 28px;
+}
+@media (max-width: 900px) {
+  .heroe {
+    min-height: calc(100svh - 64px - 34px);
+  }
+  .heroe-in {
+    grid-template-rows: auto 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .heroe {
+    min-height: calc(100svh - 64px - 56px);
+  }
+}
+@media (max-width: 900px) and (max-height: 620px) {
+  .heroe-lamina picture {
+    height: 15svh;
+  }
+  .heroe .t1 {
+    font-size: min(var(--t1), calc(100cqi / (var(--w, 12) * 0.56)), 16svh);
+  }
+  .heroe .antetitulo {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+}
+@media (max-height: 500px) and (min-width: 700px) {
+  .heroe-lamina {
+    margin-top: 48px;
+  }
+}
+/* Pasada 5: en el teléfono el comando de terminal no está en el héroe (sigue en «Tres pasos» y /empezar). */
+@media (max-width: 600px) {
+  .heroe .comando {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  .apertura-lamina .apertura-in > div:first-child {
+    min-height: calc(100svh - 64px - 34px - 28px);
+  }
+}
+@media (max-width: 600px) {
+  .apertura-lamina .apertura-in > div:first-child {
+    min-height: calc(100svh - 64px - 56px - 28px);
+  }
+}
+@media (max-height: 500px) and (min-width: 700px) {
+  .apertura .bajada {
+    font-size: 14px;
+    max-width: 80ch;
+    line-height: 1.4;
+  }
+}
+/* Pasada 6: tablet (franja en una línea) y teléfono en horizontal. */
+@media (max-width: 900px) {
+  .apertura {
+    min-height: calc(100svh - 64px - 34px);
+  }
+}
+@media (max-width: 600px) {
+  .apertura {
+    min-height: calc(100svh - 64px - 56px);
+  }
+}
+@media (max-height: 500px) and (min-width: 700px) {
+  .apertura {
+    padding-block: 14px;
+    min-height: calc(100svh - 64px - 34px);
+  }
+  .apertura .t1 {
+    font-size: min(var(--t1), calc(100cqi / (var(--w, 12) * 0.6)), 13svh);
+  }
+  .apertura .bajada {
+    margin-top: 8px;
   }
 }

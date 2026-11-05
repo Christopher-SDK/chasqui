@@ -263,7 +263,7 @@ export function App() {
                           onClick={() => {
                             setSeleccion(f);
                           }}
-                          className="grid w-full grid-cols-[1fr_auto] items-center gap-3 px-4 py-3 text-left hover:bg-stone-50 focus-visible:bg-stone-50 focus-visible:outline-none sm:grid-cols-[4.5rem_1fr_8rem_4rem] dark:hover:bg-stone-800/60 dark:focus-visible:bg-stone-800/60"
+                          className="grid w-full grid-cols-[1fr_auto] items-center gap-3 px-4 py-3 text-left hover:bg-stone-50 focus-visible:bg-stone-50 focus-visible:outline-none sm:grid-cols-[4.5rem_1fr_9.5rem_4rem] dark:hover:bg-stone-800/60 dark:focus-visible:bg-stone-800/60"
                         >
                           <time className="hidden font-mono text-xs text-stone-500 tabular-nums sm:block dark:text-stone-400">
                             {hora(f.en)}
@@ -305,7 +305,7 @@ export function App() {
               Activa un perfil y mira el efecto en las transacciones.{' '}
               {conteo.falla > 0 && (
                 <span className="font-medium text-orange-700 dark:text-orange-300">
-                  {conteo.falla} fallas inyectadas.
+                  {conteo.falla} {conteo.falla === 1 ? 'falla inyectada' : 'fallas inyectadas'}.
                 </span>
               )}
             </p>
@@ -323,11 +323,11 @@ export function App() {
                       className={`flex w-full items-start gap-3 rounded-lg border px-3 py-2 text-left focus-visible:outline-2 focus-visible:outline-[var(--color-marca)] disabled:opacity-50 ${activo ? 'border-orange-400 bg-[#191915] dark:border-orange-500/60 dark:bg-[#191915]' : 'border-stone-200 hover:border-stone-300 dark:border-stone-700'}`}
                     >
                       <span
-                        className={`mt-0.5 flex h-5 w-9 shrink-0 items-center rounded-full p-0.5 transition ${activo ? 'bg-orange-500' : 'bg-stone-300 dark:bg-stone-700'}`}
+                        className={`mt-0.5 flex h-5 w-9 shrink-0 items-center p-0.5 transition ${activo ? 'bg-orange-500' : 'bg-stone-300 dark:bg-stone-700'}`}
                         aria-hidden
                       >
                         <span
-                          className={`size-4 rounded-full bg-white shadow transition ${activo ? 'translate-x-4' : ''}`}
+                          className={`size-4 bg-[#ece8df] transition ${activo ? 'translate-x-4' : ''}`}
                         />
                       </span>
                       <span className="min-w-0">

@@ -76,13 +76,55 @@ addEventListener('keydown', (e) => {
 // ── Barra móvil: aparece cuando el CTA del héroe (o el primer botón) sale de la pantalla ───────
 const barra = document.querySelector<HTMLElement>('.barra-movil');
 const primerBoton = document.querySelector<HTMLElement>('main .boton');
+const cierre = document.querySelector<HTMLElement>('.cierre');
 if (barra) {
-  if (!primerBoton) barra.classList.add('visible');
-  else
+  // Visible solo cuando el CTA del héroe ya pasó y el CTA del cierre no está a la vista
+  // (un CTA primario por pantallazo).
+  let pasoHeroe = !primerBoton;
+  let enCierre = false;
+  const pintar = () => barra.classList.toggle('visible', pasoHeroe && !enCierre);
+  if (primerBoton)
     new IntersectionObserver((es) => {
-      for (const e of es)
-        barra.classList.toggle('visible', !e.isIntersecting && e.boundingClientRect.top < 0);
+      for (const e of es) pasoHeroe = !e.isIntersecting && e.boundingClientRect.top < 0;
+      pintar();
     }).observe(primerBoton);
+  if (cierre)
+    new IntersectionObserver((es) => {
+      for (const e of es) enCierre = e.isIntersecting;
+      pintar();
+    }).observe(cierre);
+  pintar();
+}
+
+// ── Videos: solo corren en pantalla, con pausa visible (sin movimiento si se pide reducirlo) ──
+for (const v of document.querySelectorAll<HTMLVideoElement>('video[data-video]')) {
+  const boton = v.closest('figure')?.querySelector<HTMLButtonElement>('[data-pausa]');
+  let pausadoPorUsuario = reducido;
+  const textos = boton
+    ? [boton.textContent, document.documentElement.lang === 'en' ? 'Play' : 'Reproducir']
+    : [];
+  const pintar = () => {
+    if (boton) boton.textContent = v.paused ? (textos[1] ?? '') : (textos[0] ?? '');
+  };
+  v.addEventListener('play', pintar);
+  v.addEventListener('pause', pintar);
+  boton?.addEventListener('click', () => {
+    pausadoPorUsuario = !v.paused;
+    if (v.paused) void v.play();
+    else v.pause();
+  });
+  new IntersectionObserver(
+    (es) => {
+      for (const e of es) {
+        if (e.isIntersecting && !pausadoPorUsuario) {
+          v.preload = 'auto';
+          void v.play().catch(() => undefined);
+        } else v.pause();
+      }
+    },
+    { threshold: 0.35 },
+  ).observe(v);
+  pintar();
 }
 
 // ── Copiar comandos ─────────────────────────────────────────────────────────────────────────
@@ -96,38 +138,105 @@ for (const b of document.querySelectorAll<HTMLButtonElement>('[data-copiar]')) {
   });
 }
 
-// ── Cortina de cordones entre páginas (sin View Transitions: Firefox y Safari antiguos) ─────
-// Con View Transitions entre documentos (Chrome, Safari 18.2+), el navegador anima solo.
-const conVT = 'onpagereveal' in window;
-if (!conVT && !reducido) {
-  const cortina = document.createElement('div');
-  cortina.className = 'cortina';
-  cortina.setAttribute('aria-hidden', 'true');
-  const n = innerWidth < 700 ? 6 : 12;
-  cortina.style.setProperty('--n', String(n));
-  cortina.innerHTML = '<i></i>'.repeat(n);
-  document.body.append(cortina);
-  document.addEventListener('click', (e) => {
-    const a = (e.target as Element).closest('a');
-    if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || a.target) return;
-    const url = new URL(a.href, location.href);
-    if (url.origin !== location.origin || (url.pathname === location.pathname && url.hash)) return;
-    e.preventDefault();
-    cortina.querySelectorAll('i').forEach((c, i) => {
-      c.animate([{ transform: 'scaleY(0)' }, { transform: 'scaleY(1)' }], {
-        duration: 380,
-        delay: i * 22,
-        easing: 'cubic-bezier(.38,.005,.215,1)',
+// ── Cortina de cordones entre páginas ─────────────────────────────────────────────────────
+// Al salir, los cordones caen y tapan (cada uno con un nudo real); al llegar, la página nueva se
+// pinta ya tapada (script en línea del <head>) y los cordones suben. Ida ≤ 700 ms.
+const cortina = document.querySelector<HTMLElement>('.cortina');
+const cordones = cortina ? [...cortina.querySelectorAll<HTMLElement>('i')] : [];
+const curva = 'cubic-bezier(.38,.005,.215,1)';
+const visibles = () =>
+  cordones.filter((c) => c.offsetParent !== null || getComputedStyle(c).display !== 'none');
+
+if (document.documentElement.classList.contains('llega')) {
+  const anims = visibles().map((c, i) =>
+    c.animate(
+      [
+        { transform: 'scaleY(1)', transformOrigin: 'top' },
+        { transform: 'scaleY(0)', transformOrigin: 'top' },
+      ],
+      {
+        duration: reducido ? 1 : 420,
+        delay: reducido ? 0 : 60 + i * 22,
+        easing: curva,
         fill: 'forwards',
-      });
-    });
-    setTimeout(() => (location.href = url.href), 380 + n * 22);
-  });
-  addEventListener('pageshow', () => {
-    cortina.querySelectorAll('i').forEach((c) => {
-      c.getAnimations().forEach((a) => {
-        a.cancel();
-      });
+      },
+    ),
+  );
+  void Promise.all(anims.map((a) => a.finished)).then(() => {
+    document.documentElement.classList.remove('llega');
+    anims.forEach((a) => {
+      a.cancel();
     });
   });
 }
+
+if (cortina && !reducido)
+  document.addEventListener('click', (e) => {
+    const a = (e.target as Element).closest('a');
+    if (
+      !a ||
+      e.defaultPrevented ||
+      e.button !== 0 ||
+      e.metaKey ||
+      e.ctrlKey ||
+      e.shiftKey ||
+      e.altKey ||
+      a.target ||
+      a.hasAttribute('download')
+    )
+      return;
+    const url = new URL(a.href, location.href);
+    if (url.origin !== location.origin || url.pathname === location.pathname) return;
+    e.preventDefault();
+    const lista = visibles();
+    lista.forEach((c, i) =>
+      c.animate(
+        [
+          { transform: 'scaleY(0)', transformOrigin: 'top' },
+          { transform: 'scaleY(1)', transformOrigin: 'top' },
+        ],
+        {
+          duration: 420,
+          delay: i * 22,
+          easing: curva,
+          fill: 'forwards',
+        },
+      ),
+    );
+    try {
+      sessionStorage.setItem('cortina', '1');
+    } catch {
+      /* sin almacenamiento: la página nueva llega sin cortina */
+    }
+    setTimeout(
+      () => {
+        location.href = url.href;
+      },
+      420 + lista.length * 22,
+    );
+  });
+
+// M5: al volver con atrás/adelante también sube la cortina (misma duración a la ida y a la vuelta).
+addEventListener('pageshow', (e) => {
+  if (!e.persisted || !cortina) return;
+  cordones.forEach((c) => {
+    c.getAnimations().forEach((a) => {
+      a.cancel();
+    });
+  });
+  if (reducido) return;
+  visibles().forEach((c, i) =>
+    c.animate(
+      [
+        { transform: 'scaleY(1)', transformOrigin: 'top' },
+        { transform: 'scaleY(0)', transformOrigin: 'top' },
+      ],
+      {
+        duration: 420,
+        delay: 40 + i * 22,
+        easing: curva,
+        fill: 'forwards',
+      },
+    ),
+  );
+});

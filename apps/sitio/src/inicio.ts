@@ -62,7 +62,7 @@ if (escena) {
     const libre = cordones[0]?.querySelector<HTMLElement>('.nudos')?.clientHeight ?? 0;
     quipu.style.setProperty(
       '--nh',
-      `${String(Math.max(12, Math.min(30, (libre - 24) / (maximo * 0.82))))}px`,
+      `${String(Math.max(matchMedia('(min-width: 901px)').matches ? 28 : 18, Math.min(40, (libre - 24) / (maximo * 0.82))))}px`,
     );
   };
   medir();

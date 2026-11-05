@@ -163,6 +163,19 @@ for (const raiz of document.querySelectorAll<HTMLElement>('[data-validador]')) {
     await validar(await r.text(), nombre);
   }
 
+  // Con data-auto, el validador abre mostrando un veredicto real al llegar a la pantalla.
+  const auto = ejemplos.find((b) => b.dataset.ejemplo === raiz.dataset.auto);
+  if (auto)
+    new IntersectionObserver(
+      (es, o) => {
+        if (es.some((e) => e.isIntersecting)) {
+          void elegir(auto);
+          o.disconnect();
+        }
+      },
+      { threshold: 0.3 },
+    ).observe(raiz);
+
   // Las reglas se piden cuando el validador se acerca a la pantalla, no al cargar la página.
   new IntersectionObserver(
     (es, o) => {

@@ -11,3 +11,4 @@ dist/
 /datos/ejemplos.json
 /datos/caos.json
 /public/ejemplos/
+/.netlify/

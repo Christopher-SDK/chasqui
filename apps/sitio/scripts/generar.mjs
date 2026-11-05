@@ -17,6 +17,8 @@ const CAOS = JSON.parse(fs.readFileSync(`${R}/datos/caos.json`, 'utf8'));
 const LAM = JSON.parse(fs.readFileSync(`${R}/datos/laminas.json`, 'utf8'));
 const SITIO = 'https://chasqui-lab.netlify.app';
 const REPO = 'https://github.com/Christopher-SDK/chasqui';
+/** Panel y simuladores corriendo de verdad (Dockerfile.demo). */
+const PANEL = 'https://demo-production-8400.up.railway.app/';
 const WEB = R; // páginas en carpetas por ruta (index.html, probar/, en/…), ignoradas por git
 const GENERADAS = [
   'index.html',
@@ -28,6 +30,11 @@ const GENERADAS = [
   'empezar',
   'en',
 ];
+
+/** Script en línea del <head> (su hash va en la CSP de public/_headers): marca JS y, si se llega
+ * desde otra página del sitio, pinta la cortina ya cerrada para que suba. */
+export const CORTINA_HEAD =
+  "document.documentElement.classList.add('js');try{if(sessionStorage.getItem('cortina')){document.documentElement.classList.add('llega');sessionStorage.removeItem('cortina')}}catch(e){}";
 
 const esc = (s) =>
   String(s ?? '')
@@ -148,24 +155,29 @@ function lamina22(t, { prioridad = false, sizes = '(min-width: 901px) 38vw, 92vw
 </figure>`;
 }
 
-function lamina(n, t, alt, { sizes = '(min-width: 901px) 50vw, 92vw', clase = '' } = {}) {
+function lamina(
+  n,
+  t,
+  alt,
+  { sizes = '(min-width: 901px) 50vw, 92vw', clase = '', ya = false } = {},
+) {
   const d = LAM[n],
     ws = d.tamanos,
     w = ws.includes(1080) ? 1080 : ws[ws.length - 1];
   const set = (ext) => ws.map((x) => `/m/${n}-${x}.${ext} ${x}w`).join(', ');
-  return `<figure class="figura ${clase}"><picture class="revela"><source type="image/avif" srcset="${set('avif')}" sizes="${sizes}"><img src="/m/${n}-${w}.webp" srcset="${set('webp')}" sizes="${sizes}" width="${d.ancho}" height="${d.alto}" alt="${esc(alt)}" loading="lazy" decoding="async"></picture><figcaption class="pie-lamina">${t}</figcaption></figure>`;
+  return `<figure class="figura ${clase}"><picture class="revela"><source type="image/avif" srcset="${set('avif')}" sizes="${sizes}"><img src="/m/${n}-${w}.webp" srcset="${set('webp')}" sizes="${sizes}" width="${d.ancho}" height="${d.alto}" alt="${esc(alt)}"${ya ? ' fetchpriority="high"' : ' loading="lazy"'} decoding="async"></picture><figcaption class="pie-lamina">${t}</figcaption></figure>`;
 }
 
 function pagina({ ruta, titulo, desc, cuerpo, js = [], clase = '' }) {
   const L = enRuta(ruta),
     t = T[L],
     par = parDe(ruta);
+  const inicio = L === 'en' ? '/en/' : '/';
   const nav = t.nav
     .map(
       ([h, x]) => `<a href="${h}"${ruta.startsWith(h) ? ' aria-current="page"' : ''}>${esc(x)}</a>`,
     )
     .join('');
-  const inicio = L === 'en' ? '/en/' : '/';
   const ld = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -201,7 +213,7 @@ function pagina({ ruta, titulo, desc, cuerpo, js = [], clase = '' }) {
 <meta property="og:title" content="${esc(titulo)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${SITIO}${ruta}">
-<meta property="og:image" content="${SITIO}/og.png">
+<meta property="og:image" content="${SITIO}/${L === 'en' ? 'og-en' : 'og'}.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="${L === 'en' ? 'en_US' : 'es_PE'}">
@@ -209,12 +221,31 @@ function pagina({ ruta, titulo, desc, cuerpo, js = [], clase = '' }) {
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<style>html,body,::view-transition{background:#0d0d0b;color:#ece8df}@view-transition{navigation:auto}</style>
-<script>document.documentElement.classList.add('js')</script>
-<script type="application/ld+json">${JSON.stringify(ld)}</script>
+<style>html,body{background:#0d0d0b;color:#ece8df}</style>
+<script>${CORTINA_HEAD}</script>
+<script type="application/ld+json">${JSON.stringify(ld)}</script>${
+    ruta === '/' || ruta === '/en/' || ruta.endsWith('404')
+      ? ''
+      : `
+<script type="application/ld+json">${JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Chasqui',
+              item: SITIO + (L === 'en' ? '/en/' : '/'),
+            },
+            { '@type': 'ListItem', position: 2, name: titulo.split(' · ')[0], item: SITIO + ruta },
+          ],
+        })}</script>`
+  }
+<link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/src/estilos.css">
 </head>
 <body class="pagina-${clase || 'interna'}">
+<div class="cortina" aria-hidden="true">${'<i></i>'.repeat(12)}</div>
 <a class="saltar" href="#contenido">${esc(t.saltar)}</a>
 <p class="franja">${esc(t.aviso)}</p>
 <header class="cabecera">
@@ -235,7 +266,7 @@ ${cuerpo}
         <p>${esc(t.pieLema)}</p>
         <p>${esc(t.pieAutor)}</p>
       </div>
-      <div><h2>${t.pieSecciones[0]}</h2><ul>${t.nav.map(([h, x]) => `<li><a href="${h}">${esc(x)}</a></li>`).join('')}</ul></div>
+      <div><h2>${t.pieSecciones[0]}</h2><ul>${t.nav.map(([h, x]) => `<li><a href="${h}">${esc(x)}</a></li>`).join('')}<li><a href="${PANEL}" rel="noopener">${L === 'en' ? 'Live panel ↗' : 'Panel en vivo ↗'}</a></li></ul></div>
       <div><h2>${t.pieSecciones[1]}</h2><ul>${t.pieRecursos.map(([h, x]) => `<li><a href="${h}"${h.startsWith('http') ? ' rel="noopener"' : ''}>${esc(x)}</a></li>`).join('')}</ul></div>
       <div><h2>${t.pieSecciones[2]}</h2><ul>${t.pieProyecto.map(([h, x]) => `<li><a href="${h}" rel="noopener">${esc(x)}</a></li>`).join('')}</ul></div>
     </div>
@@ -364,7 +395,7 @@ function inicio(L) {
   <div class="pasos-fijo contenedor">
     <div>
       ${titular(en ? ['Three steps,', 'one bad day.'] : ['Tres pasos,', 'un mal día.'], 't2', 'h2', ' id="titulo-pasos"')}
-      <ol class="pasos-lista">${pasos.map(([a, b], i) => `<li class="paso${i === 0 ? ' activo' : ''}" data-paso="${i}"><span class="marca-paso">${nudo(String(i + 1) === '1' ? '1' : String(i + 1), '')}</span><span><b>${esc(a)}</b><p>${esc(b)}</p></span></li>`).join('')}</ol>
+      <ol class="pasos-lista">${pasos.map(([a, b], i) => `<li class="paso${i === 0 ? ' activo' : ''}" data-paso="${i}"><span class="marca-paso">${nudo(String(i + 1) === '1' ? '1' : String(i + 1), '')}</span><span><b>${esc(a)}</b><p>${esc(b)}</p><pre class="pantalla-movil">${pantallas[i]}</pre></span></li>`).join('')}</ol>
     </div>
     <div class="terminal" role="img" aria-label="${en ? 'Terminal showing the three steps' : 'Terminal con los tres pasos'}">
       <div class="terminal-barra"><span>~/chasqui</span><span data-paso-titulo>1 / 3</span></div>
@@ -411,7 +442,7 @@ function inicio(L) {
         ? 'The 2,131 official checks run right here, in your browser. Your XML never leaves your device.'
         : 'Las 2 131 validaciones oficiales corren aquí mismo, en tu navegador. Tu XML no sale de tu equipo.'
     }</p>
-    ${validador(L, 3)}
+    ${validador(L, ['valida', 'observada'], 'observada')}
   </div>
 </section>`;
 
@@ -464,34 +495,35 @@ function inicio(L) {
   const cierre = `<section class="seccion cierre" aria-labelledby="titulo-cierre">
   <div class="contenedor" style="container-type:inline-size">
     ${titular(en ? ['Break it today.', 'Ship it calm.'] : ['Rómpelo hoy.', 'Factura tranquilo.'], 't1', 'h2', ' id="titulo-cierre"')}
-    <div class="heroe-acciones" data-entra>${boton(t.cta, `${pre}/probar/`)}<a class="enlace" href="${REPO}" rel="noopener">${esc(t.github)} <span class="flecha">↗</span></a></div>
+    <div class="heroe-acciones" data-entra>${boton(t.cta, `${pre}/probar/`)}<a class="enlace" href="${PANEL}" rel="noopener">${en ? 'Open the live panel' : 'Abre el panel en vivo'} <span class="flecha">↗</span></a><a class="enlace" href="${REPO}" rel="noopener">${esc(t.github)} <span class="flecha">↗</span></a></div>
     <p class="dato" style="margin-top:20px" data-entra>${en ? 'Runs in your browser. Your XML never leaves your device.' : 'Corre en tu navegador. Tu XML no sale de tu equipo.'}</p>
   </div>
 </section>`;
 
-  return hero + quipu + tres + huaico + valida + cifras + cierre;
+  return hero + quipu + tres + videoPanel(L) + huaico + valida + cifras + cierre;
 }
 
 /** Validador: soltar o elegir un ejemplo; el veredicto lo calcula el navegador con las reglas oficiales. */
-function validador(L, cuantos = EJ.length) {
+function validador(L, ids = EJ.map((e) => e.id), auto = '') {
   const en = L === 'en';
   const nombres = {
     valida: en ? 'Valid invoice' : 'Factura válida',
     rechazada: en ? 'UBL 2.0 instead of 2.1' : 'UBL 2.0 en vez de 2.1',
     observada: en ? 'Total off by S/ 3' : 'Total desfasado en S/ 3',
-    credito: en ? 'Credit sale with SPOT withholding' : 'Crédito con detracción',
+    credito: en
+      ? 'Credit sale with SPOT withholding · 3249'
+      : 'Crédito con detracción · observa 3249',
     consumo: en ? 'Excise, bag tax and a free sample' : 'ISC, bolsas y una muestra gratuita',
     boleta: en ? 'Receipt with 10 % VAT (Law 31556)' : 'Boleta con IGV del 10 % (Ley 31556)',
   };
-  return `<div class="validador" data-validador data-lang="${L}">
+  return `<div class="validador" data-validador data-lang="${L}"${auto ? ` data-auto="${EJ.find((e) => e.id === auto)?.archivo ?? ''}"` : ''}>
   <div data-entra>
     <div class="soltar" data-soltar>
       <input type="file" accept=".xml,text/xml,application/xml" aria-label="${en ? 'Choose an XML file' : 'Elige un archivo XML'}">
       <div><strong>${en ? 'Drop your XML here' : 'Suelta tu XML aquí'}</strong><br><small>${en ? 'Invoice, receipt or note in UBL 2.1. Name it like SUNAT: RUC-01-F001-1.xml' : 'Factura, boleta o nota en UBL 2.1. Nómbralo como SUNAT: RUC-01-F001-1.xml'}</small></div>
     </div>
-    <div class="ejemplos" role="group" aria-label="${en ? 'Examples' : 'Ejemplos'}">${EJ.slice(
-      0,
-      cuantos,
+    <div class="ejemplos" role="group" aria-label="${en ? 'Examples' : 'Ejemplos'}">${EJ.filter(
+      (e) => ids.includes(e.id),
     )
       .map(
         (e) =>
@@ -506,8 +538,20 @@ function validador(L, cuantos = EJ.length) {
 }
 
 // ── Páginas internas (contenido real del repo) ───────────────────────────────────────────────
+function videoPanel(L, { poster = 'panel-poster', texto } = {}) {
+  const en = L === 'en';
+  return `<figure class="video-panel" data-entra>
+  <video data-video muted playsinline loop preload="none" poster="/v/${poster}.jpg" width="1440" height="860" aria-label="${en ? 'Recording of the live panel: invoices arriving, the detail of an observed one and sunat-caida turned on' : 'Grabación del panel en vivo: comprobantes que llegan, el detalle de uno observado y sunat-caida activado'}">
+    <source media="(max-width: 600px)" src="/v/panel-movil.mp4" type="video/mp4">
+    <source media="(max-width: 900px)" src="/v/panel-960.mp4" type="video/mp4">
+    <source src="/v/panel-1440.mp4" type="video/mp4">
+  </video>
+  <figcaption><span>${texto ?? (en ? 'The real panel, recorded on the live demo. Nothing staged: every row is an invoice that went through the official rules.' : 'El panel real, grabado sobre la demo en vivo. Nada armado: cada fila es un comprobante que pasó por las reglas oficiales.')}</span><span><button class="pausa" type="button" data-pausa>${en ? 'Pause' : 'Pausar'}</button> <a class="enlace" href="${PANEL}" rel="noopener">${en ? 'Open the live panel' : 'Abre el panel en vivo'} <span class="flecha">↗</span></a></span></figcaption>
+</figure>`;
+}
+
 function aperturaConLamina(n, pie, alt, lineas, bajada) {
-  return `<section class="apertura apertura-lamina"><div class="contenedor apertura-in"><div>${titular(lineas)}<p class="bajada" data-entra style="--i:2">${bajada}</p></div>${lamina(n, esc(pie), alt, { sizes: '(min-width: 901px) 34vw, 92vw' })}</div></section>`;
+  return `<section class="apertura apertura-lamina"><div class="contenedor apertura-in"><div>${titular(lineas)}<p class="bajada" data-entra style="--i:2">${bajada}</p></div>${lamina(n, esc(pie), alt, { sizes: '(min-width: 901px) 34vw, 92vw', ya: true })}</div></section>`;
 }
 
 function apertura(lineas, bajada) {
@@ -526,8 +570,8 @@ function probar(L) {
       : 'Quipu fotografiado en 1912: cordones colgantes que salen en abanico de un cordón principal, con nudos a distintas alturas',
     en ? ['Validate', 'your XML.'] : ['Valida', 'tu XML.'],
     en
-      ? 'SUNAT’s official XSL rules (invoice, receipt, credit and debit notes, dispatch guide, summary and void) compiled and run in your browser. Same code, same message, same order as the sheet.'
-      : 'Las reglas XSL oficiales de SUNAT (factura, boleta, notas de crédito y débito, guía, resumen y baja) compiladas y ejecutadas en tu navegador. El mismo código, el mismo mensaje y el mismo orden que la hoja.',
+      ? 'SUNAT’s official XSL rules, run in your browser: same code, same message, same order as the sheet.'
+      : 'Las reglas XSL oficiales de SUNAT, ejecutadas en tu navegador: el mismo código, mensaje y orden que la hoja.',
   )}
 <section class="seccion" style="padding-top:0;border-top:0"><div class="contenedor">${validador(L)}</div></section>
 <section class="seccion"><div class="contenedor rejilla-2">
@@ -578,6 +622,7 @@ function comoFunciona(L) {
         ? 'Live panel: invoices, payments and identity in real time (SSE), with the received XML, the returned CDR and the chaos switches.'
         : 'Panel en vivo: comprobantes, pagos e identidad en tiempo real (SSE), con el XML recibido, el CDR devuelto y los interruptores de caos.',
       'http://localhost:7500',
+      PANEL,
     ],
     [
       'tienda-demo',
@@ -595,7 +640,7 @@ function comoFunciona(L) {
       : 'Todo corre en tu máquina, en Docker o en un solo proceso de Node. SDK en TypeScript, 11 herramientas MCP para agentes de IA, trazas con OpenTelemetry y colección Bruno.',
   )}
 <section class="banda-nudos" aria-hidden="true"><div class="banda-in">${['9', '8', '7', '6', '5', '4', '3', '2', '1', 's'].map((k) => `<img src="/nudos/nudo-${k}.webp" alt="" width="${LAM.nudos[k][0]}" height="${LAM.nudos[k][1]}" loading="lazy" decoding="async">`).join('')}</div><p class="pie-lamina">${en ? 'The ten knots of plate XXI, values 9 to 1 and the single knot · Locke, 1912 · public domain' : 'Los diez nudos de la lámina XXI, del 9 al 1 y el nudo simple · Locke, 1912 · dominio público'}</p></section>
-<section class="seccion" style="border-top:0"><div class="contenedor rejilla-2">${servicios.map(([n, p, d, c], i) => `<article class="lamina-bloque" id="${n}" data-entra style="--i:${i % 2}"><h2 class="t3"><span class="mono">${n}</span> <span class="dato">${p}</span></h2><p>${esc(d)}</p><pre class="codigo">${esc(c)}</pre></article>`).join('')}</div></section>
+<section class="seccion" style="border-top:0"><div class="contenedor rejilla-2">${servicios.map(([n, p, d, c, vivo], i) => `<article class="lamina-bloque" id="${n}" data-entra style="--i:${i % 2}"><h2 class="t3"><span class="mono">${n}</span> <span class="dato">${p}</span></h2><p>${esc(d)}</p><pre class="codigo">${esc(c)}</pre>${vivo ? `<p style="margin-top:14px"><a class="enlace" href="${vivo}" rel="noopener">${en ? 'Open it live' : 'Ábrelo en vivo'} <span class="flecha">↗</span></a></p>` : ''}</article>`).join('')}</div></section>
 <section class="seccion"><div class="contenedor rejilla-2">
   <div data-entra>${titular(en ? ['SDK in', 'TypeScript.'] : ['SDK en', 'TypeScript.'], 't2', 'h2')}<p class="bajada" style="margin-top:20px">${en ? 'Fluent builders for every special operation, idempotent retries and chaos for one test.' : 'Builders fluidos para cada operación especial, reintentos idempotentes y caos para una sola prueba.'}</p></div>
   <pre class="codigo" data-entra style="--i:1">${esc(`import { Chasqui, factura } from '@chasqui/sdk';
@@ -631,6 +676,7 @@ function caos(L) {
   )}
 <section class="seccion" style="border-top:0;padding-top:0"><div class="contenedor"><table class="tabla" data-entra><thead><tr><th>${en ? 'Profile' : 'Perfil'}</th><th>${en ? 'What it simulates' : 'Qué simula'}</th><th>${en ? 'Rules' : 'Reglas'}</th></tr></thead><tbody>${CAOS.map(fila).join('')}</tbody></table>
 <p class="dato" style="margin-top:14px">${en ? 'Profile descriptions are shown as defined in @chasqui/chaos-engine (Spanish).' : 'Perfiles tal como están definidos en @chasqui/chaos-engine.'}</p></div></section>
+${videoPanel(L, { poster: 'panel-poster-caos', texto: en ? 'The live panel with sunat-caida on: the shop’s submissions come back as injected 503s, the payment is kept.' : 'El panel en vivo con sunat-caida activado: los envíos vuelven como 503 inyectados y el pago queda a salvo.' })}
 <section class="seccion" data-huaico><div class="contenedor">
   ${titular(en ? ['Try the seed.'] : ['Prueba la semilla.'], 't2', 'h2')}
   <form class="huaico-controles" data-huaico-form>
@@ -760,6 +806,7 @@ function calidad(L) {
   )}
 <section class="seccion" style="border-top:0;padding-top:0"><div class="contenedor"><table class="tabla" data-entra><tbody>${filas.map(([a, b, c]) => `<tr><th scope="row">${esc(a)}</th><td>${esc(b)}</td><td class="mono">${esc(c)}</td></tr>`).join('')}</tbody></table>
 <p style="margin-top:24px" data-entra><a class="enlace" href="${REPO}/blob/main/docs/PROGRESO.md" rel="noopener">${en ? 'Full progress log' : 'Bitácora completa'} <span class="flecha">↗</span></a> · <a class="enlace" href="${REPO}/actions" rel="noopener">CI <span class="flecha">↗</span></a></p></div></section>
+<figure class="figura figura-captura" data-entra><div class="contenedor"><picture class="revela"><img src="/m/stryker-1280.webp" width="1280" height="465" alt="${en ? 'Stryker mutation report: 1,533 mutants, 1,272 detected, score 88.76 %' : 'Reporte de mutation de Stryker: 1 533 mutantes, 1 272 detectados, puntaje 88,76 %'}" loading="lazy" decoding="async"></picture><figcaption class="pie-lamina">${en ? 'Stryker report of the full run · validator, totals and XML' : 'Reporte de Stryker de la corrida completa · validador, cálculo y XML'}</figcaption></div></figure>
 ${locke(L)}
 <section class="seccion"><div class="contenedor">
   ${titular(en ? ['What the official', 'sheets taught us.'] : ['Lo que enseñaron', 'las hojas oficiales.'], 't2', 'h2')}
@@ -804,7 +851,9 @@ function locke(L) {
   }</p>
   <table class="tabla tabla-locke" style="margin-top:36px" data-entra><thead><tr><th>${en ? 'Group' : 'Grupo'}</th><th>${en ? 'Pendant cords' : 'Colgantes'}</th><th>Σ</th><th>${en ? 'Main cord' : 'Cordón'}</th><th>${en ? 'Verdict' : 'Veredicto'}</th></tr></thead><tbody>${filas}</tbody></table>
   <p class="dato" style="margin-top:14px">${en ? 'Footnote to b in the original:' : 'Nota al grupo b en el original:'} «${esc(D.nota_b)}» · Locke, <i>American Anthropologist</i> 14 (1912), p. 331.</p>
-</div></section>`;
+</div>
+${lamina('lamina23', esc(en ? 'Plate XXIII: the same quipu B8713 drawn knot by knot. “The top strand SUMS the numbers on the four pendent strands.” · Locke, 1912 · public domain' : 'Lámina XXIII: el mismo quipu B8713 dibujado nudo a nudo. «The top strand SUMS the numbers on the four pendent strands.» · Locke, 1912 · dominio público'), en ? 'Locke’s diagram of quipu B8713: six groups a to f, each main cord with its value (17, 1417, 805, 612, 135, 658) and the sum of its four pendants below (17, 1517, 805, 612, 88, 658)' : 'Diagrama de Locke del quipu B8713: seis grupos de la a a la f, cada cordón principal con su valor (17, 1417, 805, 612, 135, 658) y abajo la suma de sus cuatro colgantes (17, 1517, 805, 612, 88, 658)', { sizes: '100vw', clase: 'figura-sangre' })}
+</section>`;
 }
 
 function empezar(L) {
@@ -833,6 +882,7 @@ function empezar(L) {
   <div class="lamina-bloque" data-entra><h2 class="t3">Docker</h2><p>${en ? 'Simulators, panel and demo shop.' : 'Simuladores, panel y tienda demo.'}</p><div style="margin-top:14px">${comando('docker compose up -d', t)}</div></div>
   <div class="lamina-bloque" data-entra style="--i:1"><h2 class="t3">${en ? 'Without Docker' : 'Sin Docker'}</h2><p>${en ? 'The four services in one process.' : 'Los cuatro servicios en un proceso.'}</p><div style="margin-top:14px">${comando('pnpm install && pnpm todo-en-uno', t)}</div></div>
 </div></section>
+${videoPanel(L, { texto: en ? 'What you get at localhost:7500 after docker compose up: the live panel, recorded on the public demo.' : 'Lo que ves en localhost:7500 después de docker compose up: el panel en vivo, grabado sobre la demo pública.' })}
 <section class="seccion"><div class="contenedor">
   ${titular(en ? ['Ports.'] : ['Puertos.'], 't2', 'h2')}
   <table class="tabla" style="margin-top:32px" data-entra><thead><tr><th>${en ? 'Service' : 'Servicio'}</th><th>${en ? 'Port' : 'Puerto'}</th><th>${en ? 'Entry points' : 'Entradas'}</th></tr></thead><tbody>${puertos.map(([a, b, c]) => `<tr><td class="mono">${a}</td><td class="mono">${b}</td><td>${esc(c)}</td></tr>`).join('')}</tbody></table>
@@ -852,7 +902,7 @@ function noEncontrada(L) {
   const en = L === 'en',
     t = T[L];
   return `${apertura(en ? ['0404.', 'Cord not found.'] : ['0404.', 'Cordón perdido.'], en ? 'This page does not exist (yes, that is not a real SUNAT code either).' : 'Esta página no existe (y no, ese tampoco es un código real de SUNAT).')}
-<section class="seccion" style="border-top:0;padding-top:0"><div class="contenedor"><div class="heroe-acciones">${boton(t.cta, en ? '/en/probar/' : '/probar/')}<a class="enlace" href="${en ? '/en/' : '/'}">${en ? 'Back to home' : 'Volver al inicio'} <span class="flecha">→</span></a></div></div></section>`;
+<section class="seccion" style="border-top:0;padding-top:0"><div class="contenedor"><img class="cordon-cortado" data-entra src="/nudos/nudo-s.webp" alt="" width="${LAM.nudos.s[0]}" height="${LAM.nudos.s[1]}" decoding="async"><div class="heroe-acciones" style="margin-top:40px">${boton(t.cta, en ? '/en/probar/' : '/probar/')}<a class="enlace" href="${en ? '/en/' : '/'}">${en ? 'Back to home' : 'Volver al inicio'} <span class="flecha">→</span></a></div></div></section>`;
 }
 
 // ── Escritura ─────────────────────────────────────────────────────────────────────────────────
@@ -956,5 +1006,21 @@ fs.writeFileSync(
     cuerpo: noEncontrada('en'),
     clase: 'no-encontrada',
   }),
+);
+// Sitemap con sus pares de idioma.
+const rutas = PAGINAS.map(([r]) => r);
+fs.writeFileSync(
+  path.join(R, 'public', 'sitemap.xml'),
+  `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${rutas
+  .flatMap((r) => [r, `/en${r}`])
+  .map((r) => {
+    const es = r.startsWith('/en/') ? r.slice(3) : r;
+    return `  <url><loc>${SITIO}${r}</loc><xhtml:link rel="alternate" hreflang="es-PE" href="${SITIO}${es}"/><xhtml:link rel="alternate" hreflang="en" href="${SITIO}/en${es}"/></url>`;
+  })
+  .join('\n')}
+</urlset>
+`,
 );
 console.log('páginas generadas');
