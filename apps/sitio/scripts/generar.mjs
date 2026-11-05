@@ -133,7 +133,8 @@ const comando = (cmd, t) =>
 
 /** Titular con líneas fijas (sin salto automático) y máscara por línea. */
 function titular(lineas, clase = 't1', etiqueta = 'h1', extra = '') {
-  const w = Math.max(...lineas.map((l) => l.length));
+  // Las mayúsculas ocupan más: cuentan 1,3 para que la línea más ancha nunca se corte.
+  const w = Math.max(...lineas.map((l) => l.length + 0.3 * (l.match(/[A-ZÁÉÍÓÚÑ]/g) ?? []).length));
   return `<${etiqueta} class="${clase}" style="--w:${w}"${extra} aria-label="${esc(lineas.join(' '))}">${lineas
     .map(
       (l, i) =>

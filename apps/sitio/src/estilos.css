@@ -318,7 +318,8 @@ a {
   font-size: calc(var(--t1) * var(--k));
 }
 .t2 {
-  font-size: var(--t2);
+  /* Ninguna línea del titular se corta: baja de tamaño si la línea más larga no cabe. */
+  font-size: min(var(--t2), calc((100vw - 2 * var(--g)) / (var(--w, 12) * 0.54)));
   letter-spacing: -0.03em;
   line-height: 0.96;
 }
@@ -1418,7 +1419,7 @@ html.llega .cortina i {
     top: 0;
     height: auto;
     grid-template-columns: minmax(0, 1fr);
-    padding: 80px 0;
+    padding-block: 80px;
   }
   .terminal {
     min-height: 380px;
@@ -1970,4 +1971,9 @@ html.llega .cortina i {
   .apertura .bajada {
     margin-top: 8px;
   }
+}
+
+/* Las entradas con escala no deben abrir scroll lateral. */
+main {
+  overflow-x: clip;
 }
