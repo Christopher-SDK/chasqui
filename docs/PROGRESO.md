@@ -81,9 +81,9 @@
 - [x] Panel en Docker: nginx vuelve a resolver los servicios (antes daba 502 al recrearlos)
 - [x] Verificado: suite 189/189, CI verde (calidad, E2E, mutation, imágenes), k6 local p95 sunat 20 ms / pagos 6 ms / identidad 7 ms y k6 nocturno en GitHub aprobado
 
-## Fase 10 — reglas oficiales completas y operaciones especiales (EN CURSO, pausada 2026-11-04)
+## Fase 10 — reglas oficiales completas y operaciones especiales ✅
 
-Hecho (rama `fase-10`, sin fusionar a `main`):
+Intérprete de las hojas oficiales:
 
 - [x] Intérprete XSLT 1.0 en TypeScript (`packages/ubl-core/src/validador/xslt.ts`) que ejecuta las hojas oficiales completas: factura, boleta, NC, ND, GRE remitente, resumen y baja. Reemplaza al port manual (`reglas*.ts` y `motor.ts`, borrados)
 - [x] Compilador XSL → JSON (`packages/ubl-core/scripts/compilar-reglas.mjs`, `pnpm --filter @chasqui/ubl-core reglas`); salida versionada en `src/validador/oficial/`; la CI comprueba que regenerarla no cambia nada
@@ -94,7 +94,7 @@ Hecho (rama `fase-10`, sin fusionar a `main`):
 - [x] 18 operaciones especiales (`test/operaciones.ts`) pasan las reglas oficiales; ~2 180 casos de la prueba diferencial sin una sola diferencia con el oráculo
 - [x] Pruebas unitarias del intérprete (`test/xslt.test.ts`); ubl-core 85/85, lint y tipos limpios
 
-Reanudada el 2026-11-04 (tarde):
+Integración con el resto del ecosistema:
 
 - [x] `pnpm test` completo: 225/225 sin cambios (los demás paquetes ya usaban bien el modelo); lint y tipos limpios
 - [x] SDK: `.bolsas`, `.tasaIgv`, `.descuento`, `.descuentoNoAfecto`, `.cargo`, `.formaPago`, `.detraccion`, `.percepcion`, `.anticipo` e ítems con `descuento`/`isc`/`icbper`; las de factura fallan pronto en boletas
@@ -104,7 +104,6 @@ Reanudada el 2026-11-04 (tarde):
 - [x] Docs: ADR 0011 (reemplaza a la 0004), `fuentes.md` §6 y §15, README ES/EN, `sdk.md`, `mcp.md`, `demo.md`
 - [x] Mutation completo con `xml.ts`: 88.76 % (antes 84 %); incremental regenerado
 - [x] CI: timeout de conformidad a 300 s (con cobertura tarda ~125 s); pruebas de guardas de `calcular` (ramas de ubl-core 95.8 %); imágenes Docker construidas en CI
-
 - [x] k6 local: umbrales aprobados, 0 % de errores; p95 sunat 19.8 ms, pagos 2.3 ms, identidad 7.6 ms
 
 Auditoría «probador minucioso» (clon limpio de GitHub, Node 22, siguiendo el README):
@@ -116,7 +115,12 @@ Auditoría «probador minucioso» (clon limpio de GitHub, Node 22, siguiendo el 
 - [x] Hallazgo: un BOM UTF-8 (XML de .NET) daba 0306; se quita al desempaquetar y al parsear (regresión validada contra la versión rota)
 - [x] XML reales de terceros (no versionados): 15 UBL 2.0 de Greenter (14/14 iguales al oráculo; el otro, lxml no lo lee) y 41 UBL 2.1 de proyectos públicos con nombre válido: 41/41 iguales
 
-Pendiente, en orden:
+## Fase 11 — sitio de presentación y v1.0.0 ✅
 
-1. Fusionar a `main`, CI en verde y nocturno
-2. Preguntar al usuario antes de hacer público el repo
+- [x] Sitio estático (`apps/sitio`, Vite) en español e inglés, publicado en [chasqui-lab.netlify.app](https://chasqui-lab.netlify.app): validador de XML que corre en el navegador con las 2 131 validaciones oficiales, simulador de caos con semilla y video real del panel
+- [x] Panel en vivo público en Railway, con la misma identidad visual del sitio
+- [x] Íconos del manifiesto, márgenes en móvil y titulares sin cortes; imagen para redes en ES y EN
+- [x] Nocturno: el mutation completo (~1 530 mutantes, ~6,5 h en un solo runner) pasaba del límite y GitHub lo cancelaba a las 2 h todas las noches; ahora se reparte por archivo en 4 trabajos paralelos y el 80 % se exige al total
+- [x] Acciones de GitHub actualizadas a sus versiones que corren en Node 24
+- [x] Verificado en un clon limpio (2026-11-17): install, reglas oficiales sin diferencias, formato, lint, tipos y `pnpm test` 248/248
+- [x] Primera versión estable: [v1.0.0](https://github.com/Christopher-SDK/chasqui/releases/tag/v1.0.0)
