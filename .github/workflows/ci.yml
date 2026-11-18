@@ -14,15 +14,15 @@ jobs:
     name: lint · typecheck · unit + property + conformidad
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
         with: { node-version-file: .nvmrc, cache: pnpm }
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with: { python-version: '3.13' }
       - run: pnpm install --frozen-lockfile
       - name: Caché de reglas oficiales y veredictos del oráculo
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             .cache/sunat-oficial
@@ -46,7 +46,7 @@ jobs:
             const filas = ['lines','statements','functions','branches'].map(k => '| ' + k + ' | ' + s[k].pct + ' % |');
             console.log(['## Cobertura', '| métrica | % |', '|---|---|', ...filas].join('\n'));
           " >> "$GITHUB_STEP_SUMMARY"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         if: always()
         with: { name: cobertura, path: reports/coverage }
 
@@ -54,14 +54,14 @@ jobs:
     name: e2e del panel (Playwright, escritorio y móvil)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
         with: { node-version-file: .nvmrc, cache: pnpm }
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm e2e
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         if: always()
         with:
           name: e2e-reporte-trazas-videos
@@ -74,15 +74,15 @@ jobs:
     runs-on: ubuntu-latest
     needs: calidad
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
         with: { node-version-file: .nvmrc, cache: pnpm }
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with: { python-version: '3.13' }
       - run: pnpm install --frozen-lockfile
       - name: Caché de reglas oficiales y veredictos del oráculo
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             .cache/sunat-oficial
@@ -108,7 +108,7 @@ jobs:
             }
             console.log('## Mutation score (validador)\n**' + (100 * k / t).toFixed(2) + ' %** (' + k + '/' + t + ' mutantes eliminados)');
           " >> "$GITHUB_STEP_SUMMARY"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         if: always()
         with: { name: mutation, path: reports/mutation }
 
@@ -117,7 +117,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: calidad
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - run: docker compose up -d --build --wait
       - run: curl -fsS localhost:7100/salud && curl -fsS localhost:7200/salud && curl -fsS localhost:7300/salud && curl -fsS localhost:7400/salud && curl -fsS localhost:7600/salud
       - name: Panel y proxy hacia sunat-sim
