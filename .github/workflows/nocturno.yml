@@ -12,9 +12,9 @@ jobs:
     name: carga (k6)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
         with: { node-version-file: .nvmrc, cache: pnpm }
       - run: pnpm install --frozen-lockfile
       - uses: grafana/setup-k6-action@v1
@@ -34,7 +34,7 @@ jobs:
               return '| ' + e + ' | ' + (d.med ?? 0).toFixed(1) + ' | ' + (d['p(95)'] ?? 0).toFixed(1) + ' | ' + (100 * (f.rate ?? 0)).toFixed(2) + ' % |'; };
             console.log(['## Carga (k6, 60 s)', '| escenario | mediana ms | p95 ms | errores |', '|---|---|---|---|', ...['sunat','pagos','identidad'].map(fila)].join('\n'));
           " >> "$GITHUB_STEP_SUMMARY"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         if: always()
         with:
           name: carga-k6
@@ -43,20 +43,60 @@ jobs:
             todo-en-uno.log
 
   mutation-completo:
-    name: mutation testing completo
+    # Completo son ~1 530 mutantes y ~6,5 h en un solo runner (más que el máximo de 6 h de GitHub),
+    # así que se reparte por archivo en trabajos paralelos.
+    name: mutation testing completo (${{ matrix.parte.nombre }})
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 330
+    strategy:
+      fail-fast: false
+      matrix:
+        parte:
+          - { nombre: xslt, archivos: 'src/validador/xslt.ts' }
+          - { nombre: xml, archivos: 'src/xml.ts' }
+          - { nombre: calculos, archivos: 'src/calculos.ts,src/decimal.ts' }
+          - {
+              nombre: validador,
+              archivos: 'src/validador/index.ts,src/validador/oficial.ts,src/validador/parseo.ts',
+            }
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v5
         with: { node-version-file: .nvmrc, cache: pnpm }
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with: { python-version: '3.13' }
       - run: pnpm install --frozen-lockfile
       - run: pnpm sunat:preparar
+      - name: Sin umbral por parte (el 80 % se exige al total, en el job siguiente)
+        run: node -e "const fs=require('fs'),f='packages/ubl-core/stryker.config.json',c=JSON.parse(fs.readFileSync(f,'utf8'));c.thresholds.break=null;fs.writeFileSync(f,JSON.stringify(c,null,2))"
       - name: Stryker sin incremental
-        run: rm -f packages/ubl-core/stryker-incremental.json && pnpm mutation
-      - uses: actions/upload-artifact@v4
+        run: rm -f packages/ubl-core/stryker-incremental.json && pnpm --filter @chasqui/ubl-core exec stryker run --mutate '${{ matrix.parte.archivos }}'
+      - uses: actions/upload-artifact@v6
         if: always()
-        with: { name: mutation-completo, path: reports/mutation }
+        with: { name: 'mutation-completo-${{ matrix.parte.nombre }}', path: reports/mutation }
+
+  mutation-total:
+    name: mutation testing completo (total)
+    runs-on: ubuntu-latest
+    needs: mutation-completo
+    if: always()
+    steps:
+      - uses: actions/download-artifact@v7
+        with: { pattern: 'mutation-completo-*', path: partes }
+      - name: Score total de las 4 partes (falla por debajo de 80 %)
+        run: |
+          node -e "
+            const fs = require('fs'), path = require('path');
+            const archivos = fs.readdirSync('partes').map((d) => path.join('partes', d, 'ubl-core', 'mutation.json')).filter((f) => fs.existsSync(f));
+            let k = 0, t = 0;
+            for (const a of archivos) for (const f of Object.values(JSON.parse(fs.readFileSync(a, 'utf8')).files)) for (const m of f.mutants) {
+              if (['Killed', 'Timeout'].includes(m.status)) k++;
+              if (!['Ignored', 'CompileError', 'RuntimeError'].includes(m.status)) t++;
+            }
+            const score = t ? (100 * k) / t : 0;
+            const linea = '## Mutation score completo\n**' + score.toFixed(2) + ' %** (' + k + '/' + t + ' mutantes eliminados, ' + archivos.length + ' de 4 partes)';
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, linea + '\n');
+            console.log(linea);
+            if (archivos.length < 4 || score < 80) process.exit(1);
+          "
